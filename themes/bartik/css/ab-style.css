@@ -1,0 +1,100 @@
+*{
+ margin:0px;
+ padding:0px;
+ }
+body{
+ font-family:Tahoma, Geneva, sans-serif;
+ }
+#container{
+ width:550px;
+ background-color:#434a54;
+ margin:auto;
+ margin-top:10px;
+ margin-bottom:10px;
+ box-shadow:0 0 3px #999;
+ }
+#container_body{
+ padding:20px;
+ }
+.form_title{
+ font-size:35px;
+ color:#ffffff;
+ text-align:center;
+ padding:10px;
+ font-weight:normal;
+ }
+.head_para{
+ font-size:19px;
+ color:#99a2a7;
+ text-align:center;
+ font-weight:normal;
+ }
+#form_name{
+ padding:25px 0 0 15px;
+ }
+.firstnameorlastname{
+  margin-right:20px;
+ }
+.input_name{
+ width:207px;
+ padding:5px;
+ font-size:18px;
+ }
+#email_form{
+ clear:both;
+ padding:15px 0 0px 0px;
+ }
+.input_email{
+ width:434px;
+ padding:5px;
+ font-size:18px;
+ }
+
+#password_form{
+ padding:10px 0 10px 0px;
+ }
+.input_password{
+ width:434px;
+ padding:5px;
+ font-size:18px;
+ }
+input[type="date"] {
+    line-height: 34px;
+    color: #000;
+}
+select{
+ padding:5px;
+ }
+
+#radio_button{
+ padding:10px 0 10px 0;
+ color:#ffffff;
+ }
+#sign_user{
+ font-size:14px;
+ color:#FFF;
+ text-align:center;
+ background-color:#32c2a5;
+ padding:10px;
+ margin-top:10px;
+ cursor: pointer;
+ width: 86.5%;
+ }
+#errorBox{
+ color:#F00;
+ }
+input.ab-signup {
+    width: 87.5%;
+    background-color: #18b292;
+    border: none;
+    padding: 9px;
+    font-size: 21px;
+    margin-top: 10px;
+    color: #ffffff;
+}
+.ab-dob {
+    color: #ffffff;
+}
+input.form-control.sukh {
+    width: 43%;
+}
