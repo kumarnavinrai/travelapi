@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en-US"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en-US"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en-US"> <!--<![endif]-->
+<head>
+ 
+    <meta charset="UTF-8"> 
+	    
+    <title>Sydney | Travel Painters</title>
+    <meta name="author" content="Love Travel">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--meta responsive-->
+    
+    <!--[if lt IE 9]>
+	<script src="http://www.travelpainters.com/wp-content/themes/lovetravel/js/main/html5.js"></script>
+	<![endif]-->
+
+        
+    
+    <!--CUSTOM FAVICONS-->
+    <link rel="shortcut icon" href="http://www.travelpainters.com/wp-content/uploads/2016/06/travel-painters-fav.png">
+    <link rel="apple-touch-icon" href="http://www.travelpainters.com/wp-content/uploads/2016/06/travel-painters-fav.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://www.travelpainters.com/wp-content/uploads/2016/06/travel-painters-fav.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://www.travelpainters.com/wp-content/uploads/2016/06/travel-painters-fav.png">
+    <!--END CUSTOM FAVICONS-->
+
+
+
+
+
+
+
+
+	
+                        <script>
+                            /* You can add more configuration options to webfontloader by previously defining the WebFontConfig with your options */
+                            if ( typeof WebFontConfig === "undefined" ) {
+                                WebFontConfig = new Object();
+                            }
+                            WebFontConfig['google'] = {families: ['Open+Sans', 'Montez&amp;subset=latin']};
+
+                            (function() {
+                                var wf = document.createElement( 'script' );
+                                wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js';
+                                wf.type = 'text/javascript';
+                                wf.async = 'true';
+                                var s = document.getElementsByTagName( 'script' )[0];
+                                s.parentNode.insertBefore( wf, s );
+                            })();
+                        </script>
+                    <link rel="alternate" type="application/rss+xml" title="Travel Painters &raquo; Feed" href="http://www.travelpainters.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Travel Painters &raquo; Comments Feed" href="http://www.travelpainters.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.travelpainters.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.4"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;return g&&g.fillText?(g.textBaseline="top",g.font="600 32px Arial","flag"===a?(g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3):"diversity"===a?(g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e):("simple"===a?g.fillText(h(55357,56835),0,0):g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='contact-form-7-css'  href='http://www.travelpainters.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='rs-plugin-settings-css'  href='http://www.travelpainters.com/wp-content/plugins/revslider/public/assets/css/settings.css?ver=5.0.9' type='text/css' media='all' />
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+#rs-demo-id {}
+</style>
+<link rel='stylesheet' id='style-css'  href='http://www.travelpainters.com/wp-content/themes/lovetravel/style.css?ver=4.4.4' type='text/css' media='all' />
+<link rel='stylesheet' id='responsive-css'  href='http://www.travelpainters.com/wp-content/themes/lovetravel/css/nicdark_responsive.css?ver=4.4.4' type='text/css' media='all' />
+<link rel='stylesheet' id='nicdark_elusive_icons-css'  href='http://www.travelpainters.com/wp-content/themes/lovetravel/framework/ReduxCore/assets/css/vendor/elusive-icons/elusive-icons.css?ver=4.4.4' type='text/css' media='all' />
+<link rel='stylesheet' id='js_composer_front-css'  href='http://www.travelpainters.com/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=4.11.2' type='text/css' media='all' />
+<link rel='stylesheet' id='ubermenu-css'  href='http://www.travelpainters.com/wp-content/plugins/travelmenu/pro/assets/css/ubermenu.min.css?ver=3.2.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='ubermenu-black-white-2-css'  href='http://www.travelpainters.com/wp-content/plugins/travelmenu/assets/css/skins/blackwhite2.css?ver=4.4.4' type='text/css' media='all' />
+<link rel='stylesheet' id='ubermenu-font-awesome-css'  href='http://www.travelpainters.com/wp-content/plugins/travelmenu/assets/css/fontawesome/css/font-awesome.min.css?ver=4.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.travelpainters.com/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.0.9'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?ver=5.0.9'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/packages\/sydney\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View Cart","cart_url":"http:\/\/www.travelpainters.com\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='//www.travelpainters.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=2.5.5'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart.js?ver=4.11.2'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/plugins/parallax/jquery.parallax-1.1.3.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/plugins/countdown/jquery.countdown.js?ver=4.4.4'></script>
+<link rel='https://api.w.org/' href='http://www.travelpainters.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.travelpainters.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.travelpainters.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Okavango Delta' href='http://www.travelpainters.com/packages/okavango-delta/' />
+<link rel='next' title='Perth' href='http://www.travelpainters.com/packages/perth/' />
+<meta name="generator" content="WordPress 4.4.4" />
+<meta name="generator" content="WooCommerce 2.5.5" />
+<link rel="canonical" href="http://www.travelpainters.com/packages/sydney/" />
+<link rel='shortlink' href='http://www.travelpainters.com/?p=2534' />
+<link rel="alternate" type="application/json+oembed" href="http://www.travelpainters.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.travelpainters.com%2Fpackages%2Fsydney%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://www.travelpainters.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.travelpainters.com%2Fpackages%2Fsydney%2F&#038;format=xml" />
+<style id="ubermenu-custom-generated-css">
+/** UberMenu Custom Menu Styles (Customizer) **/
+/* main */
+.ubermenu-main .ubermenu-item-layout-image_left > .ubermenu-target-text { padding-left:110px; }
+.ubermenu-main .ubermenu-item-layout-image_right > .ubermenu-target-text { padding-right:110px; }
+.ubermenu-main .ubermenu-item-level-0 > .ubermenu-target { text-transform:uppercase; }
+.ubermenu-main .ubermenu-nav .ubermenu-item.ubermenu-item-level-0 > .ubermenu-target { font-weight:normal; }
+
+
+/** UberMenu Custom Menu Item Styles (Menu Item Settings) **/
+/* 2276 */  .ubermenu .ubermenu-item-2276 > .ubermenu-target.ubermenu-item-layout-image_left > .ubermenu-target-text { padding-left:24px; }
+/* 2332 */  .ubermenu .ubermenu-item-2332 > .ubermenu-target.ubermenu-item-layout-image_left > .ubermenu-target-text { padding-left:26px; }
+/* 2334 */  .ubermenu .ubermenu-item-2334 > .ubermenu-target.ubermenu-item-layout-image_left > .ubermenu-target-text { padding-left:26px; }
+/* 2333 */  .ubermenu .ubermenu-item-2333 > .ubermenu-target.ubermenu-item-layout-image_left > .ubermenu-target-text { padding-left:26px; }
+
+
+/** UberMenu Custom Tweaks (General Settings) **/
+.ubermenu-responsive-default.ubermenu {
+    float: right !important;
+}
+
+/** UberMenu Custom Tweaks - Mobile **/
+@media screen and (max-width:959px){
+.ubermenu-responsive-default.ubermenu {
+    float: right !important;
+}
+}
+
+/** UberMenu Custom Tweaks - Desktop **/
+@media screen and (min-width:960px){
+.ubermenu-responsive-default.ubermenu {
+    float: right !important;
+}
+}
+/* Status: Loaded from Transient */
+
+@media \0screen { .ubermenu .ubermenu-image { width: auto } } /* Prevent height distortion in IE8. */
+
+</style>
+    <style type="text/css">
+
+        /*start header*/
+        .slowup{ margin-top: -200px; }
+        .nicdark_logo img{ width: 333px; margin-top: -6px; }
+        /*end header*/
+
+        
+        /*widget title color*/
+        .widget_archive > h2 { background-color: #1bbc9b; }
+        #wp-calendar caption, .widget_calendar > h2 { background-color: #1bbc9b; }
+        .widget_categories > h2 { background-color: #1bbc9b; }
+        .widget_nav_menu > h2 { background-color: #1bbc9b; }
+        .widget_meta > h2 { background-color: #1bbc9b; }
+        .widget_pages > h2 { background-color: #1bbc9b; }
+        .widget_recent_comments > h2 { background-color: #1bbc9b; }
+        .widget_recent_entries > h2 { background-color: #1bbc9b; }
+        .widget_slider > h2 { background-color: #1bbc9b; }
+        .widget_rss > h2 { background-color: #1bbc9b; }
+        .widget_search > h2 { background-color: #1bbc9b; }
+        .widget_text > h2 { background-color: #1bbc9b; }
+        .widget_tag_cloud > h2 { background-color: #1bbc9b; }
+        .tt_upcoming_events_widget > h2 { background-color: #1bbc9b; }
+        .widget.woocommerce > h2 { background-color: #1bbc9b; }
+        /*end widget title color*/
+
+        
+        /*start color and font settings*/
+        /****************************************START GREYDARK******************************************************/
+/*first*/
+.nicdark_bg_greydark, .cart_totals h2, .ui-datepicker-header, .products li h3, .menu  > .greydark > .sub-menu li, #payment, .products li .star-rating{ background-color: #434a54; }
+.menu  > .greydark > a:after, .menu  > .greydark .sub-menu li:first-child:before, .menu  > .greydark .sub-menu li ul li:first-child:before{ color: #434a54; }
+.nicdark_bg_greydark_hover:hover, .wpb_toggle.nicdark_bg_greydark, .nicdark_tab_dark .vc_tta-tab.vc_active a, .nicdark_tab_dark .vc_tta-panel-body{ background-color: #434a54 !important; }
+.nicdark_tab_dark .vc_tta-tab.vc_active a, .nicdark_tab_dark .vc_tta-panels{ border: 1px solid #434a54; }
+.nicdark_tab_dark .vc_tta-panel.vc_active .vc_tta-panel-title a{ background-color: #4a515b !important; }
+.nicdark_tab_dark .vc_tta-tab.vc_active a:hover { background-color: #4a515b !important; }
+.nicdark_tab_dark .vc_tta-panels{ background-color: #434a54 !important; box-shadow: 0px 0px 0px 0px #4a515b !important; }
+.woocommerce-ordering select{ background-color: #434a54 !important; box-shadow: 0px 0px 0px 0px #4a515b; }
+.nicdark_triangle.greydark{ border-color: #434a54 transparent transparent transparent; }
+/*second*/
+.nicdark_bg_greydark2, .nicdark_bg_greydark2_hover:hover{ background-color: #4a515b !important;}
+.menu  > .greydark:not(.nicdark_megamenu) > .sub-menu li:hover, .nicdark_megamenu.greydark > ul > li > a{ background-color:#4a515b; }
+.nicdark_dark_widgets .widget.widget_product_search form input[type=text], .nicdark_bg_greydark .tinynav , .nicdark_dark_widgets .widget_search input[type="text"], .nicdark_dark_widgets .tagcloud a{ border: 0px solid #e5e5e5; background-color: #4a515b;}
+.menu  > .greydark .sub-menu li:last-child, .nicdark_shadow.nicdark_bg_greydark{ box-shadow: 0px 4px 0px 0px #4a515b; }
+.menu  > .greydark > .sub-menu li, .nicdark_megamenu.greydark ul li ol li a, .nicdark_dark_widgets .widget ul li, #payment ul li { border-bottom: 1px solid #4a515b; }
+.nicdark_dark_widgets .widget.widget_shopping_cart .widget_shopping_cart_content p.total { border-top: 3px double #4a515b; }
+.woocommerce .widget_price_filter .price_slider_amount .price_label{ box-shadow: 0px 4px 0px 0px #353b3d; background-color: #4a515b; }
+.woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content,.woocommerce-page .widget_price_filter .price_slider_wrapper .ui-widget-content{ background:#4a515b;}
+.nicdark_dark_widgets .widget_nav_menu .menu li .sub-menu li { border-bottom: 0px solid #4a515b; }
+.nicdark_megamenu.greydark ol li a{ border-right: 1px solid #4a515b; }
+.nicdark_shadow_none.wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab { box-shadow: 0px 0px 0px 0px #4a515b !important; }
+.nicdark_border_greydark, .nicdark_border_greydark td, .nicdark_border_greydark th{ border: 2px solid #4a515b; }
+
+/*third*/
+.nicdark_shadow.nicdark_bg_greydark2{ box-shadow: 0px 4px 0px 0px #353b3d; }
+/****************************************END GREYDARK******************************************************/
+
+/****************************************START GREEN******************************************************/
+/*first*/
+.nicdark_bg_green{ background-color: #1bbc9b; }
+p.green,h1.green,h2.green,h3.green,h4.green,h5.green,h6.green,a.green,i.green,span.green, input[type="text"].green, textarea.green, input[type="submit"].green, select.green{ color:#1bbc9b; }
+.nicdark_bg_green_hover:hover{ background-color: #1bbc9b !important; }
+.nicdark_triangle.green{ border-color: #1bbc9b transparent transparent transparent; }
+/*second*/
+.nicdark_border_green, .nicdark_border_green td, .nicdark_border_green th{ border: 2px solid #18b292; }
+.nicdark_shadow.nicdark_bg_green{ box-shadow: 0px 4px 0px 0px #18b292; }
+.nicdark_bg_greendark{ background-color: #18b292; }
+.nicdark_iconbg.green{ color: #18b292; }
+.nicdark_bg_greendark_hover:hover{ background-color: #18b292 !important; }
+/*third*/
+.nicdark_border_greendark, .nicdark_border_greendark td, .nicdark_border_greendark th{ border: 2px solid #65ae83; }
+.nicdark_shadow.nicdark_bg_greendark{ box-shadow: 0px 4px 0px 0px #65ae83; }
+/*slider range*/
+.nicdark_slider_range_green.ui-slider .ui-slider-handle { background-color: #1bbc9b; }
+.nicdark_slider_range_green.ui-slider .ui-slider-range { background-color: #18b292; }
+
+/*vc tab*/
+.vc_tta-color-green.vc_tta-style-classic .vc_tta-tab > a { border-color: #1bbc9b; background-color: #1bbc9b; }
+.vc_tta-color-green.vc_tta-style-classic .vc_tta-tab > a:hover { background-color: #18b292; }
+.vc_tta-color-green.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-heading { border-color: #1bbc9b; background-color: #1bbc9b; }
+.vc_tta-color-green.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-heading:hover { background-color: #18b292; }
+/*vc toogle*/
+.vc_toggle_square.vc_toggle_color_green .vc_toggle_title { background-color: #1bbc9b; }
+
+/****************************************END GREEN******************************************************/
+
+/****************************************START BLUE******************************************************/
+/*first*/
+.nicdark_bg_blue{ background-color: #14b9d5; }
+.nicdark_bg_blue_hover:hover{ background-color: #14b9d5 !important; }
+p.blue,h1.blue,h2.blue,h3.blue,h4.blue,h5.blue,h6.blue,a.blue,i.blue,span.blue, input[type="text"].blue, textarea.blue, input[type="submit"].blue, select.blue{ color:#14b9d5; }
+.nicdark_triangle.blue{ border-color: #14b9d5 transparent transparent transparent;  }
+/*second*/
+.nicdark_border_blue, .nicdark_border_blue td, .nicdark_border_blue th{ border: 2px solid #15b0ca; }
+.nicdark_bg_bluedark{ background-color: #15b0ca; }
+.nicdark_iconbg.blue{ color: #15b0ca; }
+.nicdark_bg_bluedark_hover:hover{ background-color: #15b0ca !important; }
+.nicdark_shadow.nicdark_bg_blue{ box-shadow: 0px 4px 0px 0px #15b0ca; }
+/*third*/
+.nicdark_border_bluedark, .nicdark_border_bluedark td, .nicdark_border_bluedark th{ border: 2px solid #6dc0d5; }
+.nicdark_shadow.nicdark_bg_bluedark{ box-shadow: 0px 4px 0px 0px #6dc0d5; }
+/*slider range*/
+.nicdark_slider_range_blue.ui-slider .ui-slider-handle { background-color: #14b9d5; }
+.nicdark_slider_range_blue.ui-slider .ui-slider-range { background-color: #15b0ca; }
+
+/*vc tab*/
+.vc_tta-color-blue.vc_tta-style-classic .vc_tta-tab > a { border-color: #14b9d5; background-color: #14b9d5; }
+.vc_tta-color-blue.vc_tta-style-classic .vc_tta-tab > a:hover { background-color: #15b0ca; }
+.vc_tta-color-blue.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-heading { border-color: #14b9d5; background-color: #14b9d5; }
+.vc_tta-color-blue.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-heading:hover { background-color: #15b0ca; }
+/*vc toogle*/
+.vc_toggle_square.vc_toggle_color_blue .vc_toggle_title { background-color: #14b9d5; }
+
+/****************************************END BLUE******************************************************/
+
+/****************************************START VIOLET******************************************************/
+/*first*/
+.nicdark_bg_violet{ background-color: #c377e4; }
+.nicdark_bg_violet_hover:hover { background-color: #c377e4 !important; }
+p.violet,h1.violet,h2.violet,h3.violet,h4.violet,h5.violet,h6.violet,a.violet,i.violet,span.violet, input[type="text"].violet, textarea.violet, input[type="submit"].violet, select.violet{ color:#c377e4; }
+.nicdark_triangle.violet{ border-color: #c377e4 transparent transparent transparent;}
+/*second*/
+.nicdark_bg_violetdark{ background-color: #BA71DA; }
+.nicdark_border_violet, .nicdark_border_violet td, .nicdark_border_violet th{ border: 2px solid #BA71DA; }
+.nicdark_shadow.nicdark_bg_violet{ box-shadow: 0px 4px 0px 0px #BA71DA; }
+.nicdark_iconbg.violet{ color: #BA71DA; }
+.nicdark_bg_violetdark_hover:hover{ background-color: #BA71DA !important; }
+/*third*/
+.nicdark_border_violetdark, .nicdark_border_violetdark td, .nicdark_border_violetdark th{ border: 2px solid #a675af; }
+.nicdark_shadow.nicdark_bg_violetdark{ box-shadow: 0px 4px 0px 0px #a675af; }
+/*slider range*/
+.nicdark_slider_range_violet.ui-slider .ui-slider-handle { background-color: #c377e4; }
+.nicdark_slider_range_violet.ui-slider .ui-slider-range { background-color: #BA71DA; }
+
+/*vc tab*/
+.vc_tta-color-violet.vc_tta-style-classic .vc_tta-tab > a { border-color: #c377e4; background-color: #c377e4; }
+.vc_tta-color-violet.vc_tta-style-classic .vc_tta-tab > a:hover { background-color: #BA71DA; }
+.vc_tta-color-violet.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-heading { border-color: #c377e4; background-color: #c377e4; }
+.vc_tta-color-violet.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-heading:hover { background-color: #BA71DA; }
+/*vc toogle*/
+.vc_toggle_square.vc_toggle_color_violet .vc_toggle_title { background-color: #c377e4; }
+
+/****************************************END VIOLET******************************************************/
+
+/****************************************START ORANGE******************************************************/
+/*first*/
+.nicdark_bg_orange{ background-color: #f3a46b; }
+.nicdark_bg_orange_hover:hover{ background-color: #f3a46b !important; }
+p.orange,h1.orange,h2.orange,h3.orange,h4.orange,h5.orange,h6.orange,a.orange,i.orange,span.orange, input[type="text"].orange, textarea.orange, input[type="submit"].orange, select.orange{ color:#f3a46b; }
+.nicdark_triangle.orange { border-color: #f3a46b transparent transparent transparent;  }
+/*second*/
+.nicdark_bg_orangedark{ background-color: #e89d67; }
+.nicdark_bg_orangedark_hover:hover{ background-color: #e89d67 !important; }
+.nicdark_border_orange, .nicdark_border_orange td, .nicdark_border_orange th{ border: 2px solid #e89d67; }
+.nicdark_shadow.nicdark_bg_orange{ box-shadow: 0px 4px 0px 0px #e89d67; }
+.nicdark_iconbg.orange{ color: #e89d67; }
+/*third*/
+.nicdark_border_orangedark, .nicdark_border_orangedark td, .nicdark_border_orangedark th{ border: 2px solid #d8734c; }
+.nicdark_shadow.nicdark_bg_orangedark{ box-shadow: 0px 4px 0px 0px #d8734c; }
+/*slider range*/
+.nicdark_slider_range_orange.ui-slider .ui-slider-handle { background-color: #f3a46b; }
+.nicdark_slider_range_orange.ui-slider .ui-slider-range { background-color: #e89d67; }
+
+/*vc tab*/
+.vc_tta-color-orange.vc_tta-style-classic .vc_tta-tab > a { border-color: #f3a46b; background-color: #f3a46b; }
+.vc_tta-color-orange.vc_tta-style-classic .vc_tta-tab > a:hover { background-color: #e89d67; }
+.vc_tta-color-orange.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-heading { border-color: #f3a46b; background-color: #f3a46b; }
+.vc_tta-color-orange.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-heading:hover { background-color: #e89d67; }
+/*vc toogle*/
+.vc_toggle_square.vc_toggle_color_orange .vc_toggle_title { background-color: #f3a46b; }
+
+/****************************************END ORANGE******************************************************/
+
+/****************************************START RED******************************************************/
+/*first*/
+.nicdark_bg_red{ background-color: #f76570; }
+.nicdark_bg_red_hover:hover{ background-color: #f76570 !important; }
+p.red,h1.red,h2.red,h3.red,h4.red,h5.red,h6.red,a.red,i.red,span.red, input[type="text"].red, textarea.red, input[type="submit"].red, select.red{ color:#f76570; }
+.nicdark_triangle.red{ border-color: #f76570 transparent transparent transparent; }
+/*second*/
+.nicdark_bg_reddark{ background-color: #ef606b; }
+.nicdark_border_red, .nicdark_border_red td, .nicdark_border_red th{ border: 2px solid #ef606b; }
+.nicdark_shadow.nicdark_bg_red{ box-shadow: 0px 4px 0px 0px #ef606b; }
+.nicdark_iconbg.red{ color: #ef606b; }
+.nicdark_bg_reddark_hover:hover{ background-color: #ef606b !important; }
+/*third*/
+.nicdark_border_reddark, .nicdark_border_reddark td, .nicdark_border_reddark th{ border: 2px solid #bf6363; }
+.nicdark_shadow.nicdark_bg_reddark{ box-shadow: 0px 4px 0px 0px #bf6363; }
+/*slider range*/
+.nicdark_slider_range_red.ui-slider .ui-slider-handle { background-color: #f76570; }
+.nicdark_slider_range_red.ui-slider .ui-slider-range { background-color: #ef606b; }
+
+/*vc tab*/
+.vc_tta-color-juicy-pink.vc_tta-style-classic .vc_tta-tab > a { border-color: #f76570; background-color: #f76570; }
+.vc_tta-color-juicy-pink.vc_tta-style-classic .vc_tta-tab > a:hover { background-color: #ef606b; }
+.vc_tta-color-juicy-pink.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-heading { border-color: #f76570; background-color: #f76570; }
+.vc_tta-color-juicy-pink.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-heading:hover { background-color: #ef606b; }
+/*vc toogle*/
+.vc_toggle_square.vc_toggle_color_juicy_pink .vc_toggle_title { background-color: #f76570; }
+
+/****************************************END RED******************************************************/
+
+/****************************************START YELLOW******************************************************/
+/*first*/
+.nicdark_bg_yellow{ background-color: #ffd205; }
+.nicdark_bg_yellow_hover:hover{ background-color: #ffd205 !important; }
+p.yellow,h1.yellow,h2.yellow,h3.yellow,h4.yellow,h5.yellow,h6.yellow,a.yellow,i.yellow,span.yellow, input[type="text"].yellow, textarea.yellow, input[type="submit"].yellow, select.yellow{ color:#ffd205; }
+.nicdark_triangle.yellow{ border-color: #ffd205 transparent transparent transparent; }
+/*second*/
+.nicdark_bg_yellowdark{ background-color: #f4c906; }
+.nicdark_border_yellow, .nicdark_border_yellow td, .nicdark_border_yellow th{ border: 2px solid #f4c906; }
+.nicdark_shadow.nicdark_bg_yellow{ box-shadow: 0px 4px 0px 0px #f4c906; }
+.nicdark_iconbg.yellow{ color: #f4c906; }
+.nicdark_bg_yellowdark_hover:hover{ background-color: #f4c906 !important; }
+/*third*/
+.nicdark_border_yellowdark, .nicdark_border_yellowdark td, .nicdark_border_yellowdark th{ border: 2px solid #d4ae49; }
+.nicdark_shadow.nicdark_bg_yellowdark{ box-shadow: 0px 4px 0px 0px #d4ae49; }
+/*slider range*/
+.nicdark_slider_range_yellow.ui-slider .ui-slider-handle { background-color: #ffd205; }
+.nicdark_slider_range_yellow.ui-slider .ui-slider-range { background-color: #f4c906; }
+
+/*vc tab*/
+.vc_tta-color-chino.vc_tta-style-classic .vc_tta-tab > a { border-color: #ffd205; background-color: #ffd205; }
+.vc_tta-color-chino.vc_tta-style-classic .vc_tta-tab > a:hover { background-color: #f4c906; }
+.vc_tta-color-chino.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-heading { border-color: #ffd205; background-color: #ffd205; }
+.vc_tta-color-chino.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-heading:hover { background-color: #f4c906; }
+/*vc toogle*/
+.vc_toggle_square.vc_toggle_color_chino .vc_toggle_title { background-color: #ffd205; }
+
+/****************************************END YELLOW******************************************************/
+
+/****************************************START MENU******************************************************/
+/*divider and triangle color: FIRST COLOR*/
+.menu  > .green > a:after, .menu  > .green .sub-menu li:first-child:before, .menu  > .green .sub-menu li ul li:first-child:before{ color: #1bbc9b; }
+.menu  > .blue > a:after, .menu  > .blue .sub-menu li:first-child:before, .menu  > .blue .sub-menu li ul li:first-child:before{ color: #14b9d5; }
+.menu  > .violet > a:after, .menu  > .violet .sub-menu li:first-child:before, .menu  > .violet .sub-menu li ul li:first-child:before{ color: #c377e4; }
+.menu  > .orange > a:after, .menu  > .orange .sub-menu li:first-child:before, .menu  > .orange .sub-menu li ul li:first-child:before{ color: #f3a46b; }
+.menu  > .red > a:after, .menu  > .red .sub-menu li:first-child:before, .menu  > .red .sub-menu li ul li:first-child:before{ color: #f76570; }
+.menu  > .yellow > a:after, .menu  > .yellow .sub-menu li:first-child:before, .menu  > .yellow .sub-menu li ul li:first-child:before{ color: #ffd205; }
+/*dropdown: FIRST COLOR*/
+.menu  > .yellow > .sub-menu li{ background-color: #ffd205; }
+.menu  > .green > .sub-menu li{ background-color: #1bbc9b; }
+.menu  > .blue > .sub-menu li{ background-color: #14b9d5; }
+.menu  > .violet > .sub-menu li{ background-color: #c377e4; }
+.menu  > .orange > .sub-menu li{ background-color: #f3a46b; }
+.menu  > .red > .sub-menu li{ background-color: #f76570; }
+/*tinynav: SECOND COLOR -> THIRD COLOR*/
+.nicdark_bg_yellow .tinynav { color: #fff; background-color: #f4c906; box-shadow: 0px 4px 0px 0px #d4ae49; }
+.nicdark_bg_orange .tinynav { color: #fff; background-color: #e89d67; box-shadow: 0px 4px 0px 0px #d8734c; }
+.nicdark_bg_red .tinynav { color: #fff; background-color: #ef606b; box-shadow: 0px 4px 0px 0px #bf6363; }
+.nicdark_bg_green .tinynav { color: #fff; background-color: #18b292; box-shadow: 0px 4px 0px 0px #65ae83; }
+.nicdark_bg_blue .tinynav { color: #fff; background-color: #15b0ca; box-shadow: 0px 4px 0px 0px #6dc0d5; }
+.nicdark_bg_violet .tinynav { color: #fff; background-color: #BA71DA; box-shadow: 0px 4px 0px 0px #a675af; }
+/*border bottom li: SECOND COLOR*/
+.menu  > .yellow > .sub-menu li, .nicdark_megamenu.yellow ul li ol li a{ border-bottom:1px solid #f4c906; }
+.menu  > .green > .sub-menu li, .nicdark_megamenu.green ul li ol li a{ border-bottom:1px solid #18b292; }
+.menu  > .blue > .sub-menu li, .nicdark_megamenu.blue ul li ol li a{ border-bottom:1px solid #15b0ca; }
+.menu  > .violet > .sub-menu li, .nicdark_megamenu.violet ul li ol li a{ border-bottom:1px solid #BA71DA; }
+.menu  > .orange > .sub-menu li, .nicdark_megamenu.orange ul li ol li a{ border-bottom:1px solid #e89d67; }
+.menu  > .red > .sub-menu li, .nicdark_megamenu.red ul li ol li a{ border-bottom:1px solid #ef606b; }
+/*shadow: SECOND COLOR*/
+.menu  > .yellow .sub-menu li:last-child{ box-shadow: 0px 4px 0px 0px #f4c906; }
+.menu  > .orange .sub-menu li:last-child{ box-shadow: 0px 4px 0px 0px #e89d67; }
+.menu  > .red .sub-menu li:last-child{ box-shadow: 0px 4px 0px 0px #ef606b; }
+.menu  > .blue .sub-menu li:last-child{ box-shadow: 0px 4px 0px 0px #15b0ca; }
+.menu  > .green .sub-menu li:last-child{ box-shadow: 0px 4px 0px 0px #18b292; }
+.menu  > .violet .sub-menu li:last-child{ box-shadow: 0px 4px 0px 0px #BA71DA; }
+/*hover li bgcolor: SECOND COLOR*/
+.menu  > .yellow > .sub-menu li:hover, .nicdark_megamenu.yellow > ul > li > a{ background-color:#f4c906; }
+.menu  > .green:not(.nicdark_megamenu) > .sub-menu li:hover, .nicdark_megamenu.green > ul > li > a{ background-color:#18b292; }
+.menu  > .blue:not(.nicdark_megamenu) > .sub-menu li:hover, .nicdark_megamenu.blue > ul > li > a{ background-color:#15b0ca; }
+.menu  > .violet:not(.nicdark_megamenu) > .sub-menu li:hover, .nicdark_megamenu.violet > ul > li > a{ background-color:#BA71DA; }
+.menu  > .orange:not(.nicdark_megamenu) > .sub-menu li:hover, .nicdark_megamenu.orange > ul > li > a{ background-color:#e89d67; }
+.menu  > .red:not(.nicdark_megamenu) > .sub-menu li:hover, .nicdark_megamenu.red > ul > li > a{ background-color:#ef606b; }
+/*megamenu border color: SECOND COLOR*/
+.nicdark_megamenu.yellow ol li a{ border-right: 1px solid #f4c906; }
+.nicdark_megamenu.orange ol li a{ border-right: 1px solid #e89d67; }
+.nicdark_megamenu.red ol li a{ border-right: 1px solid #ef606b; }
+.nicdark_megamenu.blue ol li a{ border-right: 1px solid #15b0ca; }
+.nicdark_megamenu.green ol li a{ border-right: 1px solid #18b292; }
+.nicdark_megamenu.violet ol li a{ border-right: 1px solid #BA71DA; }
+/****************************************END MENU******************************************************/
+
+/****************************************START ELEMENTS******************************************************/
+/*button search*/
+.widget_search input[type="submit"]{ background-color: #1bbc9b; }
+/*post elements*/
+.comment-respond input[type="submit"]{ background-color: #f3a46b; }
+.comment-reply-link{ background-color: #f3a46b; }
+/*calendar*/
+.ui-datepicker-calendar thead{ background-color: #1bbc9b; }
+.ui-datepicker-today a { background-color: #1bbc9b;}
+.ui-datepicker-calendar .ui-state-hover{ background-color: #1bbc9b; }
+/*cf7*/
+div.wpcf7-validation-errors, div.wpcf7-mail-sent-ng, div.wpcf7-spam-blocked { background-color: #f3a46b; }
+div.wpcf7-mail-sent-ok { background-color: #1bbc9b; }
+.wpcf7-not-valid-tip:before{ color: #ef606b; }
+.wpcf7-not-valid-tip{ background-color: #f76570; }
+/*pagination*/
+.nicdark_btn.active{ background-color: #1bbc9b; }
+/****************************************END ELEMENTS******************************************************/
+
+/****************************************START WOO ELEMENTS******************************************************/
+
+/*red*/
+.out-of-stock,
+.woocommerce-error,
+.woocommerce .form-row button,
+.wc-backward { background-color: #f76570; box-shadow: 0px 0px 0px 0px #ef606b; }
+.shop_table .actions .checkout-button { background-color: #f76570 !important; box-shadow: 0px 4px 0px 0px #ef606b; }
+.woocommerce table.cart a.remove,
+.woocommerce-page table.cart a.remove,
+.woocommerce #content table.cart a.remove,
+.woocommerce-page #content table.cart a.remove { background-color:#f76570; }
+.woocommerce table.cart a.remove:hover,
+.woocommerce-page table.cart a.remove:hover,
+.woocommerce #content table.cart a.remove:hover,
+.woocommerce-page #content table.cart a.remove:hover { background-color:#ef606b; }
+
+/*orange*/
+.shop_table .actions .button { background-color: #f3a46b !important; box-shadow: 0px 0px 0px 0px #e89d67; }
+.woocommerce table.shop_table th,
+.woocommerce-page table.shop_table th { background: #f3a46b; }
+
+/*yellow*/
+.woocommerce .widget_price_filter .button { background-color: #ffd205;box-shadow: 0px 4px 0px 0px #f4c906; }
+.woocommerce-product-rating .star-rating,
+#reviews .star-rating,
+.widget.widget_recent_reviews ul.product_list_widget li .star-rating,
+.widget.widget_top_rated_products ul.product_list_widget li .star-rating,
+p.stars a.star-1:after,
+p.stars a.star-2:after,
+p.stars a.star-3:after,
+p.stars a.star-4:after,
+p.stars a.star-5:after { color: #ffd205; }
+.shop_table .actions .coupon .button { background-color: #ffd205 !important; box-shadow: 0px 0px 0px 0px #f4c906; }
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
+.woocommerce-page .widget_price_filter .ui-slider .ui-slider-handle { border:1px solid #ffd205; background:#ffd205; }
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range,
+.woocommerce-page .widget_price_filter .ui-slider .ui-slider-range { background:#ffd205; }
+
+/*blue*/
+.shipping_calculator h2,
+#customer_details .col-2 h3,
+#customer_details .col-1 h3,
+.woocommerce-cart .cart-collaterals .cart_totals .shipping-calculator-button,
+.woocommerce .addresses .col-1 h3 { background-color: #14b9d5; }
+.woocommerce-info,
+.woocommerce .addresses .col-1 a,
+.widget.widget_shopping_cart .widget_shopping_cart_content p.buttons a.button { background-color:#14b9d5; box-shadow: 0px 0px 0px 0px #15b0ca; }
+
+/*green*/
+.product .onsale,
+.woocommerce-pagination span.current,
+.products li .added_to_cart,
+button.single_add_to_cart_button,
+.woocommerce-message,
+.shipping_calculator button,
+#payment input.button,
+.woocommerce .addresses .col-2 a,
+.widget.widget_shopping_cart .widget_shopping_cart_content p.buttons a.checkout { background-color:#1bbc9b; box-shadow: 0px 0px 0px 1px #18b292; }
+.woocommerce .comment-respond input[type="submit"] { background: #1bbc9b !important; box-shadow: 0px 0px 0px 0px #18b292; }
+.woocommerce button,
+.woocommerce input[type=submit],
+p.stars a:hover,
+p.stars a.active { background: #1bbc9b !important; box-shadow: 0px 0px 0px 0px #18b292;}
+.upsells.products h2:after,
+.product .product_title:after,
+.woocommerce-tabs li a,
+.woocommerce-account .woocommerce h2:after,
+.woocommerce-checkout .woocommerce h2:after,
+.woocommerce .addresses .col-2 h3,
+#order_review table thead, 
+table.order_details thead,
+.woocommerce form h3:after,
+.product .related h2:after,
+.woocommerce-cart .cart-collaterals .cart_totals .wc-proceed-to-checkout
+{ background-color: #1bbc9b; }
+.entry-summary div .price ins { color: #1bbc9b; }
+
+/****************************************END WOO ELEMENTS******************************************************/
+
+/* 20 - START NICDARKFILTER*/
+.nicdark_filter.green { background: rgba(111,193,145,0.8); }
+.nicdark_filter.blue { background: rgba(116,206,228,0.8); }
+.nicdark_filter.violet { background: rgba(195,137,206,0.8); }
+.nicdark_filter.yellow { background: rgba(237,191,71,0.8); }
+.nicdark_filter.orange { background: rgba(236,119,75,0.8); }
+.nicdark_filter.red { background: rgba(225,108,108,0.8); }
+/*END NICDARKFILTER*/
+
+/*GRADIENT*/
+.nicdark_bg_gradient{                     background: #f76570; /* Old browsers */
+    background: -moz-linear-gradient(left, #f76570 0%, #f76570 8%, #f3a46b 8%, #f3a46b 16%, #f3a46b 16%, #ffd205 16%, #ffd205 24%, #ffd205 24%, #1bbc9b 24%, #1bbc9b 25%, #1bbc9b 32%, #14b9d5 32%, #14b9d5 40%, #c377e4 40%, #c377e4 48%, #f76570 48%, #f76570 56%, #f3a46b 56%, #f3a46b 64%, #ffd205 64%, #ffd205 72%, #1bbc9b 72%, #1bbc9b 80%, #14b9d5 80%, #14b9d5 80%, #14b9d5 89%, #c377e4 89%, #c377e4 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f76570), color-stop(8%,#f76570), color-stop(8%,#f3a46b), color-stop(16%,#f3a46b), color-stop(16%,#f3a46b), color-stop(16%,#ffd205), color-stop(24%,#ffd205), color-stop(24%,#ffd205), color-stop(24%,#1bbc9b), color-stop(25%,#1bbc9b), color-stop(32%,#1bbc9b), color-stop(32%,#14b9d5), color-stop(40%,#14b9d5), color-stop(40%,#c377e4), color-stop(48%,#c377e4), color-stop(48%,#f76570), color-stop(56%,#f76570), color-stop(56%,#f3a46b), color-stop(64%,#f3a46b), color-stop(64%,#ffd205), color-stop(72%,#ffd205), color-stop(72%,#1bbc9b), color-stop(80%,#1bbc9b), color-stop(80%,#14b9d5), color-stop(80%,#14b9d5), color-stop(89%,#14b9d5), color-stop(89%,#c377e4), color-stop(100%,#c377e4)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #f76570 0%,#f76570 8%,#f3a46b 8%,#f3a46b 16%,#f3a46b 16%,#ffd205 16%,#ffd205 24%,#ffd205 24%,#1bbc9b 24%,#1bbc9b 25%,#1bbc9b 32%,#14b9d5 32%,#14b9d5 40%,#c377e4 40%,#c377e4 48%,#f76570 48%,#f76570 56%,#f3a46b 56%,#f3a46b 64%,#ffd205 64%,#ffd205 72%,#1bbc9b 72%,#1bbc9b 80%,#14b9d5 80%,#14b9d5 80%,#14b9d5 89%,#c377e4 89%,#c377e4 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, #f76570 0%,#f76570 8%,#f3a46b 8%,#f3a46b 16%,#f3a46b 16%,#ffd205 16%,#ffd205 24%,#ffd205 24%,#1bbc9b 24%,#1bbc9b 25%,#1bbc9b 32%,#14b9d5 32%,#14b9d5 40%,#c377e4 40%,#c377e4 48%,#f76570 48%,#f76570 56%,#f3a46b 56%,#f3a46b 64%,#ffd205 64%,#ffd205 72%,#1bbc9b 72%,#1bbc9b 80%,#14b9d5 80%,#14b9d5 80%,#14b9d5 89%,#c377e4 89%,#c377e4 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #f76570 0%,#f76570 8%,#f3a46b 8%,#f3a46b 16%,#f3a46b 16%,#ffd205 16%,#ffd205 24%,#ffd205 24%,#1bbc9b 24%,#1bbc9b 25%,#1bbc9b 32%,#14b9d5 32%,#14b9d5 40%,#c377e4 40%,#c377e4 48%,#f76570 48%,#f76570 56%,#f3a46b 56%,#f3a46b 64%,#ffd205 64%,#ffd205 72%,#1bbc9b 72%,#1bbc9b 80%,#14b9d5 80%,#14b9d5 80%,#14b9d5 89%,#c377e4 89%,#c377e4 100%); /* IE10+ */
+    background: linear-gradient(to right, #f76570 0%,#f76570 8%,#f3a46b 8%,#f3a46b 16%,#f3a46b 16%,#ffd205 16%,#ffd205 24%,#ffd205 24%,#1bbc9b 24%,#1bbc9b 25%,#1bbc9b 32%,#14b9d5 32%,#14b9d5 40%,#c377e4 40%,#c377e4 48%,#f76570 48%,#f76570 56%,#f3a46b 56%,#f3a46b 64%,#ffd205 64%,#ffd205 72%,#1bbc9b 72%,#1bbc9b 80%,#14b9d5 80%,#14b9d5 80%,#14b9d5 89%,#c377e4 89%,#c377e4 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f76570', endColorstr='#c377e4',GradientType=1 ); /* IE6-9 */                 }
+/*GRADIENT*/
+
+        /****************************************START FIRST FONT******************************************************/
+.mfp-counter, 
+.mfp-title, 
+#wp-calendar caption, 
+#wp-calendar thead th, 
+.widget_search input[type="submit"], 
+.comment-respond input[type="submit"], 
+.comment-reply-link,
+.nicdark_btn,
+.nicdark_btn_icon,
+.ui-datepicker-title,
+.ui-datepicker-calendar thead,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input[type="text"],
+textarea,
+select,
+a.title,
+span.title,
+small.title,
+input[type="submit"],
+.product .onsale,
+.woocommerce-pagination a,
+.woocommerce-pagination span,
+.woocommerce-pagination span.current,
+.products li .add_to_cart_button, 
+.products li .product_type_variable, 
+.products li.outofstock a.button, 
+.products li.product-type-external a.button, 
+.products li.product-type-grouped a.button,
+.quantity .minus, 
+.quantity .plus, 
+.quantity .qty,
+button.single_add_to_cart_button,
+.woocommerce-tabs li a,
+.woocommerce .comment-reply-title,
+.woocommerce table.shop_table th,
+.woocommerce-page table.shop_table th,
+.cart_totals h2,
+.shipping_calculator h2 a,
+.shipping_calculator button,
+#customer_details .col-2 h3,
+.woocommerce .addresses a,
+.widget.woocommerce h2,
+.widget.widget_shopping_cart .widget_shopping_cart_content p.buttons a.button, 
+.woocommerce .widget_price_filter .price_slider_amount .price_label,
+.woocommerce .widget_price_filter .button,
+.wc-backward,
+#ship-to-different-address label
+{ font-family: Open Sans; }
+
+.tp-arr-titleholder,
+.woocommerce-billing-fields h3
+{ font-family: Open Sans !important; }
+
+/****************************************START SECOND FONT******************************************************/
+.widget,
+.widget_search input[type="text"],
+.comment-reply-title,
+.comment-author,
+.tinynav,
+.menu  a,
+.nicdark_archive1_content,
+.ui-tooltip,
+h1.subtitle,
+h2.subtitle,
+h3.subtitle,
+h4.subtitle,
+h5.subtitle,
+h6.subtitle,
+input[type="text"].subtitle,
+textarea.subtitle,
+select.subtitle,
+span.subtitle,
+p,
+html,
+a,
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+textarea,
+.wpcf7-select,
+.widget_archive select,
+.widget_categories select,
+.widget_text select,
+.wpb_heading,
+div.wpcf7-validation-errors,
+div.wpcf7-mail-sent-ng,
+div.wpcf7-spam-blocked,
+div.wpcf7-mail-sent-ok,
+.wpcf7-not-valid-tip,
+.woocommerce-account .woocommerce h2, 
+.woocommerce-checkout .woocommerce h2,
+.product .related h2,
+.upsells.products h2,
+.product h1,
+.variations_form table td select,
+.shipping_calculator select, 
+.shipping_calculator input[type="text"],
+.chosen-container-single .chosen-search input[type=text],
+#order_review_heading,
+.woocommerce form h3
+{ font-family: Open Sans; }
+
+.nicdark_btn.subtitle,
+.nicdark_btn_icon.subtitle
+{ font-family: Open Sans !important; }
+
+
+/****************************************START THIRD FONT******************************************************/
+h1.signature,
+h2.signature,
+h3.signature,
+h4.signature,
+h5.signature,
+h6.signature,
+span.signature
+{ font-family: Montez; }        /*end color and font settings*/
+
+        
+        /*start boxed version*/
+                /*end boxed version*/
+
+        /*start custom css*/
+                            .nicdark_menu_fullwidth_boxed.nicdark_menu_fullwidth .nicdark_bg_white.nicdark_section.nicdark_border_grey.nicdark_sizing {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+    border: medium none !important;
+}
+.home .nicdark_space160 {
+    display: none !important;
+}
+.single.single-packages .nicdark_space160 {
+    height: 125px !important;
+}
+.page-id-32, .page-id-621, .page-id-2327, .page-id-2328, .page-id-2329, .page-id-2330, .page-id-669 .nicdark_space160 {
+    height: 125px !important;
+}
+.nicdark_space100 .page-id-486 {
+    height: 0 !important;
+}
+.form-heading{
+    background-color:rgb(63, 144, 234);
+    padding: 10px;
+    color:#ffffff !important;
+}
+.ins-form{
+    background-color:#e1e1e1 !important;
+}
+.ins-form input.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required,
+.ins-form input.wpcf7-form-control.wpcf7-number.wpcf7-validates-as-required.wpcf7-validates-as-number
+.ins-form input.wpcf7-form-control.wpcf7-date.wpcf7-validates-as-required.wpcf7-validates-as-date{
+    background-color: #fff ;
+}
+.left-form-heading{
+    background-color:rgb(63, 144, 234);
+    padding: 10px;
+    padding-bottom: 75px;
+    color:#ffffff !important;
+}
+.left-form-heading .h2{
+    padding: 10px;
+    background-color:#ffffff;
+}
+.ins-cover h2{
+    color:#fff !important;
+} 
+.ins-submit {
+    background-color: rgb(63, 144, 234);
+    width: 100%;
+    transition: 0.5s;
+} .ins-submit:hover {
+    background-color: #232323;
+}
+p {
+    line-height: 25px !important;
+    margin-bottom: 10px !important;
+    font-weight: 100 !important;
+    color: #000 !important;
+}
+.wpb_column.vc_column_container.vc_col-sm-12 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+} .vc_column-inner {
+   padding:0 !important;
+}
+p.white {
+    color: #ffffff !important;
+}
+.service-contact h4, .service-contact p{
+    color:#ffffff !important;
+}                        /*end custom css*/
+
+
+    </style>
+    
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://www.travelpainters.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="http://www.travelpainters.com/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.0.9 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1468361808986{margin-top: -120px !important;}.vc_custom_1430908458615{margin-top: -63px !important;}.vc_custom_1430909610020{margin-top: 60px !important;}.vc_custom_1431007823358{margin-top: 10px !important;}.vc_custom_1430908649166{margin-top: 150px !important;margin-bottom: 213px !important;}.vc_custom_1430909015931{padding-top: 20px !important;padding-right: 10px !important;padding-left: 10px !important;background-color: #f9f9f9 !important;}.vc_custom_1430923553896{padding-top: 30px !important;padding-right: 30px !important;padding-bottom: 30px !important;padding-left: 30px !important;background-color: #1bbc9b !important;}.vc_custom_1430922224160{padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1444646004676{background-color: #ffffff !important;}.vc_custom_1430916978280{padding-right: 0px !important;padding-left: 0px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>	  
+</head>  
+<body style="" id="start_nicdark_framework" class="single single-packages postid-2534 wpb-js-composer js-comp-ver-4.11.2 vc_responsive">
+
+<!--start preloader-->
+
+<!--end preloader-->
+
+<div style="" class="nicdark_site">
+
+	 <div class="nicdark_site_fullwidth_boxed nicdark_site_fullwidth nicdark_clearfix">     
+    	<div class="nicdark_overlay"></div>
+
+    	<!--start left right sidebar open-->
+						<!--end left right sidebar open-->    	
+
+		<div class="nicdark_section nicdark_navigation nicdark_upper_level2">
+		    
+		    <!--decide fullwidth or boxed header-->
+			 <div class='nicdark_menu_fullwidth_boxed nicdark_menu_fullwidth'> 		        
+				<!--start top header-->
+				<!--start before navigation-->
+<div class="nicdark_section nicdark_bg_greydark nicdark_displaynone_responsive">
+    <div class="nicdark_container nicdark_clearfix">
+        
+        <div class="grid grid_6">
+            <div class="nicdark_focus">
+                                <h6 class="white">
+<i class="icon-mail"></i>  <a class="white title" href="#">info@travelpainters.com</a>
+</h6>            </div>
+        </div>
+        <div class="grid grid_6 right">
+            <div class="nicdark_focus right">
+                                <h6 class="white">
+<i class="icon-phone"></i>  <a class="white title" href="#">1-888-417-0446</a>
+<span class="greydark2 nicdark_marginright10 nicdark_marginleft10">|</span>
+<i class="icon-clock"></i>  Available 24/7
+<span class="greydark2 nicdark_marginright10 nicdark_marginleft10">|</span>
+</h6>  
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--end before navigation-->
+
+
+<!--start pop up window-->
+<!--end pop up window-->
+
+
+
+
+
+				<!--end top header-->
+
+		    <!--decide gradient or not-->
+		     <div class="nicdark_space3 nicdark_bg_gradient"></div>    
+		        <!--start header-->
+<div class="nicdark_bg_white nicdark_section nicdark_border_grey nicdark_sizing">
+    
+    <!--start container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+        <div class="grid grid_12 percentage">
+                
+            <div class="nicdark_space20"></div>
+
+            <!--logo-->
+            <div class="nicdark_logo nicdark_marginleft10">
+                <a href="http://www.travelpainters.com"><img alt="" src="http://www.travelpainters.com/wp-content/uploads/2016/07/travel-painters_logo_lastt-.png"></a>                                   
+            </div>
+            <!--end logo-->
+
+            <!--start btn left/right sidebar open-->
+                                    <!--end btn left/right sidebar open-->
+
+            
+<!-- UberMenu [Configuration:main] [Theme Loc:main-menu] [Integration:auto] -->
+<a class="ubermenu-responsive-toggle ubermenu-responsive-toggle-main ubermenu-skin-black-white-2 ubermenu-loc-main-menu" data-ubermenu-target="ubermenu-main-53-main-menu-2"><i class="fa fa-bars"></i>Menu</a><nav id="ubermenu-main-53-main-menu-2" class="ubermenu ubermenu-nojs ubermenu-main ubermenu-menu-53 ubermenu-loc-main-menu ubermenu-responsive ubermenu-responsive-default ubermenu-responsive-collapse ubermenu-horizontal ubermenu-transition-slide ubermenu-trigger-hover ubermenu-skin-black-white-2 ubermenu-has-border ubermenu-bar-align-full ubermenu-items-align-left ubermenu-bar-inner-center ubermenu-bound ubermenu-hide-bkgs ubermenu-sub-indicators"><ul id="ubermenu-nav-main-53-main-menu" class="ubermenu-nav"><li id="menu-item-2218" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-current-menu-ancestor ubermenu-current_page_ancestor ubermenu-item-has-children ubermenu-item-2218 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega" ><a class="ubermenu-target ubermenu-target-with-icon ubermenu-item-layout-default ubermenu-item-layout-icon_left" href="http://www.travelpainters.com/destinations/" tabindex="0"><i class="ubermenu-icon fa fa-map-marker"></i><span class="ubermenu-target-title ubermenu-target-text">DESTINATIONS</span></a><ul class="ubermenu-submenu ubermenu-submenu-id-2218 ubermenu-submenu-type-mega ubermenu-submenu-drop ubermenu-submenu-align-full_width" ><li id="menu-item-2234" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-2234 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-1 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/destinations-packages/europe/"><span class="ubermenu-target-title ubermenu-target-text">EUROPE</span></a><ul class="ubermenu-submenu ubermenu-submenu-id-2234 ubermenu-submenu-type-auto ubermenu-submenu-type-stack" ><li id="menu-item-2236" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2236 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/packages/amsterdam/"><span class="ubermenu-target-title ubermenu-target-text">Amsterdam</span></a></li><li id="menu-item-2237" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2237 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/packages/berlin/"><span class="ubermenu-target-title ubermenu-target-text">Berlin</span></a></li><li id="menu-item-2238" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2238 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/packages/hallstatt/"><span class="ubermenu-target-title ubermenu-target-text">Hallstatt</span></a></li><li id="menu-item-2370" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2370 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/lille-france/"><span class="ubermenu-target-title ubermenu-target-text">Lille, France</span></a></li><li id="menu-item-2239" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2239 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/packages/london/"><span class="ubermenu-target-title ubermenu-target-text">London</span></a></li><li id="menu-item-2366" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2366 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/sicily-italy/"><span class="ubermenu-target-title ubermenu-target-text">Sicily, Italy</span></a></li><li id="menu-item-2467" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2467 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/cinque-terre/"><span class="ubermenu-target-title ubermenu-target-text">Cinque Terre, Italy</span></a></li><li id="menu-item-2235" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2235 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/packages/rome-2/"><span class="ubermenu-target-title ubermenu-target-text">Rome</span></a></li><li id="menu-item-2361" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2361 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/greek-island/"><span class="ubermenu-target-title ubermenu-target-text">The Greek Islands</span></a></li></ul></li><li id="menu-item-2229" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-2229 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-1 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/destinations-packages/africa/"><span class="ubermenu-target-title ubermenu-target-text">AFRICA</span></a><ul class="ubermenu-submenu ubermenu-submenu-id-2229 ubermenu-submenu-type-auto ubermenu-submenu-type-stack" ><li id="menu-item-2240" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2240 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/packages/port-elizabeth/"><span class="ubermenu-target-title ubermenu-target-text">Port Elizabeth</span></a></li><li id="menu-item-2359" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2359 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/livingstone-island/"><span class="ubermenu-target-title ubermenu-target-text">Livingstone Island</span></a></li><li id="menu-item-2360" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2360 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/pyramids-of-giza/"><span class="ubermenu-target-title ubermenu-target-text">Pyramids of Giza</span></a></li><li id="menu-item-2241" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2241 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/packages/mombasa/"><span class="ubermenu-target-title ubermenu-target-text">Mombasa</span></a></li><li id="menu-item-2379" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2379 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="#"><span class="ubermenu-target-title ubermenu-target-text">Casablanca</span></a></li><li id="menu-item-2380" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2380 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/alexandria-2/"><span class="ubermenu-target-title ubermenu-target-text">Alexandria</span></a></li><li id="menu-item-2381" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2381 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/okavango-delta/"><span class="ubermenu-target-title ubermenu-target-text">Okavango Delta</span></a></li></ul></li><li id="menu-item-2230" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-2230 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-1 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/destinations-packages/asia/"><span class="ubermenu-target-title ubermenu-target-text">ASIA</span></a><ul class="ubermenu-submenu ubermenu-submenu-id-2230 ubermenu-submenu-type-auto ubermenu-submenu-type-stack" ><li id="menu-item-2368" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2368 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/andaman-islands/"><span class="ubermenu-target-title ubermenu-target-text">Andaman Islands</span></a></li><li id="menu-item-2371" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2371 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/mie-prefecture-2/"><span class="ubermenu-target-title ubermenu-target-text">Mie Prefecture</span></a></li><li id="menu-item-2314" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2314 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/taipei-taiwan/%20"><span class="ubermenu-target-title ubermenu-target-text">Taipei Taiwan</span></a></li><li id="menu-item-2369" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2369 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/hangzhou/"><span class="ubermenu-target-title ubermenu-target-text">Hangzhou, China</span></a></li><li id="menu-item-2244" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2244 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/packages/dubai/"><span class="ubermenu-target-title ubermenu-target-text">Dubai</span></a></li><li id="menu-item-2601" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2601 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/tokyo/"><span class="ubermenu-target-title ubermenu-target-text">Tokyo</span></a></li><li id="menu-item-2611" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2611 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/hong-kong/"><span class="ubermenu-target-title ubermenu-target-text">Hong Kong</span></a></li><li id="menu-item-2610" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2610 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/shanghai/"><span class="ubermenu-target-title ubermenu-target-text">Shanghai</span></a></li><li id="menu-item-2616" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2616 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/beijing/"><span class="ubermenu-target-title ubermenu-target-text">Beijing</span></a></li><li id="menu-item-2618" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2618 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/seoul/"><span class="ubermenu-target-title ubermenu-target-text">Seoul</span></a></li><li id="menu-item-2625" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2625 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/kuala-lumpur/"><span class="ubermenu-target-title ubermenu-target-text">Kuala Lumpur</span></a></li><li id="menu-item-2365" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2365 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/siberia/"><span class="ubermenu-target-title ubermenu-target-text">Siberia</span></a></li><li id="menu-item-2245" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2245 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/packages/new-delhi/"><span class="ubermenu-target-title ubermenu-target-text">New Delhi</span></a></li><li id="menu-item-2464" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2464 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/bangkok-trip/"><span class="ubermenu-target-title ubermenu-target-text">Bangkok</span></a></li></ul></li><li id="menu-item-2231" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-2231 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-1 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/destinations-packages/america/"><span class="ubermenu-target-title ubermenu-target-text">SOUTH AMERICA</span></a><ul class="ubermenu-submenu ubermenu-submenu-id-2231 ubermenu-submenu-type-auto ubermenu-submenu-type-stack" ><li id="menu-item-2374" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2374 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/chiloe-chile/"><span class="ubermenu-target-title ubermenu-target-text">Chiloe, Chile</span></a></li><li id="menu-item-2457" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2457 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/santiago-chile/"><span class="ubermenu-target-title ubermenu-target-text">Santiago, Chile</span></a></li><li id="menu-item-2358" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2358 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/rio-de-janeiro/"><span class="ubermenu-target-title ubermenu-target-text">Rio De Janeiro</span></a></li><li id="menu-item-2377" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2377 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/mar-del-plata/"><span class="ubermenu-target-title ubermenu-target-text">Mar del Plata</span></a></li><li id="menu-item-2378" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2378 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/lake-titicaca/"><span class="ubermenu-target-title ubermenu-target-text">Lake Titicaca</span></a></li><li id="menu-item-2362" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2362 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/peru/"><span class="ubermenu-target-title ubermenu-target-text">Peru</span></a></li><li id="menu-item-2372" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2372 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/venezuela/"><span class="ubermenu-target-title ubermenu-target-text">Venezuela</span></a></li><li id="menu-item-2363" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2363 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/argentina/"><span class="ubermenu-target-title ubermenu-target-text">Argentina</span></a></li></ul></li><li id="menu-item-2232" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-2232 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-1 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/destinations-packages/america/"><span class="ubermenu-target-title ubermenu-target-text">NORTH AMERICA</span></a><ul class="ubermenu-submenu ubermenu-submenu-id-2232 ubermenu-submenu-type-auto ubermenu-submenu-type-stack" ><li id="menu-item-2313" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2313 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/san-antonio-texas/"><span class="ubermenu-target-title ubermenu-target-text">San Antonio</span></a></li><li id="menu-item-2312" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2312 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/alcatraz/"><span class="ubermenu-target-title ubermenu-target-text">Alcatraz</span></a></li><li id="menu-item-2311" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2311 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/volcan-paricutin/"><span class="ubermenu-target-title ubermenu-target-text">Volcán Paricutín</span></a></li><li id="menu-item-2315" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2315 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/aspen-and-the-roaring-fork-valley/"><span class="ubermenu-target-title ubermenu-target-text">Aspen &#038; Fork Valley</span></a></li><li id="menu-item-2316" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2316 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/los-angeles-vacation/"><span class="ubermenu-target-title ubermenu-target-text">Los Angeles</span></a></li><li id="menu-item-2317" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2317 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/florida-keys-vacation/"><span class="ubermenu-target-title ubermenu-target-text">Florida</span></a></li><li id="menu-item-2318" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2318 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/new-york/"><span class="ubermenu-target-title ubermenu-target-text">New York</span></a></li><li id="menu-item-2310" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2310 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/hearst-san-simeon-state-historic-monument/"><span class="ubermenu-target-title ubermenu-target-text">Hearst San Simeon</span></a></li><li id="menu-item-2246" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2246 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/packages/cuba/"><span class="ubermenu-target-title ubermenu-target-text">Cuba</span></a></li><li id="menu-item-2309" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2309 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/bishop-museum/"><span class="ubermenu-target-title ubermenu-target-text">Bishop Museum</span></a></li></ul></li><li id="menu-item-2233" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-current-menu-ancestor ubermenu-current-menu-parent ubermenu-item-has-children ubermenu-item-2233 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-1 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/destinations-packages/oceania/"><span class="ubermenu-target-title ubermenu-target-text">OCEANIA</span></a><ul class="ubermenu-submenu ubermenu-submenu-id-2233 ubermenu-submenu-type-auto ubermenu-submenu-type-stack" ><li id="menu-item-2367" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2367 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/tasmania/"><span class="ubermenu-target-title ubermenu-target-text">Tasmania</span></a></li><li id="menu-item-2376" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2376 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/kangaroo-island/"><span class="ubermenu-target-title ubermenu-target-text">Kangaroo Island</span></a></li><li id="menu-item-2375" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2375 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/fraser-island/"><span class="ubermenu-target-title ubermenu-target-text">Fraser Island</span></a></li><li id="menu-item-2242" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2242 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/packages/fiji/"><span class="ubermenu-target-title ubermenu-target-text">Fiji</span></a></li><li id="menu-item-2373" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2373 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/adelaide/"><span class="ubermenu-target-title ubermenu-target-text">Adelaide, Australia</span></a></li><li id="menu-item-2538" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-current-menu-item ubermenu-item-2538 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/sydney/"><span class="ubermenu-target-title ubermenu-target-text">Sydney, Australia</span></a></li><li id="menu-item-2542" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2542 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/perth/"><span class="ubermenu-target-title ubermenu-target-text">Perth, Australia</span></a></li><li id="menu-item-2544" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2544 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/brisbane/"><span class="ubermenu-target-title ubermenu-target-text">Brisbane, Australia</span></a></li><li id="menu-item-2551" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2551 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/melbourne/"><span class="ubermenu-target-title ubermenu-target-text">Melbourne, Australia</span></a></li><li id="menu-item-2555" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2555 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://www.travelpainters.com/packages/darwin/"><span class="ubermenu-target-title ubermenu-target-text">Darwin, Australia</span></a></li><li id="menu-item-2243" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-2243 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="http://travelpainters.com/packages/polynesia/"><span class="ubermenu-target-title ubermenu-target-text">Polynesia</span></a></li></ul></li></ul></li><li id="menu-item-2276" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2276 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-target-with-image ubermenu-target-with-icon ubermenu-item-layout-default ubermenu-item-layout-image_left" href="http://www.travelpainters.com/flights/" tabindex="0"><img class="ubermenu-image ubermenu-image-size-full" src="http://www.travelpainters.com/wp-content/uploads/2016/07/airplane-flight.png" width="14px" alt="airplane-flight"  /><span class="ubermenu-target-title ubermenu-target-text">FLIGHTS</span></a></li><li id="menu-item-2334" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2334 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-target-with-image ubermenu-target-with-icon ubermenu-item-layout-default ubermenu-item-layout-image_left" href="http://www.travelpainters.com/hotels/" tabindex="0"><img class="ubermenu-image ubermenu-image-size-full" src="http://www.travelpainters.com/wp-content/uploads/2016/07/hotel.png" width="16px" alt="hotel"  /><span class="ubermenu-target-title ubermenu-target-text">Hotels</span></a></li><li id="menu-item-2333" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2333 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-target-with-image ubermenu-target-with-icon ubermenu-item-layout-default ubermenu-item-layout-image_left" href="http://www.travelpainters.com/insurance/" tabindex="0"><img class="ubermenu-image ubermenu-image-size-full" src="http://www.travelpainters.com/wp-content/uploads/2016/07/familiar-insurance-symbol.png" width="16px" alt="familiar-insurance-symbol"  /><span class="ubermenu-target-title ubermenu-target-text">Insurance</span></a></li><li id="menu-item-2332" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2332 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-target-with-image ubermenu-target-with-icon ubermenu-item-layout-default ubermenu-item-layout-image_left" href="http://www.travelpainters.com/cars/" tabindex="0"><img class="ubermenu-image ubermenu-image-size-full" src="http://www.travelpainters.com/wp-content/uploads/2016/07/car.png" width="16px" alt="car"  /><span class="ubermenu-target-title ubermenu-target-text">Cars</span></a></li><li id="menu-item-2331" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2331 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-target-with-icon ubermenu-item-layout-default ubermenu-item-layout-icon_left" href="http://www.travelpainters.com/about-us/" tabindex="0"><i class="ubermenu-icon fa fa-user"></i><span class="ubermenu-target-title ubermenu-target-text">About Us</span></a></li><li id="menu-item-2217" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2217 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-target-with-icon ubermenu-item-layout-default ubermenu-item-layout-icon_left" href="http://www.travelpainters.com/contacts/" tabindex="0"><i class="ubermenu-icon fa fa-envelope-o"></i><span class="ubermenu-target-title ubermenu-target-text">CONTACT US</span></a></li></ul></nav>
+<!-- End UberMenu -->
+    
+        
+            <div class="nicdark_space20"></div>
+
+        </div>
+
+    </div>
+    <!--end container-->
+
+</div>
+<!--end header-->
+		    </div>
+
+		</div>
+						
+
+
+
+ 
+
+<!--get all datas-->
+
+<!--start header parallax image-->
+
+    <div class="nicdark_space160"></div>
+
+<!--end header parallax image-->
+
+<!--FULL WIDTH PAGE-->
+
+                
+            <!--#post-->
+            <div style="float:left; width:100%;" id="post-2534" class="post-2534 packages type-packages status-publish has-post-thumbnail hentry destination-package-sydney typology-package-cultural typology-package-luxury typology-package-relax typology-package-sport typology-package-vacation duration-package-1-3-days duration-package-3-6-days duration-package-6-9-days duration-package-9-12-days person-package-1-person person-package-2-people person-package-3-people person-package-4-people person-package-5-people">
+
+                <!--start content-->
+                <p><section  style="background:url(http://www.travelpainters.com/wp-content/uploads/2016/07/sydneyopera.jpg) 50% 0 fixed; background-size:cover;" id="parallax_package_main"  class="nicdark_section  nicdark_imgparallax  vc_row wpb_row vc_row-fluid vc_custom_1468361808986"><div class="nicdark_filter greydark"><div class="nicdark_container nicdark_vc nicdark_clearfix"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1430908649166"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><h1 style="color:#ffffff;" class="  left">Sydney</h1><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+<div class="nicdark_divider  left big "><span style="background-color:#ffffff;" ></span></div><div class="vc_empty_space"  style="height: 25px" ><span class="vc_empty_space_inner"></span></div>
+<h3 style="color:#ffffff;" class="  left">Sydney, capital of New South Wales and one of Australia's largest cities, is best known for its harbourfront Opera House, with a distinctive sail-like design.</h3></div></div></div></div></div></div></div></div></div></section>  <script type="text/javascript">(function($) { "use strict"; jQuery(window).load(function() { $("#parallax_package_main").parallax("50%", 0.3); }) })(jQuery);</script>  <section  id=""   class="nicdark_section  vc_row wpb_row vc_row-fluid vc_custom_1430908458615"><div class="nicdark_container nicdark_vc nicdark_clearfix"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid nicdark_sizing nicdark_border_grey vc_custom_1430909015931 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner "><div class="wpb_wrapper">
+
+    <div class=" nicdark_archive1 nicdark_relative">
+        
+        <a target="" href="" class="nicdark_btn_icon nicdark_bg_blue extrabig  white nicdark_absolute "><i class="icon-calendar"></i></a>
+    
+        <div class="nicdark_activity nicdark_marginleft100">
+            <h4>Best Time To Visit</h4>                        
+            <div class="nicdark_space20"></div>
+            <p>The best times to visit Sydney are September through November and from March to May. These months skirt Sydney's high and low seasons, offering visitors comfortable temperatures and manageable tourist crowds.</p>
+            <div class="nicdark_space20"></div>
+            
+            <div class="nicdark_space5"></div>
+        </div>
+    </div>
+      
+   </div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner "><div class="wpb_wrapper">
+
+    <div class=" nicdark_archive1 nicdark_relative">
+        
+        <a target="" href="" class="nicdark_btn_icon nicdark_bg_blue extrabig  white nicdark_absolute "><i class=" icon-cloud-sun"></i></a>
+    
+        <div class="nicdark_activity nicdark_marginleft100">
+            <h4>Sydney Weather</h4>                        
+            <div class="nicdark_space20"></div>
+            <p>In summer (December - February), average maximum temperatures are around 26°C. It can also be humid at this time with an average humidity of 65 per cent.</p>
+            <div class="nicdark_space20"></div>
+            
+            <div class="nicdark_space5"></div>
+        </div>
+    </div>
+      
+   </div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner "><div class="wpb_wrapper">
+
+    <div class=" nicdark_archive1 nicdark_relative">
+        
+        <a target="" href="" class="nicdark_btn_icon nicdark_bg_blue extrabig  white nicdark_absolute "><i class="icon-lightbulb"></i></a>
+    
+        <div class="nicdark_activity nicdark_marginleft100">
+            <h4>Know Before Visiting</h4>                        
+            <div class="nicdark_space20"></div>
+            <p>Bushfires may occur in periods of high temperature and gusty winds anytime from late spring to early autumn, which may curtail some outdoor activities and pose danger to bushwalkers.</p>
+            <div class="nicdark_space20"></div>
+            
+            <div class="nicdark_space5"></div>
+        </div>
+    </div>
+      
+   </div></div></div></div></div></div></div></div></section>  <section  id=""   class="nicdark_section  vc_row wpb_row vc_row-fluid vc_custom_1430909610020"><div class="nicdark_container nicdark_vc nicdark_clearfix"><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner "><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element  vc_custom_1430923553896">
+		<div class="wpb_wrapper">
+			<h2 style="text-align: center;"><span style="color: #ffffff;">1000 $ / Person</span></h2>
+
+		</div>
+	</div>
+<div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+
+      <div style="width:100%; display:inline-block;">
+        <div class="nicdark_textevidence nicdark_bg_blue  ">
+            <div class="nicdark_margin20">
+                <p class="white">I was delighted with the arrangements made for us for our trip to India in November. We were so thankful that we had decided to leave all the arrangements to Geeks Travel, everything went so well, and it made the trip so enjoyable for us We hope to return some day and maybe visit the Delhi area next time. Thank you again for your expertise and your friendly service</p>
+            </div>
+            <i class=" nicdark_iconbg right medium blue"></i>
+        </div>
+
+        <div class="nicdark_focus">
+            <div class="nicdark_triangle blue nicdark_marginleft20"></div>
+        </div>
+        <div class="nicdark_space30"></div>
+
+        <div class="nicdark_focus nicdark_relative">
+            <img alt="" class="nicdark_radius_circle nicdark_absolute" width="65" src="http://www.travelpainters.com/wp-content/uploads/2015/10/150X150.jpg">
+
+            <div class="nicdark_activity nicdark_marginleft85">
+                <h5>COLIN JONES</h5>                       
+                <div class="nicdark_space10"></div>
+                <p>I love discover the world !</p>
+            </div>
+        </div>
+      </div>
+   <div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-8"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1430922224160"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<h1>Sydney Harbour Bridge</h1>
+<p>The Sydney Harbour Bridge is a steel through arch bridge across Sydney Harbour that carries rail, vehicular, bicycle, and pedestrian traffic between the Sydney central business district (CBD) and the North Shore. The dramatic view of the bridge, the harbour, and the nearby Sydney Opera House is an iconic image of Sydney, and Australia. The bridge is nicknamed &#8220;The Coathanger&#8221; because of its arch-based design or is simply called &#8220;the Bridge&#8221; by Sydney residents.</p>
+
+		</div>
+	</div>
+<div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<h1>Luna Park Sydney</h1>
+<p>Luna Park Sydney (originally Luna Park Milsons Point, also known as Sydney&#8217;s Luna Park) is an amusement park located in Sydney, New South Wales, Australia. Luna Park is located at Milsons Point, on the northern shore of Sydney Harbour.</p>
+<p>The park was constructed at the foot of the Sydney Harbour Bridge during 1935, and ran for nine-month seasons until 1972, when it was opened year-round. Luna Park was closed in mid-1979, immediately following the Ghost Train fire, which killed six children and one adult. Most of the park was demolished, and a new amusement park was constructed; this originally operated under the name of Harbourside Amusement Park before resuming the Luna Park name. The park was closed again in 1988 as an independent engineering inspection determined that several rides needed urgent repair. The owners failed to repair and reopen the park before a New South Wales government deadline, and ownership was passed to a new body.</p>
+<p>After another redevelopment, Luna Park reopened in 2004 and has continued operating since.</p>
+
+		</div>
+	</div>
+<div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<h1>Darling Harbour</h1>
+<p>Darling Harbour is a harbour adjacent to the city centre of Sydney, New South Wales, Australia. It is also a large recreational and pedestrian precinct that is situated on western outskirts of the Sydney central business district.</p>
+
+		</div>
+	</div>
+<div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div></div></div></div></div></div></section>  <section  id=""   class="nicdark_section  vc_row wpb_row vc_row-fluid vc_custom_1431007823358"><div class="nicdark_container nicdark_vc nicdark_clearfix"><div class="nicdark_width100_ipadpotr nicdark_width100_iphonepotr nicdark_width100_iphoneland wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="vc_tta-container" data-vc-action="collapse"><div class="vc_general vc_tta vc_tta-tabs vc_tta-color-chino vc_tta-style-classic vc_tta-shape-square vc_tta-spacing-1 nicdark_tab_dark nicdark_sidebar_fixed vc_tta-tabs-position-top vc_tta-controls-align-left nicdark_tab_dark nicdark_sidebar_fixed"><div class="vc_tta-tabs-container"><ul class="vc_tta-tabs-list"><li class="vc_tta-tab vc_active" data-vc-tab><a href="#1444644007535-8c17bff0-3faa4d1c-ffe86268-be4acabf-4b434d02-6361" data-vc-tabs data-vc-container=".vc_tta"><span class="vc_tta-title-text">BOOK THIS TOUR</span></a></li><li class="vc_tta-tab" data-vc-tab><a href="#1444644007571-8425fe7b-1f344d1c-ffe86268-be4acabf-4b434d02-6361" data-vc-tabs data-vc-container=".vc_tta"><span class="vc_tta-title-text">CUSTOMER CARE</span></a></li></ul></div><div class="vc_tta-panels-container"><div class="vc_tta-panels"><div class="vc_tta-panel vc_active" id="1444644007535-8c17bff0-3faa4d1c-ffe86268-be4acabf-4b434d02-6361" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title"><a href="#1444644007535-8c17bff0-3faa4d1c-ffe86268-be4acabf-4b434d02-6361" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">BOOK THIS TOUR</span></a></h4></div><div class="vc_tta-panel-body"><div role="form" class="wpcf7" id="wpcf7-f484-p2534-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"></div>
+<form action="/packages/sydney/#wpcf7-f484-p2534-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="484" />
+<input type="hidden" name="_wpcf7_version" value="4.4.2" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f484-p2534-o1" />
+<input type="hidden" name="_wpnonce" value="5e050cd6b0" />
+</div>
+<div class="nicdark_focus">
+<div class="grid grid_6 percentage nicdark_sizing nicdark_padding10_right"><span class="wpcf7-form-control-wrap text-909"><input type="text" name="text-909" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required nicdark_bg_greydark2 nicdark_border_none" aria-required="true" aria-invalid="false" placeholder="Name" /></span></div>
+<div class="grid grid_6 percentage nicdark_sizing nicdark_padding10_left"><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email nicdark_bg_greydark2 nicdark_border_none" aria-required="true" aria-invalid="false" placeholder="Email" /></span></div>
+</div>
+<div class="nicdark_focus">
+<div class="grid grid_6 percentage nicdark_sizing nicdark_padding10_right"><span class="wpcf7-form-control-wrap text-372"><input type="text" name="text-372" value="" size="40" class="wpcf7-form-control wpcf7-text nicdark_bg_greydark2 nicdark_border_none" aria-invalid="false" placeholder="N° People" /></span></div>
+<div class="grid grid_6 percentage nicdark_sizing nicdark_padding10_left"><span class="wpcf7-form-control-wrap destination"><input type="text" name="destination" value="" size="40" class="wpcf7-form-control wpcf7-text nicdark_bg_greydark2 nicdark_border_none" aria-invalid="false" placeholder="Venice" /></span></div>
+</div>
+<p><span class="wpcf7-form-control-wrap date-123"><input type="date" name="date-123" value="" class="wpcf7-form-control wpcf7-date wpcf7-validates-as-date nicdark_bg_greydark2 nicdark_border_none" aria-invalid="false" /></span></p>
+<p><span class="wpcf7-form-control-wrap textarea-831"><textarea name="textarea-831" cols="40" rows="4" class="wpcf7-form-control wpcf7-textarea nicdark_bg_greydark2 nicdark_border_none" aria-invalid="false" placeholder="Message"></textarea></span></p>
+<p><input type="submit" value="BOOK" class="wpcf7-form-control wpcf7-submit nicdark_bg_green" /></p>
+<div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div></div><div class="vc_tta-panel" id="1444644007571-8425fe7b-1f344d1c-ffe86268-be4acabf-4b434d02-6361" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title"><a href="#1444644007571-8425fe7b-1f344d1c-ffe86268-be4acabf-4b434d02-6361" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">CUSTOMER CARE</span></a></h4></div><div class="vc_tta-panel-body"><h1 style="color:#ffffff;" class="  center">+1-888-417-0446</h1><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+<h1 style="color:#ffffff;" class="  center">CALL US</h1></div></div></div></div></div></div></div></div></div><div class="nicdark_sidebar_fixed_container nicdark_width100_ipadpotr nicdark_width100_iphonepotr nicdark_width100_iphoneland wpb_column vc_column_container vc_col-sm-8 vc_col-has-fill"><div class="vc_column-inner vc_custom_1444646004676"><div class="wpb_wrapper"><h3 style="color:;" class="  left">INCLUDED AND NOT</h3><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+<div class="nicdark_divider  left small "><span style="background-color:#f1f1f1;" ></span></div><div class="vc_empty_space"  style="height: 25px" ><span class="vc_empty_space_inner"></span></div>
+<ul class="nicdark_list border">
+<li class="nicdark_border_grey">
+<h5 class="grey subtitle"><i class="icon-cup nicdark_marginright10"></i> ALL DRINKS INCLUDED <a class="nicdark_btn nicdark_bg_green extrasmall white right" href="#">YES</a></h5>
+<div class="nicdark_space15"></div>
+</li>
+<li class="nicdark_border_grey">
+<div class="nicdark_space15"></div>
+<h5 class="grey subtitle"><i class="icon-food-1 nicdark_marginright10"></i> LUNCH IN RESTAURANT <a class="nicdark_btn nicdark_bg_green extrasmall white right" href="#">YES</a></h5>
+<div class="nicdark_space15"></div>
+</li>
+<li class="nicdark_border_grey">
+<div class="nicdark_space15"></div>
+<h5 class="grey subtitle"><i class="icon-tag-2 nicdark_marginright10"></i> ALL TICKETS MEUSEUM<a class="nicdark_btn nicdark_bg_green extrasmall white right" href="#">YES</a></h5>
+<div class="nicdark_space15"></div>
+</li>
+<li class="nicdark_border_grey">
+<div class="nicdark_space15"></div>
+<h5 class="grey subtitle"><i class="icon-shop nicdark_marginright10"></i> TYPICAL SOUVENIR <a class="nicdark_btn nicdark_bg_red extrasmall white right" href="#">NOT</a></h5>
+</li>
+</ul>
+<div class="vc_empty_space"  style="height: 40px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div></div></section>  <section  id=""   class="nicdark_section  vc_row wpb_row vc_row-fluid"><div class="nicdark_container nicdark_vc nicdark_clearfix"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="vc_empty_space"  style="height: 40px" ><span class="vc_empty_space_inner"></span></div>
+<h3 style="color:;" class="  left">YOU MAY ALSO LIKE</h3><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+<div class="nicdark_divider  left small "><span style="background-color:#f1f1f1;" ></span></div><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div></div></section>  <section  id=""   class="nicdark_section  vc_row wpb_row vc_row-fluid"><div class="nicdark_container nicdark_vc nicdark_clearfix"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1430916978280"><div class="wpb_wrapper"><div class="nicdark_masonry_container">
+
+<!--start preview-->
+<div id="257" class="grid grid_3 percentage nicdark_masonry_item nicdark_padding10 nicdark_sizing">
+    <div class="nicdark_archive1 nicdark_bg_white nicdark_border_grey nicdark_sizing ">
+
+
+        <!--start image-->
+        <div class="nicdark_focus nicdark_relative nicdark_fadeinout nicdark_overflow">    
+
+            <img alt="" class="nicdark_focus nicdark_zoom_image" src="http://www.travelpainters.com/wp-content/uploads/2016/04/cuba_havana.jpg">
+
+            
+            <!--price-->
+            <div class="nicdark_fadeout nicdark_absolute nicdark_height100percentage nicdark_width_percentage100">  
+                <a href="" class="nicdark_btn nicdark_bg_green left white medium">1300 USD</a>
+            </div>
+            <!--end price-->
+
+
+            <!--start content-->
+            <div class="nicdark_fadein nicdark_filter greydark nicdark_absolute nicdark_height100percentage nicdark_width_percentage100">
+                <div class="nicdark_absolute nicdark_display_table nicdark_height100percentage nicdark_width_percentage100">
+                    <div class="nicdark_cell nicdark_vertical_middle">
+                        <a href="http://travelpainters.com/packages/cuba/" class="nicdark_btn nicdark_border_white white medium">DETAILS</a>
+                    </div>   
+                </div>   
+            </div>
+            <!--end content-->
+
+        </div>
+        <!--end image-->
+
+
+        <div class="nicdark_textevidence nicdark_bg_greydark">
+            <h4 class="white nicdark_margin20">Cuba</h4>
+        </div>
+
+
+    </div>
+</div>
+<!--end prev-->
+
+
+
+<!--start preview-->
+<div id="261" class="grid grid_3 percentage nicdark_masonry_item nicdark_padding10 nicdark_sizing">
+    <div class="nicdark_archive1 nicdark_bg_white nicdark_border_grey nicdark_sizing ">
+
+
+        <!--start image-->
+        <div class="nicdark_focus nicdark_relative nicdark_fadeinout nicdark_overflow">    
+
+            <img alt="" class="nicdark_focus nicdark_zoom_image" src="http://www.travelpainters.com/wp-content/uploads/2016/04/new-delhi.jpg">
+
+            
+            <!--price-->
+            <div class="nicdark_fadeout nicdark_absolute nicdark_height100percentage nicdark_width_percentage100">  
+                <a href="http://travelpainters.com/packages/cuba/" class="nicdark_btn nicdark_bg_blue left white medium">1200 USD</a>
+            </div>
+            <!--end price-->
+
+
+            <!--start content-->
+            <div class="nicdark_fadein nicdark_filter greydark nicdark_absolute nicdark_height100percentage nicdark_width_percentage100">
+                <div class="nicdark_absolute nicdark_display_table nicdark_height100percentage nicdark_width_percentage100">
+                    <div class="nicdark_cell nicdark_vertical_middle">
+                        <a href="http://travelpainters.com/packages/new-delhi/" class="nicdark_btn nicdark_border_white white medium">BOOK</a>
+                    </div>   
+                </div>   
+            </div>
+            <!--end content-->
+
+        </div>
+        <!--end image-->
+
+
+        <div class="nicdark_textevidence nicdark_bg_greydark">
+            <h4 class="white nicdark_margin20">New Delhi</h4>
+        </div>
+
+
+    </div>
+</div>
+<!--end prev-->
+
+
+
+<!--start preview-->
+<div id="265" class="grid grid_3 percentage nicdark_masonry_item nicdark_padding10 nicdark_sizing">
+    <div class="nicdark_archive1 nicdark_bg_white nicdark_border_grey nicdark_sizing ">
+
+
+        <!--start image-->
+        <div class="nicdark_focus nicdark_relative nicdark_fadeinout nicdark_overflow">    
+
+            <img alt="" class="nicdark_focus nicdark_zoom_image" src="http://www.travelpainters.com/wp-content/uploads/2016/04/Berlin_img.jpg">
+
+            
+            <!--price-->
+            <div class="nicdark_fadeout nicdark_absolute nicdark_height100percentage nicdark_width_percentage100">  
+                <a href="http://travelpainters.com/packages/new-delhi/" class="nicdark_btn nicdark_bg_violet left white medium">1100 USD</a>
+            </div>
+            <!--end price-->
+
+
+            <!--start content-->
+            <div class="nicdark_fadein nicdark_filter greydark nicdark_absolute nicdark_height100percentage nicdark_width_percentage100">
+                <div class="nicdark_absolute nicdark_display_table nicdark_height100percentage nicdark_width_percentage100">
+                    <div class="nicdark_cell nicdark_vertical_middle">
+                        <a href="http://travelpainters.com/packages/berlin/" class="nicdark_btn nicdark_border_white white medium">INFO</a>
+                    </div>   
+                </div>   
+            </div>
+            <!--end content-->
+
+        </div>
+        <!--end image-->
+
+
+        <div class="nicdark_textevidence nicdark_bg_greydark">
+            <h4 class="white nicdark_margin20">Berlin</h4>
+        </div>
+
+
+    </div>
+</div>
+<!--end prev-->
+
+
+
+<!--start preview-->
+<div id="278" class="grid grid_3 percentage nicdark_masonry_item nicdark_padding10 nicdark_sizing">
+    <div class="nicdark_archive1 nicdark_bg_white nicdark_border_grey nicdark_sizing ">
+
+
+        <!--start image-->
+        <div class="nicdark_focus nicdark_relative nicdark_fadeinout nicdark_overflow">    
+
+            <img alt="" class="nicdark_focus nicdark_zoom_image" src="http://www.travelpainters.com/wp-content/uploads/2016/04/London_img.jpg">
+
+            
+            <!--price-->
+            <div class="nicdark_fadeout nicdark_absolute nicdark_height100percentage nicdark_width_percentage100">  
+                <a href="http://travelpainters.com/packages/berlin/" class="nicdark_btn nicdark_bg_red left white medium">1000 USD</a>
+            </div>
+            <!--end price-->
+
+
+            <!--start content-->
+            <div class="nicdark_fadein nicdark_filter greydark nicdark_absolute nicdark_height100percentage nicdark_width_percentage100">
+                <div class="nicdark_absolute nicdark_display_table nicdark_height100percentage nicdark_width_percentage100">
+                    <div class="nicdark_cell nicdark_vertical_middle">
+                        <a href="http://travelpainters.com/packages/london/" class="nicdark_btn nicdark_border_white white medium">CHECK IT</a>
+                    </div>   
+                </div>   
+            </div>
+            <!--end content-->
+
+        </div>
+        <!--end image-->
+
+
+        <div class="nicdark_textevidence nicdark_bg_greydark">
+            <h4 class="white nicdark_margin20">London</h4>
+        </div>
+
+
+    </div>
+</div>
+<!--end prev-->
+
+</div></div></div></div></div></section>  <section  id=""   class="nicdark_section  vc_row wpb_row vc_row-fluid"><div class="nicdark_container nicdark_vc nicdark_clearfix"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="vc_empty_space"  style="height: 50px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div></div></section>
+</p>
+                <!--end content-->
+                
+            </div>
+            <!--#post-->
+        
+            
+
+
+<!--RIGHT SIDEBAR PAGE PAGE-->
+
+
+<!--LEFT SIDEBAR PAGE PAGE-->
+        
+
+
+		<p style="padding:0 5% 3% 5%;">All rights reserved by USA TRAVEL SERVICES LLC. Use of this Web site constitutes acceptance of the www.travelpainters.com User Agreement and Privacy Policy. </p>
+		
+		<!--gradient-->
+		 <div class="nicdark_space3 nicdark_bg_gradient"></div> 		<!--footer-->
+		
+
+
+<!--start section-->
+<section class="nicdark_section nicdark_bg_greydark nicdark_dark_widgets">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+        <div class="nicdark_space30"></div>
+
+        <div class="grid grid_3 nomargin percentage">
+
+            <div class="nicdark_space20"></div>
+
+            <div class="nicdark_margin10">
+                            </div>
+        </div>
+
+        <div class="grid grid_3 nomargin percentage">
+
+            <div class="nicdark_space20"></div>
+
+            <div class="nicdark_margin10">
+                            </div>
+        </div>
+
+        <div class="grid grid_3 nomargin percentage">
+
+            <div class="nicdark_space20"></div>
+
+            <div class="nicdark_margin10">
+                            </div>
+        </div>
+
+        <div class="grid grid_3 nomargin percentage">
+
+            <div class="nicdark_space20"></div>
+
+            <div class="nicdark_margin10">
+                            </div>
+        </div> 
+
+        <div class="nicdark_space10"></div> 
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>
+<!--end section-->		<!--copyright-->
+		<!--start section-->
+<div class="nicdark_section nicdark_bg_greydark2 ">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+        <div class="grid grid_6 nicdark_aligncenter_iphoneland nicdark_aligncenter_iphonepotr">
+            <div class="nicdark_space20"></div>
+
+                        <p class="white">© Copyright 2016 by USA TRAVEL SERVICES LLC</p>
+        </div>
+
+
+        <div class="grid grid_6">
+            <div class="nicdark_focus right nicdark_aligncenter_iphoneland nicdark_aligncenter_iphonepotr">
+                
+                                <div class="nicdark_margin10">
+    <a href="#" class="nicdark_press right nicdark_btn_icon nicdark_bg_blue small white"><i class="icon-twitter-1"></i></a>
+</div>
+
+<div class="nicdark_margin10">
+    <a href="#" class="nicdark_press right nicdark_btn_icon nicdark_bg_red small white"><i class="icon-youtube-play"></i></a>
+</div>
+
+<div class="nicdark_margin10">
+    <a href="#" class="nicdark_press right nicdark_btn_icon nicdark_facebook small white"><i class="icon-facebook"></i></a>
+</div>
+                <!--back to top-->
+                
+                    <div class="nicdark_margin10">
+                        <a href="#start_nicdark_framework" class="nicdark_zoom nicdark_internal_link right nicdark_btn_icon nicdark_bg_greydark2 small nicdark_radius white"><i class="icon-up-open"></i></a>
+                    </div>
+
+                                <!--back to top-->
+
+            </div>
+        </div>
+
+    </div>
+    <!--end nicdark_container-->
+            
+</div>
+<!--end section-->
+	</div>
+	<!--end nicdark_site_fullwidth-->
+
+</div>
+<!--end nicdark_site-->
+
+
+<!--start preloader-->
+
+<!--end preloader-->
+
+
+<!--start google analytics-->
+ <!--end google analytics-->
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.travelpainters.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","recaptchaEmpty":"Please verify that you are not a robot.","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.4.2'></script>
+<script type='text/javascript' src='//www.travelpainters.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/packages\/sydney\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='//www.travelpainters.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=2.5.5'></script>
+<script type='text/javascript' src='//www.travelpainters.com/wp-content/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/packages\/sydney\/?wc-ajax=%%endpoint%%","fragment_name":"wc_fragments"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='//www.travelpainters.com/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=2.5.5'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/main/jquery-ui.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/main/excanvas.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/plugins/menu/superfish.min.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/plugins/menu/tinynav.min.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/plugins/js_composer/assets/lib/bower/isotope/dist/isotope.pkgd.min.js?ver=4.11.2'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/plugins/isotope/imagesloaded.pkgd.min.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/plugins/mpopup/jquery.magnific-popup.min.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/plugins/scroolto/scroolto.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/plugins/nicescrool/jquery.nicescroll.min.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/plugins/inview/jquery.inview.min.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/plugins/countto/jquery.countTo.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/sort.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/themes/lovetravel/js/settings.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-includes/js/comment-reply.min.js?ver=4.4.4'></script>
+<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?sensor=false&#038;ver=4.4.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ubermenu_data = {"remove_conflicts":"on","reposition_on_load":"off","intent_delay":"300","intent_interval":"100","intent_threshold":"7","scrollto_offset":"50","scrollto_duration":"1000","responsive_breakpoint":"959","accessible":"on","retractor_display_strategy":"mobile","touch_off_close":"on","v":"3.2.0.2","ajax_url":"http:\/\/www.travelpainters.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/plugins/travelmenu/assets/js/ubermenu.min.js?ver=3.2.0.2'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-includes/js/wp-embed.min.js?ver=4.4.4'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=4.11.2'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/plugins/js_composer/assets/lib/vc_accordion/vc-accordion.min.js?ver=4.11.2'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/plugins/js_composer/assets/lib/vc-tta-autoplay/vc-tta-autoplay.min.js?ver=4.11.2'></script>
+<script type='text/javascript' src='http://www.travelpainters.com/wp-content/plugins/js_composer/assets/lib/vc_tabs/vc-tabs.min.js?ver=4.11.2'></script>
+	
+</body>  
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+Object Caching 4014/4610 objects using disk
+
+ Served from: www.travelpainters.com @ 2016-08-30 13:48:28 by W3 Total Cache -->

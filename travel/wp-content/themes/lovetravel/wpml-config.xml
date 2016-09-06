@@ -1,0 +1,10 @@
+<wpml-config>
+    <admin-texts>
+        <key name="redux_demo">
+            <key name="topheader_left_content" />
+            <key name="topheader_right_content" />
+            <key name="copyright_left_content" />
+            <key name="copyright_right_content" />
+        </key>
+    </admin-texts>    
+</wpml-config>

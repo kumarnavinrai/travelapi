@@ -1,0 +1,1020 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nicdarkshortcodes\n"
+"POT-Creation-Date: 2015-10-08 12:21+0100\n"
+"PO-Revision-Date: 2015-10-08 12:21+0100\n"
+"Last-Translator: nicdark <support@newgraphicses.it>\n"
+"Language-Team: nicdark <newgraphicses@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.6\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-SearchPath-0: ../shortcodes\n"
+"X-Poedit-SearchPath-1: ../cpt\n"
+
+#: ../cpt/packages.php:9 ../cpt/packages.php:10
+msgid "Packages"
+msgstr ""
+
+#: ../cpt/packages.php:30
+msgid "Destinations"
+msgstr ""
+
+#: ../cpt/packages.php:44
+msgid "Typologies"
+msgstr ""
+
+#: ../cpt/packages.php:58
+msgid "Durations"
+msgstr ""
+
+#: ../cpt/packages.php:72
+msgid "People"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:10
+#: ../shortcodes/query/post_query.php:6
+msgid "ALL"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:49
+msgid "From"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:50
+msgid "To"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:51
+msgid "Type Your Destination"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:52
+msgid "SEARCH"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:166
+msgid "Advanced Search"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:168
+msgid "Insert Advanced Search"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:172 ../shortcodes/alert_nd.php:34
+#: ../shortcodes/badge_nd.php:30 ../shortcodes/countdown_nd.php:81
+#: ../shortcodes/counter_nd.php:33 ../shortcodes/divider_nd.php:34
+#: ../shortcodes/focus_image_nd.php:78 ../shortcodes/focus_number_nd.php:55
+#: ../shortcodes/focus_text_nd.php:56 ../shortcodes/focus_title_nd.php:51
+#: ../shortcodes/gmaps_markers_nd.php:175 ../shortcodes/posts_grid_nd.php:86
+#: ../shortcodes/price_horizontal_nd.php:71
+#: ../shortcodes/price_vertical_nd.php:79
+#: ../shortcodes/service_horizontal_nd.php:65
+#: ../shortcodes/service_vertical_nd.php:66 ../shortcodes/table_nd.php:30
+#: ../shortcodes/team_horizontal_nd.php:111
+#: ../shortcodes/team_vertical_nd.php:100 ../shortcodes/testimonial_nd.php:62
+#: ../shortcodes/title_nd.php:35
+msgid "Nicdark Shortcodes"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:182
+msgid "Choose the post type to filter, REMEBER TO SET PACKAGES"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:188
+#: ../shortcodes/advanced_search_nd.php:202 ../shortcodes/countdown_nd.php:138
+#: ../shortcodes/posts_grid_nd.php:130 ../shortcodes/posts_grid_nd.php:141
+#: ../shortcodes/posts_grid_nd.php:169
+#: ../shortcodes/service_horizontal_nd.php:124
+#: ../shortcodes/service_vertical_nd.php:125 ../shortcodes/title_nd.php:57
+msgid "Select"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:188 ../shortcodes/countdown_nd.php:138
+#: ../shortcodes/posts_grid_nd.php:130
+msgid "4 Columns"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:188 ../shortcodes/countdown_nd.php:138
+#: ../shortcodes/posts_grid_nd.php:130
+msgid "3 Columns"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:188 ../shortcodes/countdown_nd.php:138
+#: ../shortcodes/posts_grid_nd.php:130
+msgid "2 Columns"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:188 ../shortcodes/countdown_nd.php:138
+#: ../shortcodes/posts_grid_nd.php:130
+msgid "1 Column"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:189 ../shortcodes/countdown_nd.php:139
+#: ../shortcodes/posts_grid_nd.php:131
+msgid "Choose columns style"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:196
+msgid "Select your button color"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:202
+msgid "Light Version"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:202
+msgid "Dark Version"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:203
+msgid ""
+"Select your color, set also the class nicdark_tab_dark (in tab custom class) "
+"if you want to insert search in tab components"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:208
+msgid "ID"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:210
+msgid ""
+"Insert the id if you want to use your custom css for form customization and "
+"hide the fields below."
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:214
+msgid "Hide Fields With CSS, Example: #your-id-field { display:none; }"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:216
+msgid ""
+"This is the ID of the fields:<br/> #nicdark_advanced_search_keyword <br/> "
+"#nicdark_advanced_search_tax-0<br/> #nicdark_advanced_search_tax-1<br/> "
+"#nicdark_advanced_search_tax-2<br/> #nicdark_advanced_search_tax-3<br/> "
+"#nicdark_advanced_search_dates<br/> #nicdark_advanced_search_prices<br/> "
+"#nicdark_advanced_search_button"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:222
+msgid "ON"
+msgstr ""
+
+#: ../shortcodes/advanced_search_nd.php:223
+msgid ""
+"Enable autocomplete JS for keywork field. IMPORTANT: It can not be used 2 "
+"times in the same page"
+msgstr ""
+
+#: ../shortcodes/alert_nd.php:28
+msgid "Alert"
+msgstr ""
+
+#: ../shortcodes/alert_nd.php:30
+msgid "Add alert info message"
+msgstr ""
+
+#: ../shortcodes/alert_nd.php:40 ../shortcodes/focus_image_nd.php:84
+#: ../shortcodes/focus_number_nd.php:61 ../shortcodes/focus_text_nd.php:62
+#: ../shortcodes/focus_title_nd.php:57
+#: ../shortcodes/price_horizontal_nd.php:77
+#: ../shortcodes/price_vertical_nd.php:85
+#: ../shortcodes/service_horizontal_nd.php:71
+#: ../shortcodes/service_vertical_nd.php:72 ../shortcodes/title_nd.php:29
+#: ../shortcodes/title_nd.php:41
+msgid "Title"
+msgstr ""
+
+#: ../shortcodes/alert_nd.php:43
+msgid "Insert your title"
+msgstr ""
+
+#: ../shortcodes/alert_nd.php:48 ../shortcodes/focus_number_nd.php:69
+#: ../shortcodes/focus_text_nd.php:70 ../shortcodes/price_horizontal_nd.php:92
+#: ../shortcodes/price_vertical_nd.php:100
+#: ../shortcodes/service_horizontal_nd.php:79
+#: ../shortcodes/service_vertical_nd.php:80
+#: ../shortcodes/team_horizontal_nd.php:125
+#: ../shortcodes/team_vertical_nd.php:129
+msgid "Description"
+msgstr ""
+
+#: ../shortcodes/alert_nd.php:50
+msgid "Insert your description"
+msgstr ""
+
+#: ../shortcodes/alert_nd.php:57 ../shortcodes/countdown_nd.php:156
+#: ../shortcodes/countdown_nd.php:164 ../shortcodes/countdown_nd.php:172
+#: ../shortcodes/countdown_nd.php:180 ../shortcodes/counter_nd.php:49
+#: ../shortcodes/focus_number_nd.php:91 ../shortcodes/focus_text_nd.php:79
+#: ../shortcodes/focus_title_nd.php:80
+#: ../shortcodes/price_horizontal_nd.php:108
+#: ../shortcodes/price_vertical_nd.php:128
+#: ../shortcodes/service_horizontal_nd.php:88
+#: ../shortcodes/service_vertical_nd.php:89
+#: ../shortcodes/team_horizontal_nd.php:146
+#: ../shortcodes/team_vertical_nd.php:144 ../shortcodes/testimonial_nd.php:98
+msgid "Select your color"
+msgstr ""
+
+#: ../shortcodes/alert_nd.php:62 ../shortcodes/focus_text_nd.php:84
+#: ../shortcodes/focus_title_nd.php:71
+#: ../shortcodes/price_horizontal_nd.php:113
+#: ../shortcodes/service_horizontal_nd.php:93
+#: ../shortcodes/service_vertical_nd.php:94
+#: ../shortcodes/testimonial_nd.php:103
+msgid "Icon Code"
+msgstr ""
+
+#: ../shortcodes/alert_nd.php:64 ../shortcodes/focus_text_nd.php:86
+#: ../shortcodes/focus_title_nd.php:73
+#: ../shortcodes/price_horizontal_nd.php:115
+#: ../shortcodes/service_horizontal_nd.php:95
+#: ../shortcodes/service_vertical_nd.php:96
+#: ../shortcodes/team_horizontal_nd.php:170
+#: ../shortcodes/team_horizontal_nd.php:185
+#: ../shortcodes/team_horizontal_nd.php:200
+#: ../shortcodes/team_vertical_nd.php:124
+#: ../shortcodes/team_vertical_nd.php:168
+#: ../shortcodes/team_vertical_nd.php:183
+#: ../shortcodes/team_vertical_nd.php:198 ../shortcodes/testimonial_nd.php:105
+msgid ""
+"Insert icon code e.g. icon-diamond <a target='_blank' href='http://www."
+"nicdarkthemes.com/themes/love-travel/wp/demo-travel/icons.php'>see all "
+"icons</a>"
+msgstr ""
+
+#: ../shortcodes/alert_nd.php:69 ../shortcodes/counter_nd.php:61
+#: ../shortcodes/divider_nd.php:62 ../shortcodes/testimonial_nd.php:110
+msgid "Class"
+msgstr ""
+
+#: ../shortcodes/alert_nd.php:71 ../shortcodes/divider_nd.php:64
+#: ../shortcodes/focus_image_nd.php:112 ../shortcodes/focus_number_nd.php:96
+#: ../shortcodes/focus_text_nd.php:97 ../shortcodes/focus_title_nd.php:85
+#: ../shortcodes/price_horizontal_nd.php:120
+#: ../shortcodes/price_vertical_nd.php:133
+#: ../shortcodes/service_horizontal_nd.php:106
+#: ../shortcodes/service_vertical_nd.php:107
+#: ../shortcodes/team_horizontal_nd.php:151
+#: ../shortcodes/team_vertical_nd.php:149 ../shortcodes/testimonial_nd.php:112
+#: ../shortcodes/title_nd.php:76
+msgid "Custom class"
+msgstr ""
+
+#: ../shortcodes/badge_nd.php:24
+msgid "Badge"
+msgstr ""
+
+#: ../shortcodes/badge_nd.php:27
+msgid "Add Custom badge"
+msgstr ""
+
+#: ../shortcodes/badge_nd.php:35
+msgid "badge"
+msgstr ""
+
+#: ../shortcodes/badge_nd.php:37
+msgid ""
+"<ul class='nicdark_list border'>    \n"
+"    <li class='nicdark_border_grey'>\n"
+"        <h5 class='grey subtitle'>BREAKFAST IN HOTEL <a href='#' "
+"class='nicdark_btn nicdark_bg_yellow extrasmall   white right'>9:00 - 10:00</"
+"a></h5> \n"
+"        <div class='nicdark_space15'></div>\n"
+"    </li>\n"
+"\n"
+"    <li class='nicdark_border_grey'>\n"
+"        <div class='nicdark_space15'></div>\n"
+"        <h5 class='grey subtitle'>DEPARTURE BY BUS TO COLOSSEUM<a href='#' "
+"class='nicdark_btn nicdark_bg_orange extrasmall   white right'>10:00 - "
+"11:00</a></h5>   \n"
+"        <div class='nicdark_space15'></div>\n"
+"    </li>\n"
+"        \n"
+"    <li class='nicdark_border_grey'>\n"
+"        <div class='nicdark_space15'></div>\n"
+"        <h5 class='grey subtitle'>GUIDED TOUR OF THE MONUMENT <a href='#' "
+"class='nicdark_btn nicdark_bg_red extrasmall   white right'>11:00 - 12:00</"
+"a></h5>   \n"
+"        <div class='nicdark_space15'></div>\n"
+"    </li>\n"
+"\n"
+"    <li class='nicdark_border_grey'>\n"
+"        <div class='nicdark_space15'></div>\n"
+"        <h5 class='grey subtitle'>LUNCH IN TYPICAL RESTAURANT <a href='#' "
+"class='nicdark_btn nicdark_bg_violet extrasmall   white right'>12:00 - "
+"15:00</a></h5>    \n"
+"        <div class='nicdark_space15'></div>\n"
+"    </li>\n"
+"\n"
+"    <li class='nicdark_border_grey'>\n"
+"        <div class='nicdark_space15'></div>\n"
+"        <h5 class='grey subtitle'>VISIT OF THE CITY <a href='#' "
+"class='nicdark_btn nicdark_bg_blue extrasmall   white right'>15:00 - 17:00</"
+"a></h5>    \n"
+"        <div class='nicdark_space15'></div>\n"
+"    </li>\n"
+"\n"
+"    <li class='nicdark_border_grey'>\n"
+"        <div class='nicdark_space15'></div>\n"
+"        <h5 class='grey subtitle'>FREE AFTERNOON <a href='#' "
+"class='nicdark_btn nicdark_bg_green extrasmall   white right'>17:00 - 18:00</"
+"a></h5>    \n"
+"    </li> \n"
+"</ul>"
+msgstr ""
+
+#: ../shortcodes/badge_nd.php:72 ../shortcodes/table_nd.php:69
+msgid "Change source code for edit the style"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:32
+msgid "DAYS"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:33
+msgid "HOURS"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:34
+msgid "MINUTES"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:35
+msgid "SECONDS"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:75
+msgid "Countdown"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:77
+msgid "Add event countdown"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:87
+msgid "Date"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:90
+msgid "Insert the Date Example: June 06, 2017"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:94
+msgid "Show Days"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:96
+msgid "Check it for display days"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:103
+msgid "Show Hours"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:105
+msgid "Check it for display hours"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:112
+msgid "Show Minutes"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:114
+msgid "Check it for display minutes"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:121
+msgid "Show Seconds"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:123
+msgid "Check it for display seconds"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:130
+msgid "Number Color"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:132
+msgid "Select the number color. E.g. #868585"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:143
+msgid "Choose Colors"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:146
+#: ../shortcodes/service_horizontal_nd.php:115
+#: ../shortcodes/service_vertical_nd.php:116
+#: ../shortcodes/team_horizontal_nd.php:160
+#: ../shortcodes/team_vertical_nd.php:158
+msgid "No"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:147
+#: ../shortcodes/service_horizontal_nd.php:116
+#: ../shortcodes/service_vertical_nd.php:117
+#: ../shortcodes/team_horizontal_nd.php:161
+#: ../shortcodes/team_vertical_nd.php:159
+msgid "Yes"
+msgstr ""
+
+#: ../shortcodes/countdown_nd.php:149
+msgid "Choose \"yes\" for set the colors"
+msgstr ""
+
+#: ../shortcodes/counter_nd.php:27
+msgid "Counter"
+msgstr ""
+
+#: ../shortcodes/counter_nd.php:29
+msgid "Add counter"
+msgstr ""
+
+#: ../shortcodes/counter_nd.php:39 ../shortcodes/focus_number_nd.php:76
+msgid "Number"
+msgstr ""
+
+#: ../shortcodes/counter_nd.php:42
+msgid "Insert your number, Example: 21"
+msgstr ""
+
+#: ../shortcodes/counter_nd.php:56 ../shortcodes/title_nd.php:65
+msgid "Choose the alignment"
+msgstr ""
+
+#: ../shortcodes/counter_nd.php:63
+msgid "Custom class, example: nicdark_width100 for longer number "
+msgstr ""
+
+#: ../shortcodes/divider_nd.php:28
+msgid "Divider"
+msgstr ""
+
+#: ../shortcodes/divider_nd.php:30
+msgid "Add divider"
+msgstr ""
+
+#: ../shortcodes/divider_nd.php:41
+msgid "Select the size"
+msgstr ""
+
+#: ../shortcodes/divider_nd.php:48
+msgid "Select the alignment"
+msgstr ""
+
+#: ../shortcodes/divider_nd.php:54
+msgid "Divider color"
+msgstr ""
+
+#: ../shortcodes/divider_nd.php:57
+msgid "Choose color"
+msgstr ""
+
+#: ../shortcodes/focus_image_nd.php:72
+msgid "Focus Image"
+msgstr ""
+
+#: ../shortcodes/focus_image_nd.php:74
+msgid "Add single focus image"
+msgstr ""
+
+#: ../shortcodes/focus_image_nd.php:87 ../shortcodes/focus_number_nd.php:64
+#: ../shortcodes/focus_text_nd.php:65 ../shortcodes/focus_title_nd.php:60
+#: ../shortcodes/price_horizontal_nd.php:80
+#: ../shortcodes/price_vertical_nd.php:88
+#: ../shortcodes/service_horizontal_nd.php:74
+#: ../shortcodes/service_vertical_nd.php:75 ../shortcodes/title_nd.php:44
+msgid "Insert the title"
+msgstr ""
+
+#: ../shortcodes/focus_image_nd.php:92
+msgid "Image"
+msgstr ""
+
+#: ../shortcodes/focus_image_nd.php:94 ../shortcodes/price_vertical_nd.php:108
+#: ../shortcodes/team_horizontal_nd.php:133
+#: ../shortcodes/team_vertical_nd.php:137
+msgid "Select image from media library."
+msgstr ""
+
+#: ../shortcodes/focus_image_nd.php:99
+msgid "Text Hover"
+msgstr ""
+
+#: ../shortcodes/focus_image_nd.php:101
+msgid "Insert the text on hover image"
+msgstr ""
+
+#: ../shortcodes/focus_image_nd.php:107 ../shortcodes/focus_number_nd.php:84
+#: ../shortcodes/focus_text_nd.php:92 ../shortcodes/focus_title_nd.php:66
+#: ../shortcodes/price_vertical_nd.php:121
+#: ../shortcodes/service_horizontal_nd.php:101
+#: ../shortcodes/service_vertical_nd.php:102
+#: ../shortcodes/team_horizontal_nd.php:139
+msgid "Insert link"
+msgstr ""
+
+#: ../shortcodes/focus_image_nd.php:114 ../shortcodes/focus_number_nd.php:98
+#: ../shortcodes/focus_text_nd.php:99 ../shortcodes/focus_title_nd.php:87
+#: ../shortcodes/price_horizontal_nd.php:122
+#: ../shortcodes/price_vertical_nd.php:135
+#: ../shortcodes/service_horizontal_nd.php:108
+#: ../shortcodes/service_vertical_nd.php:109
+#: ../shortcodes/team_horizontal_nd.php:153
+#: ../shortcodes/team_vertical_nd.php:151
+msgid "Insert custom class"
+msgstr ""
+
+#: ../shortcodes/focus_number_nd.php:49
+msgid "Focus number"
+msgstr ""
+
+#: ../shortcodes/focus_number_nd.php:51
+msgid "Add focus number"
+msgstr ""
+
+#: ../shortcodes/focus_number_nd.php:71 ../shortcodes/focus_text_nd.php:72
+#: ../shortcodes/service_horizontal_nd.php:81
+#: ../shortcodes/service_vertical_nd.php:82
+#: ../shortcodes/team_horizontal_nd.php:127
+#: ../shortcodes/team_vertical_nd.php:131
+msgid "Insert the description"
+msgstr ""
+
+#: ../shortcodes/focus_number_nd.php:78
+msgid "Insert a number, Example: 1"
+msgstr ""
+
+#: ../shortcodes/focus_text_nd.php:50
+msgid "Focus text"
+msgstr ""
+
+#: ../shortcodes/focus_text_nd.php:52
+msgid "Add focus text"
+msgstr ""
+
+#: ../shortcodes/focus_title_nd.php:45
+msgid "Focus title"
+msgstr ""
+
+#: ../shortcodes/focus_title_nd.php:47
+msgid "Add single focus title"
+msgstr ""
+
+#: ../shortcodes/gmaps_markers_nd.php:169
+msgid "Gmaps Markers"
+msgstr ""
+
+#: ../shortcodes/gmaps_markers_nd.php:171 ../shortcodes/title_nd.php:31
+msgid "Add title"
+msgstr ""
+
+#: ../shortcodes/gmaps_markers_nd.php:181
+msgid "Height"
+msgstr ""
+
+#: ../shortcodes/gmaps_markers_nd.php:184
+msgid "Insert the map height, Example: 500"
+msgstr ""
+
+#: ../shortcodes/gmaps_markers_nd.php:191
+msgid "Check for insert packages list on the map"
+msgstr ""
+
+#: ../shortcodes/gmaps_markers_nd.php:196
+msgid "Zoom Map"
+msgstr ""
+
+#: ../shortcodes/gmaps_markers_nd.php:198
+msgid "Insert a different zoom of the map ( Ex: from 0 to 12 )"
+msgstr ""
+
+#: ../shortcodes/gmaps_markers_nd.php:203
+msgid "Center Map"
+msgstr ""
+
+#: ../shortcodes/gmaps_markers_nd.php:205
+msgid ""
+"Insert a different center position coordinates of the map ( Ex: 34.263079, "
+"16.993682 )"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:80
+msgid "Posts Grid"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:82
+msgid "Insert Posts Grid"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:95
+msgid "Choose the post type"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:100
+msgid "Posts per page "
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:102
+msgid ""
+"Insert the number of posts that you want to show. E.g. 4. Leave empty for "
+"show the default settings of WP (Settings -> Reading), -1 for view all posts"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:109
+msgid "Choose the order of the visualization"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:116
+msgid "Choose the type order"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:121
+msgid "Specific Post ID "
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:123
+msgid ""
+"If you want, insert the ID of your post, need for ONLY one post. E.g. 38"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:141 ../shortcodes/posts_grid_nd.php:169
+msgid "Layout 1"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:141 ../shortcodes/posts_grid_nd.php:169
+msgid "Layout 2"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:143
+msgid "Choose your preview layout for posts"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:148
+msgid "Categories "
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:151
+msgid ""
+"Insert the category slug (NOT NAME) separated by comma without space. E.g. "
+"category1,category2,category3"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:160
+msgid "Show all categories for filter."
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:169
+msgid "Layout 3"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:169
+msgid "Layout 4"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:169
+msgid "Layout 5"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:171
+msgid "Choose your preview layout for packages"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:176
+msgid "Taxonomy Name "
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:179
+msgid "Insert the taxonomy name E.g. destination-package"
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:184
+msgid "Taxonomy Terms "
+msgstr ""
+
+#: ../shortcodes/posts_grid_nd.php:187
+msgid ""
+"Insert the taxonomy terms slug (NOT NAME) separated by comma without space. "
+"E.g. taxonomy-term-1,taxonomy-term-2,taxonomy-term-3"
+msgstr ""
+
+#: ../shortcodes/price_horizontal_nd.php:65
+msgid "Price Horizontal"
+msgstr ""
+
+#: ../shortcodes/price_horizontal_nd.php:67
+#: ../shortcodes/price_vertical_nd.php:75
+msgid "Add single price"
+msgstr ""
+
+#: ../shortcodes/price_horizontal_nd.php:85
+#: ../shortcodes/price_vertical_nd.php:93
+msgid "Price"
+msgstr ""
+
+#: ../shortcodes/price_horizontal_nd.php:87
+#: ../shortcodes/price_vertical_nd.php:95
+msgid "Insert the price"
+msgstr ""
+
+#: ../shortcodes/price_horizontal_nd.php:94
+#: ../shortcodes/price_vertical_nd.php:102
+msgid "Description under the price"
+msgstr ""
+
+#: ../shortcodes/price_horizontal_nd.php:99
+msgid "Text"
+msgstr ""
+
+#: ../shortcodes/price_horizontal_nd.php:101
+msgid "Insert your content"
+msgstr ""
+
+#: ../shortcodes/price_vertical_nd.php:73
+msgid "Price Vertical"
+msgstr ""
+
+#: ../shortcodes/price_vertical_nd.php:106
+msgid "Bg Image"
+msgstr ""
+
+#: ../shortcodes/price_vertical_nd.php:113
+msgid "Content"
+msgstr ""
+
+#: ../shortcodes/price_vertical_nd.php:115
+msgid ""
+"Insert your content in TEXT mode ( NOT VISUAL ), Example: &lt;p&gt;Lorem "
+"Ipsum Dolor&lt;/p&gt;&lt;hr /&gt;&lt;p&gt;Lorem Ipsum Dolor&lt;/p&gt;&lt;hr /"
+"&gt;&lt;p&gt;Lorem Ipsum Dolor&lt;/p&gt;"
+msgstr ""
+
+#: ../shortcodes/query/packages_query.php:25
+msgid "SALE"
+msgstr ""
+
+#: ../shortcodes/query/post_query.php:7
+msgid "READ MORE"
+msgstr ""
+
+#: ../shortcodes/query/post_query.php:62
+msgid "Comments"
+msgstr ""
+
+#: ../shortcodes/query/post_query.php:64
+msgid "No Comments"
+msgstr ""
+
+#: ../shortcodes/query/post_query.php:66
+msgid "One Comment"
+msgstr ""
+
+#: ../shortcodes/service_horizontal_nd.php:59
+msgid "Service Horizontal"
+msgstr ""
+
+#: ../shortcodes/service_horizontal_nd.php:61
+#: ../shortcodes/service_vertical_nd.php:62
+msgid "Add single service"
+msgstr ""
+
+#: ../shortcodes/service_horizontal_nd.php:112
+#: ../shortcodes/service_vertical_nd.php:113
+msgid "Enable advanced settings"
+msgstr ""
+
+#: ../shortcodes/service_horizontal_nd.php:118
+#: ../shortcodes/service_vertical_nd.php:119
+msgid "Set to yes to enable advanced settings"
+msgstr ""
+
+#: ../shortcodes/service_horizontal_nd.php:124
+#: ../shortcodes/service_vertical_nd.php:125
+msgid "Square"
+msgstr ""
+
+#: ../shortcodes/service_horizontal_nd.php:124
+#: ../shortcodes/service_vertical_nd.php:125
+msgid "Radius"
+msgstr ""
+
+#: ../shortcodes/service_horizontal_nd.php:124
+#: ../shortcodes/service_vertical_nd.php:125
+msgid "Circle"
+msgstr ""
+
+#: ../shortcodes/service_horizontal_nd.php:125
+#: ../shortcodes/service_vertical_nd.php:126
+msgid "Choose the shape for the icon"
+msgstr ""
+
+#: ../shortcodes/service_horizontal_nd.php:133
+#: ../shortcodes/service_vertical_nd.php:134
+msgid "Remove cut icon style"
+msgstr ""
+
+#: ../shortcodes/service_vertical_nd.php:60
+msgid "Service vertical"
+msgstr ""
+
+#: ../shortcodes/table_nd.php:24 ../shortcodes/table_nd.php:35
+msgid "Table"
+msgstr ""
+
+#: ../shortcodes/table_nd.php:27
+msgid "Add Custom Table"
+msgstr ""
+
+#: ../shortcodes/table_nd.php:37
+msgid ""
+"<div class='nicdark_archive1 nicdark_bg_grey  left overflow_scroll'>   \n"
+"    <table class='nicdark_table extrabig nicdark_bg_yellow'>\n"
+"        <thead class='nicdark_border_yellow'>\n"
+"            <tr>\n"
+"                <td class='nicdark_width_percentage1'><h4 class='white'>#</"
+"h4></td>\n"
+"                <td><h4 class='white'>FIRST</h4></td>\n"
+"                <td><h4 class='white'>SECOND</h4></td>\n"
+"                <td><h4 class='white'>THIRD</h4></td>\n"
+"            </tr>\n"
+"        </thead>\n"
+"        <tbody class='nicdark_bg_grey nicdark_border_grey'>\n"
+"            <tr>\n"
+"                <td><h5 class='grey subtitle'>1</h5></td>\n"
+"                <td><h5 class='grey subtitle'>Mark</h5></td>\n"
+"                <td><h5 class='grey subtitle'>Otto</h5></td>\n"
+"                <td><h5 class='grey subtitle'>@mdo</h5></td>\n"
+"            </tr>\n"
+"            <tr>\n"
+"                <td><h5 class='grey subtitle'>2</h5></td>\n"
+"                <td><h5 class='grey subtitle'>Jacob</h5></td>\n"
+"                <td><h5 class='grey subtitle'>Thornton</h5></td>\n"
+"                <td><h5 class='grey subtitle'>@fat</h5></td>\n"
+"            </tr>\n"
+"            <tr>\n"
+"                <td><h5 class='grey subtitle'>3</h5></td>\n"
+"                <td><h5 class='grey subtitle'>Larry</h5></td>\n"
+"                <td><h5 class='grey subtitle'>the Bird</h5></td>\n"
+"                <td><h5 class='grey subtitle'>@twitter</h5></td>\n"
+"            </tr>\n"
+"        </tbody>\n"
+"    </table>\n"
+"</div>"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:105
+msgid "Team horizontal"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:107
+#: ../shortcodes/team_vertical_nd.php:96
+msgid "Add single team"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:117
+#: ../shortcodes/team_vertical_nd.php:106
+msgid "Member name"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:120
+#: ../shortcodes/team_vertical_nd.php:109
+msgid "Insert the name"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:131
+#: ../shortcodes/team_vertical_nd.php:135
+msgid "Image Member"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:157
+msgid "Right Icons"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:163
+msgid "Choose \"yes\" for set the icons on the right"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:168
+#: ../shortcodes/team_vertical_nd.php:166
+msgid "Icon Code 1"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:177
+#: ../shortcodes/team_vertical_nd.php:175
+msgid "Insert link for first icon"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:183
+#: ../shortcodes/team_vertical_nd.php:181
+msgid "Icon Code 2"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:192
+#: ../shortcodes/team_vertical_nd.php:190
+msgid "Insert link for second icon"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:198
+#: ../shortcodes/team_vertical_nd.php:196
+msgid "Icon Code 3"
+msgstr ""
+
+#: ../shortcodes/team_horizontal_nd.php:207
+#: ../shortcodes/team_vertical_nd.php:205
+msgid "Insert link for third icon"
+msgstr ""
+
+#: ../shortcodes/team_vertical_nd.php:94
+msgid "Team vertical"
+msgstr ""
+
+#: ../shortcodes/team_vertical_nd.php:114
+msgid "Role"
+msgstr ""
+
+#: ../shortcodes/team_vertical_nd.php:117
+msgid "Insert the role"
+msgstr ""
+
+#: ../shortcodes/team_vertical_nd.php:122
+msgid "Bg icon"
+msgstr ""
+
+#: ../shortcodes/team_vertical_nd.php:155
+msgid "Bottom Icons"
+msgstr ""
+
+#: ../shortcodes/team_vertical_nd.php:161
+msgid "Choose \"yes\" for set the icons on the bottom"
+msgstr ""
+
+#: ../shortcodes/testimonial_nd.php:56 ../shortcodes/testimonial_nd.php:89
+msgid "Testimonial"
+msgstr ""
+
+#: ../shortcodes/testimonial_nd.php:58
+msgid "Add single testimonial"
+msgstr ""
+
+#: ../shortcodes/testimonial_nd.php:68
+msgid "Author"
+msgstr ""
+
+#: ../shortcodes/testimonial_nd.php:71
+msgid "Insert author name"
+msgstr ""
+
+#: ../shortcodes/testimonial_nd.php:76
+msgid "Description Author"
+msgstr ""
+
+#: ../shortcodes/testimonial_nd.php:78
+msgid "Insert author description"
+msgstr ""
+
+#: ../shortcodes/testimonial_nd.php:82
+msgid "Image Author"
+msgstr ""
+
+#: ../shortcodes/testimonial_nd.php:84
+msgid "Select images from media library."
+msgstr ""
+
+#: ../shortcodes/testimonial_nd.php:91
+msgid "Insert your testimonial"
+msgstr ""
+
+#: ../shortcodes/title_nd.php:51
+msgid "Select your tag"
+msgstr ""
+
+#: ../shortcodes/title_nd.php:57
+msgid "Primary Font"
+msgstr ""
+
+#: ../shortcodes/title_nd.php:57
+msgid "Secondary Font"
+msgstr ""
+
+#: ../shortcodes/title_nd.php:58
+msgid "Select your style"
+msgstr ""
+
+#: ../shortcodes/title_nd.php:69
+msgid "Custom Color"
+msgstr ""
+
+#: ../shortcodes/title_nd.php:71
+msgid "Select the title color. E.g. #868585"
+msgstr ""
+
+#: ../shortcodes/title_nd.php:78
+msgid "Insert custom class E.g. signature"
+msgstr ""
