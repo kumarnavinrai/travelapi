@@ -99,7 +99,7 @@ $themeurl = file_create_url(path_to_theme());
         <div class="row">
           <div class="col-md-8">
             <div class="search-tabs search-tabs-bg mt50">
-              <h1>Find Your Perfect Trip<img src="//logo.clearbit.com/aa.com?size=80&greyscale=true"></h1>
+              <h1>Find Your Perfect Trip</h1>
               <div class="tabbable">
                 <ul class="nav nav-tabs" id="myTab">
                   <li class="active">
