@@ -99,7 +99,7 @@ $themeurl = file_create_url(path_to_theme());
         <div class="row">
           <div class="col-md-8">
             <div class="search-tabs search-tabs-bg mt50">
-              <h1>Find Your Perfect Trip</h1>
+              <h1>Find Your Perfect Trip<img src="//logo.clearbit.com/aa.com?size=80&greyscale=true"></h1>
               <div class="tabbable">
                 <ul class="nav nav-tabs" id="myTab">
                   <li class="active">
@@ -136,7 +136,7 @@ $themeurl = file_create_url(path_to_theme());
                 <div class="tab-content">
                   <div class="tab-pane fade in active" id="tab-2">
                     <h2>Search for Cheap Flights</h2>
-                    <form method="POST" action="http://travelpainters.local/searchresult">
+                    <form method="POST" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
                       <div class="tabbable">
                         <ul class="nav nav-pills nav-sm nav-no-br mb10" id="flightChooseTab">
                           <li class="active">
@@ -153,14 +153,14 @@ $themeurl = file_create_url(path_to_theme());
                                 <div class="form-group form-group-lg form-group-icon-left">
                                   <i class="fa fa-map-marker input-icon"></i>
                                   <label>From</label>
-                                  <input class="typeahead form-control" name="from" placeholder="City, Airport, U.S. Zip" type="text" />
+                                  <input class="typeahead form-control nav_from" name="from" placeholder="City, Airport, U.S. Zip" type="text" />
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group form-group-lg form-group-icon-left">
                                   <i class="fa fa-map-marker input-icon"></i>
                                   <label>To</label>
-                                  <input class="typeahead form-control" name="to" placeholder="City, Airport, U.S. Zip" type="text" />
+                                  <input class="typeahead form-control nav_to" name="to" placeholder="City, Airport, U.S. Zip" type="text" />
                                 </div>
                               </div>
                             </div>
@@ -213,14 +213,13 @@ $themeurl = file_create_url(path_to_theme());
                           <div class="row">
                             <div class="col-md-12">
                               <script type="text/javascript"> 
-   $(document).ready(function() {
-       $('#attach_box').click(function(e) {
-    e.preventDefault();   
-           $('#sukh_buton').toggle();
-          
-       });        
-   });
-</script>
+                                 $(document).ready(function() {
+                                     $('#attach_box').click(function(e) {
+                                         e.preventDefault();   
+                                         $('#sukh_buton').toggle();
+                                     });        
+                                 });
+                              </script>
                               <a href="#" id="attach_box">Advance Search
                                 <i class="fa fa-sort-desc sukh" aria-hidden="true"></i>
                               </a>
@@ -316,7 +315,7 @@ $themeurl = file_create_url(path_to_theme());
                         </div>
                       </div>
                     </div>
-                    <button class="btn btn-primary btn-lg" type="submit">Search for Flights</button>
+                    <button class="btn btn-primary btn-lg nav_search_for_flights" type="submit">Search for Flights</button>
                   </form>
                 </div>
                 <div class="tab-pane fade" id="tab-1">
@@ -865,3 +864,15 @@ $themeurl = file_create_url(path_to_theme());
 
 </div></div> <!-- /#page, /#page-wrapper -->
 <?php */ ?>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.nav_search_for_flights').on('click',function(e){
+        if($("input[name=from]").val() == "" || $("input[name=to]").val() == "")
+        {
+          alert('Please select origin or desitanation for flights.');
+          e.preventDefault();
+        }  
+        
+    });
+  });
+</script>

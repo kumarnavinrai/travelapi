@@ -1,5 +1,7 @@
 <?php
 
+$urlforform = "http://travelpainters.com/travel/";
+
 /**
  * Add body classes if certain regions have content.
  */
@@ -27,6 +29,7 @@ function bartik_preprocess_html(&$variables) {
     $variables['classes_array'][] = 'footer-columns';
   }
 
+  
   // Add conditional stylesheets for IE
   drupal_add_css(path_to_theme() . '/css/ie.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
   drupal_add_css(path_to_theme() . '/css/ie6.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'IE 6', '!IE' => FALSE), 'preprocess' => FALSE));
@@ -40,7 +43,7 @@ function bartik_process_html(&$variables) {
   if (module_exists('color')) {
     _color_html_alter($variables);
   }
-
+  $variables['urlforform'] = $urlforform;
 }
 
 
@@ -49,12 +52,15 @@ function bartik_preprocess_page(&$vars, $hook) {
     // If the node type is "blog_madness" the template suggestion will be "page--blog-madness.tpl.php".
     $vars['theme_hook_suggestions'][] = 'page__'. $vars['node']->type;
   }
+
+ 
 }
 
 /**
  * Override or insert variables into the page template.
  */
 function bartik_process_page(&$variables) {
+  $variables['urlforform'] = $urlforform;
   // Hook into color.module.
   if (module_exists('color')) {
     _color_page_alter($variables);
