@@ -11008,3 +11008,78 @@ img.mfp-img {
     -webkit-transform: scaleY(1.0);
   }
 }
+.mtrx__cell {
+    padding: 3px 5px;
+    height: 40px;
+    background: #ffedba;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+    max-width: 120px;
+    min-width: 120px;
+	    border: solid #fff;
+}
+
+.booking-item .sukh_container{
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding: 17px;
+    color: #737373;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    -ms-transition: 0.2s;
+    transition: 0.2s;
+}
+.mtrx__row:not(*:root) {
+    display: table-row-group;
+	border:solid #fff;
+}
+.mtrx__show-all:not(*:root) {
+    height: 84px;
+    margin-top: -2px;
+}
+.mtrx__show-all a, .mtrx__cell-header a, .mtrx__price {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: normal;
+    width: 100%;
+    height: 100%;
+}
+.mtrx__cell.is--airline .air__title {
+    font-weight: normal;
+    display: block;
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-top: 3px;
+    white-space: nowrap;
+    color: #4d616c;
+}
+.mtrx__cell.is--airline .ic-flights-airlines {
+    font-weight: normal;
+    font-size: 10px;
+    color: #999;
+    display: block;
+    margin-top: 0;
+}
+.mtrx__cell.is--airline {
+    height: 80px;
+    padding: 0 1px;
+    background: #fff;
+    vertical-align: middle;
+    position: relative;
+}
+img.air__logo {
+    width: 72px;
+}
+.mtrx__wrapper {
+    overflow: hidden;
+    padding-left: 30px;
+    position: relative;
+    border: 1px solid #fff;
+}
+.row.sukh_p {
+    background: #ffedba;
+}

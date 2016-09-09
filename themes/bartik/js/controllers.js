@@ -5,13 +5,14 @@ app.factory('getFlightDataService', function ($q, $http) {
   service.sendFile = sendFileC;
  
   return service; 
-  function getFlightsC(url,data) { 
+  function getFlightsC(url,data) {  console.log("service called");
     // We make use of Angular's $q library to create the deferred instance 
+    console.log("data sending"); console.log(data);
     var deferred = $q.defer();
     var headers = { 
         'Access-Control-Allow-Origin' : '*', 
         'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT', 
-        'Content-Type' : 'application/json', 
+        'Content-Type' : 'application/x-www-form-urlencoded', 
         'Accept': 'application/json' 
       }; 
 //JSON.stringify(data), field_videourl[und][0][value]  postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,lengthofstay:$scope.lengthofstay}; 
@@ -20,11 +21,12 @@ app.factory('getFlightDataService', function ($q, $http) {
             method: 'POST', 
             url: url,
             cache: false, 
-            data: {origin:data.origin,destination:data.destination,departureDate:data.departureDate,lengthofstay:data.lengthofstay}, 
+            data: "origin="+data.origin+"&destination="+data.destination+"&departureDate="+data.departureDate+"&lengthofstay="+data.lengthofstay, 
             headers: headers 
         }) 
         .success(function(data) { 
           // The promise is resolved once the HTTP call is successful. 
+          //console.log(data);
           deferred.resolve(data); 
         }) 
         .error(function() { 
@@ -68,3 +70,11 @@ app.factory('getFlightDataService', function ($q, $http) {
 
 
 }); 
+
+
+app.filter('split', function() {
+        return function(input, splitChar, splitIndex) {
+            // do some bounds checking here to ensure it has that index
+            return input.split(splitChar)[splitIndex];
+        }
+});

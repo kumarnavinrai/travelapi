@@ -47,9 +47,9 @@ $themeurl = file_create_url(path_to_theme());
 global $base_url;   // Will point to http://www.example.com
 global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
 $sitelink = $base_url . $base_path;
-
-$urlofwp = "http://travelpainters.com/travel/";
+$urlofwp = "http://blog.travelpainters.com/";
 $_SESSION['urlforform'] = "http://travelpainters.com/";
+//$_SESSION['urlforform'] = "http://travelpainters.local/";
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
@@ -101,7 +101,7 @@ $_SESSION['urlforform'] = "http://travelpainters.com/";
   <?php print $styles; ?>
   <?php print $scripts; */?>
   <script type="text/javascript">
-    var urlforapi = "http://127.0.0.1:1337/";
+    var urlforapi = "http://127.0.0.1:1338/";
   </script>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>

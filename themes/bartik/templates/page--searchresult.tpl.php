@@ -354,6 +354,203 @@ $themeurl = file_create_url(path_to_theme());
                     </aside>
                 </div>
                 <div class="col-md-9">
+                <div class="nav-drop booking-sort">
+                        <h5 class="booking-sort-title"><a href="#">Sort: Sort: Price (low to high)<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>
+                        <ul class="nav-drop-menu">
+                            <li><a href="#">Price (high to low)</a>
+                            </li>
+                            <li><a href="#">Duration</a>
+                            </li>
+                            <li><a href="#">Stops</a>
+                            </li>
+                            <li><a href="#">Arrival</a>
+                            </li>
+                            <li><a href="#">Departure</a>
+                            </li>
+                        </ul>
+                    </div>
+          
+          <div class="booking-item-container">
+                                <div class="sukh_container">
+                                    <div class="row">
+                                        <div class="col-md-12 mtrx__wrapper main hidden-xs">
+                    <table id="mtrx_table" class="mtrx__table animation-fast">
+            <thead>
+                <tr id="mtrxRow" class="mtrx__row">
+                    <th id="_allFares" class="mtrx__show-all disabled" style="min-width: 126.286px;">
+                        <a href="javascript:ClearAllFilters();">
+                            <span>All Fares</span>
+                        </a>
+                    </th>
+
+                        <th class="mtrx__cell is--airline" scope="col" style="min-width: 123.286px; max-width: 123.286px;">
+                                <a href="" title="{{lpc.lowestfareairlinecode}}">
+                                    <img class="air__logo"  src="<?php echo $themeurl; ?>/img/airlineslogo/{{lpc.lowestfareairlinecodelogo}}" alt="{{lpc.lowestfareairlinecode}}">
+                                    <span class="air__title" ng-bind="lpc.lowestfareairlinecode" title="{{lpc.lowestfareairlinecode}}">{{lpc.lowestfareairlinecode}}</span>
+                                        <i class="icon ic-flights-airlines hidden"></i>
+                                </a>
+                        </th>
+                        <th class="mtrx__cell is--airline" scope="col" style="min-width: 123.286px; max-width: 123.286px;">
+                                <a href="" title="{{lpc.lowestnonstopairlinecode}}">
+                                    <img class="air__logo" src="<?php echo $themeurl; ?>/img/airlineslogo/{{lpc.lowestnonstopairlinecodelogo}}" alt="{{lpc.lowestnonstopairlinecode}}">
+                                    <span class="air__title" title="{{lpc.lowestnonstopairlinecode}}">{{lpc.lowestnonstopairlinecode}}</span>
+                                        <i class="icon ic-flights-airlines hidden"></i>
+                                </a>
+                        </th>
+                        <th class="mtrx__cell is--airline" scope="col" style="min-width: 123.286px; max-width: 123.286px;">
+                                <a href="" title="American Airlines with others">
+                                    <img class="air__logo" src="<?php echo $themeurl; ?>/img/AA.gif" alt="American Airlines with others">
+                                        <span class="cmb-airline" title="American Airlines with others"></span>
+                                    <span class="air__title" title="American Airlines with others">American Airlines</span>
+                                        
+                                </a>
+                        </th>
+                        <th class="mtrx__cell is--airline" scope="col" style="min-width: 123.286px; max-width: 123.286px;">
+                                <a href="" title="United Airlines with others">
+                                    <img class="air__logo" src="<?php echo $themeurl; ?>/img/UA.gif" alt="United Airlines with others">
+                                        <span class="cmb-airline" title="United Airlines with others"></span>
+                                    <span class="air__title" title="United Airlines with others">United Airlines</span>
+                                       
+                                </a>
+                        </th>
+                        <th class="mtrx__cell is--airline" scope="col" style="min-width: 123.286px; max-width: 123.286px;">
+                                <a href="" title="Virgin America with others">
+                                    <img class="air__logo" src="<?php echo $themeurl; ?>/img/VX.gif" alt="Virgin America with others">
+                                        <span class="cmb-airline" title="Virgin America with others"></span>
+                                    <span class="air__title" title="Virgin America with others">Virgin America</span>
+                                       
+                                </a>
+                        </th>
+                    </tr>
+                    
+          <tr class="mtrx__row">
+                        <th id="tr_6" class="mtrx__cell-header" scope="row" style="min-width: 126.286px;">
+                            <a title="1+ stop flights" href="">
+                                <span>Non Stops</span>
+                            </a>
+                        </th>
+
+                            <td class="mtrx__cell" id="td_NKFalseFalse6" style="min-width: 123.286px; max-width: 123.286px;">
+                                <span id="alternettrack_6" title="False"></span>
+                                <a href="" class="mtrx__price">
+                                        <span class="base-price">
+                                            <span class="currency" >
+                                              ${{lpc.lowestfareairlinefare}}
+                                            </span>
+                                            <span class="fpSuper">
+                                              <sup>.{{lpc.lowestfareairlinefaresup}}</sup>
+                                            </span>
+                                        </span>
+                                    <em title="Full price incl. taxes and fees" class="total-price">
+                                        <span>Total</span>
+                    <b class="currency" title="{{lpc.lowestfareairlinefare}}" defaultvalue="{{lpc.lowestfareairlinefare}}">
+                      ${{lpc.lowestfareairlinefare}}
+                    </b>
+                    <span class="fpSuper" title="{{lpc.lowestfareairlinefare}}" defaultvalue="{{lpc.lowestfareairlinefare}}">
+                      <sup>.{{lpc.lowestfareairlinefaresup}}</sup>
+                    </span>
+                                    </em>
+                                    </a>
+                            </td>
+                            <td class="mtrx__cell" id="td_VXFalseFalse6" >
+                                <span id="alternettrack_6" title="True"></span>
+                                <a href="" class="mtrx__price">
+                                        <span class="base-price">
+                    <span class="currency" title="163.00" defaultvalue="163.0023">
+                      ${{lpc.lowestnonstopairlinefare}}
+                    </span>
+                    <span class="fpSuper" title="163.00" defaultvalue="163.0023">
+                      <sup>.{{lpc.lowestnonstopairlinefaresup}}</sup>
+                    </span>
+                    </span>
+                                    <em title="Full price incl. taxes and fees" class="total-price">
+                                        <span>Total</span> 
+                    <b class="currency" title="199.70" defaultvalue="199.7">
+                      ${{lpc.lowestnonstopairlinefare}}
+                    </b>
+                    <span class="fpSuper" title="199.70" defaultvalue="199.7">
+                      <sup>.{{lpc.lowestnonstopairlinefaresup}}</sup>
+                    </span>
+                                    </em>
+                                    </a>
+                            </td>
+                            <td class="mtrx__cell" style="min-width: 123.286px; max-width: 123.286px;">
+                                <span id="alternettrack_6" title="False"></span>
+                                <a href="" class="mtrx__price">
+                                        <span class="base-price">
+                  <span class="currency" title="194.00" defaultvalue="193.9995">$194</span>
+                    <span class="fpSuper" title="194.00" defaultvalue="193.9995">
+                      <sup>.00</sup>
+                    </span>
+                    </span>
+                                    <em title="Full price incl. taxes and fees" class="total-price">
+                                        <span>Total</span>
+                    <b class="currency" title="230.70" defaultvalue="230.7">
+                      $230
+                    </b>
+                    <span class="fpSuper" title="230.70" defaultvalue="230.7">
+                      <sup>.70</sup>
+                    </span>
+                                    </em>
+                                    </a>
+                            </td>
+                            <td class="mtrx__cell" style="min-width: 123.286px; max-width: 123.286px;">
+                                <span id="alternettrack_6" title="False"></span>
+                                <a href="" class="mtrx__price">
+                                        <span class="base-price">
+                    <span class="currency" title="194.00" defaultvalue="193.9995">
+                      $194
+                    </span>
+                    <span class="fpSuper" title="194.00" defaultvalue="193.9995">
+                      <sup>.00</sup>
+                    </span>
+                    </span>
+                                    <em title="Full price incl. taxes and fees" class="total-price">
+                                        <span>Total</span>
+                    <b class="currency" title="230.70" defaultvalue="230.7">
+                      $230
+                    </b>
+                    <span class="fpSuper" title="230.70" defaultvalue="230.7">
+                    
+                      <sup>.70</sup>
+                    </span>
+                          </em>
+                                    </a>
+                            </td>
+                            <td class="mtrx__cell" id="td_VXFalseTrue6" style="min-width: 123.286px; max-width: 123.286px;">
+                                <span id="alternettrack_6" title="False"></span>
+                                <a href="" class="mtrx__price">
+                                        <span class="base-price">
+                    <span class="currency" title="194.00" defaultvalue="193.9995">
+                      $194
+                    </span>
+                    <span class="fpSuper" title="194.00" defaultvalue="193.9995">
+                      <sup>.00</sup>
+                    </span>
+                    </span>
+                                    <em title="Full price incl. taxes and fees" class="total-price">
+                                        <span>Total</span>
+                     <b class="currency" title="230.70" defaultvalue="230.7">
+                      $230
+                    </b>
+                    <span class="fpSuper" title="230.70" defaultvalue="230.7">
+                      <sup>.70</sup>
+                    </span>
+                                    </em>
+                                    </a>
+                            </td>
+                    </tr>
+            </tbody>
+        </table>
+    <div class="row sukh_p">
+      <div class="container">
+    <p>Fares for our carriers are round trip, incl. all taxes and all fees. Airfares include applied Booking Bonus. Additional baggage fees may apply. Some flights displayed may be for alternate dates and/or airports. Certain results may be outside your search criteria.</p>
+    </div></div>
+                                        </div>
+                  </div>
+                </div>
+          </div>
+                           
                     <div class="nav-drop booking-sort">
                         <h5 class="booking-sort-title"><a href="#">Sort: Sort: Price (low to high)<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>
                         <ul class="nav-drop-menu">
@@ -370,38 +567,70 @@ $themeurl = file_create_url(path_to_theme());
                         </ul>
                     </div>
                     <ul class="booking-list">
-                        <li>
+                        <li ng-repeat="x in DisplayData" ng-if="x.logoOfmarketingAirine !== undefined">
+                        <!--<h4>{{x.TotalFlightTime}}</h4>-->
+                        <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
+                        
+
+                        <!--<h4>{{x}}</h4>-->
                             <div class="booking-item-container">
                                 <div class="booking-item">
-                                    <div class="row">
+                                <!-- Repeat this row for showing no of flights from des for no of stops -->
+                                    <div class="row" >
                                         <div class="col-md-2">
                                             <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/lufthansa.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Lufthansa</p>
+                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
+                                                <p>{{x.nameOfmarketingAirine}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
+                                            <div class="booking-item-flight-details">
+                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
+                                                </div>
+                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <h5>{{x.TotalTimeWithLayoverTime}}</h5>
+                                            <p>{{x.nonStopOrwithStop}}</p>
+                                        </div>
+                                        <div class="col-md-3"><span class="booking-item-price">${{x.totalfareInUsd}}</span><span>/person</span>
+                                            <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
+                                            <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p><a class="btn btn-primary" href="#">Select</a>
+                                        </div>
+                                    </div>
+                                  <!-- row rpeate first step ends here -->  
+                                    <div class="row" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 1">
+                                        <div class="col-md-2">
+                                            <div class="booking-item-airline-logo">
+                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
+                                                <p>{{x.nameOfmarketingAirine}}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
+                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
                                                 </div>
                                                 <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
+                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>non-stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$307</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Economy</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
+                                        
                                     </div>
+                                <!-- row rpeate last step ends here step ends here -->      
                                 </div>
                                 <div class="booking-item-details">
                                     <div class="row">
