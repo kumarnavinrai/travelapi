@@ -49,7 +49,8 @@ global $base_path;  // Will point to at least "/" or the subdirectory where the 
 $sitelink = $base_url . $base_path;
 
 $urlofwp = "http://blog.travelpainters.com/";
-$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
+//$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
+$urltoGetFilghts = "http://104.068.102.222:1337/fs/";
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?> ng-app="myApp" ng-controller="filghtCtrl" >
