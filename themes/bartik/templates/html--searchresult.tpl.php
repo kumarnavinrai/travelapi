@@ -434,7 +434,7 @@ trk=nav_responsive_tab_profile"></a>
 
                     }
 
-                    if(data.if !== undefined){
+                    if(data.if !== undefined && data === undefined){
                       $scope.FirstItinerary = data.if;
                       $scope.if = data.if;
                       $scope.allflightdata = $scope.if.PricedItineraries;
@@ -527,7 +527,7 @@ trk=nav_responsive_tab_profile"></a>
                         $scope.DisplayData = totaldataarray;
                     }
 
-                    if(data.bfm !== undefined && data === undefined){
+                    if(data.bfm !== undefined ){
                       $scope.bfm = data.bfm;
                       $scope.allflightdata = $scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
                       $scope.totalnoofresultsfound = $scope.totalnoofresultsfound + $scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItinCount;
