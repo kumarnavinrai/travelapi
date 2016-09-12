@@ -380,7 +380,7 @@ trk=nav_responsive_tab_profile"></a>
               $scope.origin = "<?php echo $fromairportcode; ?>";
               $scope.destination = "<?php echo $toairportcode ?>";
               $scope.departureDate = "<?php echo $startdate ?>";
-              $scope.returnDate = "<?php $todate ?>";
+              $scope.returnDate = "<?php echo $todate ?>";
               $scope.lengthofstay = 5; //"
               $scope.searchedclass = "<?php echo $_POST["rclass"]; ?>";
               
@@ -390,7 +390,7 @@ trk=nav_responsive_tab_profile"></a>
                 // and fire search in case its value is not empty
                 var urltogetFlights = '<?php echo $urltoGetFilghts; ?>';
                 var postData;
-                 postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,lengthofstay:$scope.lengthofstay}; 
+                 postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,returndate:$scope.returnDate,lengthofstay:$scope.lengthofstay}; 
 //return;
                 console.log(postData);
 
@@ -402,8 +402,15 @@ trk=nav_responsive_tab_profile"></a>
                  getFlightDataService.getFlights(urltogetFlights,postData).then(function (data) {
                   
                     $scope.appState = true;
+                    $scope.lpcfound = false;
+                    $scope.totalnoofresultsfound = 0;
+                    $scope.fromcity = listwithcode[$scope.origin];
+                    $scope.tocity = listwithcode[$scope.destination];
 
-                    if(data.lpc !== undefined){
+                    if(data.lpc.FareInfo !== undefined && data.lpc.FareInfo.LowestFare != undefined){
+                      console.log(data.lpc.errorCode);
+                      $scope.lpcfound = true;
+                      console.log("instant lead price calander");
                       $scope.nonstop = data.lpc;
                       $scope.lpc = {};
                       $scope.lpc.lowestfareairlinecode = listofairports[data.lpc.FareInfo.LowestFare.AirlineCodes[0]];
@@ -429,11 +436,101 @@ trk=nav_responsive_tab_profile"></a>
 
                     if(data.if !== undefined){
                       $scope.FirstItinerary = data.if;
+                      $scope.if = data.if;
+                      $scope.allflightdata = $scope.if.PricedItineraries;
+                      $scope.totalnoofresultsfound = $scope.totalnoofresultsfound + $scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItinCount;
+                      //console.log($scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary);
+                      $scope.DisplayData = [];
+                      $scope.DatatoShow = {};
+                      var totaldataarray = [];
+                      var x = 1;
+                       angular.forEach($scope.allflightdata,function(value,index){
+                        $scope.DatatoShow = {};
+                          //logo of mkt airline
+                          $scope.DatatoShow.logoOfmarketingAirine = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].MarketingAirline.Code + ".png";
+
+                          $scope.DatatoShow.nameOfmarketingAirine = listofairports[value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].MarketingAirline.Code];                          
+                          
+                          //total time with layover
+                          $scope.TotalFlightTimeWithWait = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime;
+                          
+                          $scope.AllFlightsdataInOneOption = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0];
+
+                          var lengthofflightsegement = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment.length;
+
+                          $scope.TotalFlightTime = 0;
+                          var counter = 1;
+                          $scope.DatatoShow.noofflightdataarray = [];
+                          $scope.DatatoShow.noofflightdata = {};
+                          var flightSegementArray = [];
+                          var flightSegementObject = {};
+                          
+                          for(count = 0; count < $scope.AllFlightsdataInOneOption.FlightSegment.length; count++){
+                             //console.log($scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport);
+                             
+                             flightSegementObject = {arrivalaiport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport.LocationCode],departureairport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureAirport.LocationCode],departuretime:$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureDateTime,arrivaltime:$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalDateTime,flightSeq:count};
+
+                             flightSegementArray[count] = flightSegementObject;
+                             $scope.TotalFlightTime = $scope.TotalFlightTime + $scope.AllFlightsdataInOneOption.FlightSegment[count].ElapsedTime;
+                             
+                          }
+
+                          $scope.DatatoShow.TotalFlightTime = $scope.TotalFlightTime;
+                          //console.log(flightSegementArray);
+                          
+                        
+                          $scope.DatatoShow.AllFlightsdataInOneOption = flightSegementArray;
+                         
+                          //layover time
+                          $scope.DatatoShow.LayoverTime = $scope.TotalFlightTimeWithWait - $scope.TotalFlightTime;
+                         
+                          $scope.DatatoShow.TotalTimeWithLayoverTime = $scope.TotalFlightTimeWithWait;
+
+                          //calculating total time
+                          var hours = Math.floor( $scope.DatatoShow.TotalTimeWithLayoverTime / 60);          
+                          var minutes = $scope.DatatoShow.TotalTimeWithLayoverTime % 60;
+
+                          if(hours){  
+                            $scope.DatatoShow.TotalTimeWithLayoverTime = hours + "h " + minutes + "m";
+                          }else{
+                            $scope.DatatoShow.TotalTimeWithLayoverTime = minutes + "m";
+                          }  
+
+                          //calculating layover ime
+                          var hours = Math.floor( $scope.DatatoShow.LayoverTime / 60);          
+                          var minutes = $scope.DatatoShow.LayoverTime % 60;
+
+                          if(hours){  
+                            $scope.DatatoShow.LayoverTime = hours + "h " + minutes + "m";
+                          }else{
+                            $scope.DatatoShow.LayoverTime = minutes + "m";
+                          }
+
+
+                          totaldataarray[value.SequenceNumber] = $scope.DatatoShow;
+
+                          $scope.DatatoShow.searchedClass = $scope.searchedclass;
+
+                          if(lengthofflightsegement == 1){
+                            $scope.DatatoShow.nonStopOrwithStop = "non-stop";
+                          }else{
+                            var templen = lengthofflightsegement - 1;
+                            $scope.DatatoShow.nonStopOrwithStop = templen  + " stop";
+                          }
+
+                          //total fare in usd
+                          $scope.DatatoShow.totalfareInUsd =  value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount;
+
+                          
+                       });
+                        //console.log(totaldataarray);
+                        $scope.DisplayData = totaldataarray;
                     }
 
-                    if(data.bfm !== undefined){
+                    if(data.bfm !== undefined && data === undefined){
                       $scope.bfm = data.bfm;
                       $scope.allflightdata = $scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
+                      $scope.totalnoofresultsfound = $scope.totalnoofresultsfound + $scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItinCount;
                       //console.log($scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary);
                       $scope.DisplayData = [];
                       $scope.DatatoShow = {};

@@ -256,7 +256,7 @@ $themeurl = file_create_url(path_to_theme());
                     <button class="btn btn-primary btn-lg" type="submit">Search for Flights</button>
                 </form>
             </div>
-            <h3 class="booking-title">12 Flights from London to New York on Mar 22 for 1 adult <small><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a></small></h3>
+            <h3 class="booking-title">{{totalnoofresultsfound}} Flights from {{fromcity}} to {{tocity}} for 1 adult <small><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a></small></h3>
             <div class="row">
                 <div class="col-md-3">
                     <aside class="booking-filters text-white">
@@ -354,27 +354,13 @@ $themeurl = file_create_url(path_to_theme());
                     </aside>
                 </div>
                 <div class="col-md-9">
-                <div class="nav-drop booking-sort">
-                        <h5 class="booking-sort-title"><a href="#">Sort: Sort: Price (low to high)<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>
-                        <ul class="nav-drop-menu">
-                            <li><a href="#">Price (high to low)</a>
-                            </li>
-                            <li><a href="#">Duration</a>
-                            </li>
-                            <li><a href="#">Stops</a>
-                            </li>
-                            <li><a href="#">Arrival</a>
-                            </li>
-                            <li><a href="#">Departure</a>
-                            </li>
-                        </ul>
-                    </div>
+  
           
           <div class="booking-item-container">
                                 <div class="sukh_container">
                                     <div class="row">
                                         <div class="col-md-12 mtrx__wrapper main hidden-xs">
-                    <table id="mtrx_table" class="mtrx__table animation-fast">
+                    <table id="mtrx_table" class="mtrx__table animation-fast" ng-if="lpcfound != false">
             <thead>
                 <tr id="mtrxRow" class="mtrx__row">
                     <th id="_allFares" class="mtrx__show-all disabled" style="min-width: 126.286px;">
@@ -607,7 +593,7 @@ $themeurl = file_create_url(path_to_theme());
                                         </div>
                                     </div>
                                   <!-- row rpeate first step ends here -->  
-                                    <div class="row" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 1">
+                                    <div class="row" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
                                         <div class="col-md-2">
                                             <div class="booking-item-airline-logo">
                                                 <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />

@@ -21,7 +21,7 @@ app.factory('getFlightDataService', function ($q, $http) {
             method: 'POST', 
             url: url,
             cache: false, 
-            data: "origin="+data.origin+"&destination="+data.destination+"&departureDate="+data.departureDate+"&lengthofstay="+data.lengthofstay, 
+            data: "origin="+data.origin+"&destination="+data.destination+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&lengthofstay="+data.lengthofstay, 
             headers: headers 
         }) 
         .success(function(data) { 
