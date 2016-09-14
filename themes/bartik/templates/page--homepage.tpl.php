@@ -140,27 +140,32 @@ $themeurl = file_create_url(path_to_theme());
                       <div class="tabbable">
                         <ul class="nav nav-pills nav-sm nav-no-br mb10" id="flightChooseTab">
                           <li class="active">
-                            <a href="#flight-search-1" data-toggle="tab">Round Trip</a>
+                            <a href="#flight-search-1" class="rtripandowselectorrt" data-toggle="tab">Round Trip</a>
                           </li>
                           <li>
-                            <a href="#flight-search-2" data-toggle="tab">One Way</a>
+                            <a href="#flight-search-2" class="rtripandowselectorow" data-toggle="tab">One Way</a>
                           </li>
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane fade in active" id="flight-search-1">
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-5">
                                 <div class="form-group form-group-lg form-group-icon-left">
                                   <i class="fa fa-map-marker input-icon"></i>
                                   <label>From</label>
-                                  <input class="typeahead form-control nav_from" name="from" placeholder="City, Airport, U.S. Zip" type="text" />
+                                  <input class="typeahead form-control nav_from" name="from" placeholder="City, Airport" type="text" />
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-2 imgdiv">
+                                <span class="imgplaces">
+                                  <img class="arw" src="<?php echo $themeurl; ?>/img/arrow.png" />
+                                </span>  
+                              </div>
+                              <div class="col-md-5">
                                 <div class="form-group form-group-lg form-group-icon-left">
                                   <i class="fa fa-map-marker input-icon"></i>
                                   <label>To</label>
-                                  <input class="typeahead form-control nav_to" name="to" placeholder="City, Airport, U.S. Zip" type="text" />
+                                  <input class="typeahead form-control nav_to" name="to" placeholder="City, Airport" type="text" />
                                 </div>
                               </div>
                             </div>
@@ -217,6 +222,12 @@ $themeurl = file_create_url(path_to_theme());
                                      $('#attach_box').click(function(e) {
                                          e.preventDefault();   
                                          $('#sukh_buton').toggle();
+                                     });
+                                     $('.rtripandowselectorrt').on('click',function(){
+                                        $('#attach_box').show();
+                                     }); 
+                                     $('.rtripandowselectorow').on('click',function(){
+                                        $('#attach_box').hide();
                                      });        
                                  });
                               </script>
@@ -242,14 +253,19 @@ $themeurl = file_create_url(path_to_theme());
                         </div>
                         <div class="tab-pane fade" id="flight-search-2">
                           <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                               <div class="form-group form-group-lg form-group-icon-left">
                                 <i class="fa fa-map-marker input-icon"></i>
                                 <label>From</label>
                                 <input class="typeahead form-control" name="rfrom" placeholder="City, Airport, U.S. Zip" type="text" />
                               </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-2 imgdiv">
+                                <span class="imgplacesow">
+                                  <img class="arw" src="<?php echo $themeurl; ?>/img/arrow.png" />
+                                </span>  
+                              </div>
+                            <div class="col-md-5">
                               <div class="form-group form-group-lg form-group-icon-left">
                                 <i class="fa fa-map-marker input-icon"></i>
                                 <label>To</label>
@@ -276,41 +292,36 @@ $themeurl = file_create_url(path_to_theme());
                                 </select>
                               </div>
                             </div>
-                            <div class="col-md-3">
-                              <div class="form-group form-group-lg form-group-select-plus">
-                                <label>Passngers</label>
-                                <div class="btn-group btn-group-select-num" data-toggle="buttons">
-                                  <label class="btn btn-primary active">
-                                    <input type="radio" name="options" />1
-                                  </label>
-                                  <label class="btn btn-primary">
-                                    <input type="radio" name="options" />2
-                                  </label>
-                                  <label class="btn btn-primary">
-                                    <input type="radio" name="options" />3
-                                  </label>
-                                  <label class="btn btn-primary">
-                                    <input type="radio" name="options" />3+
-                                  </label>
-                                </div>
-                                <select name="noofp" class="form-control hidden">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option selected="selected">4</option>
-                                  <option>5</option>
-                                  <option>6</option>
-                                  <option>7</option>
-                                  <option>8</option>
-                                  <option>9</option>
-                                  <option>10</option>
-                                  <option>11</option>
-                                  <option>12</option>
-                                  <option>13</option>
-                                  <option>14</option>
-                                </select>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg">
+                                  <div class="widthofowsel col-md-6">  
+                                    <label>Adults(+18)</label>
+                                    <select name="adultow" class="form-control">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="3">4</option>
+                                      <option value="3">5</option>
+                                      <option value="3">6</option>
+                                    </select>
+                                  </div>
+                                  <div class="widthofowsel col-md-6">  
+                                    <label>Childs(0-17)</label>
+                                    <select name="childrenow" class="form-control widthofowsel">
+                                      <option value="0">0</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="3">4</option>
+                                      <option value="3">5</option>
+                                      <option value="3">6</option>
+                                    </select>
+                                  </div>  
+
+                                  </div>
                               </div>
-                            </div>
+                            
                           </div>
                         </div>
                       </div>
@@ -867,11 +878,39 @@ $themeurl = file_create_url(path_to_theme());
 <script type="text/javascript">
   $(document).ready(function(){
     $('.nav_search_for_flights').on('click',function(e){
+      if ($('#flight-search-1').hasClass('active')){
         if($("input[name=from]").val() == "" || $("input[name=to]").val() == "")
         {
           alert('Please select origin or desitanation for flights.');
           e.preventDefault();
-        }  
+        }
+
+        if($("input[name=start]").val() == "" || $("input[name=end]").val() == "")
+        {
+          alert('Please select Departing or Returning Dates for flights.');
+          e.preventDefault();
+        }
+
+        $("input[name=rfrom]").val("");
+        $("input[name=tfrom]").val("");
+      }    
+
+      if ($('#flight-search-2').hasClass('active')){
+        if($("input[name=rfrom]").val() == "" || $("input[name=tfrom]").val() == "")
+        {
+          alert('Please select origin or desitanation for flights.');
+          e.preventDefault();
+        }
+
+        if($("input[name=departing]").val() == "")
+        {
+          alert('Please select departing date for flights.');
+          e.preventDefault();
+        }
+        
+        $("input[name=from]").val("");
+        $("input[name=to]").val("");
+      }    
         
     });
   });

@@ -87,6 +87,22 @@
 $themeurl = file_create_url(path_to_theme());
 
 ?>
+<script type="text/javascript">
+  $(document).ready(function(){
+     $('.imgplaces').on('click',function(){
+                var fromval = $("input[name=from]").val();
+                var toval = $("input[name=to]").val();
+                $("input[name=from]").val(toval);
+                $("input[name=to]").val(fromval);
+            });
+     $('.imgplacesow').on('click',function(){
+                var fromval = $("input[name=rfrom]").val();
+                var toval = $("input[name=tfrom]").val();
+                $("input[name=rfrom]").val(toval);
+                $("input[name=tfrom]").val(fromval);
+            });
+   });
+</script>
 <div ng-show="appState == undefined" class="spinner">
   <div class="rect1"></div>
   <div class="rect2"></div>
@@ -98,94 +114,107 @@ $themeurl = file_create_url(path_to_theme());
      
             <div class="mfp-with-anim mfp-hide mfp-dialog mfp-search-dialog" id="search-dialog">
                 <h3>Search for Flight</h3>
-                <form>
+                <form method="POST" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
                     <div class="tabbable">
                         <ul class="nav nav-pills nav-sm nav-no-br mb10" id="flightChooseTab">
-                            <li class="active"><a href="#flight-search-1" data-toggle="tab">Round Trip</a>
-                            </li>
-                            <li><a href="#flight-search-2" data-toggle="tab">One Way</a>
-                            </li>
+                          <li class="active">
+                            <a href="#flight-search-1" class="rtripandowselectorrt" data-toggle="tab">Round Trip</a>
+                          </li>
+                          <li>
+                            <a href="#flight-search-2" class="rtripandowselectorow" data-toggle="tab">One Way</a>
+                          </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane fade in active" id="flight-search-1">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon input-icon-highlight"></i>
-                                            <label>From</label>
-                                            <input class="typeahead form-control" placeholder="City, Airport or U.S. Zip Code" type="text" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon input-icon-highlight"></i>
-                                            <label>To</label>
-                                            <input class="typeahead form-control" placeholder="City, Airport or U.S. Zip Code" type="text" />
-                                        </div>
-                                    </div>
+                          <div class="tab-pane fade in active" id="flight-search-1">
+                            <div class="row">
+                              <div class="col-md-5">
+                                <div class="form-group form-group-lg form-group-icon-left">
+                                  <i class="fa fa-map-marker input-icon"></i>
+                                  <label>From</label>
+                                  <input class="typeahead form-control nav_from" name="from" placeholder="City, Airport" type="text" />
                                 </div>
-                                <div class="input-daterange" data-date-format="MM d, D">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
-                                                <label>Departing</label>
-                                                <input class="form-control" name="start" type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
-                                                <label>Returning</label>
-                                                <input class="form-control" name="end" type="text" />
-                                            </div>
-                                        </div>
-                                       <div class="col-md-2">
-                                                                            <div class="form-group form-group-lg">
-                                                                                
-                                                                                
-                                        <label>Adults(+18)</label>
-                                                                                
-                                        
-                                        <select class="form-control" >
-                                          <option value="1">1</option>
-                                         <option value="2">2</option>
-                                          <option value="3">3</option>
-                                          <option value="3">4</option>
-                                          <option value="3">5</option>
-                                          <option value="3">6</option>
-                                        </select>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-2">
-                                                                            <div class="form-group form-group-lg form-group-select-plus">
-                                      <label>Childs(0-17)</label>
-                                                                            <select class="form-control" >
-                                          <option value="0">0</option>
-                                          <option value="1">1</option>
-                                         <option value="2">2</option>
-                                          <option value="3">3</option>
-                                          <option value="3">4</option>
-                                          <option value="3">5</option>
-                                          <option value="3">6</option>
-                                        </select>
-                                                                            </div>
-                                         
-                                        </div>
-                                    </div>
+                              </div>
+                              <div class="col-md-2 imgdiv">
+                                <span class="imgplaces">
+                                  <img class="arw" src="<?php echo $themeurl; ?>/img/arrow.png" />
+                                </span>  
+                              </div>
+                              <div class="col-md-5">
+                                <div class="form-group form-group-lg form-group-icon-left">
+                                  <i class="fa fa-map-marker input-icon"></i>
+                                  <label>To</label>
+                                  <input class="typeahead form-control nav_to" name="to" placeholder="City, Airport" type="text" />
                                 </div>
+                              </div>
                             </div>
+                            <div class="input-daterange" data-date-format="M d, D">
+                              <div class="row">
+                                <div class="col-md-3">
+                                  <div class="form-group form-group-lg form-group-icon-left">
+                                    <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                                    <label>Departing</label>
+                                    <input class="form-control" name="start" type="text" />
+                                  </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="form-group form-group-lg form-group-icon-left">
+                                    <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                                    <label>Returning</label>
+                                    <input class="form-control" name="end" type="text" />
+                                  </div>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="form-group form-group-lg">
+                                    <label>Adults(+18)</label>
+                                    <select name="adult" class="form-control" >
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="3">4</option>
+                                      <option value="3">5</option>
+                                      <option value="3">6</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="form-group form-group-lg form-group-select-plus">
+                                    <label>Childs(0-17)</label>
+                                    <select name="children" class="form-control" >
+                                      <option value="0">0</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="3">4</option>
+                                      <option value="3">5</option>
+                                      <option value="3">6</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
               <div class="row">
                <div class="col-md-12">
-                <script type="text/javascript"> 
-                  $(document).ready(function() {
-                   $('#attach_box').click(function(e) {
-                    e.preventDefault();   
-                  $('#sukh_buton').toggle();
-                   });        
-                 });
+                 <script type="text/javascript"> 
+                                 $(document).ready(function() {
+                                     $('#attach_box').click(function(e) {
+                                         e.preventDefault();   
+                                         $('#sukh_buton').toggle();
+                                     });
+                                     $('.rtripandowselectorrt').on('click',function(){
+                                        $('#attach_box').show();
+                                     }); 
+                                     $('.rtripandowselectorow').on('click',function(){
+                                        $('#attach_box').hide();
+                                     });        
+                                 });
+                              </script>
               </script>       
               <a href="#" id="attach_box">Advance Search<i class="fa fa-sort-desc sukh" aria-hidden="true"></i></a><br /><br />
               <div id="sukh_buton" class="col-md-4" style="display:none;">
                             <div class="form-group form-group-lg form-group-icon-left "><i class="fa fa-plane input-icon input-icon-highlight"></i>
                             <label>Class</label>
-                                <select class="form-control" >
+                                <select name="rclass" class="form-control" >
                 <option value="economy" class="su_option">Economy</p></option>
                 <option value="premiumeco">premium Economy</option>
                 <option value="business">Business</option>
@@ -196,20 +225,27 @@ $themeurl = file_create_url(path_to_theme());
               
               </div>
                             <div class="tab-pane fade" id="flight-search-2">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon input-icon-highlight"></i>
-                                            <label>From</label>
-                                            <input class="typeahead form-control" placeholder="City, Airport or U.S. Zip Code" type="text" />
-                                        </div>
+                                   <div class="row">
+                                    <div class="col-md-5">
+                                      <div class="form-group form-group-lg form-group-icon-left">
+                                        <i class="fa fa-map-marker input-icon"></i>
+                                        <label>From</label>
+                                        <input class="typeahead form-control" name="rfrom" placeholder="City, Airport, U.S. Zip" type="text" />
+                                      </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon input-icon-highlight"></i>
-                                            <label>To</label>
-                                            <input class="typeahead form-control" placeholder="City, Airport or U.S. Zip Code" type="text" />
-                                        </div>
+                                    <div class="col-md-2 imgdiv">
+                                        <span class="imgplacesow">
+                                          <img class="arw" src="<?php echo $themeurl; ?>/img/arrow.png" />
+                                        </span>  
+                                      </div>
+                                    <div class="col-md-5">
+                                      <div class="form-group form-group-lg form-group-icon-left">
+                                        <i class="fa fa-map-marker input-icon"></i>
+                                        <label>To</label>
+                                        <input class="typeahead form-control" name="tfrom" placeholder="City, Airport, U.S. Zip" type="text" />
+                                      </div>
                                     </div>
-                                </div>
+                                  </div>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
@@ -263,75 +299,20 @@ $themeurl = file_create_url(path_to_theme());
                         <h3>Filter By:</h3>
                         <ul class="list booking-filters-list">
                             <li>
-                                <h5 class="booking-filters-title">Stops <small>Price from</small></h5>
+                                <h5 class="booking-filters-title">Stops <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />Non-stop<span class="pull-right">$215</span>
+                                        <input class="i-check" type="checkbox" />Non-stop<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />1 Stop<span class="pull-right">$154</span>
+                                        <input class="i-check" type="checkbox" />1 Stop<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />2+ Stops<span class="pull-right">$197</span>
-                                    </label>
-                                </div>
-                            </li>
-                            <li>
-                                <h5 class="booking-filters-title">Price </h5>
-                                <input type="text" id="price-slider">
-                            </li>
-                            <li>
-                                <h5 class="booking-filters-title">Flight Class <small>Price from</small></h5>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check" type="checkbox" />Economy<span class="pull-right">$154</span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check" type="checkbox" />Business<span class="pull-right">$316</span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check" type="checkbox" />First<span class="pull-right">$450</span>
-                                    </label>
-                                </div>
-                            </li>
-                            <li>
-                                <h5 class="booking-filters-title">Airlines <small>Price from</small></h5>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check" type="checkbox" />Lufthansa<span class="pull-right">$215</span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check" type="checkbox" />American Airlines<span class="pull-right">$350</span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check" type="checkbox" />Airfrance<span class="pull-right">$154</span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check" type="checkbox" />Croatia Airlines<span class="pull-right">$197</span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check" type="checkbox" />Delta<span class="pull-right">$264</span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check" type="checkbox" />Air Canada<span class="pull-right">$445</span>
+                                        <input class="i-check" type="checkbox" />2+ Stops<span class="pull-right"></span>
                                     </label>
                                 </div>
                             </li>
@@ -350,6 +331,63 @@ $themeurl = file_create_url(path_to_theme());
                                         <input class="i-check" type="checkbox" />Evening (6:00p - 11:59p)</label>
                                 </div>
                             </li>
+                            <!--<li>
+                                <h5 class="booking-filters-title">Price </h5>
+                                <input type="text" id="price-slider">
+                            </li>-->
+                            <li>
+                                <h5 class="booking-filters-title">Airlines <small></small></h5>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check" type="checkbox" />Lufthansa<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check" type="checkbox" />American Airlines<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check" type="checkbox" />Airfrance<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check" type="checkbox" />Croatia Airlines<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check" type="checkbox" />Delta<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check" type="checkbox" />Air Canada<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <h5 class="booking-filters-title">Flight Class <small></small></h5>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check" type="checkbox" />Economy<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check" type="checkbox" />Business<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check" type="checkbox" />First<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                            </li>
+                            
+                            
                         </ul>
                     </aside>
                 </div>
@@ -360,6 +398,7 @@ $themeurl = file_create_url(path_to_theme());
                                 <div class="sukh_container">
                                     <div class="row">
                                         <div class="col-md-12 mtrx__wrapper main hidden-xs">
+                                        <!--{{lpc}}-->
                     <table id="mtrx_table" class="mtrx__table animation-fast" ng-if="lpcfound != false">
             <thead>
                 <tr id="mtrxRow" class="mtrx__row">
@@ -369,44 +408,17 @@ $themeurl = file_create_url(path_to_theme());
                         </a>
                     </th>
 
-                        <th class="mtrx__cell is--airline" scope="col" style="min-width: 123.286px; max-width: 123.286px;">
-                                <a href="" title="{{lpc.lowestfareairlinecode}}">
-                                    <img class="air__logo"  src="<?php echo $themeurl; ?>/img/airlineslogo/{{lpc.lowestfareairlinecodelogo}}" alt="{{lpc.lowestfareairlinecode}}">
-                                    <span class="air__title" ng-bind="lpc.lowestfareairlinecode" title="{{lpc.lowestfareairlinecode}}">{{lpc.lowestfareairlinecode}}</span>
+                        <th class="mtrx__cell is--airline" scope="col" style="min-width: 123.286px; max-width: 123.286px;" ng-repeat="xyz in lpc" >
+                                <a href="" title="{{xyz.lowestfareairlinecode}}">
+                                    <img class="air__logo"  src="<?php echo $themeurl; ?>/img/airlineslogo/{{xyz.lowestairlinecodelogo}}" alt="{{xyz.lowestfareairlinecode}}">
+                                    <span class="air__title" ng-bind="xyz.lowestfareairlinecode" title="{{xyz.lowestfareairlinecode}}">{{xyz.lowestfareairlinecode}}</span>
                                         <i class="icon ic-flights-airlines hidden"></i>
                                 </a>
                         </th>
-                        <th class="mtrx__cell is--airline" scope="col" style="min-width: 123.286px; max-width: 123.286px;">
-                                <a href="" title="{{lpc.lowestnonstopairlinecode}}">
-                                    <img class="air__logo" src="<?php echo $themeurl; ?>/img/airlineslogo/{{lpc.lowestnonstopairlinecodelogo}}" alt="{{lpc.lowestnonstopairlinecode}}">
-                                    <span class="air__title" title="{{lpc.lowestnonstopairlinecode}}">{{lpc.lowestnonstopairlinecode}}</span>
-                                        <i class="icon ic-flights-airlines hidden"></i>
-                                </a>
-                        </th>
-                        <th class="mtrx__cell is--airline" scope="col" style="min-width: 123.286px; max-width: 123.286px;">
-                                <a href="" title="American Airlines with others">
-                                    <img class="air__logo" src="<?php echo $themeurl; ?>/img/AA.gif" alt="American Airlines with others">
-                                        <span class="cmb-airline" title="American Airlines with others"></span>
-                                    <span class="air__title" title="American Airlines with others">American Airlines</span>
-                                        
-                                </a>
-                        </th>
-                        <th class="mtrx__cell is--airline" scope="col" style="min-width: 123.286px; max-width: 123.286px;">
-                                <a href="" title="United Airlines with others">
-                                    <img class="air__logo" src="<?php echo $themeurl; ?>/img/UA.gif" alt="United Airlines with others">
-                                        <span class="cmb-airline" title="United Airlines with others"></span>
-                                    <span class="air__title" title="United Airlines with others">United Airlines</span>
-                                       
-                                </a>
-                        </th>
-                        <th class="mtrx__cell is--airline" scope="col" style="min-width: 123.286px; max-width: 123.286px;">
-                                <a href="" title="Virgin America with others">
-                                    <img class="air__logo" src="<?php echo $themeurl; ?>/img/VX.gif" alt="Virgin America with others">
-                                        <span class="cmb-airline" title="Virgin America with others"></span>
-                                    <span class="air__title" title="Virgin America with others">Virgin America</span>
-                                       
-                                </a>
-                        </th>
+                        
+                       
+                        
+                        
                     </tr>
                     
           <tr class="mtrx__row">
@@ -416,115 +428,32 @@ $themeurl = file_create_url(path_to_theme());
                             </a>
                         </th>
 
-                            <td class="mtrx__cell" id="td_NKFalseFalse6" style="min-width: 123.286px; max-width: 123.286px;">
+                            <td class="mtrx__cell" id="td_NKFalseFalse6" style="min-width: 123.286px; max-width: 123.286px;" ng-repeat="xyz in lpc" >
                                 <span id="alternettrack_6" title="False"></span>
                                 <a href="" class="mtrx__price">
                                         <span class="base-price">
                                             <span class="currency" >
-                                              ${{lpc.lowestfareairlinefare}}
+                                              ${{xyz.lowestfareairlinefare}}
                                             </span>
                                             <span class="fpSuper">
-                                              <sup>.{{lpc.lowestfareairlinefaresup}}</sup>
+                                              <sup>.{{xyz.lowestfareairlinefaresup}}</sup>
                                             </span>
                                         </span>
                                     <em title="Full price incl. taxes and fees" class="total-price">
                                         <span>Total</span>
-                    <b class="currency" title="{{lpc.lowestfareairlinefare}}" defaultvalue="{{lpc.lowestfareairlinefare}}">
-                      ${{lpc.lowestfareairlinefare}}
+                    <b class="currency" title="{{xyz.lowestfareairlinefare}}" defaultvalue="{{xyz.lowestfareairlinefare}}">
+                      ${{xyz.lowestfareairlinefare}}
                     </b>
-                    <span class="fpSuper" title="{{lpc.lowestfareairlinefare}}" defaultvalue="{{lpc.lowestfareairlinefare}}">
-                      <sup>.{{lpc.lowestfareairlinefaresup}}</sup>
+                    <span class="fpSuper" title="{{xyz.lowestfareairlinefare}}" defaultvalue="{{xyz.lowestfareairlinefare}}">
+                      <sup>.{{xyz.lowestfareairlinefaresup}}</sup>
                     </span>
                                     </em>
                                     </a>
                             </td>
-                            <td class="mtrx__cell" id="td_VXFalseFalse6" >
-                                <span id="alternettrack_6" title="True"></span>
-                                <a href="" class="mtrx__price">
-                                        <span class="base-price">
-                    <span class="currency" title="163.00" defaultvalue="163.0023">
-                      ${{lpc.lowestnonstopairlinefare}}
-                    </span>
-                    <span class="fpSuper" title="163.00" defaultvalue="163.0023">
-                      <sup>.{{lpc.lowestnonstopairlinefaresup}}</sup>
-                    </span>
-                    </span>
-                                    <em title="Full price incl. taxes and fees" class="total-price">
-                                        <span>Total</span> 
-                    <b class="currency" title="199.70" defaultvalue="199.7">
-                      ${{lpc.lowestnonstopairlinefare}}
-                    </b>
-                    <span class="fpSuper" title="199.70" defaultvalue="199.7">
-                      <sup>.{{lpc.lowestnonstopairlinefaresup}}</sup>
-                    </span>
-                                    </em>
-                                    </a>
-                            </td>
-                            <td class="mtrx__cell" style="min-width: 123.286px; max-width: 123.286px;">
-                                <span id="alternettrack_6" title="False"></span>
-                                <a href="" class="mtrx__price">
-                                        <span class="base-price">
-                  <span class="currency" title="194.00" defaultvalue="193.9995">$194</span>
-                    <span class="fpSuper" title="194.00" defaultvalue="193.9995">
-                      <sup>.00</sup>
-                    </span>
-                    </span>
-                                    <em title="Full price incl. taxes and fees" class="total-price">
-                                        <span>Total</span>
-                    <b class="currency" title="230.70" defaultvalue="230.7">
-                      $230
-                    </b>
-                    <span class="fpSuper" title="230.70" defaultvalue="230.7">
-                      <sup>.70</sup>
-                    </span>
-                                    </em>
-                                    </a>
-                            </td>
-                            <td class="mtrx__cell" style="min-width: 123.286px; max-width: 123.286px;">
-                                <span id="alternettrack_6" title="False"></span>
-                                <a href="" class="mtrx__price">
-                                        <span class="base-price">
-                    <span class="currency" title="194.00" defaultvalue="193.9995">
-                      $194
-                    </span>
-                    <span class="fpSuper" title="194.00" defaultvalue="193.9995">
-                      <sup>.00</sup>
-                    </span>
-                    </span>
-                                    <em title="Full price incl. taxes and fees" class="total-price">
-                                        <span>Total</span>
-                    <b class="currency" title="230.70" defaultvalue="230.7">
-                      $230
-                    </b>
-                    <span class="fpSuper" title="230.70" defaultvalue="230.7">
-                    
-                      <sup>.70</sup>
-                    </span>
-                          </em>
-                                    </a>
-                            </td>
-                            <td class="mtrx__cell" id="td_VXFalseTrue6" style="min-width: 123.286px; max-width: 123.286px;">
-                                <span id="alternettrack_6" title="False"></span>
-                                <a href="" class="mtrx__price">
-                                        <span class="base-price">
-                    <span class="currency" title="194.00" defaultvalue="193.9995">
-                      $194
-                    </span>
-                    <span class="fpSuper" title="194.00" defaultvalue="193.9995">
-                      <sup>.00</sup>
-                    </span>
-                    </span>
-                                    <em title="Full price incl. taxes and fees" class="total-price">
-                                        <span>Total</span>
-                     <b class="currency" title="230.70" defaultvalue="230.7">
-                      $230
-                    </b>
-                    <span class="fpSuper" title="230.70" defaultvalue="230.7">
-                      <sup>.70</sup>
-                    </span>
-                                    </em>
-                                    </a>
-                            </td>
+                          
+                          
+                           
+                     
                     </tr>
             </tbody>
         </table>
@@ -553,16 +482,16 @@ $themeurl = file_create_url(path_to_theme());
                         </ul>
                     </div>
                     <ul class="booking-list">
-                        <li ng-repeat="x in DisplayData" ng-if="x.logoOfmarketingAirine !== undefined">
+                        <!-- Instant flight search start -->
+                         <li ng-repeat="xy in DisplayDatainstantflights" ng-if="xy.logoOfmarketingAirine !== undefined">
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->
                         <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
-                        
-
+                       
                         <!--<h4>{{x}}</h4>-->
-                            <div class="booking-item-container">
+                           <div class="booking-item-container" >
                                 <div class="booking-item">
                                 <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row" >
+                                    <div class="row"  ng-repeat="x in xy.datatoshownew" >
                                         <div class="col-md-2">
                                             <div class="booking-item-airline-logo">
                                                 <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
@@ -587,11 +516,39 @@ $themeurl = file_create_url(path_to_theme());
                                             <h5>{{x.TotalTimeWithLayoverTime}}</h5>
                                             <p>{{x.nonStopOrwithStop}}</p>
                                         </div>
-                                        <div class="col-md-3"><span class="booking-item-price">${{x.totalfareInUsd}}</span><span>/person</span>
+                                        <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
                                             <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
-                                            <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p><a class="btn btn-primary" href="#">Select</a>
+                                            <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
+                                            <a class="btn btn-primary" ng-if="x.returnorarrvial == 1" href="#">Select</a>
                                         </div>
+
+                                        <!-- row rpeate first step ends here -->  
+                                    <div class="col-md-12 connectingflight" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
+                                        <div class="col-md-2">
+                                            <div class="booking-item-airline-logo">
+                                                <img ng-if="donotshowthis !== undefined" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
+                                                <p ng-if="donotshowthis !== undefined">{{x.nameOfmarketingAirine}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="booking-item-flight-details">
+                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
+                                                </div>
+                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
+                                <!-- row rpeate last step ends here step ends here -->  
+                                    </div>
+                                  <!-- main loop row ends here -->
                                   <!-- row rpeate first step ends here -->  
                                     <div class="row" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
                                         <div class="col-md-2">
@@ -618,6 +575,7 @@ $themeurl = file_create_url(path_to_theme());
                                     </div>
                                 <!-- row rpeate last step ends here step ends here -->      
                                 </div>
+                                <!-- booking item ends here -->
                                 <div class="booking-item-details">
                                     <div class="row">
                                         <div class="col-md-8">
@@ -642,7 +600,131 @@ $themeurl = file_create_url(path_to_theme());
                                     </div>
                                 </div>
                             </div>
+                        </li> 
+                        <!-- Instant flight search ends -->
+                        <li><h1>Bargin Finder </h1></li>
+                        <!-- Bargain max finder start -->
+                        <li ng-repeat="xy in DisplayData" ng-if="xy.logoOfmarketingAirine !== undefined">
+                        <!--<h4>{{x.TotalFlightTime}}</h4>-->
+                        <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
+                        
+
+                        <!--<h4>{{xy.datatoshownew}}</h4>-->
+                            <div class="booking-item-container" >
+                                <div class="booking-item">
+                                <!-- Repeat this row for showing no of flights from des for no of stops -->
+                                    <div class="row"  ng-repeat="x in xy.datatoshownew" >
+                                        <div class="col-md-2">
+                                            <div class="booking-item-airline-logo">
+                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
+                                                <p>{{x.nameOfmarketingAirine}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
+                                            <div class="booking-item-flight-details">
+                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
+                                                </div>
+                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <h5>{{x.TotalTimeWithLayoverTime}}</h5>
+                                            <p>{{x.nonStopOrwithStop}}</p>
+                                        </div>
+                                        <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
+                                            <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
+                                            <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
+                                            <a class="btn btn-primary" ng-if="x.returnorarrvial == 1" href="#">Select</a>
+                                        </div>
+
+                                        <!-- row rpeate first step ends here -->  
+                                    <div class="col-md-12 connectingflight" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
+                                        <div class="col-md-2">
+                                            <div class="booking-item-airline-logo">
+                                                <img ng-if="donotshowthis !== undefined" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
+                                                <p ng-if="donotshowthis !== undefined">{{x.nameOfmarketingAirine}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="booking-item-flight-details">
+                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
+                                                </div>
+                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                <!-- row rpeate last step ends here step ends here -->  
+                                    </div>
+                                  <!-- main loop row ends here -->
+                                  <!-- row rpeate first step ends here -->  
+                                    <div class="row" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
+                                        <div class="col-md-2">
+                                            <div class="booking-item-airline-logo">
+                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
+                                                <p>{{x.nameOfmarketingAirine}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="booking-item-flight-details">
+                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
+                                                </div>
+                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                <!-- row rpeate last step ends here step ends here -->      
+                                </div>
+                                <!-- booking item ends here -->
+                                <div class="booking-item-details">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <p>Flight Details</p>
+                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
+                                            <ul class="list">
+                                                <li>US Airways 731</li>
+                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
+                                                <li>Depart 09:55 Arrive 15:10</li>
+                                                <li>Duration: 9h 15m</li>
+                                            </ul>
+                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
+                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
+                                            <ul class="list">
+                                                <li>US Airways 1873</li>
+                                                <li>Economy / Coach Class ( M), Airbus A321</li>
+                                                <li>Depart 22:11 Arrive 23:53</li>
+                                                <li>Duration: 1h 42m</li>
+                                            </ul>
+                                            <p>Total trip time: 17h 58m</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- booking container enda here -->
                         </li>
+                        <!-- Bargain max finder ends -->
                         <li>
                             <div class="booking-item-container">
                                 <div class="booking-item">

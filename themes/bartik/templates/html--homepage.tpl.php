@@ -347,7 +347,7 @@ trk=nav_responsive_tab_profile"></a>
         <script src="<?php echo $themeurl; ?>/js/switcher.js"></script>
         <script>
           $(document).ready(function(){
-            $("#workflow-form").submit(function(event) { console.log("asdas");
+            $("#workflow-form").submit(function(event) { 
               var over = '<div id="overlay">' +
                       '<img id="loading" src="http://www.swellalerts.com/img/plane_loading.gif"/>' +
                       '</div>';
@@ -359,6 +359,21 @@ trk=nav_responsive_tab_profile"></a>
               }, 'json');
               return false;
             });
+
+            $('.imgplaces').on('click',function(){
+                var fromval = $("input[name=from]").val();
+                var toval = $("input[name=to]").val();
+                $("input[name=from]").val(toval);
+                $("input[name=to]").val(fromval);
+            });
+
+            $('.imgplacesow').on('click',function(){
+                var fromval = $("input[name=rfrom]").val();
+                var toval = $("input[name=tfrom]").val();
+                $("input[name=rfrom]").val(toval);
+                $("input[name=tfrom]").val(fromval);
+            });
+
           });   
         </script>
     </div>
