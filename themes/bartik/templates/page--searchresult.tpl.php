@@ -530,6 +530,7 @@ $themeurl = file_create_url(path_to_theme());
                         <!--<h4>{{x}}</h4>-->
                            <div class="booking-item-container" >
                                 <div class="booking-item">
+                                <span class="bookingdata{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
                                 <!-- Repeat this row for showing no of flights from des for no of stops -->
                                     <div class="row"  ng-repeat="x in xy.datatoshownew" >
                                         <div class="col-md-2">
@@ -559,7 +560,7 @@ $themeurl = file_create_url(path_to_theme());
                                         <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
                                             <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
                                             <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
-                                            <a class="btn btn-primary" ng-if="x.returnorarrvial == 1" href="#">Select</a>
+                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 1" ng-click="calljsfunction(xy.noofrest)" >Select</a>
                                         </div>
 
                                         <!-- row rpeate first step ends here -->  
@@ -652,6 +653,7 @@ $themeurl = file_create_url(path_to_theme());
                         <!--<h4>{{xy.datatoshownew}}</h4>-->
                             <div class="booking-item-container" >
                                 <div class="booking-item">
+                                <span class="bookingdata{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
                                 <!-- Repeat this row for showing no of flights from des for no of stops -->
                                     <div class="row"  ng-repeat="x in xy.datatoshownew" >
                                         <div class="col-md-2">
@@ -681,7 +683,7 @@ $themeurl = file_create_url(path_to_theme());
                                         <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
                                             <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
                                             <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
-                                            <a class="btn btn-primary" ng-if="x.returnorarrvial == 1" href="#">Select</a>
+                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 1" ng-click="calljsfunction(xy.noofrest)" >Select</a>
                                         </div>
 
                                         <!-- row rpeate first step ends here -->  

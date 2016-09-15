@@ -511,7 +511,16 @@ trk=nav_responsive_tab_profile"></a>
                         alert("Please select a filter");
                     }
                 });
+
             });
+
+            function bookaflight(id){
+                var clsname = "bookingdata"+id;    
+                console.log(document.getElementsByClassName(clsname)[0].innerHTML);
+                document.getElementsByName('saledata')[0].value = document.getElementsByClassName(clsname)[0].innerHTML;
+                document.getElementById("idformforselect").submit();
+                
+            }
         </script>
         <script type="text/javascript">
           
@@ -602,6 +611,12 @@ trk=nav_responsive_tab_profile"></a>
 //return;
                 console.log(postData);
 
+                $scope.calljsfunction = function(Id){
+                  console.log("Task Id is "+Id);
+                  bookaflight(Id);
+                  
+                };
+
                 $scope.mySplit = function(string, nb) {
                     var array = string.split('.');
                     return array[nb];
@@ -658,6 +673,7 @@ trk=nav_responsive_tab_profile"></a>
                       var totaldataarray = [];
                      
                       var x = 1;
+                      var noofrest = 1;
                        angular.forEach($scope.allflightdata,function(value,index){
                           var odoptionslen = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption.length;
                           var odoptionsdata = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption;
@@ -755,6 +771,12 @@ trk=nav_responsive_tab_profile"></a>
                                 searchedClass : $scope.DatatoShow.searchedClass,
                                 nonStopOrwithStop : $scope.DatatoShow.nonStopOrwithStop,
                                 TotalTimeWithLayoverTime: $scope.DatatoShow.TotalTimeWithLayoverTime,
+                                MarketingAirlineCode : odoptionsdata[odoptions].FlightSegment[0].MarketingAirline.Code,
+                                ResBookDesigCode: odoptionsdata[odoptions].FlightSegment[0].ResBookDesigCode,
+                                AirEquipType: odoptionsdata[odoptions].FlightSegment[0].Equipment.AirEquipType,
+                                FlightNumber: odoptionsdata[odoptions].FlightSegment[0].FlightNumber,
+                                OperatingAirlineCode: odoptionsdata[odoptions].FlightSegment[0].OperatingAirline.Code,
+                                OperatingAirlineFlightNumber: odoptionsdata[odoptions].FlightSegment[0].OperatingAirline.FlightNumber,
                                 returnorarrvial :  odoptions
                                 
                               };
@@ -763,6 +785,8 @@ trk=nav_responsive_tab_profile"></a>
 
                          
                           $scope.DatatoShow.datatoshownew = datatoshownew;
+                          $scope.DatatoShow.noofrest =   noofrest;
+                          noofrest++;
                           //total fare in usd
                           $scope.DatatoShow.totalfareInUsd =  value.AirItineraryPricingInfo.ItinTotalFare.TotalFare.Amount;
 
@@ -786,6 +810,7 @@ trk=nav_responsive_tab_profile"></a>
                       var totaldataarray = [];
                      
                       var x = 1;
+                      var noofrest = 1;
                        angular.forEach($scope.allflightdata,function(value,index){
                           var odoptionslen = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption.length;
                           var odoptionsdata = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption;
@@ -798,9 +823,7 @@ trk=nav_responsive_tab_profile"></a>
 
                               $scope.DatatoShow.nameOfmarketingAirine = listofairports[value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].MarketingAirline.Code];             
 
-                              
-                              
-                                          
+                                         
                               
                               //total time with layover
                               //$scope.TotalFlightTimeWithWait = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime;
@@ -891,7 +914,8 @@ trk=nav_responsive_tab_profile"></a>
                               
                           }
 
-                         
+                          $scope.DatatoShow.noofrest =   noofrest;
+                          noofrest++; 
                           $scope.DatatoShow.datatoshownew = datatoshownew;
                           //total fare in usd
                           $scope.DatatoShow.totalfareInUsd =  value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount;
@@ -986,11 +1010,15 @@ trk=nav_responsive_tab_profile"></a>
           }]);
 
         </script>
+        <form method="POST" id="idformforselect" class="formforselect" style="display:none;" action="<?php echo $_SESSION['urlforform']; ?>searchsale">
+            <label>Data</label>
+            <input name="saledata" value="" />
+        </form>
         <?php 
                 if(isset($_POST['from']) && $_POST['from'] != "" && isset($_POST['to']) && $_POST['to'] != "")
                 {    
                     ?>
-                  <form method="POST" class="formforfilters" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
+                  <form method="POST" class="formforfilters" style="display:none;" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
                     <label>From</label>
                     <input name="from" value="<?php echo $fromairportcode; ?>" />
                     <label>To</label>
@@ -1029,7 +1057,7 @@ trk=nav_responsive_tab_profile"></a>
 
                  if(isset($_POST['rfrom']) && $_POST['rfrom'] != "" && isset($_POST['tfrom']) && $_POST['tfrom'] != "")
                 {    ?>
-                  <form method="POST" class="formforfilters" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
+                  <form method="POST" class="formforfilters" style="display:none;" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
                     <label>From</label>
                     <input name="from" value="" />
                     <label>To</label>
