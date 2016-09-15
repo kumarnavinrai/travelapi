@@ -11114,6 +11114,9 @@ img.air__logo {
 .arw {
     
     vertical-align: middle;
-    max-height: 25px;
+    max-height: 35px;
     max-width: 160px;
+}
+.fliter_apply{
+  float: right;
 }

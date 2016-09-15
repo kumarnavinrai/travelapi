@@ -296,93 +296,133 @@ $themeurl = file_create_url(path_to_theme());
             <div class="row">
                 <div class="col-md-3">
                     <aside class="booking-filters text-white">
-                        <h3>Filter By:</h3>
+                        <h3>Filter By:<button class="btn btn-primary fliter_apply">Apply</button></h3>
                         <ul class="list booking-filters-list">
-                            <li>
+                            <li class="checkboxesli">
                                 <h5 class="booking-filters-title">Stops <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />Non-stop<span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" value="0" />Non-stop<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />1 Stop<span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox"  value="1" />1 Stop<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />2+ Stops<span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox"  value="2" />2 Stops<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check checkbox_stops" type="checkbox"  value="3" />3 Stops<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check checkbox_stops" type="checkbox"  value="4" />4 Stops<span class="pull-right"></span>
                                     </label>
                                 </div>
                             </li>
-                            <li>
+                            <li class="departtimecheckboxes">
                                 <h5 class="booking-filters-title">Departure Time</h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />Morning (5:00a - 11:59a)</label>
+                                        <input class="i-check checkbox_dt" value="05001159" type="checkbox" />Morning (5:00a - 11:59a)</label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />Afternoon (12:00p - 5:59p)</label>
+                                        <input class="i-check checkbox_dt" value="12001759" type="checkbox" />Afternoon (12:00p - 5:59p)</label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />Evening (6:00p - 11:59p)</label>
+                                        <input class="i-check checkbox_dt" value="18002359" type="checkbox" />Evening (6:00p - 11:59p)</label>
                                 </div>
                             </li>
                             <!--<li>
-                                <h5 class="booking-filters-title">Price </h5>
+                                <h5 class="booking-filters-title">Layover Time</h5>
                                 <input type="text" id="price-slider">
                             </li>-->
-                            <li>
+                            <li class="liforairline">
                                 <h5 class="booking-filters-title">Airlines <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />Lufthansa<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox"  value="VX" />Virgin America<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />American Airlines<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" value="DL" />Delta Air Lines<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />Airfrance<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" value="UA" />United Airlines<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />Croatia Airlines<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" value="AA" />American Airlines<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />Delta<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" value="B6" />jetBlue Airways<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />Air Canada<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" value="AC" />Air Canada<span class="pull-right"></span>
                                     </label>
                                 </div>
                             </li>
-                            <li>
-                                <h5 class="booking-filters-title">Flight Class <small></small></h5>
+                            <li class="layoverli">
+                                <h5 class="booking-filters-title">Waiting Time <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />Economy<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" value="1" />1hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />Business<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" value="2" />2hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check" type="checkbox" />First<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" value="3" />3hr<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check layoverchkbox" type="checkbox" value="4" />4hr<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check layoverchkbox" type="checkbox" value="5" />5hr<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check layoverchkbox" type="checkbox" value="6" />6hr<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check layoverchkbox" type="checkbox" value="7" />7hr<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check layoverchkbox" type="checkbox" value="8" />8hr<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check layoverchkbox" type="checkbox" value="9" />9hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                             </li>

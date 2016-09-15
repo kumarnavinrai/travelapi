@@ -297,11 +297,11 @@ $(document).ready(
 $('.nav-drop').dropit();
 
 
-$("#price-slider").ionRangeSlider({
-    min: 130,
-    max: 575,
+$("#price-slider1").ionRangeSlider({
+    min: 1,
+    max: 12,
     type: 'double',
-    prefix: "$",
+    postfix: "hr",
     // maxPostfix: "+",
     prettify: false,
     hasGrid: true

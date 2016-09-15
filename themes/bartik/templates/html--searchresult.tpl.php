@@ -346,6 +346,174 @@ trk=nav_responsive_tab_profile"></a>
         <script src="<?php echo $themeurl; ?>/js/moment.min.js"></script>
         <script src="<?php echo $themeurl; ?>/js/angular-moment.min.js"></script>
         <script type="text/javascript">
+            $(document).ready(function(){
+                <?php if(isset($_REQUEST['outboundflightstops']) && $_REQUEST['outboundflightstops'] != ""){ ?>
+                    $('.checkboxesli .checkbox_stops').each(function() {
+                           if($(this).val() == <?php echo $_REQUEST['outboundflightstops']; ?>){
+                                $(this).prop('checked', true);
+                                $(this).parent('.i-check').addClass("checked");
+                           }
+                        });
+                <?php } ?>
+
+                <?php if(isset($_REQUEST['outbounddeparturewindow']) && $_REQUEST['outbounddeparturewindow'] != ""){ ?>
+                    $('.departtimecheckboxes .checkbox_dt').each(function() {
+                           if($(this).val() == "<?php echo $_REQUEST['outbounddeparturewindow']; ?>"){
+                                $(this).prop('checked', true);
+                                $(this).parent('.i-check').addClass("checked");
+                           }
+                        });
+                <?php } ?>
+                
+                   <?php if(isset($_REQUEST['includedcarriers']) && $_REQUEST['includedcarriers'] != ""){ ?>
+                    var allailinesarr = <?php echo json_encode(explode(",",$_REQUEST['includedcarriers'])); ?>;
+                        $('.liforairline .cls_airline').each(function() {
+                           if($.inArray($(this).val(),allailinesarr) != -1){
+                                $(this).prop('checked', true);
+                                $(this).parent('.i-check').addClass("checked");
+                           }
+                        });
+                    <?php } ?>
+
+                    <?php if(isset($_REQUEST['inboundstopduration']) && $_REQUEST['inboundstopduration'] != ""){ ?>
+                    $('.layoverli .layoverchkbox').each(function() {
+                           if($(this).val() == <?php echo $_REQUEST['inboundstopduration']; ?>){
+                                $(this).prop('checked', true);
+                                $(this).parent('.i-check').addClass("checked");
+                           }
+                        });
+                    <?php } ?>
+
+                    
+                $('.iCheck-helper').on('click',function(){
+                
+                    if($(this).siblings('.checkbox_stops').length == 1){
+                        
+                        var valueofcheckedcheckbox = $(this).siblings('.checkbox_stops').val();
+                        $('.cls_stops').val(valueofcheckedcheckbox);
+                        //$('.formforfilters').submit();
+                        $('.checkboxesli .checkbox_stops').each(function() {
+
+                           if($(this).val() != valueofcheckedcheckbox && $(this).parent('.i-check').hasClass("checked")){
+                                $(this).prop('checked', false);
+                                $(this).parent('.i-check').removeClass("checked");
+                           }
+                        });
+                        var allcheckboxunchecked = "no";
+                        $('.checkboxesli .checkbox_stops').each(function() {
+                           if($(this).parent('.i-check').hasClass("checked")){
+                                allcheckboxunchecked = "yes";
+                           }
+                        });
+                        if(allcheckboxunchecked == "no"){
+                           $('.cls_stops').val(""); 
+                        }
+                    }
+
+                    
+                    if($(this).siblings('.checkbox_dt').length == 1){
+                        
+                        var valueofcheckedcheckbox = $(this).siblings('.checkbox_dt').val();
+                        $('.cls_departure').val(valueofcheckedcheckbox);
+                        //$('.formforfilters').submit();
+                        $('.departtimecheckboxes .checkbox_dt').each(function() {
+
+                           if($(this).val() != valueofcheckedcheckbox && $(this).parent('.i-check').hasClass("checked")){
+                                $(this).prop('checked', false);
+                                $(this).parent('.i-check').removeClass("checked");
+                           }
+                        });
+                        var allcheckboxunchecked = "no";
+                        $('.departtimecheckboxes .checkbox_dt').each(function() {
+                           if($(this).parent('.i-check').hasClass("checked")){
+                                allcheckboxunchecked = "yes";
+                           }
+                        });
+                        if(allcheckboxunchecked == "no"){
+                           $('.cls_departure').val(""); 
+                        }
+                    }
+
+
+                    if($(this).siblings('.cls_airline').length == 1){
+                        
+                        var valueofcheckedcheckbox = $(this).siblings('.cls_airline').val();
+                                                
+                        if($(this).parent('.i-check').hasClass("checked") && $(this).siblings('.cls_airline').prop("checked") == true){
+                            
+                            if($('.cls_airlines').val() == ""){
+                                $('.cls_airlines').val(valueofcheckedcheckbox);
+                            }else{
+                                var alradyvalofdepat = $('.cls_airlines').val();
+                                valueofcheckedcheckbox = alradyvalofdepat + "," + valueofcheckedcheckbox;
+                                $('.cls_airlines').val(valueofcheckedcheckbox);
+                            }    
+                        }
+
+                        if(!$(this).parent('.i-check').hasClass("checked")){
+                            var alradyvalofdepat = $('.cls_airlines').val();
+                            
+                            alradyvalofdepat = alradyvalofdepat.replace(valueofcheckedcheckbox, '');
+                            alradyvalofdepat = alradyvalofdepat.replace(',,', ',');
+                            if(alradyvalofdepat.charAt(0) == ","){
+                                alradyvalofdepat = alradyvalofdepat.replace(',', '');
+                            }
+
+                            var lastChar = alradyvalofdepat.substr(alradyvalofdepat.length - 1);
+                            if(lastChar == ","){
+                                alradyvalofdepat = alradyvalofdepat.replace(/(\s+)?.$/, '');
+                                
+                            }
+                            $('.cls_airlines').val(alradyvalofdepat);
+                        }
+
+                        
+                        var allcheckboxunchecked = "no";
+                        $('.liforairline .cls_airline').each(function() {
+                           if($(this).parent('.i-check').hasClass("checked")){
+                                allcheckboxunchecked = "yes";
+                           }
+                        });
+                        if(allcheckboxunchecked == "no"){
+                           $('.cls_airlines').val(""); 
+                        }
+                    }
+
+                    
+                    if($(this).siblings('.layoverchkbox').length == 1){
+                        
+                        var valueofcheckedcheckbox = $(this).siblings('.layoverchkbox').val();
+                        $('.cls_layover').val(valueofcheckedcheckbox);
+                        //$('.formforfilters').submit();
+                        $('.layoverli .layoverchkbox').each(function() {
+
+                           if($(this).val() != valueofcheckedcheckbox && $(this).parent('.i-check').hasClass("checked")){
+                                $(this).prop('checked', false);
+                                $(this).parent('.i-check').removeClass("checked");
+                           }
+                        });
+                        var allcheckboxunchecked = "no";
+                        $('.layoverli .layoverchkbox').each(function() {
+                           if($(this).parent('.i-check').hasClass("checked")){
+                                allcheckboxunchecked = "yes";
+                           }
+                        });
+                        if(allcheckboxunchecked == "no"){
+                           $('.cls_layover').val(""); 
+                        }
+                    }
+
+                });
+                $('.fliter_apply').on('click',function(){
+                    if($('.cls_stops').val() != "" || $('.cls_departure').val() != "" || $('.cls_airlines').val() != "" || $('.cls_layover').val() != ""){
+                        $('.formforfilters').submit();
+                    }else{
+                        alert("Please select a filter");
+                    }
+                });
+            });
+        </script>
+        <script type="text/javascript">
           
           var app = angular.module('myApp', ['angularMoment']);
 
@@ -379,6 +547,20 @@ trk=nav_responsive_tab_profile"></a>
                   $todate = "";
                 }  
               /*
+              <form method="POST" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
+                <input name="from" value="<?php echo $fromairportcode; ?>" />
+                <input name="to"  value="<?php echo $toairportcode ?>" />
+                <input name="start"  value="<?php echo $startdate ?>" />
+                <input name="end"  value="<?php echo $todate ?>" />
+                <input name="adult"  value="" />
+                <input name="children"  value="" />
+                <input name="pclass"  value="" />
+                <input name="rfrom"  value="" />
+                <input name="tfrom"  value="" />
+                <input name="departing"  value="" />
+                <input name="rclass"  value="<?php echo $_POST["rclass"]; ?>" />
+                <input name="noofp"  value="" />
+              </form>
               (
     [from] => LAX - Los Angeles Intl, Los Angeles, CA, US
     [to] => JFK - J.F. Kennedy, NYC, New York, NY, US
@@ -403,6 +585,12 @@ trk=nav_responsive_tab_profile"></a>
               $scope.lengthofstay = "2,4,6,8,16"; //"
               $scope.searchedclass = "<?php echo $_POST["rclass"]; ?>";
               $scope.limit = <?php echo $noofresultonpage; ?>;
+              $scope.outboundflightstops = "<?php echo isset($_REQUEST['outboundflightstops'])?$_REQUEST['outboundflightstops']:""; ?>";
+              $scope.outbounddeparturewindow = "<?php echo isset($_REQUEST['outbounddeparturewindow'])?$_REQUEST['outbounddeparturewindow']:""; ?>"; 
+              $scope.includedcarriers = "<?php echo isset($_REQUEST['includedcarriers'])?$_REQUEST['includedcarriers']:""; ?>";
+              $scope.inboundstopduration = "<?php echo isset($_REQUEST['inboundstopduration'])?$_REQUEST['inboundstopduration']:""; ?>";
+
+              
               //limit
               <?php //print_r($_POST); die; ?>
               $scope.init = function () {
@@ -410,7 +598,7 @@ trk=nav_responsive_tab_profile"></a>
                 // and fire search in case its value is not empty
                 var urltogetFlights = '<?php echo $urltoGetFilghts; ?>';
                 var postData;
-                 postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,returndate:$scope.returnDate,lengthofstay:$scope.lengthofstay,limit:$scope.limit}; 
+                 postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,returndate:$scope.returnDate,lengthofstay:$scope.lengthofstay,limit:$scope.limit,outboundflightstops:$scope.outboundflightstops,outbounddeparturewindow:$scope.outbounddeparturewindow,includedcarriers:$scope.includedcarriers,inboundstopduration:$scope.inboundstopduration}; 
 //return;
                 console.log(postData);
 
@@ -798,6 +986,88 @@ trk=nav_responsive_tab_profile"></a>
           }]);
 
         </script>
+        <?php 
+                if(isset($_POST['from']) && $_POST['from'] != "" && isset($_POST['to']) && $_POST['to'] != "")
+                {    
+                    ?>
+                  <form method="POST" class="formforfilters" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
+                    <label>From</label>
+                    <input name="from" value="<?php echo $fromairportcode; ?>" />
+                    <label>To</label>
+                    <input name="to"  value="<?php echo $toairportcode ?>" />
+                    <label>Start</label>
+                    <input name="start"  value="<?php echo $startdate ?>" />
+                    <label>End</label>
+                    <input name="end"  value="<?php echo $todate ?>" />
+                    <label>Adult</label>
+                    <input name="adult"  value="<?php echo isset($_REQUEST['adult'])?$_REQUEST['adult']:""; ?>" />
+                    <label>Children</label>
+                    <input name="children"  value="<?php echo isset($_REQUEST['children'])?$_REQUEST['children']:""; ?>" />
+                    <label>Pclass</label>
+                    <input name="pclass"  value="<?php echo isset($_REQUEST['pclass'])?$_REQUEST['pclass']:""; ?>" />
+                    <label>Rfrom</label>
+                    <input name="rfrom"  value="" />
+                    <label>Tfrom</label>
+                    <input name="tfrom"  value="" />
+                    <label>Departing</label>
+                    <input name="departing"  value="" />
+                    <label>Rclass</label>
+                    <input name="rclass"  value="<?php echo isset($_POST["rclass"])?$_REQUEST['rclass']:""; ?>" />
+                    <label>Noofp</label>
+                    <input name="noofp"  value="<?php echo isset($_REQUEST['noofp'])?$_REQUEST['noofp']:""; ?>" />
+                    <label>Connections</label>
+                    <input name="outboundflightstops" class="cls_stops"  value="<?php echo isset($_REQUEST['outboundflightstops'])?$_REQUEST['outboundflightstops']:""; ?>" />
+                    <label>Departure</label>
+                    <input name="outbounddeparturewindow" class="cls_departure"  value="<?php echo isset($_REQUEST['outbounddeparturewindow'])?$_REQUEST['outbounddeparturewindow']:""; ?>" />
+                    <label>Airlines</label>
+                    <input name="includedcarriers" class="cls_airlines"  value="<?php echo isset($_REQUEST['includedcarriers'])?$_REQUEST['includedcarriers']:""; ?>" />
+                    <label>Layover</label>
+                    <input name="inboundstopduration" class="cls_layover"  value="<?php echo isset($_REQUEST['inboundstopduration'])?$_REQUEST['inboundstopduration']:""; ?>" />
+                  </form>
+                <?php
+                }  
+
+                 if(isset($_POST['rfrom']) && $_POST['rfrom'] != "" && isset($_POST['tfrom']) && $_POST['tfrom'] != "")
+                {    ?>
+                  <form method="POST" class="formforfilters" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
+                    <label>From</label>
+                    <input name="from" value="" />
+                    <label>To</label>
+                    <input name="to"  value="" />
+                    <label>Start</label>
+                    <input name="start"  value="" />
+                    <label>End</label>
+                    <input name="end"  value="" />
+                    <label>Adult</label>
+                    <input name="adult"  value="<?php echo isset($_REQUEST['adult'])?$_REQUEST['adult']:""; ?>" />
+                    <label>Children</label>
+                    <input name="children"  value="<?php echo isset($_REQUEST['children'])?$_REQUEST['children']:""; ?>" />
+                    <label>Pclass</label>
+                    <input name="pclass"  value="<?php echo isset($_REQUEST['pclass'])?$_REQUEST['pclass']:""; ?>" />
+                    <label>Rfrom</label>
+                    <input name="rfrom"  value="<?php echo $fromairportcode; ?>" />
+                    <label>Tfrom</label>
+                    <input name="tfrom"  value="<?php echo $toairportcode ?>" />
+                    <label>Departing</label>
+                    <input name="departing"  value="<?php echo $startdate ?>" />
+                    <label>Rclass</label>
+                    <input name="rclass"  value="<?php echo isset($_POST["rclass"])?$_REQUEST['rclass']:""; ?>" />
+                    <label>Noofp</label>
+                    <input name="noofp"  value="<?php echo isset($_REQUEST['noofp'])?$_REQUEST['noofp']:""; ?>" />
+                    <label>Connections</label>
+                    <input name="outboundflightstops" class="cls_stops"  value="<?php echo isset($_REQUEST['outboundflightstops'])?$_REQUEST['outboundflightstops']:""; ?>" />
+                    <label>Departure</label>
+                    <input name="outbounddeparturewindow" class="cls_departure"  value="<?php echo isset($_REQUEST['outbounddeparturewindow'])?$_REQUEST['outbounddeparturewindow']:""; ?>" />
+                    <label>Airlines</label>
+                    <input name="includedcarriers" class="cls_airlines"  value="<?php echo isset($_REQUEST['includedcarriers'])?$_REQUEST['includedcarriers']:""; ?>" />
+                    <label>Layover</label>
+                    <input name="inboundstopduration" class="cls_layover"  value="<?php echo isset($_REQUEST['inboundstopduration'])?$_REQUEST['inboundstopduration']:""; ?>" />
+                  </form>
+                <?php
+                }  
+             ?>   
+              
+              
         <script src="<?php echo $themeurl; ?>/js/controllers.js"></script>
         <script>
         var listofairports = new Array();
