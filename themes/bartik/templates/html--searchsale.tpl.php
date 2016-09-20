@@ -608,8 +608,8 @@ trk=nav_responsive_tab_profile"></a>
                 }
                 
                  getFlightDataService.getFlights(urltogetFlights,postData).then(function (data) {
-                  
                     
+                 
                     $scope.lpcfound = false;
                     $scope.totalnoofresultsfound = 0;
                     $scope.fromcity = listwithcode[$scope.origin];

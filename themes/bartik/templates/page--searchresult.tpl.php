@@ -103,13 +103,13 @@ $themeurl = file_create_url(path_to_theme());
             });
    });
 </script>
-<div ng-show="appState == undefined" class="spinner">
+<!--<div ng-show="appState == undefined" class="spinner">
   <div class="rect1"></div>
   <div class="rect2"></div>
   <div class="rect3"></div>
   <div class="rect4"></div>
   <div class="rect5"></div>
-</div> 
+</div> -->
 <div class="container" ng-show="appState !== undefined" ng-model="appState" ng-cloak>
      
             <div class="mfp-with-anim mfp-hide mfp-dialog mfp-search-dialog" id="search-dialog">
@@ -521,25 +521,66 @@ $themeurl = file_create_url(path_to_theme());
                             </li>
                         </ul>
                     </div>
-                    <ul class="booking-list">
-                        <!-- Instant flight search start -->
-                         <li ng-repeat="xy in DisplayDatainstantflights" ng-if="xy.logoOfmarketingAirine !== undefined">
+                    <ul class="booking-list allresult">
+                    <!-- Amadeus search serch start -->
+                    <h1>Amadeus</h1>
+                    <li class="amadeusresult" ng-repeat="xy in dataforamadeus" >
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->
                         <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
-                       
-                        <!--<h4>{{x}}</h4>-->
+                        
+                        <!--<h4>{{xy}}</h4>-->
+                        <!--<h4>{{xy.insideflightdata}}</h4>-->
                            <div class="booking-item-container" >
                                 <div class="booking-item">
-                                <span class="bookingdata{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
+                                <span class="{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
                                 <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row"  ng-repeat="x in xy.datatoshownew" >
+                                    <div class="row"  ng-repeat="x in xy.insideflightdata" > 
+                                      <span class="amadeusstops" style="display:none;">{{x.nonstopofstop}}</span>
+                                      <span class="amadeusdepartturetime" style="display:none;">{{x.departs_at | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
+                                      <span class="amadeusairlines" style="display:none;">{{x.marketingairline}}</span>
+                                      <span class="amadeuslayover" style="display:none;">{{x.layovertime}}</span>
+                                      <span class="amadeusflightno" style="display:none;">{{x.flightno}}</span>
+                                      <span class="amadeusoperatinglinecode" style="display:none;">{{x.operatinglinecode}}</span>
+
                                         <div class="col-md-2">
                                             <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p>{{x.nameOfmarketingAirine}}</p>
+                                                <img ng-if="x.counterfornoofflightsinflights==0" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.marketingairlinecode}}.png" alt="{{x.marketingairline}}" title="{{x.marketingairline}}" />
+                                                <p ng-if="x.counterfornoofflightsinflights==0">{{x.marketingairline}}</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-5" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
+                                        <div class="col-md-5" >
+                                            <div class="booking-item-flight-details">
+                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                                    <h5>{{x.departs_at | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                    <p class="booking-item-destination">{{x.originairport}}</p>
+                                                </div>
+                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                                    <h5>{{x.arrives_at | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                    <p class="booking-item-destination">{{x.destinationairport}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="col-md-2">
+                                            <h5 ng-if="x.counterfornoofflightsinflights==0">{{x.totaljourneytime}}</h5>
+                                            <p ng-if="x.counterfornoofflightsinflights==0">{{x.nonstopofstop}}</p>
+                                        </div>
+                                        <div class="col-md-3" ><span class="booking-item-price" ng-if="x.counterfornoofflightsinflights==0" >${{xy.fare}}</span><span ng-if="x.counterfornoofflightsinflights==0">/person</span>
+                                            <p class="booking-item-flight-class" ng-if="x.counterfornoofflightsinflights==0" >Layover Time: {{x.layovertime}}</p>
+                                            <p class="booking-item-flight-class" ng-if="x.counterfornoofflightsinflights==0">Class: {{x.booking_info.travel_class}}</p>
+                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.counterfornoofflightsinflights==0" ng-click="calljsfunction(xy.noofrest)" >Select</a>
+                                        </div>
+
+                                        <!-- row rpeate first step ends here -->  
+                                    <div class="col-md-12 connectingflight" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
+                                        <div class="col-md-2">
+                                            <div class="booking-item-airline-logo">
+                                                <img ng-if="donotshowthis !== undefined" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
+                                                <p ng-if="donotshowthis !== undefined">{{x.nameOfmarketingAirine}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-plane"></i>
                                                     <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
@@ -553,13 +594,41 @@ $themeurl = file_create_url(path_to_theme());
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                    </div>
+                                <!-- row rpeate last step ends here step ends here -->  
+                                    </div>
+                                  <!-- main loop row ends here -->
+
+                                <!-- Repeat this row for showing no of flights from des for no of stops -->
+                                    <div class="row"  ng-repeat="x in xy.insideflightdatainbound" >
                                         <div class="col-md-2">
-                                            <h5>{{x.TotalTimeWithLayoverTime}}</h5>
-                                            <p>{{x.nonStopOrwithStop}}</p>
+                                            <div class="booking-item-airline-logo">
+                                                <img ng-if="x.counterfornoofflightsinflights==0" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.marketingairlinecode}}.png" alt="{{x.marketingairline}}" title="{{x.marketingairline}}" />
+                                                <p ng-if="x.counterfornoofflightsinflights==0">{{x.marketingairline}}</p>
+                                            </div>
                                         </div>
-                                        <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
-                                            <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
-                                            <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
+                                        <div class="col-md-5" >
+                                            <div class="booking-item-flight-details">
+                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                                    <h5>{{x.departs_at | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                    <p class="booking-item-destination">{{x.originairport}}</p>
+                                                </div>
+                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                                    <h5>{{x.arrives_at | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                    <p class="booking-item-destination">{{x.destinationairport}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="col-md-2">
+                                            <h5 ng-if="x.counterfornoofflightsinflights==0">{{x.totaljourneytime}}</h5>
+                                            <p ng-if="x.counterfornoofflightsinflights==0">{{x.nonstopofstop}}</p>
+                                        </div>
+                                        <div class="col-md-3" ><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span ng-if="x.counterfornoofflightsinflights==0">/person</span>
+                                            <p class="booking-item-flight-class" ng-if="x.counterfornoofflightsinflights==0" >Layover Time: {{x.layovertime}}</p>
+                                            <p class="booking-item-flight-class" ng-if="x.counterfornoofflightsinflights==0" >Class: {{x.booking_info.travel_class}}</p>
                                             <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 1" ng-click="calljsfunction(xy.noofrest)" >Select</a>
                                         </div>
 
@@ -642,20 +711,21 @@ $themeurl = file_create_url(path_to_theme());
                                 </div>
                             </div>
                         </li> 
-                        <!-- Instant flight search ends -->
-                        <li><h1>Bargin Finder </h1></li>
-                        <!-- Bargain max finder start -->
-                        <li ng-repeat="xy in DisplayData" ng-if="xy.logoOfmarketingAirine !== undefined">
+                          
+                        <!-- Amadeus search ends -->
+                        <h1>Saber</h1>
+                        <!-- Instant flight search start -->
+                         <li class="saberresult" ng-repeat="xy in DisplayDatainstantflights" ng-if="xy.logoOfmarketingAirine !== undefined">
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->
                         <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
-                        
-
-                        <!--<h4>{{xy.datatoshownew}}</h4>-->
-                            <div class="booking-item-container" >
+                      
+                        <!--<h4>{{x}}</h4>-->
+                           <div class="booking-item-container" >
                                 <div class="booking-item">
-                                <span class="bookingdata{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
+                                <span class="{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
                                 <!-- Repeat this row for showing no of flights from des for no of stops -->
                                     <div class="row"  ng-repeat="x in xy.datatoshownew" >
+                                    
                                         <div class="col-md-2">
                                             <div class="booking-item-airline-logo">
                                                 <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
@@ -663,6 +733,12 @@ $themeurl = file_create_url(path_to_theme());
                                             </div>
                                         </div>
                                         <div class="col-md-5" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
+                                        <span class="saberstops" style="display:none;">{{x.nonStopOrwithStop}}</span>
+                                        <span class="saberdepartturetime" style="display:none;">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
+                                        <span class="saberairlines" style="display:none;">{{x.MarketingAirlineCode}}</span>
+                                        <span class="saberlayover" style="display:none;">{{x.LayoverTime}}</span>
+                                        <span class="saberflightno" style="display:none;">{{x.OperatingAirlineFlightNumber}}</span>
+                                        <span class="saberoperatinglinecode" style="display:none;">{{x.OperatingAirlineCode}}</span>
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-plane"></i>
                                                     <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
@@ -683,7 +759,137 @@ $themeurl = file_create_url(path_to_theme());
                                         <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
                                             <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
                                             <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
-                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 1" ng-click="calljsfunction(xy.noofrest)" >Select</a>
+                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 0" ng-click="calljsfunction(xy.noofrest)" >Select</a>
+                                        </div>
+
+                                        <!-- row rpeate first step ends here -->  
+                                    <div class="col-md-12 connectingflight" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
+                                        <div class="col-md-2">
+                                            <div class="booking-item-airline-logo">
+                                                <img ng-if="donotshowthis !== undefined" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
+                                                <p ng-if="donotshowthis !== undefined">{{x.nameOfmarketingAirine}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="booking-item-flight-details">
+                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
+                                                </div>
+                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                <!-- row rpeate last step ends here step ends here -->  
+                                    </div>
+                                  <!-- main loop row ends here -->
+                                  <!-- row rpeate first step ends here -->  
+                                    <div class="row" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
+                                        <div class="col-md-2">
+                                            <div class="booking-item-airline-logo">
+                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
+                                                <p>{{x.nameOfmarketingAirine}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="booking-item-flight-details">
+                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
+                                                </div>
+                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                <!-- row rpeate last step ends here step ends here -->      
+                                </div>
+                                <!-- booking item ends here -->
+                                <div class="booking-item-details">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <p>Flight Details</p>
+                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
+                                            <ul class="list">
+                                                <li>US Airways 731</li>
+                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
+                                                <li>Depart 09:55 Arrive 15:10</li>
+                                                <li>Duration: 9h 15m</li>
+                                            </ul>
+                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
+                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
+                                            <ul class="list">
+                                                <li>US Airways 1873</li>
+                                                <li>Economy / Coach Class ( M), Airbus A321</li>
+                                                <li>Depart 22:11 Arrive 23:53</li>
+                                                <li>Duration: 1h 42m</li>
+                                            </ul>
+                                            <p>Total trip time: 17h 58m</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li> 
+                        <!-- Instant flight search ends -->
+                        
+                        <li><h1>Bargain Finder </h1></li>
+                        <!-- Bargain max finder start -->
+                        <li class="bargainfinderresult" ng-repeat="xy in DisplayData" ng-if="xy.logoOfmarketingAirine !== undefined">
+                        <!--<h4>{{x.TotalFlightTime}}</h4>-->
+                        <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
+                        
+
+                        <!--<h4>{{xy.datatoshownew}}</h4>-->
+                            <div class="booking-item-container" >
+                                <div class="booking-item">
+                                <span class="{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
+                                <!-- Repeat this row for showing no of flights from des for no of stops -->
+                                    <div class="row"  ng-repeat="x in xy.datatoshownew" >
+                                        <div class="col-md-2">
+                                            <div class="booking-item-airline-logo">
+                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
+                                                <p>{{x.nameOfmarketingAirine}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
+                                        <span class="saberstops" style="display:none;">{{x.nonStopOrwithStop}}</span>
+                                        <span class="saberdepartturetime" style="display:none;">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
+                                        <span class="saberairlines" style="display:none;">{{x.MarketingAirlineCode}}</span>
+                                        <span class="saberlayover" style="display:none;">{{x.LayoverTime}}</span>
+                                        <span class="saberflightno" style="display:none;">{{x.OperatingAirlineFlightNumber}}</span>
+                                        <span class="saberoperatinglinecode" style="display:none;">{{x.OperatingAirlineCode}}</span>
+                                            <div class="booking-item-flight-details">
+                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
+                                                </div>
+                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <h5>{{x.TotalTimeWithLayoverTime}}</h5>
+                                            <p>{{x.nonStopOrwithStop}}</p>
+                                        </div>
+                                        <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
+                                            <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
+                                            <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
+                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 0" ng-click="calljsfunction(xy.noofrest)" >Select</a>
                                         </div>
 
                                         <!-- row rpeate first step ends here -->  

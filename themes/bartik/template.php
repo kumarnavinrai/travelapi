@@ -35,6 +35,25 @@ function bartik_preprocess_html(&$variables) {
   drupal_add_css(path_to_theme() . '/css/ie6.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'IE 6', '!IE' => FALSE), 'preprocess' => FALSE));
 }
 
+function bartik_theme(&$existing, $type, $theme, $path){
+  $hooks = array();
+   // Make user-register.tpl.php available
+  $hooks['user_register_form'] = array (
+     'render element' => 'form',
+     'path' => drupal_get_path('theme','bartik'),
+     'template' => 'user-register',
+     'preprocess functions' => array('bartik_preprocess_user_register_form'),
+  );
+  return $hooks;
+}
+
+function bartik_preprocess_user_register_form(&$vars) {
+  $args = func_get_args();
+  array_shift($args);
+  $form_state['build_info']['args'] = $args; 
+  $vars['form'] = drupal_build_form('user_register_form', $form_state['build_info']['args']);
+}
+
 /**
  * Override or insert variables into the page template for HTML output.
  */

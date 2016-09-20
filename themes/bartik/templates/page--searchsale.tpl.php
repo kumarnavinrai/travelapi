@@ -87,1272 +87,743 @@
 $themeurl = file_create_url(path_to_theme());
 
 ?>
-<script type="text/javascript">
-  $(document).ready(function(){
-     $('.imgplaces').on('click',function(){
-                var fromval = $("input[name=from]").val();
-                var toval = $("input[name=to]").val();
-                $("input[name=from]").val(toval);
-                $("input[name=to]").val(fromval);
-            });
-     $('.imgplacesow').on('click',function(){
-                var fromval = $("input[name=rfrom]").val();
-                var toval = $("input[name=tfrom]").val();
-                $("input[name=rfrom]").val(toval);
-                $("input[name=tfrom]").val(fromval);
-            });
-   });
-</script>
-<div ng-show="appState == undefined" class="spinner">
-  <div class="rect1"></div>
-  <div class="rect2"></div>
-  <div class="rect3"></div>
-  <div class="rect4"></div>
-  <div class="rect5"></div>
-</div> 
-<div class="container" ng-show="appState !== undefined" ng-model="appState" ng-cloak>
-            <h1>Sale Tickets</h1>
-            <div class="mfp-with-anim mfp-hide mfp-dialog mfp-search-dialog" id="search-dialog">
-                <h3>Search for Flight</h3>
-                <form method="POST" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
-                    <div class="tabbable">
-                        <ul class="nav nav-pills nav-sm nav-no-br mb10" id="flightChooseTab">
-                          <li class="active">
-                            <a href="#flight-search-1" class="rtripandowselectorrt" data-toggle="tab">Round Trip</a>
-                          </li>
-                          <li>
-                            <a href="#flight-search-2" class="rtripandowselectorow" data-toggle="tab">One Way</a>
-                          </li>
-                        </ul>
-                        <div class="tab-content">
-                          <div class="tab-pane fade in active" id="flight-search-1">
-                            <div class="row">
-                              <div class="col-md-5">
-                                <div class="form-group form-group-lg form-group-icon-left">
-                                  <i class="fa fa-map-marker input-icon"></i>
-                                  <label>From</label>
-                                  <input class="typeahead form-control nav_from" name="from" placeholder="City, Airport" type="text" />
+
+<div class="gap"></div>
+<div class="container">
+   <div class="row">
+                <div class="col-md-8">
+                    <h3>Traveler Details</h3>
+                    <p>Sign in to your <a href="../travelpainters/sign-in.php">Travel Painter Account</a> for fast booking.</p>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>First &amp; Last Name</label>
+                                    <input class="form-control" type="text">
                                 </div>
-                              </div>
-                              <div class="col-md-2 imgdiv">
-                                <span class="imgplaces">
-                                  <img class="arw" src="<?php echo $themeurl; ?>/img/arrow.png" />
-                                </span>  
-                              </div>
-                              <div class="col-md-5">
-                                <div class="form-group form-group-lg form-group-icon-left">
-                                  <i class="fa fa-map-marker input-icon"></i>
-                                  <label>To</label>
-                                  <input class="typeahead form-control nav_to" name="to" placeholder="City, Airport" type="text" />
-                                </div>
-                              </div>
                             </div>
-                            <div class="input-daterange" data-date-format="M d, D">
-                              <div class="row">
-                                <div class="col-md-3">
-                                  <div class="form-group form-group-lg form-group-icon-left">
-                                    <i class="fa fa-calendar input-icon input-icon-highlight"></i>
-                                    <label>Departing</label>
-                                    <input class="form-control" name="start" type="text" />
-                                  </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input class="form-control" type="text">
                                 </div>
-                                <div class="col-md-3">
-                                  <div class="form-group form-group-lg form-group-icon-left">
-                                    <i class="fa fa-calendar input-icon input-icon-highlight"></i>
-                                    <label>Returning</label>
-                                    <input class="form-control" name="end" type="text" />
-                                  </div>
-                                </div>
-                                <div class="col-md-2">
-                                  <div class="form-group form-group-lg">
-                                    <label>Adults(+18)</label>
-                                    <select name="adult" class="form-control" >
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="3">4</option>
-                                      <option value="3">5</option>
-                                      <option value="3">6</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="col-md-2">
-                                  <div class="form-group form-group-lg form-group-select-plus">
-                                    <label>Childs(0-17)</label>
-                                    <select name="children" class="form-control" >
-                                      <option value="0">0</option>
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="3">4</option>
-                                      <option value="3">5</option>
-                                      <option value="3">6</option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
                             </div>
-                          </div>
-              <div class="row">
-               <div class="col-md-12">
-                 <script type="text/javascript"> 
-                                 $(document).ready(function() {
-                                     $('#attach_box').click(function(e) {
-                                         e.preventDefault();   
-                                         $('#sukh_buton').toggle();
-                                     });
-                                     $('.rtripandowselectorrt').on('click',function(){
-                                        $('#attach_box').show();
-                                     }); 
-                                     $('.rtripandowselectorow').on('click',function(){
-                                        $('#attach_box').hide();
-                                     });        
-                                 });
-                              </script>
-              </script>       
-              <a href="#" id="attach_box">Advance Search<i class="fa fa-sort-desc sukh" aria-hidden="true"></i></a><br /><br />
-              <div id="sukh_buton" class="col-md-4" style="display:none;">
-                            <div class="form-group form-group-lg form-group-icon-left "><i class="fa fa-plane input-icon input-icon-highlight"></i>
-                            <label>Class</label>
-                                <select name="rclass" class="form-control" >
-                <option value="economy" class="su_option">Economy</p></option>
-                <option value="premiumeco">premium Economy</option>
-                <option value="business">Business</option>
-                </select>
-                            </div>
-                            </div>        
-              </div>
-              
-              </div>
-                            <div class="tab-pane fade" id="flight-search-2">
-                                   <div class="row">
-                                    <div class="col-md-5">
-                                      <div class="form-group form-group-lg form-group-icon-left">
-                                        <i class="fa fa-map-marker input-icon"></i>
-                                        <label>From</label>
-                                        <input class="typeahead form-control" name="rfrom" placeholder="City, Airport, U.S. Zip" type="text" />
-                                      </div>
-                                    </div>
-                                    <div class="col-md-2 imgdiv">
-                                        <span class="imgplacesow">
-                                          <img class="arw" src="<?php echo $themeurl; ?>/img/arrow.png" />
-                                        </span>  
-                                      </div>
-                                    <div class="col-md-5">
-                                      <div class="form-group form-group-lg form-group-icon-left">
-                                        <i class="fa fa-map-marker input-icon"></i>
-                                        <label>To</label>
-                                        <input class="typeahead form-control" name="tfrom" placeholder="City, Airport, U.S. Zip" type="text" />
-                                      </div>
-                                    </div>
-                                  </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
-                                            <label>Departing</label>
-                                            <input class="date-pick form-control" data-date-format="MM d, D" type="text" />
-                                        </div>
-                                    </div>
-                                   <div class="col-md-2">
-                                                                            <div class="form-group form-group-lg">
-                                                                                
-                                                                                
-                                        <label>Adults(+18)</label>
-                                                                                
-                                        
-                                        <select class="form-control" >
-                                          <option value="1">1</option>
-                                         <option value="2">2</option>
-                                          <option value="3">3</option>
-                                          <option value="3">4</option>
-                                          <option value="3">5</option>
-                                          <option value="3">6</option>
-                                        </select>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-2">
-                                                                            <div class="form-group form-group-lg form-group-select-plus">
-                                      <label>Childs(0-17)</label>
-                                                                            <select class="form-control" >
-                                          <option value="0">0</option>
-                                          <option value="1">1</option>
-                                         <option value="2">2</option>
-                                          <option value="3">3</option>
-                                          <option value="3">4</option>
-                                          <option value="3">5</option>
-                                          <option value="3">6</option>
-                                        </select>
-                                      </div>
-                                     
-                                    </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>E-mail</label>
+                                    <input class="form-control" type="email">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <button class="btn btn-primary btn-lg" type="submit">Search for Flights</button>
-                </form>
-            </div>
-            <h3 class="booking-title">{{totalnoofresultsfound}} Flights from {{fromcity}} to {{tocity}} for 1 adult <small><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a></small></h3>
-            <div class="row">
-                <div class="col-md-3">
-                    <aside class="booking-filters text-white">
-                        <h3>Filter By:<button class="btn btn-primary fliter_apply">Apply</button></h3>
-                        <ul class="list booking-filters-list">
-                            <li class="checkboxesli">
-                                <h5 class="booking-filters-title">Stops <small></small></h5>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" value="0" />Non-stop<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check checkbox_stops" type="checkbox"  value="1" />1 Stop<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check checkbox_stops" type="checkbox"  value="2" />2 Stops<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check checkbox_stops" type="checkbox"  value="3" />3 Stops<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check checkbox_stops" type="checkbox"  value="4" />4 Stops<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="departtimecheckboxes">
-                                <h5 class="booking-filters-title">Departure Time</h5>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check checkbox_dt" value="05001159" type="checkbox" />Morning (5:00a - 11:59a)</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check checkbox_dt" value="12001759" type="checkbox" />Afternoon (12:00p - 5:59p)</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check checkbox_dt" value="18002359" type="checkbox" />Evening (6:00p - 11:59p)</label>
-                                </div>
-                            </li>
-                            <!--<li>
-                                <h5 class="booking-filters-title">Layover Time</h5>
-                                <input type="text" id="price-slider">
-                            </li>-->
-                            <li class="liforairline">
-                                <h5 class="booking-filters-title">Airlines <small></small></h5>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check cls_airline" type="checkbox"  value="VX" />Virgin America<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="DL" />Delta Air Lines<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="UA" />United Airlines<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="AA" />American Airlines<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="B6" />jetBlue Airways<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="AC" />Air Canada<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="layoverli">
-                                <h5 class="booking-filters-title">Waiting Time <small></small></h5>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="1" />1hr<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="2" />2hr<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="3" />3hr<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="4" />4hr<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="5" />5hr<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="6" />6hr<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="7" />7hr<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="8" />8hr<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="9" />9hr<span class="pull-right"></span>
-                                    </label>
-                                </div>
-                            </li>
-                            
-                            
-                        </ul>
-                    </aside>
-                </div>
-                <div class="col-md-9">
+                        <div class="checkbox">
+                            <label class="">
+                                <div class="i-check checked"><input class="i-check" type="checkbox" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>Create Traveler account <small>(password will be send to your e-mail)</small>
+                            </label>
+                        </div>
+                    </form>
+          </div>
+          <div class="col-md-2"></div>
+  <div class="row">
   
-          
-          <div class="booking-item-container">
-                                <div class="sukh_container">
+  
+  
+  
+  
+    <div class="col-md-10">
+                    <div class="booking-item-payment">
+                        <header class="clearfix">
+                            <h5 class="mb0">London - New York</h5>
+                        </header>
+            
+            
+            
+            
+            <div class="booking-item-container">
+                                <div class="booking-item">
                                     <div class="row">
-                                        <div class="col-md-12 mtrx__wrapper main hidden-xs">
-                                        <!--{{lpc}}-->
-                    <table id="mtrx_table" class="mtrx__table animation-fast" ng-if="lpcfound != false">
-            <thead>
-                <tr id="mtrxRow" class="mtrx__row">
-                    <th id="_allFares" class="mtrx__show-all disabled" style="min-width: 126.286px;">
-                        <a href="javascript:ClearAllFilters();">
-                            <span>All Fares</span>
-                        </a>
-                    </th>
-
-                        <th class="mtrx__cell is--airline" scope="col" style="min-width: 123.286px; max-width: 123.286px;" ng-repeat="xyz in lpc" >
-                                <a href="" title="{{xyz.lowestfareairlinecode}}">
-                                    <img class="air__logo"  src="<?php echo $themeurl; ?>/img/airlineslogo/{{xyz.lowestairlinecodelogo}}" alt="{{xyz.lowestfareairlinecode}}">
-                                    <span class="air__title" ng-bind="xyz.lowestfareairlinecode" title="{{xyz.lowestfareairlinecode}}">{{xyz.lowestfareairlinecode}}</span>
-                                        <i class="icon ic-flights-airlines hidden"></i>
-                                </a>
-                        </th>
-                        
-                       
-                        
-                        
-                    </tr>
-                    
-          <tr class="mtrx__row">
-                        <th id="tr_6" class="mtrx__cell-header" scope="row" style="min-width: 126.286px;">
-                            <a title="1+ stop flights" href="">
-                                <span>Non Stops</span>
-                            </a>
-                        </th>
-
-                            <td class="mtrx__cell" id="td_NKFalseFalse6" style="min-width: 123.286px; max-width: 123.286px;" ng-repeat="xyz in lpc" >
-                                <span id="alternettrack_6" title="False"></span>
-                                <a href="" class="mtrx__price">
-                                        <span class="base-price">
-                                            <span class="currency" >
-                                              ${{xyz.lowestfareairlinefare}}
-                                            </span>
-                                            <span class="fpSuper">
-                                              <sup>.{{xyz.lowestfareairlinefaresup}}</sup>
-                                            </span>
-                                        </span>
-                                    <em title="Full price incl. taxes and fees" class="total-price">
-                                        <span>Total</span>
-                    <b class="currency" title="{{xyz.lowestfareairlinefare}}" defaultvalue="{{xyz.lowestfareairlinefare}}">
-                      ${{xyz.lowestfareairlinefare}}
-                    </b>
-                    <span class="fpSuper" title="{{xyz.lowestfareairlinefare}}" defaultvalue="{{xyz.lowestfareairlinefare}}">
-                      <sup>.{{xyz.lowestfareairlinefaresup}}</sup>
-                    </span>
-                                    </em>
-                                    </a>
-                            </td>
-                          
-                          
-                           
-                     
-                    </tr>
-            </tbody>
-        </table>
-    <div class="row sukh_p">
-      <div class="container">
-    <p>Fares for our carriers are round trip, incl. all taxes and all fees. Airfares include applied Booking Bonus. Additional baggage fees may apply. Some flights displayed may be for alternate dates and/or airports. Certain results may be outside your search criteria.</p>
-    </div></div>
+                                        <div class="col-md-2">
+                                            <div class="booking-item-airline-logo">
+                                                <img src="img/lufthansa.jpg" alt="Image Alternative text" title="Image Title">
+                                                <p>Lufthansa</p>
+                                            </div>
                                         </div>
+                                        <div class="col-md-5">
+                                            <div class="booking-item-flight-details">
+                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                                    <h5>10:25 PM</h5>
+                                                    <p class="booking-item-date">Sun, Mar 22</p>
+                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
+                                                </div>
+                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                                    <h5>12:25 PM</h5>
+                                                    <p class="booking-item-date">Sat, Mar 23</p>
+                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <h5>22h 50m</h5>
+                                            <p>non-stop</p>
+                                        </div>
+                                        <div class="col-md-3"><span class="booking-item-price">$307</span><span>/person</span>
+                                            <p class="booking-item-flight-class">Class: Economy</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="booking-item-details">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <p>Flight Details</p>
+                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
+                                            <ul class="list">
+                                                <li>US Airways 731</li>
+                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
+                                                <li>Depart 09:55 Arrive 15:10</li>
+                                                <li>Duration: 9h 15m</li>
+                                            </ul>
+                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
+                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
+                                            <ul class="list">
+                                                <li>US Airways 1873</li>
+                                                <li>Economy / Coach Class ( M), Airbus A321</li>
+                                                <li>Depart 22:11 Arrive 23:53</li>
+                                                <li>Duration: 1h 42m</li>
+                                            </ul>
+                                            <p>Total trip time: 17h 58m</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                       
+                    </div>
+                </div>
+            </div>
+           <div class="col-md-2"></div>
+                    <div class="gap gap-small"></div>
+          <div class="col-md-10">
+          <div class="booking-item-payment">
+          <header class="clearfix">
+                    <h5 class="mb0">Passengers</h5>
+          </header>
+                    <ul class="list booking-item-passengers">
+                         <li>
+                            <div class="row">
+              <div class="col-md-12">
+                                <div class="col-md-2">
+                                   <div class="form-group">
+                                        <label>Traveler 1</label>
+                                        <select>
+                    <option>Adult</option>
+                    <option>Senior</option>
+                    <option>Child</option>
+                    <option>Seat Infant</option>
+                    </select>
+                    
+                                    </div>
+                                    </div>
+                 <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Middle Name</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Date of Birth</label>
+                                        <input class="date-pick-years form-control" type="text">
+                                    </div>
+                                </div>
+                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <select>
+                    <option>Male</option>
+                    <option>Female</option>
+                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                          </div></li>
+                        <li>
+                            <div class="row">
+                <div class="col-md-12">
+                                <div class="col-md-2">
+                                   <div class="form-group">
+                                        <label>Traveler 2</label>
+                                        <select>
+                    <option>Adult</option>
+                    <option>Senior</option>
+                    </select>
                   </div>
                 </div>
-          </div>
-                           
-                    <div class="nav-drop booking-sort">
-                        <h5 class="booking-sort-title"><a href="#">Sort: Sort: Price (low to high)<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>
-                        <ul class="nav-drop-menu">
-                            <li><a href="#">Price (high to low)</a>
-                            </li>
-                            <li><a href="#">Duration</a>
-                            </li>
-                            <li><a href="#">Stops</a>
-                            </li>
-                            <li><a href="#">Arrival</a>
-                            </li>
-                            <li><a href="#">Departure</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <ul class="booking-list">
-                        <!-- Instant flight search start -->
-                         <li ng-repeat="xy in DisplayDatainstantflights" ng-if="xy.logoOfmarketingAirine !== undefined">
-                        <!--<h4>{{x.TotalFlightTime}}</h4>-->
-                        <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
-                       
-                        <!--<h4>{{x}}</h4>-->
-                           <div class="booking-item-container" >
-                                <div class="booking-item">
-                                <span class="bookingdata" style="display:none;" >{{xy}}</span>
-                                <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row"  ng-repeat="x in xy.datatoshownew" >
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p>{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>{{x.TotalTimeWithLayoverTime}}</h5>
-                                            <p>{{x.nonStopOrwithStop}}</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
-                                            <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
-                                            <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
-                                            <a class="btn btn-primary" ng-if="x.returnorarrvial == 1" href="#">Select</a>
-                                        </div>
-
-                                        <!-- row rpeate first step ends here -->  
-                                    <div class="col-md-12 connectingflight" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img ng-if="donotshowthis !== undefined" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p ng-if="donotshowthis !== undefined">{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                <!-- row rpeate last step ends here step ends here -->  
-                                    </div>
-                                  <!-- main loop row ends here -->
-                                  <!-- row rpeate first step ends here -->  
-                                    <div class="row" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p>{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                <!-- row rpeate last step ends here step ends here -->      
-                                </div>
-                                <!-- booking item ends here -->
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
+                 <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input class="form-control" type="text">
                                     </div>
                                 </div>
-                            </div>
-                        </li> 
-                        <!-- Instant flight search ends -->
-                        <li><h1>Bargin Finder </h1></li>
-                        <!-- Bargain max finder start -->
-                        <li ng-repeat="xy in DisplayData" ng-if="xy.logoOfmarketingAirine !== undefined">
-                        <!--<h4>{{x.TotalFlightTime}}</h4>-->
-                        <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
-                        
-
-                        <!--<h4>{{xy.datatoshownew}}</h4>-->
-                            <div class="booking-item-container" >
-                                <div class="booking-item">
-                                <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row"  ng-repeat="x in xy.datatoshownew" >
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p>{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>{{x.TotalTimeWithLayoverTime}}</h5>
-                                            <p>{{x.nonStopOrwithStop}}</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
-                                            <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
-                                            <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
-                                            <a class="btn btn-primary" ng-if="x.returnorarrvial == 1" href="#">Select</a>
-                                        </div>
-
-                                        <!-- row rpeate first step ends here -->  
-                                    <div class="col-md-12 connectingflight" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img ng-if="donotshowthis !== undefined" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p ng-if="donotshowthis !== undefined">{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                <!-- row rpeate last step ends here step ends here -->  
-                                    </div>
-                                  <!-- main loop row ends here -->
-                                  <!-- row rpeate first step ends here -->  
-                                    <div class="row" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p>{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                <!-- row rpeate last step ends here step ends here -->      
-                                </div>
-                                <!-- booking item ends here -->
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Middle Name</label>
+                                        <input class="form-control" type="text">
                                     </div>
                                 </div>
-                            </div>
-                            <!-- booking container enda here -->
-                        </li>
-                        <!-- Bargain max finder ends -->
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/lufthansa.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Lufthansa</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>2 stops</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$486</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Business</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
+                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input class="form-control" type="text">
                                     </div>
                                 </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Date of Birth</label>
+                                        <input class="date-pick-years form-control" type="text">
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airfrance.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Airfrance</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>non-stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$474</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Business</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
+                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <select>
+                    <option>Male</option>
+                    <option>Female</option>
+                    </select>
                                     </div>
                                 </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/lufthansa.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Lufthansa</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>1 stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$195</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: First</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/american-airlines.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>American Airlines</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>non-stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$317</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: First</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/american-airlines.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>American Airlines</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>non-stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$291</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Economy</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airfrance.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Airfrance</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>2 stops</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$278</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Business</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/aircanada.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Air Canada</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>non-stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$392</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Business</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/delta.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Delta</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>1 stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$161</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Business</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/american-airlines.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>American Airlines</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>non-stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$219</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Economy</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/croatia.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Croatia Airlines</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>2 stops</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$447</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: First</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <p class="text-right">Not what you're looking for? <a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Try your search again</a>
-                    </p>
-                </div>
+              </div>
             </div>
+                            
+                        </li>
+                    </ul></div></div>
+                    <div class="gap gap-small"></div>
+            <div class="row">
+              <div class="col-md-10">
+                <div class="booking-item-payment">
+                  <header class="clearfix">
+                  <h4 class="mb0"><strong>Price Details (USD)</strong></h4>
+                  </header>
+                    <div class="col-md-12">
+                      <div class="clearfix col-md-6">
+                        <h5> Total Traveler</h5>
+                        <h5>Best Price</h5>
+                        <h5>Taxes &amp; Fees:</h5>
+                        <h5>Trip Protection Insurance:</h5>
+                      </div>
+                      <div class="clearfix col-md-6">
+                        <h5>1 Adult</h5>
+                        <h5>$400.99</h5>
+                        <h5>$44.21</h5>
+                        <h5>$15.21</h5>
+                      </div>
+                    </div>
+                  <!--<div class="col-md-12">
+                  <a href="#">Promo Code </a> or <a href="#">Gift Card</a>
+                  </div>-->
+                    <!--<div class="col-md-10">
+                    <h5>Old Price</h5>
+                    </div>
+                    <div class="col-md-2">
+                    <h5>$1445.20</h5>
+                    </div>    
+                    <div class="col-md-6">
+                    <h5 style="color:#990000">Total Discount:</h5>
+                    </div>
+                    <div class="col-md-4">
+                    <span class="sukh-book sukhselectlabel"></span>
+                    </div>
+                    <div class="col-md-2">
+                    <h5 style="color:#990000">$15.20</h5>
+                    </div>-->
+                    
+                  <div class="row sukh-color">  
+                    <div class="col-md-10 col-sm-8">
+                    <h5 class="sukh-clr">Final Total Price:</h5>
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                    <h5 class="sukh-clr">$1428.08</h5>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-1"></div>
+                      <div class="col-md-10">Please note: All fares are quoted in USD. Some airlines may charge baggage fees.</div>
+                      <div class="col-md-1"></div>
+                    </div>
+                  </div>
+                    
+                </div>        
+               </div>
+            </div>
+          <div class="gap gap-small"></div>
+                    <div class="row">
+            <div class="col-md-10">
+            <div class="booking-item-payment">
+              <header class="clearfix">
+              <h4 class="mb0"><strong>Payment Info (Secure SSL Encrypted Transaction)</strong></h4>
+              </header>
+                          <form class="cc-form">
+                                <div class="clearfix col-md-12">
+                                    <div class="form-group form-group-cc-number col-md-6">
+                                        <label>Payment Method</label>
+                                        <select class="form-control">
+                    <option>Visa</option>
+                    <option>Mestro</option>
+                    <option>American Express</option>
+                    <option>Diners Club</option>
+                    </select>
+                                    </div>
+                  
+                                    <div class="col-md-6">
+                                        <div class="spnCardImg" id="cards">
+                      <a style="border: none;" class="pvisa grayscale" id="VI_3"></a>
+                      <a class="pmaster grayscale" style="border: none;"></a>
+                      <a class="pamerican grayscale" style="border: none;"></a>
+                      <a class="grayscale" style="border: none;"></a>
+                          </div>
+                                    </div>
+                                </div>
+                <div class="clearfix col-md-8">
+                                    <div class="form-group form-group-cc-number col-md-6">
+                                        <label>Credit or Debit Card Number</label>
+                                        <input class="form-control" placeholder="xxxx xxxx xxxx xxxx" type="text" required="required"><span class="cc-card-icon"></span>
+                                    </div>
+                                    <div class="form-group form-group-cc-cvc col-md-6">
+                                        <label>CVV</label>
+                                        <input class="form-control" placeholder="xxxx" type="text">
+                                    </div>
+                                </div>
+                                <div class="clearfix ">
+                                    <div class="form-group form-group-cc-name col-md-6">
+                                        <label>Cardholder Name</label>
+                                        <input class="form-control" type="text" required="required">
+                                    </div>
+                                    <div class="form-group form-group-cc-date col-md-6">
+                                        <label>Valid Thru</label>
+                                        <input class="form-control" placeholder="mm/yy" type="text" required="required">
+                                    </div>
+                                </div>
+                 <div class="clearfix sukh-height">
+                                    <div class="form-group form-group-cc-name col-md-11">
+                                      
+                                    </div>
+                                    <div class="form-group form-group-cc-date col-md-1">
+                                        <a href="#" class="verisign"></a>
+                                    </div>
+                                </div>
+                               
+                            </form>   
+                        </div>
+                    </div>
+          </div>
+          <div class="gap gap-small"></div>
+          <div class="col-md-10">
+          <div class="booking-item-payment">
+          <header class="clearfix">
+          <h4 class="mb0"><strong>Billing &amp; Contact Information</strong></h4></header>
+          <div class="row">
+          
+          <div class="col-md-8">
+          <strong>Credit Card Billing Address:</strong>
+                            <form class="cc-form">
+                                <div class="clearfix col-md-8">
+                                    <div class="form-group form-group-cc-number ">
+                                        <label>Country</label>
+                                        <select class="form-control">
+                    <option value="AF">Afghanistan</option>
+                    <option value="AX">Aland Islands</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                    <option value="AS">American Samoa</option>
+                    <option value="AD">Andorra</option>
+                    <option value="AO">Angola</option>
+                    <option value="AI">Anguilla</option>
+                    <option value="AQ">Antarctica</option>
+                    <option value="AG">Antigua and Barbuda</option>
+                    <option value="AR">Argentina</option>
+                    <option value="AM">Armenia</option>
+                    <option value="AW">Aruba</option>
+                    <option value="AU">Australia</option>
+                    <option value="AT">Austria</option>
+                    <option value="AZ">Azerbaijan</option>
+                    <option value="BS">Bahamas</option>
+                    <option value="BH">Bahrain</option>
+                    <option value="BD">Bangladesh</option>
+                    <option value="BB">Barbados</option>
+                    <option value="BY">Belarus</option>
+                    <option value="BE">Belgium</option>
+                    <option value="BZ">Belize</option>
+                    <option value="BJ">Benin</option>
+                    <option value="BM">Bermuda</option>
+                    <option value="BT">Bhutan</option>
+                    <option value="BO">Bolivia, Plurinational State of</option>
+                    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                    <option value="BA">Bosnia and Herzegovina</option>
+                    <option value="BW">Botswana</option>
+                    <option value="BV">Bouvet Island</option>
+                    <option value="BR">Brazil</option>
+                    <option value="IO">British Indian Ocean Territory</option>
+                    <option value="BN">Brunei Darussalam</option>
+                    <option value="BG">Bulgaria</option>
+                    <option value="BF">Burkina Faso</option>
+                    <option value="BI">Burundi</option>
+                    <option value="KH">Cambodia</option>
+                    <option value="CM">Cameroon</option>
+                    <option value="CA">Canada</option>
+                    <option value="CV">Cape Verde</option>
+                    <option value="KY">Cayman Islands</option>
+                    <option value="CF">Central African Republic</option>
+                    <option value="TD">Chad</option>
+                    <option value="CL">Chile</option>
+                    <option value="CN">China</option>
+                    <option value="CX">Christmas Island</option>
+                    <option value="CC">Cocos (Keeling) Islands</option>
+                    <option value="CO">Colombia</option>
+                    <option value="KM">Comoros</option>
+                    <option value="CG">Congo</option>
+                    <option value="CD">Congo, the Democratic Republic of the</option>
+                    <option value="CK">Cook Islands</option>
+                    <option value="CR">Costa Rica</option>
+                    <option value="CI">C�te d'Ivoire</option>
+                    <option value="HR">Croatia</option>
+                    <option value="CU">Cuba</option>
+                    <option value="CW">Cura�ao</option>
+                    <option value="CY">Cyprus</option>
+                    <option value="CZ">Czech Republic</option>
+                    <option value="DK">Denmark</option>
+                    <option value="DJ">Djibouti</option>
+                    <option value="DM">Dominica</option>
+                    <option value="DO">Dominican Republic</option>
+                    <option value="EC">Ecuador</option>
+                    <option value="EG">Egypt</option>
+                    <option value="SV">El Salvador</option>
+                    <option value="GQ">Equatorial Guinea</option>
+                    <option value="ER">Eritrea</option>
+                    <option value="EE">Estonia</option>
+                    <option value="ET">Ethiopia</option>
+                    <option value="FK">Falkland Islands (Malvinas)</option>
+                    <option value="FO">Faroe Islands</option>
+                    <option value="FJ">Fiji</option>
+                    <option value="FI">Finland</option>
+                    <option value="FR">France</option>
+                    <option value="GF">French Guiana</option>
+                    <option value="PF">French Polynesia</option>
+                    <option value="TF">French Southern Territories</option>
+                    <option value="GA">Gabon</option>
+                    <option value="GM">Gambia</option>
+                    <option value="GE">Georgia</option>
+                    <option value="DE">Germany</option>
+                    <option value="GH">Ghana</option>
+                    <option value="GI">Gibraltar</option>
+                    <option value="GR">Greece</option>
+                    <option value="GL">Greenland</option>
+                    <option value="GD">Grenada</option>
+                    <option value="GP">Guadeloupe</option>
+                    <option value="GU">Guam</option>
+                    <option value="GT">Guatemala</option>
+                    <option value="GG">Guernsey</option>
+                    <option value="GN">Guinea</option>
+                    <option value="GW">Guinea-Bissau</option>
+                    <option value="GY">Guyana</option>
+                    <option value="HT">Haiti</option>
+                    <option value="HM">Heard Island and McDonald Islands</option>
+                    <option value="VA">Holy See (Vatican City State)</option>
+                    <option value="HN">Honduras</option>
+                    <option value="HK">Hong Kong</option>
+                    <option value="HU">Hungary</option>
+                    <option value="IS">Iceland</option>
+                    <option value="IN">India</option>
+                    <option value="ID">Indonesia</option>
+                    <option value="IR">Iran, Islamic Republic of</option>
+                    <option value="IQ">Iraq</option>
+                    <option value="IE">Ireland</option>
+                    <option value="IM">Isle of Man</option>
+                    <option value="IL">Israel</option>
+                    <option value="IT">Italy</option>
+                    <option value="JM">Jamaica</option>
+                    <option value="JP">Japan</option>
+                    <option value="JE">Jersey</option>
+                    <option value="JO">Jordan</option>
+                    <option value="KZ">Kazakhstan</option>
+                    <option value="KE">Kenya</option>
+                    <option value="KI">Kiribati</option>
+                    <option value="KP">Korea, Democratic People's Republic of</option>
+                    <option value="KR">Korea, Republic of</option>
+                    <option value="KW">Kuwait</option>
+                    <option value="KG">Kyrgyzstan</option>
+                    <option value="LA">Lao People's Democratic Republic</option>
+                    <option value="LV">Latvia</option>
+                    <option value="LB">Lebanon</option>
+                    <option value="LS">Lesotho</option>
+                    <option value="LR">Liberia</option>
+                    <option value="LY">Libya</option>
+                    <option value="LI">Liechtenstein</option>
+                    <option value="LT">Lithuania</option>
+                    <option value="LU">Luxembourg</option>
+                    <option value="MO">Macao</option>
+                    <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                    <option value="MG">Madagascar</option>
+                    <option value="MW">Malawi</option>
+                    <option value="MY">Malaysia</option>
+                    <option value="MV">Maldives</option>
+                    <option value="ML">Mali</option>
+                    <option value="MT">Malta</option>
+                    <option value="MH">Marshall Islands</option>
+                    <option value="MQ">Martinique</option>
+                    <option value="MR">Mauritania</option>
+                    <option value="MU">Mauritius</option>
+                    <option value="YT">Mayotte</option>
+                    <option value="MX">Mexico</option>
+                    <option value="FM">Micronesia, Federated States of</option>
+                    <option value="MD">Moldova, Republic of</option>
+                    <option value="MC">Monaco</option>
+                    <option value="MN">Mongolia</option>
+                    <option value="ME">Montenegro</option>
+                    <option value="MS">Montserrat</option>
+                    <option value="MA">Morocco</option>
+                    <option value="MZ">Mozambique</option>
+                    <option value="MM">Myanmar</option>
+                    <option value="NA">Namibia</option>
+                    <option value="NR">Nauru</option>
+                    <option value="NP">Nepal</option>
+                    <option value="NL">Netherlands</option>
+                    <option value="NC">New Caledonia</option>
+                    <option value="NZ">New Zealand</option>
+                    <option value="NI">Nicaragua</option>
+                    <option value="NE">Niger</option>
+                    <option value="NG">Nigeria</option>
+                    <option value="NU">Niue</option>
+                    <option value="NF">Norfolk Island</option>
+                    <option value="MP">Northern Mariana Islands</option>
+                    <option value="NO">Norway</option>
+                    <option value="OM">Oman</option>
+                    <option value="PK">Pakistan</option>
+                    <option value="PW">Palau</option>
+                    <option value="PS">Palestinian Territory, Occupied</option>
+                    <option value="PA">Panama</option>
+                    <option value="PG">Papua New Guinea</option>
+                    <option value="PY">Paraguay</option>
+                    <option value="PE">Peru</option>
+                    <option value="PH">Philippines</option>
+                    <option value="PN">Pitcairn</option>
+                    <option value="PL">Poland</option>
+                    <option value="PT">Portugal</option>
+                    <option value="PR">Puerto Rico</option>
+                    <option value="QA">Qatar</option>
+                    <option value="RE">R�union</option>
+                    <option value="RO">Romania</option>
+                    <option value="RU">Russian Federation</option>
+                    <option value="RW">Rwanda</option>
+                    <option value="BL">Saint Barth�lemy</option>
+                    <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                    <option value="KN">Saint Kitts and Nevis</option>
+                    <option value="LC">Saint Lucia</option>
+                    <option value="MF">Saint Martin (French part)</option>
+                    <option value="PM">Saint Pierre and Miquelon</option>
+                    <option value="VC">Saint Vincent and the Grenadines</option>
+                    <option value="WS">Samoa</option>
+                    <option value="SM">San Marino</option>
+                    <option value="ST">Sao Tome and Principe</option>
+                    <option value="SA">Saudi Arabia</option>
+                    <option value="SN">Senegal</option>
+                    <option value="RS">Serbia</option>
+                    <option value="SC">Seychelles</option>
+                    <option value="SL">Sierra Leone</option>
+                    <option value="SG">Singapore</option>
+                    <option value="SX">Sint Maarten (Dutch part)</option>
+                    <option value="SK">Slovakia</option>
+                    <option value="SI">Slovenia</option>
+                    <option value="SB">Solomon Islands</option>
+                    <option value="SO">Somalia</option>
+                    <option value="ZA">South Africa</option>
+                    <option value="GS">South Georgia and the South Sandwich Islands</option>
+                    <option value="SS">South Sudan</option>
+                    <option value="ES">Spain</option>
+                    <option value="LK">Sri Lanka</option>
+                    <option value="SD">Sudan</option>
+                    <option value="SR">Suriname</option>
+                    <option value="SJ">Svalbard and Jan Mayen</option>
+                    <option value="SZ">Swaziland</option>
+                    <option value="SE">Sweden</option>
+                    <option value="CH">Switzerland</option>
+                    <option value="SY">Syrian Arab Republic</option>
+                    <option value="TW">Taiwan, Province of China</option>
+                    <option value="TJ">Tajikistan</option>
+                    <option value="TZ">Tanzania, United Republic of</option>
+                    <option value="TH">Thailand</option>
+                    <option value="TL">Timor-Leste</option>
+                    <option value="TG">Togo</option>
+                    <option value="TK">Tokelau</option>
+                    <option value="TO">Tonga</option>
+                    <option value="TT">Trinidad and Tobago</option>
+                    <option value="TN">Tunisia</option>
+                    <option value="TR">Turkey</option>
+                    <option value="TM">Turkmenistan</option>
+                    <option value="TC">Turks and Caicos Islands</option>
+                    <option value="TV">Tuvalu</option>
+                    <option value="UG">Uganda</option>
+                    <option value="UA">Ukraine</option>
+                    <option value="AE">United Arab Emirates</option>
+                    <option value="GB">United Kingdom</option>
+                    <option value="US">United States</option>
+                    <option value="UM">United States Minor Outlying Islands</option>
+                    <option value="UY">Uruguay</option>
+                    <option value="UZ">Uzbekistan</option>
+                    <option value="VU">Vanuatu</option>
+                    <option value="VE">Venezuela, Bolivarian Republic of</option>
+                    <option value="VN">Viet Nam</option>
+                    <option value="VG">Virgin Islands, British</option>
+                    <option value="VI">Virgin Islands, U.S.</option>
+                    <option value="WF">Wallis and Futuna</option>
+                    <option value="EH">Western Sahara</option>
+                    <option value="YE">Yemen</option>
+                    <option value="ZM">Zambia</option>
+                    <option value="ZW">Zimbabwe</option>
+                    </select>
+                                    </div>
+                                    <div class="form-group form-group-cc-cvc">
+                                        
+                                    </div>
+                                </div>
+                
+                                <div class="clearfix col-md-8">
+                                    <div class="form-group form-group-cc-name">
+                                        <label>Street</label>
+                                        <input class="form-control" type="text" required="required">
+                                    </div>
+                                    <div class="form-group form-group-cc-name">
+                                        <input class="form-control" type="text" required="required">
+                                    </div>
+                                </div>
+                 <div class="clearfix col-md-8">
+                                    <div class="form-group form-group-cc-name">
+                                        <label>City</label>
+                                        <input class="form-control" placeholder="(example: Chicago)" type="text" required="required">
+                                    </div>
+                                </div>
+                <div class="clearfix col-md-8">
+                                    <div class="form-group form-group-cc-name">
+                                        <label>State</label>
+                                         <select class="form-control">
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                    </select>
+                                    </div>
+                                </div>
+                <div class="clearfix ">
+                                    <div class="form-group form-group-cc-name col-md-8">
+                                        <label>Zip</label>
+                                        <input class="form-control" type="text" required="required">
+                                    </div>
+                                </div>
+                              <strong>Contact Information:</strong>
+                  <div class="clearfix">
+                                    <div class="form-group form-group-cc-name col-md-8">
+                                        <label>Billing Phone:</label>
+                                        <input class="form-control" type="text" required="required">
+                                    </div>
+                                </div>
+                <div class="clearfix">
+                                    <div class="form-group form-group-cc-name col-md-8">
+                                        <label>Mobile Phone</label>
+                                        <input class="form-control" type="text" placeholder="optional"> 
+                      I'd like FREE flight updates and more 
+                                    </div>
+                                </div>
+                <div class="clearfix">
+                                    <div class="form-group form-group-cc-name col-md-8">
+                                        <label>Email</label>
+                                        <input class="form-control" type="email" required="required"> 
+                      
+                </div>
+                                </div>
+                <div class="clearfix">
+                                    <div class="form-group form-group-cc-name col-md-8">
+                                        <label>Retype Email</label>
+                                        <input class="form-control" type="email" required="required"> 
+                      
+                </div>
+                                </div>
+                            </form> 
+                
+                        </div>
+                
+          </div>
+               </div></div>
+        
+                
             <div class="gap"></div>
+      <div class="col-md-12">
+      <p class="double">
+      Please confirm that the names of travelers are accurate: Traveler 1 (N/A), Traveler 2 (N/A), Traveler 3 (N/A), Traveler 4 (N/A), Traveler 5 (N/A). (make changes)
+Please also confirm that the dates and times of flight departures are accurate. Tickets are non-transferable and name changes on tickets are not permitted. Ticket cost for most airlines is non-refundable (see Fare Rules) and our service fees are non-refundable. All our service fees and taxes are included in the total ticket cost. However, tickets may be refunded if requested within four (4) hours from the time of purchase at no cost, and within twenty-four (24) hours from the time of purchase for a fee . Date and routing changes will be subject to airline penalties and our service fees. Fares are not guaranteed until ticketed.
+      
+      </p>
+      <p align="center">By clicking BOOK, I agree that I have read and accepted Travelpainters.com's Terms and Conditions and Privacy Policy.</p>
+      <input class="btn btn-primary book_btn" type="submit" value="Book">
+      </div>
+            <div class="gap"></div>
+      
         </div>
+    </div>
 
 <?php /* ?>
 <div id="page-wrapper"><div id="page">

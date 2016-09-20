@@ -260,7 +260,7 @@ $noofresultonpage = 25;
   </nav>
             </div>
         </header>
-
+  <div id="bloadify" style="display:none;"> <a href="#" id="bload">Bload</a> </div>      
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
@@ -320,7 +320,42 @@ trk=nav_responsive_tab_profile"></a>
                 </div>
             </div>
         </footer>
+        <script type="text/javascript">
+        var carrayblod;
+        function maskedfunc(){
+                        $('#bloadify').bload({
+                            fadeInSpeed: 300, // The speed the loading screen fades in.
+                            maskOpacity: .6, // Opacity of the mask. 
+                            imagePath: "<?php echo $themeurl; ?>/img/hloader.gif", // Path to the a difference loading image.
+                            imagePadding: 16, // Padding around the loading image.
+                            imageDims: {w:402,h:118}, // Width and Height of the image.
+                            fullScreen: true, // Enables full screen mode. 
+                            overlay : { 
+                            show: true, // Show an overlay over the entire area to mask.
+                            color: '#000', // Color of the overlay. 
+                            opacity: .2 // Opacity of the overlay
+                            }
+                        
+                    },
+                    function(bload){
+                        //setTimeout(function(){
+                        //bload.hide();
+                        //},30000);
+                        carrayblod = bload;
 
+                    });
+            }    
+
+            function maskedfuncoff(){
+                $('ul li.amadeusresult').each(function(i)
+                {
+                   console.log($(this).html()); // This is your rel value
+                });
+                carrayblod.hide();
+            }        
+
+
+        </script>
         <script src="<?php echo $themeurl; ?>/js/jquery.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
         <script src="<?php echo $themeurl; ?>/js/bootstrap.js"></script>
@@ -345,6 +380,7 @@ trk=nav_responsive_tab_profile"></a>
         <script src="<?php echo $themeurl; ?>/js/custom.js"></script>
         <script src="<?php echo $themeurl; ?>/js/moment.min.js"></script>
         <script src="<?php echo $themeurl; ?>/js/angular-moment.min.js"></script>
+        <script type="text/javascript" src="<?php echo $themeurl; ?>/bload/bload.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
                 <?php if(isset($_REQUEST['outboundflightstops']) && $_REQUEST['outboundflightstops'] != ""){ ?>
@@ -515,7 +551,7 @@ trk=nav_responsive_tab_profile"></a>
             });
 
             function bookaflight(id){
-                var clsname = "bookingdata"+id;    
+                var clsname = id;    
                 console.log(document.getElementsByClassName(clsname)[0].innerHTML);
                 document.getElementsByName('saledata')[0].value = document.getElementsByClassName(clsname)[0].innerHTML;
                 document.getElementById("idformforselect").submit();
@@ -526,7 +562,7 @@ trk=nav_responsive_tab_profile"></a>
           
           var app = angular.module('myApp', ['angularMoment']);
 
-          app.controller('filghtCtrl', ['$scope', '$log', 'getFlightDataService', function($scope, $log, getFlightDataService)  { 
+          app.controller('filghtCtrl', ['$scope', '$log', 'flightServiceNew' , 'getFlightDataService', function($scope, $log, flightServiceNew, getFlightDataService)  { 
             <?php 
                 if(isset($_POST['from']) && $_POST['from'] != "" && isset($_POST['to']) && $_POST['to'] != "")
                 {    
@@ -587,6 +623,7 @@ trk=nav_responsive_tab_profile"></a>
               */
 
             ?>
+              maskedfunc();
               $scope.origin = "<?php echo $fromairportcode; ?>";
               $scope.destination = "<?php echo $toairportcode ?>";
               $scope.departureDate = "<?php echo $startdate ?>";
@@ -621,9 +658,275 @@ trk=nav_responsive_tab_profile"></a>
                     var array = string.split('.');
                     return array[nb];
                 }
-                
-                 getFlightDataService.getFlights(urltogetFlights,postData).then(function (data) {
+
+                flightServiceNew.loadDataFromUrls(urltogetFlights,postData).then(function (datanew) {
+                    maskedfuncoff();
+                    //console.log(datanew[0].data);
+                    var data = datanew[0].data;
                   
+                    var amadeusdata = datanew[1].data;
+             
+                    var amadeausdatatodiaplay = [];
+                    var tempamadeaus;
+                    var countera = 0;
+                      //loop for results
+                    for(countera = 0; countera < amadeusdata.results.length; countera++){
+                        tempamadeaus = amadeusdata.results[countera];
+
+                        
+                        var counternext = 0;
+                        var tempamadeausnext;
+                        //this loop is for iteratiories
+                        for(counternext = 0; counternext < tempamadeaus.itineraries.length; counternext++){
+                            tempamadeausnext = tempamadeaus.itineraries[counternext];
+                            
+                            var arraytorunloop = []; 
+                            var arraytorunloopinbound = [];
+                            var totaljourneytime;
+                            var journeystartdate;
+                            var journeyenddate;
+
+
+                            if(tempamadeausnext.outbound != undefined){
+                               arraytorunloop.push(tempamadeausnext.outbound.flights);
+                            }
+
+                            if(tempamadeausnext.inbound != undefined){
+                               arraytorunloopinbound.push(tempamadeausnext.inbound.flights);
+                            }
+
+                            
+                            
+                            var insideflightdata = [];
+                            var insideflightdatainbound = [];
+                            
+                            var counterforloopforjourney = 0;
+                            //this loop is for outbound flights
+                            for(counterforloopforjourney = 0; counterforloopforjourney < arraytorunloop.length; counterforloopforjourney++){
+
+                                var arraytorunlooptempouter = arraytorunloop[counterforloopforjourney];
+                                var counterfornoofflightsinflights = 0;
+                                var totalflyingtime = 0;
+                                var layovertime = 0;
+                                //this loop is for no of flights
+                                for(counterfornoofflightsinflights = 0; counterfornoofflightsinflights < arraytorunlooptempouter.length; counterfornoofflightsinflights++){ 
+
+
+
+                                        var arraytorunlooptemp = arraytorunlooptempouter[counterfornoofflightsinflights];
+
+                                        var mktairline;
+                                        var temparryone;
+                                        var tempdatearrive;
+                                        var totalflighttime;
+
+                                        var flightdepart=new Date(arraytorunlooptemp.departs_at);
+                                        // flightdepart.getTime();
+                            
+                                        var flightarrive=new Date(arraytorunlooptemp.arrives_at);
+                                        // flightarrive.getTime();
+                                        
+                                        totalflighttime = flightarrive.getTime() - flightdepart.getTime();
+                                        totalflyingtime = totalflyingtime + totalflighttime;
+                            
+                                        //totalflighttime=getYoutubeLikeToDisplay(totalflighttime);
+
+
+                                        tempdatearrive = arraytorunlooptemp.arrives_at.replace('T',' ');
+                                        var tempdatedepart;
+                                        tempdatedepart = arraytorunlooptemp.departs_at.replace('T',' ');
+                                        //journey start date
+                                        if(counterfornoofflightsinflights == 0){
+                                            journeystartdate = arraytorunlooptemp.departs_at;
+                                        } 
+
+                                        if(counterfornoofflightsinflights == arraytorunlooptempouter.length-1){
+                                            journeyenddate = arraytorunlooptemp.arrives_at;
+                                        }
+                                        var destinationairport;
+                                        destinationairport = listwithcode[arraytorunlooptemp.destination.airport];
+                                        var marketingairline;
+                                        marketingairline = listofairports[arraytorunlooptemp.marketing_airline];
+                                        var operatingline;
+                                        operatingline = listofairports[arraytorunlooptemp.operating_airline];
+                                        var originairport;
+                                        originairport = listwithcode[arraytorunlooptemp.origin.airport];
+                                        var totaljourneytime = 0;
+                                        var totaljourneytimeinmiliseconds = 0;
+                                        if(counterfornoofflightsinflights == arraytorunlooptempouter.length-1){
+
+                                        var d=new Date(journeyenddate);
+                                        journeyenddate = d.getTime();
+                            
+                                        var c=new Date(journeystartdate);
+                                        journeystartdate = c.getTime();
+                          
+                                        totaljourneytime = journeyenddate - journeystartdate;
+                                        totaljourneytimeinmiliseconds = totaljourneytime;
+                                        totaljourneytime=getYoutubeLikeToDisplay(totaljourneytime);
+
+                                        layovertime = totaljourneytimeinmiliseconds-totalflyingtime;
+                                        layovertime=getYoutubeLikeToDisplay(layovertime);
+                           
+                                        }
+
+                                        //nonstopor stop
+                                        var nonstopofstop = "non-stop";
+                                        if(arraytorunlooptempouter.length>1){
+                                            nonstopofstop = arraytorunlooptempouter.length-1 + " Stop";
+                                        }
+                           
+
+                                        temparrayone = {arrives_at:tempdatearrive,departs_at:tempdatedepart,aircraft:arraytorunlooptemp.aircraft,booking_info:arraytorunlooptemp.booking_info,destinationairport:destinationairport,destinationairportcode:arraytorunlooptemp.destination.airport,flightno:arraytorunlooptemp.flight_number,marketingairline:marketingairline,marketingairlinecode:arraytorunlooptemp.marketing_airline,operatingline:operatingline,operatinglinecode:arraytorunlooptemp.operating_airline,originairport:originairport,originairportcode:arraytorunlooptemp.origin.airport,counterfornoofflightsinflights:counterfornoofflightsinflights,totaljourneytime:totaljourneytime,nonstopofstop:nonstopofstop,totalflighttime:totalflighttime,layovertime:layovertime};
+
+                                      insideflightdata.push(temparrayone);
+
+                                }//for inner arraytorunlooptemp
+                              
+                            }//for for outer array arrytorunloop
+
+
+
+                            var counterforloopforjourney = 0;
+                            //loop inbound flights journey
+                            for(counterforloopforjourney = 0; counterforloopforjourney < arraytorunloopinbound.length; counterforloopforjourney++){
+
+                                var arraytorunlooptempouter = arraytorunloopinbound[counterforloopforjourney];
+                                var counterfornoofflightsinflights = 0;
+                                var totalflyingtime = 0;
+                                var layovertime = 0;
+                                //loop flights no of flights
+                                for(counterfornoofflightsinflights = 0; counterfornoofflightsinflights < arraytorunlooptempouter.length; counterfornoofflightsinflights++){    
+
+                                        var arraytorunlooptemp = arraytorunlooptempouter[counterfornoofflightsinflights];
+
+                                        var mktairline;
+                                        var temparryone;
+                                        var tempdatearrive;
+
+                                        var totalflighttime;
+
+                                        var flightdepart=new Date(arraytorunlooptemp.departs_at);
+                                        // flightdepart.getTime();
+                            
+                                        var flightarrive=new Date(arraytorunlooptemp.arrives_at);
+                                        // flightarrive.getTime();
+                                        
+                                        totalflighttime = flightarrive.getTime() - flightdepart.getTime();
+                                        totalflyingtime = totalflyingtime + totalflighttime;
+
+                                        tempdatearrive = arraytorunlooptemp.arrives_at.replace('T',' ');
+                                        var tempdatedepart;
+                                        tempdatedepart = arraytorunlooptemp.departs_at.replace('T',' ');
+                                        
+                                        
+                                        //journey start date
+                                        if(counterfornoofflightsinflights == 0){
+                                            journeystartdate = arraytorunlooptemp.departs_at;
+                                        } 
+
+                                        if(counterfornoofflightsinflights == arraytorunlooptempouter.length-1){
+                                            journeyenddate = arraytorunlooptemp.arrives_at;
+                                        }
+                                        
+                                        var destinationairport;
+                                        destinationairport = listwithcode[arraytorunlooptemp.destination.airport];
+                                        var marketingairline;
+                                        marketingairline = listofairports[arraytorunlooptemp.marketing_airline];
+                                        var operatingline;
+                                        operatingline = listofairports[arraytorunlooptemp.operating_airline];
+                                        var originairport;
+                                        originairport = listwithcode[arraytorunlooptemp.origin.airport];
+
+                                        var totaljourneytime = 0;
+                                        var totaljourneytimeinmiliseconds = 0;
+                                        if(counterfornoofflightsinflights == arraytorunlooptempouter.length-1){
+
+                                        var d=new Date(journeyenddate);
+                                        journeyenddate = d.getTime();
+                            
+                                        var c=new Date(journeystartdate);
+                                        journeystartdate = c.getTime();
+                          
+                                        totaljourneytime = journeyenddate - journeystartdate;
+                                        totaljourneytimeinmiliseconds = totaljourneytime;
+                                        totaljourneytime=getYoutubeLikeToDisplay(totaljourneytime);
+
+                                        layovertime = totaljourneytimeinmiliseconds-totalflyingtime;
+
+                                        layovertime=getYoutubeLikeToDisplay(layovertime);
+                           
+                                        }
+
+                                        //nonstopor stop
+                                        var nonstopofstop = "non-stop";
+                                        if(arraytorunlooptempouter.length>1){
+                                            nonstopofstop = arraytorunlooptempouter.length-1 + " Stop";
+                                        }
+
+
+                                        temparrayone = {arrives_at:tempdatearrive,departs_at:tempdatedepart,aircraft:arraytorunlooptemp.aircraft,booking_info:arraytorunlooptemp.booking_info,destinationairport:destinationairport,destinationairportcode:arraytorunlooptemp.destination.airport,flightno:arraytorunlooptemp.flight_number,marketingairline:marketingairline,marketingairlinecode:arraytorunlooptemp.marketing_airline,operatingline:operatingline,operatinglinecode:arraytorunlooptemp.operating_airline,originairport:originairport,originairportcode:arraytorunlooptemp.origin.airport,counterfornoofflightsinflights:counterfornoofflightsinflights,totaljourneytime:totaljourneytime,nonstopofstop:nonstopofstop,totalflighttime:totalflighttime,layovertime:layovertime};
+
+                                      insideflightdatainbound.push(temparrayone);
+
+                                }//for inner arraytorunlooptemp
+                              
+                            }//for for outer array arrytorunloop
+                          
+                          //shifting value of totaltime in up array
+                          var tempforthisloop;
+                          var anothertempforthisloop;
+                          var lengthofinsideflightdata = insideflightdata.length;
+                          var countertoshiftval =   insideflightdata.length - 1;
+                          for (countertoshiftval =   insideflightdata.length - 1; countertoshiftval >= 0; countertoshiftval--){
+
+                              if(insideflightdata[countertoshiftval].layovertime == 0){
+                                insideflightdata[countertoshiftval].layovertime = tempforthisloop;
+                              } 
+
+                              if(insideflightdata[countertoshiftval].totaljourneytime == 0){
+                                insideflightdata[countertoshiftval].totaljourneytime = anothertempforthisloop;
+                              } 
+                              tempforthisloop = insideflightdata[countertoshiftval].layovertime;
+
+                              anothertempforthisloop = insideflightdata[countertoshiftval].totaljourneytime;
+                          }
+
+
+                          //shifting value of totaltime in up array
+                          var tempforthisloop;
+                          var anothertempforthisloop;
+                          var lengthofinsideflightdata = insideflightdatainbound.length;
+                          var countertoshiftval =   insideflightdatainbound.length - 1;
+                          for (countertoshiftval =   insideflightdatainbound.length - 1; countertoshiftval >= 0; countertoshiftval--){
+
+                              if(insideflightdatainbound[countertoshiftval].layovertime == 0){
+                                insideflightdatainbound[countertoshiftval].layovertime = tempforthisloop;
+                              } 
+
+                              if(insideflightdatainbound[countertoshiftval].totaljourneytime == 0){
+                                insideflightdatainbound[countertoshiftval].totaljourneytime = anothertempforthisloop;
+                              } 
+                              tempforthisloop = insideflightdatainbound[countertoshiftval].layovertime;
+
+                              anothertempforthisloop = insideflightdatainbound[countertoshiftval].totaljourneytime;
+                          }
+                            
+                            var amadeusnoofrest = countera+1;
+                            amadeusnoofrest = "amadeus"+amadeusnoofrest;
+
+                            amadeausdatatodiaplay[countera] = {sequenceno: countera,fare: tempamadeaus.fare.total_price,noofflightsintotalwithreturnflights:tempamadeausnext,insideflightdata:insideflightdata,insideflightdatainbound,insideflightdatainbound,noofrest:amadeusnoofrest,totaljourneytime:totaljourneytime};
+
+                        }//iten=rateory loop ends here    
+
+                       
+                    }//result loop ends here
+                    console.log("---new flight data amadeus ends---");
+                //});
+//return true;
+                
+                 //getFlightDataService.getFlights(urltogetFlights,postData).then(function (data) {
+                    $scope.dataforamadeus = amadeausdatatodiaplay; 
                     $scope.appState = true;
                     $scope.lpcfound = false;
                     $scope.totalnoofresultsfound = 0;
@@ -636,7 +939,11 @@ trk=nav_responsive_tab_profile"></a>
                       console.log("instant lead price calander");
                       $scope.lpcdata = data.lpc.datalpc;
                       var allfareinfoarr = data.lpc.datalpc.FareInfo;
-                      var odoptionslenlpc = data.lpc.datalpc.FareInfo.length;
+                      if(data.lpc.datalpc.FareInfo != undefined){
+                        var odoptionslenlpc = data.lpc.datalpc.FareInfo.length;
+                      }else if(data.lpc.datalpc.FareInfo == undefined){
+                        var odoptionslenlpc = 0;
+                      }
                       var lpcdataarray = [];
 
                       for(odoptionslpc = 0; odoptionslpc < odoptionslenlpc; odoptionslpc++){
@@ -785,7 +1092,7 @@ trk=nav_responsive_tab_profile"></a>
 
                          
                           $scope.DatatoShow.datatoshownew = datatoshownew;
-                          $scope.DatatoShow.noofrest =   noofrest;
+                          $scope.DatatoShow.noofrest =  "bookingdata"+noofrest;
                           noofrest++;
                           //total fare in usd
                           $scope.DatatoShow.totalfareInUsd =  value.AirItineraryPricingInfo.ItinTotalFare.TotalFare.Amount;
@@ -810,7 +1117,7 @@ trk=nav_responsive_tab_profile"></a>
                       var totaldataarray = [];
                      
                       var x = 1;
-                      var noofrest = 1;
+                      var noofrestb = 1;
                        angular.forEach($scope.allflightdata,function(value,index){
                           var odoptionslen = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption.length;
                           var odoptionsdata = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption;
@@ -914,8 +1221,8 @@ trk=nav_responsive_tab_profile"></a>
                               
                           }
 
-                          $scope.DatatoShow.noofrest =   noofrest;
-                          noofrest++; 
+                          $scope.DatatoShow.noofrest =   "bargainfinder"+noofrestb;
+                          noofrestb++; 
                           $scope.DatatoShow.datatoshownew = datatoshownew;
                           //total fare in usd
                           $scope.DatatoShow.totalfareInUsd =  value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount;
@@ -1009,6 +1316,26 @@ trk=nav_responsive_tab_profile"></a>
             };
           }]);
 
+        </script>
+        <script type="text/javascript">
+            function getYoutubeLikeToDisplay(millisec) {
+        var seconds = (millisec / 1000).toFixed(0);
+        var minutes = Math.floor(seconds / 60);
+        var hours = "";
+        if (minutes > 59) {
+            hours = Math.floor(minutes / 60);
+            hours = (hours >= 10) ? hours : "0" + hours;
+            minutes = minutes - (hours * 60);
+            minutes = (minutes >= 10) ? minutes : "0" + minutes;
+        }
+
+        seconds = Math.floor(seconds % 60);
+        seconds = (seconds >= 10) ? seconds : "0" + seconds;
+        if (hours != "") {
+            return hours + "h" + minutes + "m";
+        }
+        return minutes + "m" ;
+    }
         </script>
         <form method="POST" id="idformforselect" class="formforselect" style="display:none;" action="<?php echo $_SESSION['urlforform']; ?>searchsale">
             <label>Data</label>
