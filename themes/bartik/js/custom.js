@@ -47,7 +47,7 @@ $('.form-group').each(function() {
         self.removeClass('form-group-focus');
     });
 });
-/*
+
 $('.typeahead').typeahead({
     hint: true,
     highlight: true,
@@ -78,20 +78,20 @@ $('.typeahead').typeahead({
                     }
 
                     
-                    if(val.country == "US"){
-                        datatopush = val.id + " - " +  val.name + ", " + val.city + ", " + statedata + " " + countrydata ;
-                        result.push({
-                            value: datatopush
-                        });
-                    }    
+                   
+                    datatopush = val.id + " - " +  val.name + ", " + val.city + ", " + statedata + " " + countrydata ;
+                    result.push({
+                        value: datatopush
+                    });
+                      
                 });
                 cb(result);
             }
         });
     }
 });
-*/
 
+/*
 $('.typeahead').typeahead({
     hint: true,
     highlight: true,
@@ -115,7 +115,7 @@ $('.typeahead').typeahead({
             
     }
 });
-
+*/
 
 
 /*

@@ -523,8 +523,8 @@ $themeurl = file_create_url(path_to_theme());
                     </div>
                     <ul class="booking-list allresult">
                     <!-- Amadeus search serch start -->
-                    <h1>Amadeus</h1>
-                    <li class="amadeusresult" ng-repeat="xy in dataforamadeus" >
+                    <h1 style="display:none;">Amadeus</h1>
+                    <li class="amadeusresult" style="display:none;" ng-repeat="xy in dataforamadeus" >
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->
                         <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
                         
@@ -534,10 +534,12 @@ $themeurl = file_create_url(path_to_theme());
                                 <div class="booking-item">
                                 <span class="{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
                                 <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row"  ng-repeat="x in xy.insideflightdata" > 
+                                    <div class="row"  ng-repeat="x in xy.insideflightdata" >
+                                    
+                                      <span class="amadeusfare" style="display:none;">{{xy.fare}}</span> 
                                       <span class="amadeusstops" style="display:none;">{{x.nonstopofstop}}</span>
                                       <span class="amadeusdepartturetime" style="display:none;">{{x.departs_at | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
-                                      <span class="amadeusairlines" style="display:none;">{{x.marketingairline}}</span>
+                                      <span class="amadeusairlines" style="display:none;">{{x.marketingairlinecode}}</span>
                                       <span class="amadeuslayover" style="display:none;">{{x.layovertime}}</span>
                                       <span class="amadeusflightno" style="display:none;">{{x.flightno}}</span>
                                       <span class="amadeusoperatinglinecode" style="display:none;">{{x.operatinglinecode}}</span>
@@ -601,7 +603,10 @@ $themeurl = file_create_url(path_to_theme());
                                   <!-- main loop row ends here -->
 
                                 <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row"  ng-repeat="x in xy.insideflightdatainbound" >
+                                    <div class="row amadeusrtn"  ng-repeat="x in xy.insideflightdatainbound" >
+                                    <span class="amadeusoperatinglinecodereturn" style="display:none;">{{x.operatinglinecode}}</span>
+                                      <span class="amadeusflightnoreturn" style="display:none;">{{x.flightno}}</span>
+
                                         <div class="col-md-2">
                                             <div class="booking-item-airline-logo">
                                                 <img ng-if="x.counterfornoofflightsinflights==0" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.marketingairlinecode}}.png" alt="{{x.marketingairline}}" title="{{x.marketingairline}}" />
@@ -713,7 +718,7 @@ $themeurl = file_create_url(path_to_theme());
                         </li> 
                           
                         <!-- Amadeus search ends -->
-                        <h1>Saber</h1>
+                        <h1 style="display:none;">Saber</h1>
                         <!-- Instant flight search start -->
                          <li class="saberresult" ng-repeat="xy in DisplayDatainstantflights" ng-if="xy.logoOfmarketingAirine !== undefined">
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->
@@ -724,7 +729,7 @@ $themeurl = file_create_url(path_to_theme());
                                 <div class="booking-item">
                                 <span class="{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
                                 <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row"  ng-repeat="x in xy.datatoshownew" >
+                                    <div class="row"  ng-repeat="x in xy.datatoshownew" ng-init="parentIndex = $index" >
                                     
                                         <div class="col-md-2">
                                             <div class="booking-item-airline-logo">
@@ -732,13 +737,16 @@ $themeurl = file_create_url(path_to_theme());
                                                 <p>{{x.nameOfmarketingAirine}}</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-5" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
+                                        <div class="col-md-5 datahere" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
+                                        <span class="saberfare" style="display:none;">{{xy.totalfareInUsd}}</span>
                                         <span class="saberstops" style="display:none;">{{x.nonStopOrwithStop}}</span>
                                         <span class="saberdepartturetime" style="display:none;">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
                                         <span class="saberairlines" style="display:none;">{{x.MarketingAirlineCode}}</span>
                                         <span class="saberlayover" style="display:none;">{{x.LayoverTime}}</span>
                                         <span class="saberflightno" style="display:none;">{{x.OperatingAirlineFlightNumber}}</span>
                                         <span class="saberoperatinglinecode" style="display:none;">{{x.OperatingAirlineCode}}</span>
+                                        <span class="saberflightnoreturn" ng-if="parentIndex == 1" style="display:none;">{{x.OperatingAirlineFlightNumber}}</span>
+                                        <span class="saberoperatinglinecodereturn" ng-if="parentIndex == 1" style="display:none;">{{x.OperatingAirlineCode}}</span>
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-plane"></i>
                                                     <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
@@ -843,9 +851,9 @@ $themeurl = file_create_url(path_to_theme());
                         </li> 
                         <!-- Instant flight search ends -->
                         
-                        <li><h1>Bargain Finder </h1></li>
+                        <li style="display:none;"><h1>Bargain Finder </h1></li>
                         <!-- Bargain max finder start -->
-                        <li class="bargainfinderresult" ng-repeat="xy in DisplayData" ng-if="xy.logoOfmarketingAirine !== undefined">
+                        <li style="display:none;" class="bargainfinderresult" ng-repeat="xy in DisplayData" ng-if="xy.logoOfmarketingAirine !== undefined">
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->
                         <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
                         
@@ -862,13 +870,14 @@ $themeurl = file_create_url(path_to_theme());
                                                 <p>{{x.nameOfmarketingAirine}}</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-5" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
+                                        <div class="col-md-5 datahere" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
+                                        <span class="saberfare" style="display:none;">{{xy.totalfareInUsd}}</span>
                                         <span class="saberstops" style="display:none;">{{x.nonStopOrwithStop}}</span>
                                         <span class="saberdepartturetime" style="display:none;">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
-                                        <span class="saberairlines" style="display:none;">{{x.MarketingAirlineCode}}</span>
+                                        <span class="saberairlines" style="display:none;">{{y.MarketingAirline}}</span>
                                         <span class="saberlayover" style="display:none;">{{x.LayoverTime}}</span>
-                                        <span class="saberflightno" style="display:none;">{{x.OperatingAirlineFlightNumber}}</span>
-                                        <span class="saberoperatinglinecode" style="display:none;">{{x.OperatingAirlineCode}}</span>
+                                        <span class="saberflightno" style="display:none;">{{y.FlightNumber}}</span>
+                                        <span class="saberoperatinglinecode" style="display:none;">{{y.OperatingAirline.Code}}</span>
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-plane"></i>
                                                     <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>

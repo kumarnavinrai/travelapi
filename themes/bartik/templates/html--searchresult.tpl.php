@@ -260,6 +260,7 @@ $noofresultonpage = 25;
   </nav>
             </div>
         </header>
+        <button style="display:none;" onclick="maskedfuncoff()">Click Me</button>
   <div id="bloadify" style="display:none;"> <a href="#" id="bload">Bload</a> </div>      
   <?php print $page_top; ?>
   <?php print $page; ?>
@@ -328,7 +329,7 @@ trk=nav_responsive_tab_profile"></a>
                             maskOpacity: .6, // Opacity of the mask. 
                             imagePath: "<?php echo $themeurl; ?>/img/hloader.gif", // Path to the a difference loading image.
                             imagePadding: 16, // Padding around the loading image.
-                            imageDims: {w:402,h:118}, // Width and Height of the image.
+                            imageDims: {w:402,h:116}, // Width and Height of the image.
                             fullScreen: true, // Enables full screen mode. 
                             overlay : { 
                             show: true, // Show an overlay over the entire area to mask.
@@ -347,11 +348,163 @@ trk=nav_responsive_tab_profile"></a>
             }    
 
             function maskedfuncoff(){
-                $('ul li.amadeusresult').each(function(i)
-                {
-                   console.log($(this).html()); // This is your rel value
-                });
-                carrayblod.hide();
+                //var result = document.getElementsByClassName("amadeusresult");
+                //var wrappedResult = angular.element(result);
+                //console.log(wrappedResult);
+                //angular.element(document).find('amadeusresult');
+                //var x = angular.element(elem.querySelector('.amadeusresult'));
+                //var elem = angular.element(document.querySelector(".amadeusresult"));
+                //console.log(elem);
+                //var domElements = document.querySelectorAll('ul.allresult li.amadeusresult');
+                // alternate:    document.querySelector('#element-id');
+
+                /*var $domElement;
+                if (domElement) {
+                  $domElement = angular.element(domElement);
+                }*/
+                setTimeout(function(){
+                        //bload.hide();
+                        var arrayofamadeus = [];
+                        var arrayofamadeusforcompare = [];
+                        $.each($(".amadeusresult"), function(index, value) { 
+                            
+                            var fare = $(this).children('div').children('div').children('div').children('.amadeusfare').html();
+                            var stops = $(this).children('div').children('div').children('div').children('.amadeusstops').html();
+                            var departuretime = $(this).children('div').children('div').children('div').children('.amadeusdepartturetime').html();
+                            var airlines = $(this).children('div').children('div').children('div').children('.amadeusairlines').html();
+                            var layover = $(this).children('div').children('div').children('div').children('.amadeuslayover').html();
+                            var flightno = $(this).children('div').children('div').children('div').children('.amadeusflightno').html();
+                            var operatingairline = $(this).children('div').children('div').children('div').children('.amadeusoperatinglinecode').html();
+
+                            var flightnoreturn = "";
+                            var operatingairlinereturn = "";
+                            if($(this).children('div').children('div').children('.amadeusrtn').length != -1){
+                                flightnoreturn = $(this).children('div').children('div').children('.amadeusrtn').children('.amadeusflightnoreturn').html();
+                                operatingairlinereturn = $(this).children('div').children('div').children('.amadeusrtn').children('.amadeusoperatinglinecodereturn').html();
+                            }
+                            
+
+                            var allarray = {stops:stops,departuretime:departuretime,airlines:airlines,layover:layover,flightno:flightno,operatingairline:operatingairline,index:index,fare:fare,flightnoreturn:flightnoreturn,operatingairlinereturn:operatingairlinereturn};
+                            var valtocompare = airlines+"-"+flightno+"-"+operatingairline+"-"+fare+"-"+flightnoreturn+"-"+operatingairlinereturn;
+                            arrayofamadeus.push(allarray);
+                            arrayofamadeusforcompare.push(valtocompare);
+                            
+                          });
+                        
+
+                        var arrayofsaber = [];
+                        var arrayofsaberforcompare = [];
+                        var arrayofsaberforcomparewithindex = [];
+                        $.each($(".saberresult"), function(index, value) { 
+                            var ele = $(this).children('div').children('div').children('div').children('.datahere');
+                            var fare = ele.children('.saberfare').html();
+                            var stops = ele.children('.saberstops').html();
+                            var departuretime = ele.children('.saberdepartturetime').html();
+                            var airlines = ele.children('.saberairlines').html();
+                            var layover = ele.children('.saberlayover').html();
+                            var flightno = ele.children('.saberflightno').html();
+                            var operatingairline = ele.children('.saberoperatinglinecode').html();
+                            var flightnoreturn = "";
+                            if($(this).find(".saberflightnoreturn").html()!=undefined){
+                                flightnoreturn = $(this).find(".saberflightnoreturn").html();
+                            }
+                            
+                            var operatingairlinereturn = "";
+                            if($(this).find(".saberoperatinglinecodereturn").html() != undefined){
+                                operatingairlinereturn = $(this).find(".saberoperatinglinecodereturn").html();
+                            }
+                            
+
+                            var allarray = {stops:stops,departuretime:departuretime,airlines:airlines,layover:layover,flightno:flightno,operatingairline:operatingairline,index:index,fare:fare,flightnoreturn:flightnoreturn,operatingairlinereturn:operatingairlinereturn};
+                            arrayofsaber.push(allarray);
+                            var valtocompare = airlines+"-"+flightno+"-"+operatingairline+"-"+fare+"-"+flightnoreturn+"-"+operatingairlinereturn;
+                            arrayofsaberforcompare.push(valtocompare);
+                        });
+
+                        
+                        /*
+                        var arrayofsaberbargain = [];
+                        $.each($(".bargainfinderresult"), function(index, value) { 
+                            var ele = $(this).children('div').children('div').children('div').children('.datahere');
+                            var fare = ele.children('.saberfare').html();
+                            var stops = ele.children('.saberstops').html();
+                            var departuretime = ele.children('.saberdepartturetime').html();
+                            var airlines = ele.children('.saberairlines').html();
+                            var layover = ele.children('.saberlayover').html();
+                            var flightno = ele.children('.saberflightno').html();
+                            var operatingairline = ele.children('.saberoperatinglinecode').html();
+                            var allarray = {stops:stops,departuretime:departuretime,airlines:airlines,layover:layover,flightno:flightno,operatingairline:operatingairline,index:index,fare:fare};
+                            arrayofsaberbargain.push(allarray);
+                        });
+                        
+                        var sortedObjs = _.sortBy( arrayofsaberbargain, 'fare' );
+                        arrayofsaberbargain = sortedObjs;
+                        */
+
+                        var diffr = _.difference(arrayofamadeusforcompare,arrayofsaberforcompare );
+                        //var intersec = _.intersection(arrayofsaberforcompare, arrayofamadeusforcompare);
+
+                          console.log("---difference----"); 
+                          //this diff is from amadaeus which is not in saber 
+                          console.log(diffr);  
+                          console.log("---difference----");
+                          //console.log("---intersection----");  
+                          //console.log(intersec);  
+                          //console.log("---intersection----");
+                          //console.log(arrayofamadeus);
+                          //console.log(arrayofsaber);
+                          if(diffr.length != 0){
+                            for (var i = 0; i < diffr.length; i++) {
+                                var detailsofloop = diffr[i].split("-");
+                                console.log(detailsofloop);
+                                var thiseleinserted = "no";
+                                $.each($(".amadeusresult"), function(index, value) { 
+                            
+                                        var fare = $(this).children('div').children('div').children('div').children('.amadeusfare').html();
+                                        var stops = $(this).children('div').children('div').children('div').children('.amadeusstops').html();
+                                        var departuretime = $(this).children('div').children('div').children('div').children('.amadeusdepartturetime').html();
+                                        var airlines = $(this).children('div').children('div').children('div').children('.amadeusairlines').html();
+                                        var layover = $(this).children('div').children('div').children('div').children('.amadeuslayover').html();
+                                        var flightno = $(this).children('div').children('div').children('div').children('.amadeusflightno').html();
+                                        var operatingairline = $(this).children('div').children('div').children('div').children('.amadeusoperatinglinecode').html();
+
+                                        var flightnoreturn = "";
+                                        var operatingairlinereturn = "";
+                                        if($(this).children('div').children('div').children('.amadeusrtn').length != -1){
+                                            flightnoreturn = $(this).children('div').children('div').children('.amadeusrtn').children('.amadeusflightnoreturn').html();
+                                            operatingairlinereturn = $(this).children('div').children('div').children('.amadeusrtn').children('.amadeusoperatinglinecodereturn').html();
+                                        }
+
+                                        var thisofamadeaus = $(this);
+                                        if(detailsofloop[3] == fare && flightno == detailsofloop[1] && flightnoreturn == detailsofloop[4] ){
+                                             console.log(index);
+                                             $.each($(".saberresult"), function(indexs, values) {
+                                                var elesaber = $(this).children('div').children('div').children('div').children('.datahere');
+                                                var faresaber = elesaber.children('.saberfare').html();
+
+                                                if(detailsofloop[3] <= faresaber && thiseleinserted == "no"){
+                                                    $('.allresult li.saberresult:eq('+indexs+')').before('<li class="saberresult">'+thisofamadeaus.html()+'</li>'); 
+                                                    thiseleinserted = "yes";
+                                                    console.log("-----");
+                                                }
+
+                                             });
+
+                                        }
+                                        
+                                      });
+
+                            }
+                          }
+                      
+                      carrayblod.hide();
+                },1000);
+                
+                /*$.each($domElement, function(index, value) { 
+                    console.log(index + ':' + value); 
+                    console.log($(this).html());
+                });*/
+                
             }        
 
 
@@ -380,6 +533,8 @@ trk=nav_responsive_tab_profile"></a>
         <script src="<?php echo $themeurl; ?>/js/custom.js"></script>
         <script src="<?php echo $themeurl; ?>/js/moment.min.js"></script>
         <script src="<?php echo $themeurl; ?>/js/angular-moment.min.js"></script>
+        <script src="<?php echo $themeurl; ?>/js/underscore-min.js"></script>
+        
         <script type="text/javascript" src="<?php echo $themeurl; ?>/bload/bload.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
@@ -1150,9 +1305,9 @@ trk=nav_responsive_tab_profile"></a>
                               var flightSegementObject = {};
                               
                               for(count = 0; count < $scope.AllFlightsdataInOneOption.FlightSegment.length; count++){
-                                 //console.log($scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport);
+                                 //console.log($scope.AllFlightsdataInOneOption.FlightSegment[count]);
                                  
-                                 flightSegementObject = {arrivalaiport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport.LocationCode],departureairport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureAirport.LocationCode],departuretime:$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureDateTime,arrivaltime:$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalDateTime,flightSeq:count};
+                                 flightSegementObject = {arrivalaiport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport.LocationCode],departureairport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureAirport.LocationCode],departuretime:$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureDateTime,arrivaltime:$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalDateTime,flightSeq:count,FlightNumber:$scope.AllFlightsdataInOneOption.FlightSegment[count].FlightNumber,MarketingAirline:$scope.AllFlightsdataInOneOption.FlightSegment[count].MarketingAirline.Code,OperatingAirline:$scope.AllFlightsdataInOneOption.FlightSegment[count].OperatingAirline};
 
                                  flightSegementArray[count] = flightSegementObject;
                                  $scope.TotalFlightTime = $scope.TotalFlightTime + $scope.AllFlightsdataInOneOption.FlightSegment[count].ElapsedTime;

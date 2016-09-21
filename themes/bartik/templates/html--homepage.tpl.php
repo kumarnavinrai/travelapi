@@ -101,7 +101,7 @@ $_SESSION['urlforform'] = "http://travelpainters.com/";
   <?php print $styles; ?>
   <?php print $scripts; */?>
   <script type="text/javascript">
-    //var urlforapi = "http://127.0.0.1:1338/";
+    //var urlforapi = "http://127.0.0.1:1337/";
     var urlforapi = "http://104.168.102.222:1337/fs/";
     
   </script>
