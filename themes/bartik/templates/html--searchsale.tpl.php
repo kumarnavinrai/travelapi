@@ -47,7 +47,6 @@ $themeurl = file_create_url(path_to_theme());
 global $base_url;   // Will point to http://www.example.com
 global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
 $sitelink = $base_url . $base_path;
-$_SERVER['aak'] = 'vnv3Oc7LIBbU2TzlWhdpk7ri74pxYrZc';
 
 $urlofwp = "http://blog.travelpainters.com/";
 $urltoGetFilghts = "http://127.0.0.1:1337/fs/";
