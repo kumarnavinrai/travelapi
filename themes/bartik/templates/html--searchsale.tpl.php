@@ -47,6 +47,7 @@ $themeurl = file_create_url(path_to_theme());
 global $base_url;   // Will point to http://www.example.com
 global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
 $sitelink = $base_url . $base_path;
+$_SERVER['aak'] = 'vnv3Oc7LIBbU2TzlWhdpk7ri74pxYrZc';
 
 $urlofwp = "http://blog.travelpainters.com/";
 $urltoGetFilghts = "http://127.0.0.1:1337/fs/";
@@ -120,9 +121,9 @@ $noofresultonpage = 25;
                             <div class="top-user-area clearfix">
                                 <ul class="top-user-area-list list list-horizontal list-border">
                                    
-                                    <li><a href="<?php echo $sitelink; ?>/user/register">Register</a>
+                                    <li><a href="<?php echo $sitelink; ?>user/register">Register</a>
                                     </li>
-                  <li><a href="<?php echo $sitelink; ?>/user">Sign in</a>
+                  <li><a href="<?php echo $sitelink; ?>user">Sign in</a>
                                     </li>
                                     
                                         </ul>

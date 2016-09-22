@@ -1,0 +1,10 @@
+p.double {
+    border-style: double;
+	    padding: 1em;
+}
+input.btn.btn-primary.book_btn {
+    width: 17%;
+	height:3em;
+    font-size:large;
+	margin-left:40%;
+}

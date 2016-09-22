@@ -51,7 +51,7 @@ $sitelink = $base_url . $base_path;
 $urlofwp = "http://blog.travelpainters.com/";
 //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
 $urltoGetFilghts = "http://104.168.102.222:1337/fs/";
-$noofresultonpage = 25;
+$noofresultonpage = 50;
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
@@ -327,9 +327,9 @@ trk=nav_responsive_tab_profile"></a>
                         $('#bloadify').bload({
                             fadeInSpeed: 300, // The speed the loading screen fades in.
                             maskOpacity: .6, // Opacity of the mask. 
-                            imagePath: "<?php echo $themeurl; ?>/img/hloader.gif", // Path to the a difference loading image.
+                            imagePath: "<?php echo $themeurl; ?>/img/plane_loading.gif", // Path to the a difference loading image.
                             imagePadding: 16, // Padding around the loading image.
-                            imageDims: {w:402,h:116}, // Width and Height of the image.
+                            imageDims: {w:300,h:300}, // Width and Height of the image.
                             fullScreen: true, // Enables full screen mode. 
                             overlay : { 
                             show: true, // Show an overlay over the entire area to mask.
@@ -477,16 +477,34 @@ trk=nav_responsive_tab_profile"></a>
 
                                         var thisofamadeaus = $(this);
                                         if(detailsofloop[3] == fare && flightno == detailsofloop[1] && flightnoreturn == detailsofloop[4] ){
-                                             console.log(index);
+                                            var sizeofsaber = $(".saberresult").size();
                                              $.each($(".saberresult"), function(indexs, values) {
+                                             
+
+
                                                 var elesaber = $(this).children('div').children('div').children('div').children('.datahere');
                                                 var faresaber = elesaber.children('.saberfare').html();
+
+                                                var filterformdata = $('.formforfilters').serializeArray();
+                                                
+                                                //no 12 is the key for stops
+                                                console.log(filterformdata[12].name);
+                                                console.log(filterformdata[12].value);
+
+
 
                                                 if(detailsofloop[3] <= faresaber && thiseleinserted == "no"){
                                                     $('.allresult li.saberresult:eq('+indexs+')').before('<li class="saberresult">'+thisofamadeaus.html()+'</li>'); 
                                                     thiseleinserted = "yes";
-                                                    console.log("-----");
+                                                    
                                                 }
+
+                                                if(indexs == sizeofsaber-1 && thiseleinserted == "no")
+                                                {
+                                                    $('.allresult li.saberresult:eq('+indexs+')').after('<li class="saberresult">'+thisofamadeaus.html()+'</li>'); 
+                                                    thiseleinserted = "yes";
+                                                }
+
 
                                              });
 
@@ -498,6 +516,11 @@ trk=nav_responsive_tab_profile"></a>
                           }
                       
                       carrayblod.hide();
+
+                      
+                      $('.totalnoofresultsfound').html($(".saberresult").size());
+                      
+
                 },1000);
                 
                 /*$.each($domElement, function(index, value) { 
@@ -505,8 +528,10 @@ trk=nav_responsive_tab_profile"></a>
                     console.log($(this).html());
                 });*/
                 
-            }        
+            }   
 
+
+            //totalnoofresultsfound
 
         </script>
         <script src="<?php echo $themeurl; ?>/js/jquery.js"></script>
@@ -711,6 +736,11 @@ trk=nav_responsive_tab_profile"></a>
                 document.getElementsByName('saledata')[0].value = document.getElementsByClassName(clsname)[0].innerHTML;
                 document.getElementById("idformforselect").submit();
                 
+            }
+
+            function bookme(ele){
+                $('.saledata').val($(ele).closest('li.saberresult').children('div').children('div').children('span').html());
+                $("#idformforselect").submit();
             }
         </script>
         <script type="text/javascript">
@@ -1245,7 +1275,7 @@ trk=nav_responsive_tab_profile"></a>
                               
                           }
 
-                         
+                        
                           $scope.DatatoShow.datatoshownew = datatoshownew;
                           $scope.DatatoShow.noofrest =  "bookingdata"+noofrest;
                           noofrest++;
@@ -1474,23 +1504,23 @@ trk=nav_responsive_tab_profile"></a>
         </script>
         <script type="text/javascript">
             function getYoutubeLikeToDisplay(millisec) {
-        var seconds = (millisec / 1000).toFixed(0);
-        var minutes = Math.floor(seconds / 60);
-        var hours = "";
-        if (minutes > 59) {
-            hours = Math.floor(minutes / 60);
-            hours = (hours >= 10) ? hours : "0" + hours;
-            minutes = minutes - (hours * 60);
-            minutes = (minutes >= 10) ? minutes : "0" + minutes;
-        }
+                var seconds = (millisec / 1000).toFixed(0);
+                var minutes = Math.floor(seconds / 60);
+                var hours = "";
+                if (minutes > 59) {
+                    hours = Math.floor(minutes / 60);
+                    hours = (hours >= 10) ? hours : "0" + hours;
+                    minutes = minutes - (hours * 60);
+                    minutes = (minutes >= 10) ? minutes : "0" + minutes;
+                }
 
-        seconds = Math.floor(seconds % 60);
-        seconds = (seconds >= 10) ? seconds : "0" + seconds;
-        if (hours != "") {
-            return hours + "h" + minutes + "m";
-        }
-        return minutes + "m" ;
-    }
+                seconds = Math.floor(seconds % 60);
+                seconds = (seconds >= 10) ? seconds : "0" + seconds;
+                if (hours != "") {
+                    return hours + "h" + minutes + "m";
+                }
+                return minutes + "m" ;
+            }
         </script>
         <form method="POST" id="idformforselect" class="formforselect" style="display:none;" action="<?php echo $_SESSION['urlforform']; ?>searchsale">
             <label>Data</label>

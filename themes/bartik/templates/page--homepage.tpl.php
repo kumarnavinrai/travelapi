@@ -136,7 +136,7 @@ $themeurl = file_create_url(path_to_theme());
                 <div class="tab-content">
                   <div class="tab-pane fade in active" id="tab-2">
                     <h2>Search for Cheap Flights</h2>
-                    <form method="POST" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
+                    <form method="POST" action="<?php echo isset($_SESSION['urlforform'])?$_SESSION['urlforform']:""; ?>searchresult">
                       <div class="tabbable">
                         <ul class="nav nav-pills nav-sm nav-no-br mb10" id="flightChooseTab">
                           <li class="active">

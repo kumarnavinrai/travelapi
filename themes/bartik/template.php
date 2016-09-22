@@ -35,17 +35,7 @@ function bartik_preprocess_html(&$variables) {
   drupal_add_css(path_to_theme() . '/css/ie6.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'IE 6', '!IE' => FALSE), 'preprocess' => FALSE));
 }
 
-function bartik_theme(&$existing, $type, $theme, $path){
-  $hooks = array();
-   // Make user-register.tpl.php available
-  $hooks['user_register_form'] = array (
-     'render element' => 'form',
-     'path' => drupal_get_path('theme','bartik'),
-     'template' => 'user-register',
-     'preprocess functions' => array('bartik_preprocess_user_register_form'),
-  );
-  return $hooks;
-}
+
 
 function bartik_preprocess_user_register_form(&$vars) {
   $args = func_get_args();
@@ -62,7 +52,10 @@ function bartik_process_html(&$variables) {
   if (module_exists('color')) {
     _color_html_alter($variables);
   }
-  $variables['urlforform'] = $urlforform;
+  if(isset($urlforform) == true)
+  {
+    $variables['urlforform'] = $urlforform;
+  }  
 }
 
 
@@ -79,7 +72,10 @@ function bartik_preprocess_page(&$vars, $hook) {
  * Override or insert variables into the page template.
  */
 function bartik_process_page(&$variables) {
-  $variables['urlforform'] = $urlforform;
+  if(isset($urlforform) == true)
+  {  
+    $variables['urlforform'] = $urlforform;
+  }  
   // Hook into color.module.
   if (module_exists('color')) {
     _color_page_alter($variables);
@@ -194,3 +190,45 @@ function bartik_field__taxonomy_term_reference($variables) {
 
   return $output;
 }
+
+
+function bartik_theme(){    
+  $items = array();   
+      
+  $items['user_login'] = array(   
+    'render element' => 'form',   
+    'path' => drupal_get_path('theme', 'bartik') . '/templates',    
+    'template' => 'user-login',   
+    'preprocess functions' => array(    
+       'bartik_preprocess_user_login'   
+    ),    
+  );    
+  $items['user_register_form'] = array(   
+    'render element' => 'form',   
+    'path' => drupal_get_path('theme', 'bartik') . '/templates',    
+    'template' => 'user-register-form',   
+    'preprocess functions' => array(    
+      'bartik_preprocess_user_register_form'    
+    ),    
+  );    
+  $items['user_pass'] = array(    
+    'render element' => 'form',   
+    'path' => drupal_get_path('theme', 'bartik') . '/templates',    
+    'template' => 'user-pass',    
+    'preprocess functions' => array(    
+      'bartik_preprocess_user_pass'   
+    ),    
+  );    
+  return $items;    
+}   
+/*    
+function bartik_preprocess_user_login(&$vars) {   
+  $vars['intro_text'] = t('This is my awesome login form');   
+}   
+function bartik_preprocess_user_register_form(&$vars) {   
+  $vars['intro_text'] = t('This is my super awesome reg form');   
+}   
+function bartik_preprocess_user_pass(&$vars) {    
+  $vars['intro_text'] = t('This is my super awesome request new password form');    
+}   
+*/

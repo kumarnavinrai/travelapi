@@ -12,9 +12,9 @@ app.service('flightServiceNew', function($http, $q) {
             'Content-Type' : 'application/x-www-form-urlencoded', 
             'Accept': 'application/json' 
           }; 
-
+          console.log("------Data----"+data.outboundflightstops);
           if(data.outboundflightstops != "" && data.outboundflightstops == 0){
-            nonstop = false;
+            nonstop = true;
           }
 
           var arrivebyval = "";
@@ -43,7 +43,9 @@ app.service('flightServiceNew', function($http, $q) {
             returnbyval = data.returndate +"T"+ output;
           }
 
-          var urlamadeus = "https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search"+"?apikey=vnv3Oc7LIBbU2TzlWhdpk7ri74pxYrZc&origin="+data.origin+"&destination="+data.destination+"&departure_date="+data.departureDate;
+          //var urlamadeus = ="+data.origin+"&destination="+data.destination+"&departure_date="+data.departureDate;
+
+          var urlamadeus = "origin="+data.origin+"&destination="+data.destination+"&departure_date="+data.departureDate;
           
           if(data.returndate != ""){
             urlamadeus = urlamadeus +"&return_date="+data.returndate;
@@ -69,6 +71,8 @@ app.service('flightServiceNew', function($http, $q) {
           var urlCalls = [];
           var urlsnew = [];
           urlsnew.push(urls);
+          urls = urls.replace("fs/","");
+          urls = urls + "amadeusurl";
           urlsnew.push(urls);
           var counter = 1;
           angular.forEach(urlsnew, function(url) {
@@ -90,13 +94,14 @@ app.service('flightServiceNew', function($http, $q) {
               }));
 
             }else if(counter == 2){
-
               urlCalls.push($http({ 
-                    method: 'GET', 
-                    url: urlamadeus, 
-                    cache: false, 
-                }) 
-                .success(function(data) { 
+                  method: 'POST', 
+                  url: url,
+                  cache: false, 
+                  data: urlamadeus, 
+                  headers: headers 
+              }) 
+               .success(function(data) { 
                   return data;
                 }) 
                 .error(function() { 

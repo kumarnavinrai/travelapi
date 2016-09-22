@@ -292,7 +292,7 @@ $themeurl = file_create_url(path_to_theme());
                     <button class="btn btn-primary btn-lg" type="submit">Search for Flights</button>
                 </form>
             </div>
-            <h3 class="booking-title">{{totalnoofresultsfound}} Flights from {{fromcity}} to {{tocity}} for 1 adult <small><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a></small></h3>
+            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from {{fromcity}} to {{tocity}}<small><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a></small></h3>
             <div class="row">
                 <div class="col-md-3">
                     <aside class="booking-filters text-white">
@@ -565,13 +565,13 @@ $themeurl = file_create_url(path_to_theme());
                                             </div>
                                         </div>
                                         <div  class="col-md-2">
-                                            <h5 ng-if="x.counterfornoofflightsinflights==0">{{x.totaljourneytime}}</h5>
+                                            <h5 ng-if="x.counterfornoofflightsinflights==0">Flight No.{{x.flightno}}</h5>
                                             <p ng-if="x.counterfornoofflightsinflights==0">{{x.nonstopofstop}}</p>
                                         </div>
                                         <div class="col-md-3" ><span class="booking-item-price" ng-if="x.counterfornoofflightsinflights==0" >${{xy.fare}}</span><span ng-if="x.counterfornoofflightsinflights==0">/person</span>
                                             <p class="booking-item-flight-class" ng-if="x.counterfornoofflightsinflights==0" >Layover Time: {{x.layovertime}}</p>
                                             <p class="booking-item-flight-class" ng-if="x.counterfornoofflightsinflights==0">Class: {{x.booking_info.travel_class}}</p>
-                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.counterfornoofflightsinflights==0" ng-click="calljsfunction(xy.noofrest)" >Select</a>
+                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.counterfornoofflightsinflights==0" ng-click="calljsfunction(xy.noofrest)" onclick="bookme(this)" >Select</a>
                                         </div>
 
                                         <!-- row rpeate first step ends here -->  
@@ -628,13 +628,13 @@ $themeurl = file_create_url(path_to_theme());
                                             </div>
                                         </div>
                                         <div  class="col-md-2">
-                                            <h5 ng-if="x.counterfornoofflightsinflights==0">{{x.totaljourneytime}}</h5>
+                                            <h5 ng-if="x.counterfornoofflightsinflights==0">Flight No.{{x.flightno}}</h5>
                                             <p ng-if="x.counterfornoofflightsinflights==0">{{x.nonstopofstop}}</p>
                                         </div>
                                         <div class="col-md-3" ><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span ng-if="x.counterfornoofflightsinflights==0">/person</span>
                                             <p class="booking-item-flight-class" ng-if="x.counterfornoofflightsinflights==0" >Layover Time: {{x.layovertime}}</p>
                                             <p class="booking-item-flight-class" ng-if="x.counterfornoofflightsinflights==0" >Class: {{x.booking_info.travel_class}}</p>
-                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 1" ng-click="calljsfunction(xy.noofrest)" >Select</a>
+                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 1" ng-click="calljsfunction(xy.noofrest)" onclick="bookme(this)" >Select</a>
                                         </div>
 
                                         <!-- row rpeate first step ends here -->  
@@ -761,13 +761,13 @@ $themeurl = file_create_url(path_to_theme());
                                             </div>
                                         </div>
                                         <div class="col-md-2">
-                                            <h5>{{x.TotalTimeWithLayoverTime}}</h5>
+                                            <h5>Flight No.{{x.OperatingAirlineFlightNumber}}</h5>
                                             <p>{{x.nonStopOrwithStop}}</p>
                                         </div>
                                         <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
                                             <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
                                             <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
-                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 0" ng-click="calljsfunction(xy.noofrest)" >Select</a>
+                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 0" ng-click="calljsfunction(xy.noofrest)" onclick="bookme(this)" >Select</a>
                                         </div>
 
                                         <!-- row rpeate first step ends here -->  
@@ -898,7 +898,7 @@ $themeurl = file_create_url(path_to_theme());
                                         <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
                                             <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
                                             <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
-                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 0" ng-click="calljsfunction(xy.noofrest)" >Select</a>
+                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 0" ng-click="calljsfunction(xy.noofrest)" onclick="bookme(this)" >Select</a>
                                         </div>
 
                                         <!-- row rpeate first step ends here -->  
@@ -982,6 +982,7 @@ $themeurl = file_create_url(path_to_theme());
                             <!-- booking container enda here -->
                         </li>
                         <!-- Bargain max finder ends -->
+                        <!--
                         <li>
                             <div class="booking-item-container">
                                 <div class="booking-item">
@@ -1561,10 +1562,9 @@ $themeurl = file_create_url(path_to_theme());
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </li>-->
                     </ul>
-                    <p class="text-right">Not what you're looking for? <a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Try your search again</a>
-                    </p>
+                    
                 </div>
             </div>
             <div class="gap"></div>

@@ -46,10 +46,10 @@ $themeurl = file_create_url(path_to_theme());
 
 global $base_url;   // Will point to http://www.example.com
 global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
-$sitelink = $base_url . $base_path;
+$sitelink = $base_url;
 $urlofwp = "http://blog.travelpainters.com/";
-$_SESSION['urlforform'] = "http://travelpainters.com/";
-//$_SESSION['urlforform'] = "http://travelpainters.local/";
+//$_SESSION['urlforform'] = "http://travelpainters.com/";
+$_SESSION['urlforform'] = "http://travelpainters.local/";
 $sitelink = $_SESSION['urlforform'];
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
@@ -79,6 +79,7 @@ $sitelink = $_SESSION['urlforform'];
     
       <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/ab-style.css" />
      <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/menu-style.css" />
+	 <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/removal.css" />
      <!--
      <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/switcher.css" />
     <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/bright-turquoise.css" title="bright-turquoise" media="all" />
@@ -102,9 +103,7 @@ $sitelink = $_SESSION['urlforform'];
   <?php print $styles; ?>
   <?php print $scripts; */?>
   <script type="text/javascript">
-    //var urlforapi = "http://127.0.0.1:1337/";
-    var urlforapi = "http://104.168.102.222:1337/";
-    
+    var urlforapi = "http://104.168.102.222:1337/fs/";
   </script>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
@@ -126,7 +125,7 @@ $sitelink = $_SESSION['urlforform'];
                                    
                                     <li><a href="<?php echo $sitelink; ?>user/register">Register</a>
                                     </li>
-                                    <li><a href="<?php echo $sitelink; ?>user">Sign in</a>
+                  <li><a href="<?php echo $sitelink; ?>user">Sign in</a>
                                     </li>
                                     
                                         </ul>
@@ -278,7 +277,7 @@ $sitelink = $_SESSION['urlforform'];
                         <p class="mb20">Booking, reviews and advices on hotels, resorts, flights, vacation rentals, travel packages, and lots more!</p>
                         <ul class="list list-horizontal list-space">
                             <li>
-                                <a class="fa fa-facebook box-icon-normal round animate-icon-bottom-to-top" href="https://www.facebook.com/Travelpainters/"></a>
+                                <a class="fa fa-facebook box-icon-normal round animate-icon-bottom-to-top" href="https://www.facebook.com/Travel-Painters-306631056363730/"></a>
                             </li>
                             <li>
                                 <a class="fa fa-twitter box-icon-normal round animate-icon-bottom-to-top" href="https://twitter.com/travelpainters"></a>
