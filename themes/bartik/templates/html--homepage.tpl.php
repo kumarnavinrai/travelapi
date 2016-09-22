@@ -48,8 +48,8 @@ global $base_url;   // Will point to http://www.example.com
 global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
 $sitelink = $base_url . $base_path;
 $urlofwp = "http://blog.travelpainters.com/";
-//$_SESSION['urlforform'] = "http://travelpainters.com/";
-$_SESSION['urlforform'] = "http://travelpainters.local/";
+$_SESSION['urlforform'] = "http://travelpainters.com/";
+//$_SESSION['urlforform'] = "http://travelpainters.local/";
 $sitelink = $_SESSION['urlforform'];
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
@@ -102,8 +102,8 @@ $sitelink = $_SESSION['urlforform'];
   <?php print $styles; ?>
   <?php print $scripts; */?>
   <script type="text/javascript">
-    var urlforapi = "http://127.0.0.1:1337/";
-    //var urlforapi = "http://104.168.102.222:1337/";
+    //var urlforapi = "http://127.0.0.1:1337/";
+    var urlforapi = "http://104.168.102.222:1337/";
     
   </script>
 </head>
