@@ -48,10 +48,27 @@ global $base_url;   // Will point to http://www.example.com
 global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
 $sitelink = $base_url . $base_path;
 
-$urlofwp = "http://blog.travelpainters.com/";
-$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
+
+
+if($base_url == "http://travelpainters.local")
+{
+  $urlofwp = "http://blog.travelpainters.com/";  
+  $_SESSION['urlforform'] = "http://travelpainters.local/";
+  $sitelink = $_SESSION['urlforform'];
+  $urltoGetFilghts = "http://127.0.0.1:1337/fs/";
 //$urltoGetFilghts = "http://104.168.102.222:1337/fs/";
-$noofresultonpage = 25;
+}
+elseif($base_url == "http://travelpainters.com")
+{
+  $urlofwp = "http://blog.travelpainters.com/";  
+  $_SESSION['urlforform'] = "http://travelpainters.com/";
+  $sitelink = $_SESSION['urlforform'];
+  //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
+  $urltoGetFilghts = "http://104.168.102.222:1337/fs/";
+}
+
+
+$noofresultonpage = 50;
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
@@ -120,10 +137,29 @@ $noofresultonpage = 25;
                             <div class="top-user-area clearfix">
                                 <ul class="top-user-area-list list list-horizontal list-border">
                                    
-                                    <li><a href="<?php echo $sitelink; ?>user/register">Register</a>
-                                    </li>
-                  <li><a href="<?php echo $sitelink; ?>user">Sign in</a>
-                                    </li>
+                                   <?php
+                                       global $user;
+
+                                      if ( $user->uid ) 
+                                      { ?>
+                                      <li><a href="<?php echo $sitelink; ?>mybookingdetails">Bookings</a>
+                                        </li>
+                                      <li><a href="<?php echo $sitelink; ?>user/<?php echo $user->uid; ?>/edit">Profile</a>
+                                        </li>
+                                       <li><a href="<?php echo $sitelink; ?>user/logout">Logout</a>
+                                        </li>
+                                       <?php
+                                      }
+                                      elseif(!$user->uid) 
+                                      {
+                                        ?>
+                                        <li><a href="<?php echo $sitelink; ?>user/register">Register</a>
+                                        </li>
+                                        <li><a href="<?php echo $sitelink; ?>user">Sign in</a>
+                                        </li>
+                                      <?php  
+                                      }
+                                    ?>
                                     
                                         </ul>
                                     
@@ -518,481 +554,173 @@ trk=nav_responsive_tab_profile"></a>
           var app = angular.module('myApp', ['angularMoment']);
 
           app.controller('filghtBookCtrl', ['$scope', '$log', 'getFlightDataService', function($scope, $log, getFlightDataService)  { 
-            <?php 
-                if(isset($_POST['from']) && $_POST['from'] != "" && isset($_POST['to']) && $_POST['to'] != "")
-                {    
-                  $fromairportcode = explode("-",$_POST['from']);
-                  $fromairportcode = reset($fromairportcode);
-                  $fromairportcode = trim($fromairportcode);
-                  
-                  $toairportcode  = explode("-",$_POST['to']);
-                  $toairportcode = reset($toairportcode);
-                  $toairportcode = trim($toairportcode);
-
-                  $startdate = date('Y-m-d',strtotime($_POST['start']));
-                  $todate = date('Y-m-d',strtotime($_POST['end']));
-                }  
-
-                 if(isset($_POST['rfrom']) && $_POST['rfrom'] != "" && isset($_POST['tfrom']) && $_POST['tfrom'] != "")
-                {    
-                  $fromairportcode = explode("-",$_POST['rfrom']);
-                  $fromairportcode = reset($fromairportcode);
-                  $fromairportcode = trim($fromairportcode);
-                  
-                  $toairportcode  = explode("-",$_POST['tfrom']);
-                  $toairportcode = reset($toairportcode);
-                  $toairportcode = trim($toairportcode);
-
-                  $startdate = date('Y-m-d',strtotime($_POST['departing']));
-                  $todate = "";
-                }  
-              /*
-              <form method="POST" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
-                <input name="from" value="<?php echo $fromairportcode; ?>" />
-                <input name="to"  value="<?php echo $toairportcode ?>" />
-                <input name="start"  value="<?php echo $startdate ?>" />
-                <input name="end"  value="<?php echo $todate ?>" />
-                <input name="adult"  value="" />
-                <input name="children"  value="" />
-                <input name="pclass"  value="" />
-                <input name="rfrom"  value="" />
-                <input name="tfrom"  value="" />
-                <input name="departing"  value="" />
-                <input name="rclass"  value="<?php echo $_POST["rclass"]; ?>" />
-                <input name="noofp"  value="" />
-              </form>
-              (
-    [from] => LAX - Los Angeles Intl, Los Angeles, CA, US
-    [to] => JFK - J.F. Kennedy, NYC, New York, NY, US
-    [start] => Sep 6, Tue
-    [end] => Sep 13, Tue
-    [adult] => 1
-    [children] => 0
-    [pclass] => economy
-    [rfrom] => 
-    [tfrom] => 
-    [departing] => Sep 6, Tue
-    [rclass] => economy
-    [noofp] => 4
-)
-              */
-
-            ?>
-              $scope.origin = "<?php echo $fromairportcode; ?>";
-              $scope.destination = "<?php echo $toairportcode ?>";
-              $scope.departureDate = "<?php echo $startdate ?>";
-              $scope.returnDate = "<?php echo $todate ?>";
-              $scope.lengthofstay = "2,4,6,8,16"; //"
-              $scope.searchedclass = "<?php echo $_POST["rclass"]; ?>";
-              $scope.limit = <?php echo $noofresultonpage; ?>;
-              $scope.outboundflightstops = "<?php echo isset($_REQUEST['outboundflightstops'])?$_REQUEST['outboundflightstops']:""; ?>";
-              $scope.outbounddeparturewindow = "<?php echo isset($_REQUEST['outbounddeparturewindow'])?$_REQUEST['outbounddeparturewindow']:""; ?>"; 
-              $scope.includedcarriers = "<?php echo isset($_REQUEST['includedcarriers'])?$_REQUEST['includedcarriers']:""; ?>";
-              $scope.inboundstopduration = "<?php echo isset($_REQUEST['inboundstopduration'])?$_REQUEST['inboundstopduration']:""; ?>";
-              $scope.appState = true;
-              
-              //limit
-              <?php //print_r($_POST); die; ?>
-              $scope.init = function () {
-                // check if there is query in url
-                // and fire search in case its value is not empty
-                var urltogetFlights = '<?php echo $urltoGetFilghts; ?>';
-                var postData;
-                 postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,returndate:$scope.returnDate,lengthofstay:$scope.lengthofstay,limit:$scope.limit,outboundflightstops:$scope.outboundflightstops,outbounddeparturewindow:$scope.outbounddeparturewindow,includedcarriers:$scope.includedcarriers,inboundstopduration:$scope.inboundstopduration}; 
-//return;
-                console.log(postData);
-
-                $scope.mySplit = function(string, nb) {
-                    var array = string.split('.');
-                    return array[nb];
-                }
-                
-                 getFlightDataService.getFlights(urltogetFlights,postData).then(function (data) {
-                    
-                 
-                    $scope.lpcfound = false;
-                    $scope.totalnoofresultsfound = 0;
-                    $scope.fromcity = listwithcode[$scope.origin];
-                    $scope.tocity = listwithcode[$scope.destination];
-
-                    if(data.lpc !== undefined){
-                      
-                      $scope.lpcfound = true;
-                      console.log("instant lead price calander");
-                      $scope.lpcdata = data.lpc.datalpc;
-                      var allfareinfoarr = data.lpc.datalpc.FareInfo;
-                      var odoptionslenlpc = data.lpc.datalpc.FareInfo.length;
-                      var lpcdataarray = [];
-
-                      for(odoptionslpc = 0; odoptionslpc < odoptionslenlpc; odoptionslpc++){
-                              $scope.lpc = {};
-                              $scope.lpc.lowestfareairlinecode = listofairports[$scope.lpcdata.FareInfo[odoptionslpc].LowestFare.AirlineCodes[0]];
-
-                              $scope.lpc.lowestfareairlinefare = $scope.lpcdata.FareInfo[odoptionslpc].LowestFare.Fare.toString().split('.')[0];
-                              $scope.lpc.lowestfareairlinefaresup = $scope.lpcdata.FareInfo[odoptionslpc].LowestFare.Fare.toString().split('.')[1];
-                              if($scope.lpc.lowestfareairlinefaresup.length == 1){
-                                 $scope.lpc.lowestfareairlinefaresup = $scope.lpc.lowestfareairlinefaresup + "0"; 
-                              }
-
-                      
-                              $scope.lpc.lowestairlinecodelogo = $scope.lpcdata.FareInfo[odoptionslpc].LowestFare.AirlineCodes[0]+".png";
-                              lpcdataarray[odoptionslpc] = $scope.lpc;
-                              console.log($scope.lpc);
-                        }     
-
-                        $scope.lpc =  lpcdataarray;
-
-                    }
-
-                    if(data.if !== undefined ){
-                      console.log("instalt flights");
-                   
-                        
-                      $scope.if = data.if;
-                      $scope.allflightdata = $scope.if.FirstItinerary.PricedItineraries;
-
-                      //$scope.totalnoofresultsfound = $scope.totalnoofresultsfound + $scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItinCount;
-                      //console.log($scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary);
-                      $scope.DisplayDatainstantflights = [];
-                      $scope.DatatoShow = {};
-                      var totaldataarray = [];
-                     
-                      var x = 1;
-                       angular.forEach($scope.allflightdata,function(value,index){
-                          var odoptionslen = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption.length;
-                          var odoptionsdata = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption;
-                          var datatoshownew = [];
-                          $scope.DatatoShow.lenofodoptionsdata = odoptionslen;
-                          for(odoptions = 0; odoptions < odoptionslen; odoptions++){
-                              $scope.DatatoShow = {};
-                              //logo of mkt airline
-                              $scope.DatatoShow.logoOfmarketingAirine = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].MarketingAirline.Code + ".png";
-
-                              $scope.DatatoShow.nameOfmarketingAirine = listofairports[value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].MarketingAirline.Code];             
-
-                              
-                              
-                                          
-                              
-                              //total time with layover
-                              //$scope.TotalFlightTimeWithWait = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime;
-                              $scope.TotalFlightTimeWithWait = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[odoptions].ElapsedTime;
-                              
-                              //$scope.AllFlightsdataInOneOption = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0];
-                              $scope.AllFlightsdataInOneOption = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[odoptions];
-
-                              //var lengthofflightsegement = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment.length;
-                              var lengthofflightsegement = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[odoptions].FlightSegment.length;
-
-                              $scope.TotalFlightTime = 0;
-                              var counter = 1;
-                              $scope.DatatoShow.noofflightdataarray = [];
-                              $scope.DatatoShow.noofflightdata = {};
-                              var flightSegementArray = [];
-                              var flightSegementObject = {};
-                              
-                              for(count = 0; count < $scope.AllFlightsdataInOneOption.FlightSegment.length; count++){
-                                 //console.log($scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport);
-                                 
-                                 flightSegementObject = {arrivalaiport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport.LocationCode],departureairport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureAirport.LocationCode],departuretime:$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureDateTime,arrivaltime:$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalDateTime,flightSeq:count};
-
-                                 flightSegementArray[count] = flightSegementObject;
-                                 $scope.TotalFlightTime = $scope.TotalFlightTime + $scope.AllFlightsdataInOneOption.FlightSegment[count].ElapsedTime;
-                                 
-                              }
-
-                              $scope.DatatoShow.TotalFlightTime = $scope.TotalFlightTime;
-
-
-                              //console.log(flightSegementArray);
-                              
-                            
-                              $scope.DatatoShow.AllFlightsdataInOneOption = flightSegementArray;
-
-                              //layover time
-                              $scope.DatatoShow.LayoverTime = $scope.TotalFlightTimeWithWait - $scope.TotalFlightTime;
-
-        
-                              $scope.DatatoShow.TotalTimeWithLayoverTime = $scope.TotalFlightTimeWithWait;
-
-                              //calculating total time
-                              var hours = Math.floor( $scope.DatatoShow.TotalTimeWithLayoverTime / 60);          
-                              var minutes = $scope.DatatoShow.TotalTimeWithLayoverTime % 60;
-
-                              if(hours){  
-                                $scope.DatatoShow.TotalTimeWithLayoverTime = hours + "h " + minutes + "m";
-                              }else{
-                                $scope.DatatoShow.TotalTimeWithLayoverTime = minutes + "m";
-                              }  
-
-                              //calculating layover ime
-                              var hours = Math.floor( $scope.DatatoShow.LayoverTime / 60);          
-                              var minutes = $scope.DatatoShow.LayoverTime % 60;
-
-                              if(hours){  
-                                $scope.DatatoShow.LayoverTime = hours + "h " + minutes + "m";
-                              }else{
-                                $scope.DatatoShow.LayoverTime = minutes + "m";
-                              }
-                              
-
-                              $scope.DatatoShow.searchedClass = $scope.searchedclass;
-
-                              
-                              if(lengthofflightsegement == 1){
-                                $scope.DatatoShow.nonStopOrwithStop = "non-stop";
-                              }else{
-                                var templen = lengthofflightsegement - 1;
-                                $scope.DatatoShow.nonStopOrwithStop = templen  + " stop";
-                              }
-
-                              //new data
-                              datatoshownew[odoptions] = {
-                                logoOfmarketingAirine:odoptionsdata[odoptions].FlightSegment[0].MarketingAirline.Code + ".png",
-                                nameOfmarketingAirine:listofairports[odoptionsdata[odoptions].FlightSegment[0].MarketingAirline.Code],
-                                AllFlightsdataInOneOption:flightSegementArray,
-                                LayoverTime : $scope.DatatoShow.LayoverTime,
-                                searchedClass : $scope.DatatoShow.searchedClass,
-                                nonStopOrwithStop : $scope.DatatoShow.nonStopOrwithStop,
-                                TotalTimeWithLayoverTime: $scope.DatatoShow.TotalTimeWithLayoverTime,
-                                MarketingAirlineCode : odoptionsdata[odoptions].FlightSegment[0].MarketingAirline.Code,
-                                ResBookDesigCode: odoptionsdata[odoptions].FlightSegment[0].ResBookDesigCode,
-                                AirEquipType: odoptionsdata[odoptions].FlightSegment[0].Equipment.AirEquipType,
-                                FlightNumber: odoptionsdata[odoptions].FlightSegment[0].FlightNumber,
-                                OperatingAirlineCode: odoptionsdata[odoptions].FlightSegment[0].OperatingAirline.Code,
-                                OperatingAirlineFlightNumber: odoptionsdata[odoptions].FlightSegment[0].OperatingAirline.FlightNumber,
-                                returnorarrvial :  odoptions
-                                
-                              };
-                              
-                          }
-
-                         
-                          $scope.DatatoShow.datatoshownew = datatoshownew;
-                          //total fare in usd
-                          $scope.DatatoShow.totalfareInUsd =  value.AirItineraryPricingInfo.ItinTotalFare.TotalFare.Amount;
-
-                          totaldataarray[value.SequenceNumber] = $scope.DatatoShow;
-                           ////////////////FARE STARTED //////////////////
-                          
-                          
-                       });
-                        //console.log(totaldataarray);
-                        $scope.DisplayDatainstantflights = totaldataarray;
-                      
-                    }
-
-                    if(data.bfm !== undefined ){
-                      $scope.bfm = data.bfm;
-                      $scope.allflightdata = $scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
-                      $scope.totalnoofresultsfound = $scope.totalnoofresultsfound + $scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItinCount;
-                      //console.log($scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary);
-                      $scope.DisplayData = [];
-                      $scope.DatatoShow = {};
-                      var totaldataarray = [];
-                     
-                      var x = 1;
-                       angular.forEach($scope.allflightdata,function(value,index){
-                          var odoptionslen = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption.length;
-                          var odoptionsdata = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption;
-                          var datatoshownew = [];
-                          $scope.DatatoShow.lenofodoptionsdata = odoptionslen;
-                          for(odoptions = 0; odoptions < odoptionslen; odoptions++){
-                              $scope.DatatoShow = {};
-                              //logo of mkt airline
-                              $scope.DatatoShow.logoOfmarketingAirine = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].MarketingAirline.Code + ".png";
-
-                              $scope.DatatoShow.nameOfmarketingAirine = listofairports[value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].MarketingAirline.Code];             
-
-                                         
-                              
-                              //total time with layover
-                              //$scope.TotalFlightTimeWithWait = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime;
-                              $scope.TotalFlightTimeWithWait = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[odoptions].ElapsedTime;
-                              
-                              //$scope.AllFlightsdataInOneOption = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0];
-                              $scope.AllFlightsdataInOneOption = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[odoptions];
-
-                              //var lengthofflightsegement = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment.length;
-                              var lengthofflightsegement = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[odoptions].FlightSegment.length;
-
-                              $scope.TotalFlightTime = 0;
-                              var counter = 1;
-                              $scope.DatatoShow.noofflightdataarray = [];
-                              $scope.DatatoShow.noofflightdata = {};
-                              var flightSegementArray = [];
-                              var flightSegementObject = {};
-                              
-                              for(count = 0; count < $scope.AllFlightsdataInOneOption.FlightSegment.length; count++){
-                                 //console.log($scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport);
-                                 
-                                 flightSegementObject = {arrivalaiport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport.LocationCode],departureairport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureAirport.LocationCode],departuretime:$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureDateTime,arrivaltime:$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalDateTime,flightSeq:count};
-
-                                 flightSegementArray[count] = flightSegementObject;
-                                 $scope.TotalFlightTime = $scope.TotalFlightTime + $scope.AllFlightsdataInOneOption.FlightSegment[count].ElapsedTime;
-                                 
-                              }
-
-                              $scope.DatatoShow.TotalFlightTime = $scope.TotalFlightTime;
-
-
-                              //console.log(flightSegementArray);
-                              
-                            
-                              $scope.DatatoShow.AllFlightsdataInOneOption = flightSegementArray;
-
-                              //layover time
-                              $scope.DatatoShow.LayoverTime = $scope.TotalFlightTimeWithWait - $scope.TotalFlightTime;
-
-        
-                              $scope.DatatoShow.TotalTimeWithLayoverTime = $scope.TotalFlightTimeWithWait;
-
-                              //calculating total time
-                              var hours = Math.floor( $scope.DatatoShow.TotalTimeWithLayoverTime / 60);          
-                              var minutes = $scope.DatatoShow.TotalTimeWithLayoverTime % 60;
-
-                              if(hours){  
-                                $scope.DatatoShow.TotalTimeWithLayoverTime = hours + "h " + minutes + "m";
-                              }else{
-                                $scope.DatatoShow.TotalTimeWithLayoverTime = minutes + "m";
-                              }  
-
-                              //calculating layover ime
-                              var hours = Math.floor( $scope.DatatoShow.LayoverTime / 60);          
-                              var minutes = $scope.DatatoShow.LayoverTime % 60;
-
-                              if(hours){  
-                                $scope.DatatoShow.LayoverTime = hours + "h " + minutes + "m";
-                              }else{
-                                $scope.DatatoShow.LayoverTime = minutes + "m";
-                              }
-                              
-
-                              $scope.DatatoShow.searchedClass = $scope.searchedclass;
-
-                              
-                              if(lengthofflightsegement == 1){
-                                $scope.DatatoShow.nonStopOrwithStop = "non-stop";
-                              }else{
-                                var templen = lengthofflightsegement - 1;
-                                $scope.DatatoShow.nonStopOrwithStop = templen  + " stop";
-                              }
-
-                              //new data
-                              datatoshownew[odoptions] = {
-                                logoOfmarketingAirine:odoptionsdata[odoptions].FlightSegment[0].MarketingAirline.Code + ".png",
-                                nameOfmarketingAirine:listofairports[odoptionsdata[odoptions].FlightSegment[0].MarketingAirline.Code],
-                                AllFlightsdataInOneOption:flightSegementArray,
-                                LayoverTime : $scope.DatatoShow.LayoverTime,
-                                searchedClass : $scope.DatatoShow.searchedClass,
-                                nonStopOrwithStop : $scope.DatatoShow.nonStopOrwithStop,
-                                TotalTimeWithLayoverTime: $scope.DatatoShow.TotalTimeWithLayoverTime,
-                                returnorarrvial :  odoptions
-                                
-                              };
-
-
-                              
-                          }
-
-                         
-                          $scope.DatatoShow.datatoshownew = datatoshownew;
-                          //total fare in usd
-                          $scope.DatatoShow.totalfareInUsd =  value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount;
-
-                          totaldataarray[value.SequenceNumber] = $scope.DatatoShow;
-                           ////////////////FARE STARTED //////////////////
-                          
-                          
-
-                          //console.log(totaldataarray);
-                         
-                          //totaldataarray
-                          /*
-                          // flight non stop of stop
-
-                          if(lengthofflightsegement == 1){
-                            $scope.nonStopOrwithStop = "non-stop";
-                          }else{
-                            $scope.nonStopOrwithStop = lengthofflightsegement + " stop";
-                          }
-
-                          //total fare in usd
-                          $scope.DatatoShow.totalfareInUsd =  value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount;
-
-                          //class = $scope.searchedclass
-                          $scope.DatatoShow.searchedClass = $scope.searchedclass;
-                          */
-                          
-                          //$scope.DisplayData.push($scope.DatatoShow);
-                          //console.log($scope.DatatoShow);
-
-                          //total fare 
-                          //value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount
-                          //class = $scope.searchedclass
-                          //console.log(value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount);
-                          //console.log(value);
-
-                          /*
-                          //value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime // total duration of stay
-                          //logo of mkt air line
-                          //value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].MarketingAirline.Code
-                         
-                          //air name and address
-                          //listwithcode[value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode]
-                          
-                          //last arrival airport
-                          //listwithcode[value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[lengthofflightsegement-1].ArrivalAirport.LocationCode]
-                          //departture time
-                          //value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime
-                          //arival time
-                          //value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[lengthofflightsegement-1].ArrivalDateTime
-                          //no of stops
-                          // lengthofflightsegement
-                          //total time with wait
-                          //value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime
-                          //loop throurh no of flights to add up total time of flight
-                          //$scope.AllFlightsdataInOneOption = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment
-                          //$scope.TotalFlightTime = 0;
-                          //angular.forEach($scope.AllFlightsdataInOneOption,function(valuenext,indexnext){
-                          //  $scope.TotalFlightTime = $scope.TotalFlightTime + valuenext.ElapsedTime;
-                          //});  
-                          
-                          $scope.TotalFlightTimeWithWait = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime;
-                          $scope.AllFlightsdataInOneOption = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment;
-                          $scope.TotalFlightTime = 0;
-                          angular.forEach($scope.AllFlightsdataInOneOption,function(valuenext,indexnext){
-                            $scope.TotalFlightTime = $scope.TotalFlightTime + valuenext.ElapsedTime;
-                          });
-                          $scope.LayoverTime = $scope.TotalFlightTimeWithWait - $scope.TotalFlightTime;
-                          console.log($scope.TotalFlightTimeWithWait);
-                          console.log($scope.TotalFlightTime);
-                          console.log($scope.LayoverTime);
-                          */
-
-                          //total fare 
-                          //value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount
-                          //class = $scope.searchedclass
-                          //console.log(value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount);
-                          //console.log(value);
-                          //$scope.airlinedatalogo = 
-                       });
-                        //console.log(totaldataarray);
-                        $scope.DisplayData = totaldataarray;
-
-                    }
-
-                  }); 
-               
-
-                
-            };
+           
+         
           }]);
+
+            $(document).ready(function(){
+                $('.book_btn').on('click',function(){
+              
+                    if($('.userFormValid').val()=='true'){
+                      alert("Please check passenger information. !!!");
+                    }
+                    if($('.userFormccValid').val()=='true'){
+                      alert("Please Card Details. !!!");
+                    }
+                    if($('.userFormdValid').val()=='true'){
+                      alert("Please check Contact Information. !!!");
+                    }
+
+                    if($('.userFormValid').val() == "false" && $('.userFormccValid').val() == "false" && $('.userFormdValid').val() == "false"){
+                      //console.log($('.userFormcls').serialize());
+                      //console.log($('.userFormcccls').serialize());
+                      //console.log($('.userFormdcls').serialize());
+                      var datatosub = $('.userFormcls').serialize() + "###" + $('.userFormcccls').serialize() + "###" + $('.userFormdcls').serialize();
+                      datatosub = Base64.encode(datatosub);
+                      
+                      $('<form method="POST" action="<?php echo $_SESSION['urlforform']; ?>shownodes"><input type="text" name="d" value="'+datatosub+'" /></form>').appendTo('body').submit();
+                    }
+                });
+            });
+
+
+
+            var Base64 = {
+
+
+                _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+
+
+                encode: function(input) {
+                    var output = "";
+                    var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+                    var i = 0;
+
+                    input = Base64._utf8_encode(input);
+
+                    while (i < input.length) {
+
+                        chr1 = input.charCodeAt(i++);
+                        chr2 = input.charCodeAt(i++);
+                        chr3 = input.charCodeAt(i++);
+
+                        enc1 = chr1 >> 2;
+                        enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+                        enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+                        enc4 = chr3 & 63;
+
+                        if (isNaN(chr2)) {
+                            enc3 = enc4 = 64;
+                        } else if (isNaN(chr3)) {
+                            enc4 = 64;
+                        }
+
+                        output = output + this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) + this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+
+                    }
+
+                    return output;
+                },
+
+
+                decode: function(input) {
+                    var output = "";
+                    var chr1, chr2, chr3;
+                    var enc1, enc2, enc3, enc4;
+                    var i = 0;
+
+                    input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+
+                    while (i < input.length) {
+
+                        enc1 = this._keyStr.indexOf(input.charAt(i++));
+                        enc2 = this._keyStr.indexOf(input.charAt(i++));
+                        enc3 = this._keyStr.indexOf(input.charAt(i++));
+                        enc4 = this._keyStr.indexOf(input.charAt(i++));
+
+                        chr1 = (enc1 << 2) | (enc2 >> 4);
+                        chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+                        chr3 = ((enc3 & 3) << 6) | enc4;
+
+                        output = output + String.fromCharCode(chr1);
+
+                        if (enc3 != 64) {
+                            output = output + String.fromCharCode(chr2);
+                        }
+                        if (enc4 != 64) {
+                            output = output + String.fromCharCode(chr3);
+                        }
+
+                    }
+
+                    output = Base64._utf8_decode(output);
+
+                    return output;
+
+                },
+
+                _utf8_encode: function(string) {
+                    string = string.replace(/\r\n/g, "\n");
+                    var utftext = "";
+
+                    for (var n = 0; n < string.length; n++) {
+
+                        var c = string.charCodeAt(n);
+
+                        if (c < 128) {
+                            utftext += String.fromCharCode(c);
+                        }
+                        else if ((c > 127) && (c < 2048)) {
+                            utftext += String.fromCharCode((c >> 6) | 192);
+                            utftext += String.fromCharCode((c & 63) | 128);
+                        }
+                        else {
+                            utftext += String.fromCharCode((c >> 12) | 224);
+                            utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+                            utftext += String.fromCharCode((c & 63) | 128);
+                        }
+
+                    }
+
+                    return utftext;
+                },
+
+                _utf8_decode: function(utftext) {
+                    var string = "";
+                    var i = 0;
+                    var c = c1 = c2 = 0;
+
+                    while (i < utftext.length) {
+
+                        c = utftext.charCodeAt(i);
+
+                        if (c < 128) {
+                            string += String.fromCharCode(c);
+                            i++;
+                        }
+                        else if ((c > 191) && (c < 224)) {
+                            c2 = utftext.charCodeAt(i + 1);
+                            string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+                            i += 2;
+                        }
+                        else {
+                            c2 = utftext.charCodeAt(i + 1);
+                            c3 = utftext.charCodeAt(i + 2);
+                            string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+                            i += 3;
+                        }
+
+                    }
+
+                    return string;
+                }
+
+            }
 
         </script>
         <form method="POST" class="formforselect" style="display:none;" action="<?php echo $_SESSION['urlforform']; ?>searchsale">
             <label>Data</label>
-            <input name="saledata" value="" />
+            <input name="bookdata" value="" />
         </form>
         <?php 
                 if(isset($_POST['from']) && $_POST['from'] != "" && isset($_POST['to']) && $_POST['to'] != "")

@@ -12,7 +12,7 @@ app.service('flightServiceNew', function($http, $q) {
             'Content-Type' : 'application/x-www-form-urlencoded', 
             'Accept': 'application/json' 
           }; 
-          console.log("------Data----"+data.outboundflightstops);
+          console.log(data);
           if(data.outboundflightstops != "" && data.outboundflightstops == 0){
             nonstop = true;
           }
@@ -67,6 +67,17 @@ app.service('flightServiceNew', function($http, $q) {
             urlamadeus = urlamadeus +"&include_airlines="+data.includedcarriers;
           }
 
+          if(data.adult != 0){
+            urlamadeus = urlamadeus +"&adults="+data.adult;
+          }
+
+          if(data.children != 0){
+            urlamadeus = urlamadeus +"&children="+data.children;
+          }
+          
+
+          //,adult:$scope.adult,children:$scope.children,infant:$scope.infant
+
           var deferred = $q.defer();
           var urlCalls = [];
           var urlsnew = [];
@@ -83,7 +94,7 @@ app.service('flightServiceNew', function($http, $q) {
                   method: 'POST', 
                   url: url,
                   cache: false, 
-                  data: "origin="+data.origin+"&destination="+data.destination+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&lengthofstay="+data.lengthofstay+"&limit="+data.limit+"&outboundflightstops="+data.outboundflightstops+"&outbounddeparturewindow="+data.outbounddeparturewindow+"&includedcarriers="+data.includedcarriers+"&inboundstopduration="+data.inboundstopduration, 
+                  data: "origin="+data.origin+"&destination="+data.destination+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&lengthofstay="+data.lengthofstay+"&limit="+data.limit+"&outboundflightstops="+data.outboundflightstops+"&outbounddeparturewindow="+data.outbounddeparturewindow+"&includedcarriers="+data.includedcarriers+"&inboundstopduration="+data.inboundstopduration+"&passengercount="+data.adult, 
                   headers: headers 
               }) 
               .success(function(data) { 

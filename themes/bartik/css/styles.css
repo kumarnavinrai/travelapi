@@ -7210,12 +7210,12 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .booking-item-passengers > li {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 2px dashed #e6e6e6;
+  
 }
 .booking-item-passengers > li:last-child {
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 2px dashed #e6e6e6;
+ 
 }
 .booking-item-passengers label {
   font-weight: 100;
@@ -11123,18 +11123,18 @@ img.air__logo {
 /*---- PAYMENT PAGE   ---*/
 p.double {
     border-style: double;
-  padding: 1em;
+	padding: 1em;
 }
 input.btn.btn-primary.book_btn {
     width: 17%;
-  height:3em;
+	height:3em;
     font-size:large;
-  margin-left:40%;
+	margin-left:40%;
 }
 span.sukh-book.sukhselectlabel {
     background: url(../img/trvl.png) no-repeat scroll;
     width: 227px;
-  height: 26px;
+	height: 26px;
     margin-top: 6px;
     display: inline-block;
 }
@@ -11156,17 +11156,7 @@ a.verisign {
 }
 h5.sukh-clr {
     background-color: #dddddd;
-  height: 2em;
+	height: 2em;
     padding: 0.5em 0.2em;
-      font-weight: 800;
-}
-p.double {
-    border-style: double;
-      padding: 1em;
-}
-input.btn.btn-primary.book_btn {
-    width: 17%;
-  height:3em;
-    font-size:large;
-  margin-left:40%;
+	    font-weight: 800;
 }

@@ -46,11 +46,43 @@ $themeurl = file_create_url(path_to_theme());
 
 global $base_url;   // Will point to http://www.example.com
 global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
-$sitelink = $base_url;
-$urlofwp = "http://blog.travelpainters.com/";
-//$_SESSION['urlforform'] = "http://travelpainters.com/";
-$_SESSION['urlforform'] = "http://travelpainters.local/";
-$sitelink = $_SESSION['urlforform'];
+$sitelink = $base_url . $base_path;
+
+
+
+if($base_url == "http://travelpainters.local")
+{
+  $urlofwp = "http://blog.travelpainters.com/";  
+  $_SESSION['urlforform'] = "http://travelpainters.local/";
+  $sitelink = $_SESSION['urlforform'];
+  $urltoGetFilghts = "http://127.0.0.1:1337/fs/";
+//$urltoGetFilghts = "http://104.168.102.222:1337/fs/";
+}
+elseif($base_url == "http://travelpainters.com")
+{
+  $urlofwp = "http://blog.travelpainters.com/";  
+  $_SESSION['urlforform'] = "http://travelpainters.com/";
+  $sitelink = $_SESSION['urlforform'];
+  //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
+  $urltoGetFilghts = "http://104.168.102.222:1337/fs/";
+}
+
+
+$noofresultonpage = 50;
+
+$url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']; 
+
+
+
+global $user;
+$sitelinkforprofile = "/user/".$user->uid."/edit";
+$sitelinkforfp = "/user/password";
+if(in_array("flightuser", $user->roles) && !strpos($url, $sitelinkforprofile) && !strpos($url, $sitelinkforfp) )
+{ 
+    $urltorediect = "Location: ".$_SESSION['urlforform']."mybookingdetails";
+    header($urltorediect);
+    die;
+}
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
@@ -105,6 +137,9 @@ $sitelink = $_SESSION['urlforform'];
   <script type="text/javascript">
     var urlforapi = "http://104.168.102.222:1337/fs/";
   </script>
+  <style type="text/css">
+    .form-type-password .description a{ display: none; }
+  </style>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
 <header id="main-header">
@@ -123,10 +158,29 @@ $sitelink = $_SESSION['urlforform'];
                             <div class="top-user-area clearfix">
                                 <ul class="top-user-area-list list list-horizontal list-border">
                                    
-                                    <li><a href="<?php echo $sitelink; ?>user/register">Register</a>
-                                    </li>
-                  <li><a href="<?php echo $sitelink; ?>user">Sign in</a>
-                                    </li>
+                                   <?php
+                                       global $user;
+
+                                      if ( $user->uid ) 
+                                      { ?>
+                                      <li><a href="<?php echo $sitelink; ?>mybookingdetails">Bookings</a>
+                                        </li>
+                                      <li><a href="<?php echo $sitelink; ?>user/<?php echo $user->uid; ?>/edit">Profile</a>
+                                        </li>
+                                       <li><a href="<?php echo $sitelink; ?>user/logout">Logout</a>
+                                        </li>
+                                       <?php
+                                      }
+                                      elseif(!$user->uid) 
+                                      {
+                                        ?>
+                                        <li><a href="<?php echo $sitelink; ?>user/register">Register</a>
+                                        </li>
+                                        <li><a href="<?php echo $sitelink; ?>user">Sign in</a>
+                                        </li>
+                                      <?php  
+                                      }
+                                    ?>
                                     
                                         </ul>
                                     

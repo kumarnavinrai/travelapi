@@ -47,10 +47,23 @@ $themeurl = file_create_url(path_to_theme());
 global $base_url;   // Will point to http://www.example.com
 global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
 $sitelink = $base_url . $base_path;
-$urlofwp = "http://blog.travelpainters.com/";
-$_SESSION['urlforform'] = "http://travelpainters.com/";
-//$_SESSION['urlforform'] = "http://travelpainters.local/";
-$sitelink = $_SESSION['urlforform'];
+
+if($base_url == "http://travelpainters.local")
+{
+  $urlofwp = "http://blog.travelpainters.com/";  
+  $_SESSION['urlforform'] = "http://travelpainters.local/";
+  $sitelink = $_SESSION['urlforform'];
+}
+elseif($base_url == "http://travelpainters.com")
+{
+  $urlofwp = "http://blog.travelpainters.com/";  
+  $_SESSION['urlforform'] = "http://travelpainters.com/";
+  $sitelink = $_SESSION['urlforform'];
+}
+
+
+
+
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
@@ -102,8 +115,16 @@ $sitelink = $_SESSION['urlforform'];
   <?php print $styles; ?>
   <?php print $scripts; */?>
   <script type="text/javascript">
+  <?php if($base_url == "http://travelpainters.com")
+        { ?>
     //var urlforapi = "http://127.0.0.1:1337/";
     var urlforapi = "http://104.168.102.222:1337/";
+  <?php } ?>  
+  <?php if($base_url == "http://travelpainters.local")
+        { ?>
+    var urlforapi = "http://127.0.0.1:1337/";
+    //var urlforapi = "http://104.168.102.222:1337/";
+  <?php } ?>  
     
   </script>
 </head>
@@ -123,11 +144,30 @@ $sitelink = $_SESSION['urlforform'];
                         <div class="col-md-4">
                             <div class="top-user-area clearfix">
                                 <ul class="top-user-area-list list list-horizontal list-border">
-                                   
-                                    <li><a href="<?php echo $sitelink; ?>user/register">Register</a>
-                                    </li>
-                                    <li><a href="<?php echo $sitelink; ?>user">Sign in</a>
-                                    </li>
+                                    <?php
+                                       global $user;
+
+                                      if ( $user->uid ) 
+                                      { ?>
+                                      <li><a href="<?php echo $sitelink; ?>mybookingdetails">Bookings</a>
+                                        </li>
+                                      <li><a href="<?php echo $sitelink; ?>user/<?php echo $user->uid; ?>/edit">Profile</a>
+                                        </li>
+                                       <li><a href="<?php echo $sitelink; ?>user/logout">Logout</a>
+                                        </li>
+                                       <?php
+                                      }
+                                      elseif(!$user->uid) 
+                                      {
+                                        ?>
+                                        <li><a href="<?php echo $sitelink; ?>user/register">Register</a>
+                                        </li>
+                                        <li><a href="<?php echo $sitelink; ?>user">Sign in</a>
+                                        </li>
+                                      <?php  
+                                      }
+                                    ?>
+                                    
                                     
                                         </ul>
                                     

@@ -292,7 +292,7 @@ $themeurl = file_create_url(path_to_theme());
                     <button class="btn btn-primary btn-lg" type="submit">Search for Flights</button>
                 </form>
             </div>
-            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from {{fromcity}} to {{tocity}}<small><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a></small></h3>
+            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from {{fromcity}} to {{tocity}} for <?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?> Adults , <?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?> Children<small><!--<a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a>--></small></h3>
             <div class="row">
                 <div class="col-md-3">
                     <aside class="booking-filters text-white">
@@ -439,7 +439,7 @@ $themeurl = file_create_url(path_to_theme());
                                     <div class="row">
                                         <div class="col-md-12 mtrx__wrapper main hidden-xs">
                                         <!--{{lpc}}-->
-                    <table id="mtrx_table" class="mtrx__table animation-fast" ng-if="lpcfound != false">
+        <table id="mtrx_table" class="mtrx__table animation-fast" ng-if="lpcfound != false">
             <thead>
                 <tr id="mtrxRow" class="mtrx__row">
                     <th id="_allFares" class="mtrx__show-all disabled" style="min-width: 126.286px;">
@@ -524,7 +524,7 @@ $themeurl = file_create_url(path_to_theme());
                     <ul class="booking-list allresult">
                     <!-- Amadeus search serch start -->
                     <h1 style="display:none;">Amadeus</h1>
-                    <li class="amadeusresult" style="display:none;" ng-repeat="xy in dataforamadeus" >
+                    <li class="amadeusresult"  ng-repeat="xy in dataforamadeus" >
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->
                         <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
                         
@@ -565,7 +565,7 @@ $themeurl = file_create_url(path_to_theme());
                                             </div>
                                         </div>
                                         <div  class="col-md-2">
-                                            <h5 ng-if="x.counterfornoofflightsinflights==0">Flight No.{{x.flightno}}</h5>
+                                            <h5 >Flight No.{{x.flightno}}</h5>
                                             <p ng-if="x.counterfornoofflightsinflights==0">{{x.nonstopofstop}}</p>
                                         </div>
                                         <div class="col-md-3" ><span class="booking-item-price" ng-if="x.counterfornoofflightsinflights==0" >${{xy.fare}}</span><span ng-if="x.counterfornoofflightsinflights==0">/person</span>
@@ -628,7 +628,7 @@ $themeurl = file_create_url(path_to_theme());
                                             </div>
                                         </div>
                                         <div  class="col-md-2">
-                                            <h5 ng-if="x.counterfornoofflightsinflights==0">Flight No.{{x.flightno}}</h5>
+                                            <h5 >Flight No.{{x.flightno}}</h5>
                                             <p ng-if="x.counterfornoofflightsinflights==0">{{x.nonstopofstop}}</p>
                                         </div>
                                         <div class="col-md-3" ><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span ng-if="x.counterfornoofflightsinflights==0">/person</span>
@@ -720,7 +720,7 @@ $themeurl = file_create_url(path_to_theme());
                         <!-- Amadeus search ends -->
                         <h1 style="display:none;">Saber</h1>
                         <!-- Instant flight search start -->
-                         <li class="saberresult" ng-repeat="xy in DisplayDatainstantflights" ng-if="xy.logoOfmarketingAirine !== undefined">
+                         <li class="saberresult" style="display:none;" ng-repeat="xy in DisplayDatainstantflights track by $index" ng-if="xy.logoOfmarketingAirine !== undefined">
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->
                         <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
                       
@@ -737,15 +737,16 @@ $themeurl = file_create_url(path_to_theme());
                                                 <p>{{x.nameOfmarketingAirine}}</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-5 datahere" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
+                                        <span ng-repeat="y in x.AllFlightsdataInOneOption">
+                                        <div class="col-md-5 datahere"  ng-if="y.flightSeq == 0">
                                         <span class="saberfare" style="display:none;">{{xy.totalfareInUsd}}</span>
                                         <span class="saberstops" style="display:none;">{{x.nonStopOrwithStop}}</span>
                                         <span class="saberdepartturetime" style="display:none;">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
                                         <span class="saberairlines" style="display:none;">{{x.MarketingAirlineCode}}</span>
                                         <span class="saberlayover" style="display:none;">{{x.LayoverTime}}</span>
-                                        <span class="saberflightno" style="display:none;">{{x.OperatingAirlineFlightNumber}}</span>
+                                        <span class="saberflightno" style="display:none;">{{y.oafn}}</span>
                                         <span class="saberoperatinglinecode" style="display:none;">{{x.OperatingAirlineCode}}</span>
-                                        <span class="saberflightnoreturn" ng-if="parentIndex == 1" style="display:none;">{{x.OperatingAirlineFlightNumber}}</span>
+                                        <span class="saberflightnoreturn" ng-if="parentIndex == 1" style="display:none;">{{y.oafn}}</span>
                                         <span class="saberoperatinglinecodereturn" ng-if="parentIndex == 1" style="display:none;">{{x.OperatingAirlineCode}}</span>
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-plane"></i>
@@ -759,11 +760,13 @@ $themeurl = file_create_url(path_to_theme());
                                                     <p class="booking-item-destination">{{y.arrivalaiport}}</p>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                         <div class="col-md-2">
-                                            <h5>Flight No.{{x.OperatingAirlineFlightNumber}}</h5>
-                                            <p>{{x.nonStopOrwithStop}}</p>
+                                            <h5 ng-if="y.flightSeq == 0">Flight No.{{y.oafn}}</h5>
+                                            <p ng-if="y.flightSeq == 0">{{x.nonStopOrwithStop}}</p>
                                         </div>
+                                        </span>
                                         <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
                                             <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
                                             <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
@@ -792,7 +795,10 @@ $themeurl = file_create_url(path_to_theme());
                                                 </div>
                                             </div>
                                         </div>
-                                        
+                                        <div class="col-md-2" ng-if="y.flightSeq >= 1">
+                                            <h5>Flight No.{{y.oafn}}</h5>
+                                            
+                                        </div>
                                     </div>
                                 <!-- row rpeate last step ends here step ends here -->  
                                     </div>

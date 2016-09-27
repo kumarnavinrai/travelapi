@@ -48,10 +48,29 @@ global $base_url;   // Will point to http://www.example.com
 global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
 $sitelink = $base_url . $base_path;
 
-$urlofwp = "http://blog.travelpainters.com/";
-//$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
-$urltoGetFilghts = "http://104.168.102.222:1337/fs/";
+
+
+if($base_url == "http://travelpainters.local")
+{
+  $urlofwp = "http://blog.travelpainters.com/";  
+  $_SESSION['urlforform'] = "http://travelpainters.local/";
+  $sitelink = $_SESSION['urlforform'];
+  $urltoGetFilghts = "http://127.0.0.1:1337/fs/";
+//$urltoGetFilghts = "http://104.168.102.222:1337/fs/";
+}
+elseif($base_url == "http://travelpainters.com")
+{
+  $urlofwp = "http://blog.travelpainters.com/";  
+  $_SESSION['urlforform'] = "http://travelpainters.com/";
+  $sitelink = $_SESSION['urlforform'];
+  //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
+  $urltoGetFilghts = "http://104.168.102.222:1337/fs/";
+}
+
+
 $noofresultonpage = 50;
+
+
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
@@ -120,10 +139,29 @@ $noofresultonpage = 50;
                             <div class="top-user-area clearfix">
                                 <ul class="top-user-area-list list list-horizontal list-border">
                                    
-                                    <li><a href="<?php echo $sitelink; ?>/user/register">Register</a>
-                                    </li>
-                  <li><a href="<?php echo $sitelink; ?>/user">Sign in</a>
-                                    </li>
+                                    <?php
+                                       global $user;
+
+                                      if ( $user->uid ) 
+                                      { ?>
+                                      <li><a href="<?php echo $sitelink; ?>mybookingdetails">Bookings</a>
+                                        </li>
+                                      <li><a href="<?php echo $sitelink; ?>user/<?php echo $user->uid; ?>/edit">Profile</a>
+                                        </li>
+                                       <li><a href="<?php echo $sitelink; ?>user/logout">Logout</a>
+                                        </li>
+                                       <?php
+                                      }
+                                      elseif(!$user->uid) 
+                                      {
+                                        ?>
+                                        <li><a href="<?php echo $sitelink; ?>user/register">Register</a>
+                                        </li>
+                                        <li><a href="<?php echo $sitelink; ?>user">Sign in</a>
+                                        </li>
+                                      <?php  
+                                      }
+                                    ?>
                                     
                                         </ul>
                                     
@@ -386,8 +424,55 @@ trk=nav_responsive_tab_profile"></a>
 
                             var allarray = {stops:stops,departuretime:departuretime,airlines:airlines,layover:layover,flightno:flightno,operatingairline:operatingairline,index:index,fare:fare,flightnoreturn:flightnoreturn,operatingairlinereturn:operatingairlinereturn};
                             var valtocompare = airlines+"-"+flightno+"-"+operatingairline+"-"+fare+"-"+flightnoreturn+"-"+operatingairlinereturn;
+
+                             var filterformdata = $('.formforfilters').serializeArray();
+                                                
+                            
+                            //console.log("--filter form data---");
+                            //console.log(filterformdata);
+                            //console.log("--filter form data---");
+                            //no 12 is the key for stops
+                            //console.log(filterformdata[12].name);
+                            //console.log(filterformdata[12].value);
+                            //13 is outbounddeparturewindow
+
+                            //14 is includedcarriers
+
+                            //15 is layover inboundstopduration
+                           // console.log(filterformdata[15].name);
+                            //console.log(filterformdata[15].value);
+                            //console.log("-------layover time--------");
+                            //console.log(layover);
+                            //check layover time has hours
+                            var indexofh = layover.indexOf("h");
+                            //console.log("--------index of h---------");
+                            //console.log(indexofh);
+                            if(indexofh != -1){
+                              var noofhours = layover.substring(0,2);
+                              var indexofm = layover.indexOf("m");
+                              var indexofmbefore2pos = indexofm -2;
+                              var noofminiutes = layover.substring(indexofmbefore2pos,layover.length-1);
+                              //console.log("indexofmbefore2pos");
+                              //console.log(indexofmbefore2pos);
+                              //console.log("No of hours");
+                              //console.log(noofhours);
+                             // console.log("No of miniutes");
+                              //console.log(noofminiutes);
+
+                              if(parseInt(noofminiutes) != 0  && parseInt(noofhours) >= parseInt(filterformdata[15].value)){ //console.log("if has passed");
+                                $(this).css("display", "none");
+                                $(this).children('div').css("display", "none");
+                                $(this).children('div').children('div').css("display", "none");
+                                $(this).children('div').children('div').children('div').css("display", "none");
+
+                              }
+                            }
+
+                            
                             arrayofamadeus.push(allarray);
                             arrayofamadeusforcompare.push(valtocompare);
+
+
                             
                           });
                         
@@ -396,8 +481,9 @@ trk=nav_responsive_tab_profile"></a>
                         var arrayofsaberforcompare = [];
                         var arrayofsaberforcomparewithindex = [];
                         $.each($(".saberresult"), function(index, value) { 
-                            var ele = $(this).children('div').children('div').children('div').children('.datahere');
+                            var ele = $(this).children('div').children('div').children('div').children('span').children('.datahere');
                             var fare = ele.children('.saberfare').html();
+                            
                             var stops = ele.children('.saberstops').html();
                             var departuretime = ele.children('.saberdepartturetime').html();
                             var airlines = ele.children('.saberairlines').html();
@@ -440,14 +526,19 @@ trk=nav_responsive_tab_profile"></a>
                         var sortedObjs = _.sortBy( arrayofsaberbargain, 'fare' );
                         arrayofsaberbargain = sortedObjs;
                         */
-
-                        var diffr = _.difference(arrayofamadeusforcompare,arrayofsaberforcompare );
+                        //console.log("----array of saber compare----");
+                        //console.log(arrayofsaberforcompare);
+                        //console.log("----array of amadeus compare----");
+                        //console.log(arrayofamadeusforcompare);
+                        //return;
+                        //var diffr = _.difference(arrayofamadeusforcompare,arrayofsaberforcompare );
+                        var diffr = _.difference(arrayofsaberforcompare, arrayofamadeusforcompare);
                         //var intersec = _.intersection(arrayofsaberforcompare, arrayofamadeusforcompare);
 
-                          console.log("---difference----"); 
-                          //this diff is from amadaeus which is not in saber 
-                          console.log(diffr);  
-                          console.log("---difference----");
+                          //console.log("---difference----"); 
+                          //this diff is from saber which is not in amadeus 
+                          //console.log(diffr);  
+                          //console.log("---difference----");
                           //console.log("---intersection----");  
                           //console.log(intersec);  
                           //console.log("---intersection----");
@@ -456,11 +547,15 @@ trk=nav_responsive_tab_profile"></a>
                           if(diffr.length != 0){
                             for (var i = 0; i < diffr.length; i++) {
                                 var detailsofloop = diffr[i].split("-");
-                                console.log(detailsofloop);
+                                //console.log(detailsofloop);
                                 var thiseleinserted = "no";
-                                $.each($(".amadeusresult"), function(index, value) { 
-                            
+                                //$.each($(".amadeusresult"), function(index, value) { 
+                                  $.each($(".saberresult"), function(index, value) {   
+                                    
+                                        /* for amadeus as sub
                                         var fare = $(this).children('div').children('div').children('div').children('.amadeusfare').html();
+
+
                                         var stops = $(this).children('div').children('div').children('div').children('.amadeusstops').html();
                                         var departuretime = $(this).children('div').children('div').children('div').children('.amadeusdepartturetime').html();
                                         var airlines = $(this).children('div').children('div').children('div').children('.amadeusairlines').html();
@@ -473,38 +568,64 @@ trk=nav_responsive_tab_profile"></a>
                                         if($(this).children('div').children('div').children('.amadeusrtn').length != -1){
                                             flightnoreturn = $(this).children('div').children('div').children('.amadeusrtn').children('.amadeusflightnoreturn').html();
                                             operatingairlinereturn = $(this).children('div').children('div').children('.amadeusrtn').children('.amadeusoperatinglinecodereturn').html();
+                                        }*/
+
+                                        var ele = $(this).children('div').children('div').children('div').children('span').children('.datahere');
+                                        var fare = ele.children('.saberfare').html();
+                                        
+                                        var stops = ele.children('.saberstops').html();
+                                        var departuretime = ele.children('.saberdepartturetime').html();
+                                        var airlines = ele.children('.saberairlines').html();
+                                        var layover = ele.children('.saberlayover').html();
+                                        var flightno = ele.children('.saberflightno').html();
+                                        var operatingairline = ele.children('.saberoperatinglinecode').html();
+                                        var flightnoreturn = "";
+                                        if($(this).find(".saberflightnoreturn").html()!=undefined){
+                                            flightnoreturn = $(this).find(".saberflightnoreturn").html();
+                                        }
+                                        
+                                        var operatingairlinereturn = "";
+                                        if($(this).find(".saberoperatinglinecodereturn").html() != undefined){
+                                            operatingairlinereturn = $(this).find(".saberoperatinglinecodereturn").html();
                                         }
 
-                                        var thisofamadeaus = $(this);
+                                        //var thisofamadeaus = $(this);
+                                        var thisofsaber = $(this);
                                         if(detailsofloop[3] == fare && flightno == detailsofloop[1] && flightnoreturn == detailsofloop[4] ){
-                                            var sizeofsaber = $(".saberresult").size();
-                                             $.each($(".saberresult"), function(indexs, values) {
+                                            //var sizeofsaber = $(".saberresult").size();
+                                            var sizeofamadeus = $(".amadeusresult").size();
+                                             $.each($(".amadeusresult"), function(indexs, values) {
                                              
 
-
+                                                /*    
                                                 var elesaber = $(this).children('div').children('div').children('div').children('.datahere');
                                                 var faresaber = elesaber.children('.saberfare').html();
+                                                */
+                                                var eleamadeus = $(this).children('div').children('div').children('div');
+                                                var fareamadeus = eleamadeus.children('.amadeusfare').html();
 
                                                 var filterformdata = $('.formforfilters').serializeArray();
-                                                
-                                                //no 12 is the key for stops
-                                                console.log(filterformdata[12].name);
-                                                console.log(filterformdata[12].value);
+                                         
 
-
-
+                                                /*
                                                 if(detailsofloop[3] <= faresaber && thiseleinserted == "no"){
                                                     $('.allresult li.saberresult:eq('+indexs+')').before('<li class="saberresult">'+thisofamadeaus.html()+'</li>'); 
                                                     thiseleinserted = "yes";
                                                     
-                                                }
+                                                }*/
+                                                if($(this).css('display') != "none"){
+                                                  if(detailsofloop[3] <= fareamadeus && thiseleinserted == "no"){
+                                                      $('.allresult li.amadeusresult:eq('+indexs+')').before('<li class="amadeusresult">'+thisofsaber.html()+'</li>'); 
+                                                      thiseleinserted = "yes";
+                                                      
+                                                  }
 
-                                                if(indexs == sizeofsaber-1 && thiseleinserted == "no")
-                                                {
-                                                    $('.allresult li.saberresult:eq('+indexs+')').after('<li class="saberresult">'+thisofamadeaus.html()+'</li>'); 
-                                                    thiseleinserted = "yes";
-                                                }
-
+                                                  if(indexs == sizeofamadeus-1 && thiseleinserted == "no")
+                                                  {
+                                                      $('.allresult li.amadeusresult:eq('+indexs+')').after('<li class="amadeusresult">'+thisofsaber.html()+'</li>'); 
+                                                      thiseleinserted = "yes";
+                                                  }
+                                                }  
 
                                              });
 
@@ -518,7 +639,8 @@ trk=nav_responsive_tab_profile"></a>
                       carrayblod.hide();
 
                       
-                      $('.totalnoofresultsfound').html($(".saberresult").size());
+                      //$('.totalnoofresultsfound').html($(".saberresult").size());
+                      $('.totalnoofresultsfound').html($(".amadeusresult").size());
                       
 
                 },1000);
@@ -809,6 +931,13 @@ trk=nav_responsive_tab_profile"></a>
 
             ?>
               maskedfunc();
+
+              $scope.adult = "<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>";
+              $scope.children = "<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>";
+              $scope.infant = "<?php echo isset($_REQUEST['infant'])&&$_REQUEST['infant']?$_REQUEST['infant']:0; ?>";
+              
+
+              $scope.origin = "<?php echo $fromairportcode; ?>";
               $scope.origin = "<?php echo $fromairportcode; ?>";
               $scope.destination = "<?php echo $toairportcode ?>";
               $scope.departureDate = "<?php echo $startdate ?>";
@@ -829,7 +958,7 @@ trk=nav_responsive_tab_profile"></a>
                 // and fire search in case its value is not empty
                 var urltogetFlights = '<?php echo $urltoGetFilghts; ?>';
                 var postData;
-                 postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,returndate:$scope.returnDate,lengthofstay:$scope.lengthofstay,limit:$scope.limit,outboundflightstops:$scope.outboundflightstops,outbounddeparturewindow:$scope.outbounddeparturewindow,includedcarriers:$scope.includedcarriers,inboundstopduration:$scope.inboundstopduration}; 
+                 postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,returndate:$scope.returnDate,lengthofstay:$scope.lengthofstay,limit:$scope.limit,outboundflightstops:$scope.outboundflightstops,outbounddeparturewindow:$scope.outbounddeparturewindow,includedcarriers:$scope.includedcarriers,inboundstopduration:$scope.inboundstopduration,adult:$scope.adult,children:$scope.children,infant:$scope.infant}; 
 //return;
                 console.log(postData);
 
@@ -1100,7 +1229,7 @@ trk=nav_responsive_tab_profile"></a>
                             var amadeusnoofrest = countera+1;
                             amadeusnoofrest = "amadeus"+amadeusnoofrest;
 
-                            amadeausdatatodiaplay[countera] = {sequenceno: countera,fare: tempamadeaus.fare.total_price,noofflightsintotalwithreturnflights:tempamadeausnext,insideflightdata:insideflightdata,insideflightdatainbound,insideflightdatainbound,noofrest:amadeusnoofrest,totaljourneytime:totaljourneytime};
+                            amadeausdatatodiaplay[countera] = {sequenceno: countera,fare: tempamadeaus.fare.total_price,noofflightsintotalwithreturnflights:tempamadeausnext,insideflightdata:insideflightdata,insideflightdatainbound,insideflightdatainbound,noofrest:amadeusnoofrest,totaljourneytime:totaljourneytime,amadeusalldataforsingle:tempamadeaus,fareall: tempamadeaus.fare,adults:$scope.adult,children:$scope.children};
 
                         }//iten=rateory loop ends here    
 
@@ -1120,9 +1249,13 @@ trk=nav_responsive_tab_profile"></a>
 
                     if(data.lpc !== undefined){
                       
-                      $scope.lpcfound = true;
+                      
                       console.log("instant lead price calander");
-                      $scope.lpcdata = data.lpc.datalpc;
+                      $scope.lpcdata = data.lpc.datalpc; 
+
+                      if(data.lpc.datalpc.FareInfo != undefined){
+                        $scope.lpcfound = true;
+                      }
                       var allfareinfoarr = data.lpc.datalpc.FareInfo;
                       if(data.lpc.datalpc.FareInfo != undefined){
                         var odoptionslenlpc = data.lpc.datalpc.FareInfo.length;
@@ -1202,7 +1335,7 @@ trk=nav_responsive_tab_profile"></a>
                               for(count = 0; count < $scope.AllFlightsdataInOneOption.FlightSegment.length; count++){
                                  //console.log($scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport);
                                  
-                                 flightSegementObject = {arrivalaiport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport.LocationCode],departureairport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureAirport.LocationCode],departuretime:$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureDateTime,arrivaltime:$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalDateTime,flightSeq:count};
+                                 flightSegementObject = {arrivalaiport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport.LocationCode],departureairport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureAirport.LocationCode],departuretime:$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureDateTime,arrivaltime:$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalDateTime,flightSeq:count,oafn:$scope.AllFlightsdataInOneOption.FlightSegment[count].FlightNumber};
 
                                  flightSegementArray[count] = flightSegementObject;
                                  $scope.TotalFlightTime = $scope.TotalFlightTime + $scope.AllFlightsdataInOneOption.FlightSegment[count].ElapsedTime;
@@ -1269,13 +1402,13 @@ trk=nav_responsive_tab_profile"></a>
                                 FlightNumber: odoptionsdata[odoptions].FlightSegment[0].FlightNumber,
                                 OperatingAirlineCode: odoptionsdata[odoptions].FlightSegment[0].OperatingAirline.Code,
                                 OperatingAirlineFlightNumber: odoptionsdata[odoptions].FlightSegment[0].OperatingAirline.FlightNumber,
-                                returnorarrvial :  odoptions
+                                returnorarrvial :  odoptions,adults:$scope.adult,children:$scope.children
                                 
                               };
                               
                           }
 
-                        
+                          $scope.DatatoShow.alldataofsaberoneflight= value;  
                           $scope.DatatoShow.datatoshownew = datatoshownew;
                           $scope.DatatoShow.noofrest =  "bookingdata"+noofrest;
                           noofrest++;
@@ -1287,12 +1420,12 @@ trk=nav_responsive_tab_profile"></a>
                           
                           
                        });
-                        //console.log(totaldataarray);
+                        console.log(totaldataarray);
                         $scope.DisplayDatainstantflights = totaldataarray;
                       
                     }
-
-                    if(data.bfm !== undefined ){
+                    var stopusingbfmfornow = false;
+                    if(data.bfm !== undefined && stopusingbfmfornow == true ){
                       $scope.bfm = data.bfm;
                       $scope.allflightdata = $scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
                       $scope.totalnoofresultsfound = $scope.totalnoofresultsfound + $scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItinCount;
@@ -1521,10 +1654,13 @@ trk=nav_responsive_tab_profile"></a>
                 }
                 return minutes + "m" ;
             }
+
+
+          
         </script>
         <form method="POST" id="idformforselect" class="formforselect" style="display:none;" action="<?php echo $_SESSION['urlforform']; ?>searchsale">
             <label>Data</label>
-            <input name="saledata" value="" />
+            <input class="saledata" name="saledata" value="" />
         </form>
         <?php 
                 if(isset($_POST['from']) && $_POST['from'] != "" && isset($_POST['to']) && $_POST['to'] != "")

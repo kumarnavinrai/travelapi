@@ -1,355 +1,482 @@
-<?php
+   <?php
 
-/**
- * @file
- * Bartik's theme implementation to display a single Drupal page.
- *
- * The doctype, html, head and body tags are not in this template. Instead they
- * can be found in the html.tpl.php template normally located in the
- * modules/system directory.
- *
- * Available variables:
- *
- * General utility variables:
- * - $base_path: The base URL path of the Drupal installation. At the very
- *   least, this will always default to /.
- * - $directory: The directory the template is located in, e.g. modules/system
- *   or themes/bartik.
- * - $is_front: TRUE if the current page is the front page.
- * - $logged_in: TRUE if the user is registered and signed in.
- * - $is_admin: TRUE if the user has permission to access administration pages.
- *
- * Site identity:
- * - $front_page: The URL of the front page. Use this instead of $base_path,
- *   when linking to the front page. This includes the language domain or
- *   prefix.
- * - $logo: The path to the logo image, as defined in theme configuration.
- * - $site_name: The name of the site, empty when display has been disabled
- *   in theme settings.
- * - $site_slogan: The slogan of the site, empty when display has been disabled
- *   in theme settings.
- * - $hide_site_name: TRUE if the site name has been toggled off on the theme
- *   settings page. If hidden, the "element-invisible" class is added to make
- *   the site name visually hidden, but still accessible.
- * - $hide_site_slogan: TRUE if the site slogan has been toggled off on the
- *   theme settings page. If hidden, the "element-invisible" class is added to
- *   make the site slogan visually hidden, but still accessible.
- *
- * Navigation:
- * - $main_menu (array): An array containing the Main menu links for the
- *   site, if they have been configured.
- * - $secondary_menu (array): An array containing the Secondary menu links for
- *   the site, if they have been configured.
- * - $breadcrumb: The breadcrumb trail for the current page.
- *
- * Page content (in order of occurrence in the default page.tpl.php):
- * - $title_prefix (array): An array containing additional output populated by
- *   modules, intended to be displayed in front of the main title tag that
- *   appears in the template.
- * - $title: The page title, for use in the actual HTML content.
- * - $title_suffix (array): An array containing additional output populated by
- *   modules, intended to be displayed after the main title tag that appears in
- *   the template.
- * - $messages: HTML for status and error messages. Should be displayed
- *   prominently.
- * - $tabs (array): Tabs linking to any sub-pages beneath the current page
- *   (e.g., the view and edit tabs when displaying a node).
- * - $action_links (array): Actions local to the page, such as 'Add menu' on the
- *   menu administration interface.
- * - $feed_icons: A string of all feed icons for the current page.
- * - $node: The node object, if there is an automatically-loaded node
- *   associated with the page, and the node ID is the second argument
- *   in the page's path (e.g. node/12345 and node/12345/revisions, but not
- *   comment/reply/12345).
- *
- * Regions:
- * - $page['header']: Items for the header region.
- * - $page['featured']: Items for the featured region.
- * - $page['highlighted']: Items for the highlighted content region.
- * - $page['help']: Dynamic help text, mostly for admin pages.
- * - $page['content']: The main content of the current page.
- * - $page['sidebar_first']: Items for the first sidebar.
- * - $page['triptych_first']: Items for the first triptych.
- * - $page['triptych_middle']: Items for the middle triptych.
- * - $page['triptych_last']: Items for the last triptych.
- * - $page['footer_firstcolumn']: Items for the first footer column.
- * - $page['footer_secondcolumn']: Items for the second footer column.
- * - $page['footer_thirdcolumn']: Items for the third footer column.
- * - $page['footer_fourthcolumn']: Items for the fourth footer column.
- * - $page['footer']: Items for the footer region.
- *
- * @see template_preprocess()
- * @see template_preprocess_page()
- * @see template_process()
- * @see bartik_process_page()
- * @see html.tpl.php
- */
-$themeurl = file_create_url(path_to_theme());
+        if(isset($_REQUEST["saledata"]) && $_REQUEST["saledata"] != array()){
+        $themeurl = file_create_url(path_to_theme());
+        $adult = 0;
+        $children = 0;
 
-?>
+        $bookingdata = json_decode($_REQUEST['saledata']);
+        $adult = $bookingdata->adults;
+        $children = $bookingdata->children;
+        //echo "<pre>"; print_r($bookingdata); die;
+        $nameofmktairline = "";
+        $flightarray = array();
+        $flightarrayoutbound = array();
 
-<div class="gap"></div>
+        if(isset($bookingdata->insideflightdata) && $bookingdata->insideflightdata){
+            //amadeus data
+            foreach ( $bookingdata->insideflightdata as $key => $value) {
+                $nameofmktairline = $value->marketingairline;
+                
+
+                $flightarray[$key]['logoofairline'] = $value->marketingairlinecode.".png";
+                $flightarray[$key]['nameofairline'] = $value->marketingairline;
+                $flightarray[$key]['depart'] = $value->departs_at;
+                $flightarray[$key]['originairport'] = $value->originairport;
+                $flightarray[$key]['arrives'] = $value->arrives_at;
+                $flightarray[$key]['destinationairport'] = $value->destinationairport;
+                $flightarray[$key]['flightno'] = $value->flightno;
+                $flightarray[$key]['stops'] = $value->nonstopofstop;
+                $flightarray[$key]['fare'] = $bookingdata->fare;
+                $flightarray[$key]['travelclass'] = $value->booking_info->travel_class;
+                $flightarray[$key]['layovertime'] = $value->layovertime;
+
+                if($bookingdata->insideflightdatainbound[$key]->marketingairline != "")
+                {    
+                    $flightarrayoutbound[$key]['logoofairline'] = $bookingdata->insideflightdatainbound[$key]->marketingairlinecode.".png";
+                    $flightarrayoutbound[$key]['nameofairline'] = $bookingdata->insideflightdatainbound[$key]->marketingairline;
+                    $flightarrayoutbound[$key]['depart'] = $bookingdata->insideflightdatainbound[$key]->departs_at;
+                    $flightarrayoutbound[$key]['originairport'] = $bookingdata->insideflightdatainbound[$key]->originairport;
+                    $flightarrayoutbound[$key]['arrives'] = $bookingdata->insideflightdatainbound[$key]->arrives_at;
+                    $flightarrayoutbound[$key]['destinationairport'] = $bookingdata->insideflightdatainbound[$key]->destinationairport;
+                    $flightarrayoutbound[$key]['flightno'] = $bookingdata->insideflightdatainbound[$key]->flightno;
+                    $flightarrayoutbound[$key]['stops'] = $bookingdata->insideflightdatainbound[$key]->nonstopofstop;
+                    $flightarrayoutbound[$key]['fare'] = $bookingdata->fare;
+                    $flightarrayoutbound[$key]['travelclass'] = $bookingdata->insideflightdatainbound[$key]->booking_info->travel_class;
+                    $flightarrayoutbound[$key]['layovertime'] = $bookingdata->insideflightdatainbound[$key]->layovertime;
+                }
+
+            }
+
+            //amadeus price details
+            if(isset($bookingdata->fareall) && $bookingdata->fareall)
+            {
+                $totalprice = $bookingdata->fareall->total_price;
+                $priceperadulttotalfare = $bookingdata->fareall->price_per_adult->total_fare;
+                $priceperadulttax = $bookingdata->fareall->price_per_adult->tax;
+
+            }
+            
+        }
+
+        if(isset($bookingdata->datatoshownew) && $bookingdata->datatoshownew){
+            
+            foreach ( $bookingdata->datatoshownew as $key => $value) 
+            {   
+                $nameofmktairline = $value->nameOfmarketingAirine; 
+                
+                if($key == 0)
+                {    
+                    foreach ($value->AllFlightsdataInOneOption as $keynext => $valuenext) 
+                    {
+                        $flightarray[$keynext]['logoofairline'] = $value->logoOfmarketingAirine;
+                        $flightarray[$keynext]['nameofairline'] = $value->nameOfmarketingAirine;
+                        $flightarray[$keynext]['stops'] = $value->nonStopOrwithStop;
+                        $flightarray[$keynext]['layovertime'] = $value->LayoverTime;
+                        $flightarray[$keynext]['travelclass'] = $value->searchedClass;
+                        $flightarray[$keynext]['fare'] = $bookingdata->totalfareInUsd;
+                        $flightarray[$keynext]['depart'] = $valuenext->departuretime;
+                        $flightarray[$keynext]['originairport'] = $valuenext->departureairport;
+                        $flightarray[$keynext]['arrives'] = $valuenext->arrivaltime;
+                        $flightarray[$keynext]['destinationairport'] = $valuenext->arrivalaiport;
+                        $flightarray[$keynext]['flightno'] = $valuenext->oafn;
+                    }
+                }else
+                { 
+                    
+
+                    foreach ($value->AllFlightsdataInOneOption as $keynext => $valuenext) {
+
+                        $flightarrayoutbound[$keynext]['logoofairline'] = $value->logoOfmarketingAirine;
+                        $flightarrayoutbound[$keynext]['nameofairline'] = $value->nameOfmarketingAirine;
+                        $flightarrayoutbound[$keynext]['stops'] = $value->nonStopOrwithStop;
+                        $flightarrayoutbound[$keynext]['layovertime'] = $value->LayoverTime;
+                        $flightarrayoutbound[$keynext]['travelclass'] = $value->searchedClass;
+                        $flightarrayoutbound[$keynext]['fare'] = $bookingdata->totalfareInUsd;
+                        $flightarrayoutbound[$keynext]['depart'] = $valuenext->departuretime;
+                        $flightarrayoutbound[$keynext]['originairport'] = $valuenext->departureairport;
+                        $flightarrayoutbound[$keynext]['arrives'] = $valuenext->arrivaltime;
+                        $flightarrayoutbound[$keynext]['destinationairport'] = $valuenext->arrivalaiport;
+                        $flightarrayoutbound[$keynext]['flightno'] = $valuenext->oafn;
+                    }
+
+                }
+                
+            }  
+
+
+            //saber price details
+            if(isset($bookingdata->alldataofsaberoneflight)&& $bookingdata->alldataofsaberoneflight)
+            {
+                
+                $totalprice = $bookingdata->alldataofsaberoneflight->AirItineraryPricingInfo->PTC_FareBreakdowns->PTC_FareBreakdown->PassengerFare->TotalFare->Amount;
+
+                $priceperadulttotalfare = $bookingdata->alldataofsaberoneflight->AirItineraryPricingInfo->PTC_FareBreakdowns->PTC_FareBreakdown->PassengerFare->TotalFare->Amount;
+                $priceperadulttax = $bookingdata->alldataofsaberoneflight->AirItineraryPricingInfo->PTC_FareBreakdowns->PTC_FareBreakdown->PassengerFare->Taxes->TotalTax->Amount;
+            }
+        }
+      
+   ?>
+    <div class="gap"></div>
     <div class="container">
-     <div class="row">
-                <div class="col-md-8">
-                    <h3>Traveler Details</h3>
-                    <p>Sign in to your <a href="<?php global $base_url; echo $base_url; ?>/user">Travel Painter Account</a> for fast booking.</p>
-          
-                    </div>
-                    <div class="col-md-2"></div>
+
+    <div class="row">
+        <div class="col-md-10">
+        <h3>Traveler Details</h3>
+        <p>Sign in to your <a href="/user">Travel Painter Account</a> for fast booking.</p>
+        
+    </div>
+    
     <div class="row">
     
-    
-    
-    
-    
-        <div class="col-md-10">
+            <div class="col-md-10">
                     <div class="booking-item-payment">
                         <header class="clearfix">
-                            <h5 class="mb0">London - New York</h5>
+                            <h5 class="mb0"><?php echo $nameofmktairline; ?></h5>
                         </header>
-                        
-                        
-                        
-                        
+                                                
                         <div class="booking-item-container">
                                 <div class="booking-item">
+                                    <?php if(isset($flightarray) && $flightarray){ ?>
+                                    <?php foreach ($flightarray as $key => $value) { ?>
+                                    
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="booking-item-airline-logo">
-                                                <img src="img/lufthansa.jpg" alt="Image Alternative text" title="Image Title">
-                                                <p>Lufthansa</p>
+                                                <?php if($key == 0){ ?>
+                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/<?php echo $value['logoofairline']; ?>" alt="Image Alternative text" title="Image Title">
+                                                <p><?php echo $value['nameofairline']; ?></p>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
+                                                    <h5><?php echo date('h:i A',strtotime($value['depart'])) ?></h5>
+                                                    <p class="booking-item-date"><?php echo date('l, F d ',strtotime($value['depart'])) ?></p>
+                                                    <p class="booking-item-destination"><?php echo $value['originairport']; ?></p>
                                                 </div>
                                                 <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
+                                                    <h5><?php echo date('h:i A',strtotime($value['arrives'])) ?></h5>
+                                                    <p class="booking-item-date"><?php echo date('l, F d ',strtotime($value['arrives'])) ?></p>
+                                                    <p class="booking-item-destination"><?php echo $value['destinationairport']; ?></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>non-stop</p>
+                                            <h5>Flight No.<?php echo $value['flightno']; ?></h5>
+                                            <?php if($key == 0){ ?><p><?php echo $value['stops']; ?></p><?php } ?>
                                         </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$307</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Economy</p>
+                                        <?php if($key == 0){ ?>
+                                        <div class="col-md-3"><span class="booking-item-price">$<?php echo $value['fare']; ?></span>
+                                        <span>/person</span><br>
+                                        <span>Layover: <?php echo $value['layovertime']; ?></span><br>
+                                            <p class="booking-item-flight-class">Class: <?php echo $value['travelclass']; ?></p>
                                         </div>
+                                        <?php } ?>
                                     </div>
-                                </div>
-                                <div class="booking-item-details">
+                                    <?php } ?>
+                                    <?php } //flight array ?>
+                                    <?php if(isset($flightarrayoutbound) && $flightarrayoutbound){ ?>
+                                    <?php foreach ($flightarrayoutbound as $key => $value) { ?>
+                                    
                                     <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
+                                        <div class="col-md-2">
+                                            <div class="booking-item-airline-logo">
+                                                <?php if($key == 0){ ?>
+                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/<?php echo $value['logoofairline']; ?>" alt="Image Alternative text" title="Image Title">
+                                                <p><?php echo $value['nameofairline']; ?></p>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="booking-item-flight-details">
+                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                                    <h5><?php echo date('h:i A',strtotime($value['depart'])) ?></h5>
+                                                    <p class="booking-item-date"><?php echo date('l, F d ',strtotime($value['depart'])) ?></p>
+                                                    <p class="booking-item-destination"><?php echo $value['originairport']; ?></p>
+                                                </div>
+                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                                    <h5><?php echo date('h:i A',strtotime($value['arrives'])) ?></h5>
+                                                    <p class="booking-item-date"><?php echo date('l, F d ',strtotime($value['arrives'])) ?></p>
+                                                    <p class="booking-item-destination"><?php echo $value['destinationairport']; ?></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <h5>Flight No.<?php echo $value['flightno']; ?></h5>
+                                            <?php if($key == 0){ ?><p><?php echo $value['stops']; ?></p><?php } ?>
+                                        </div>
+                                        <div class="col-md-3"><span class="booking-item-price"></span><span></span>
+                                        <?php if($key == 0){ ?><span>Layover: <?php echo $value['layovertime']; ?></span><?php } ?>
+                                            <p class="booking-item-flight-class"></p>
                                         </div>
                                     </div>
+                                    <?php } ?>
+                                    <?php } //flight array ?>
+                                
                                 </div>
                             </div>
-                        
-                       
-                    </div>
+                     </div>
                 </div>
             </div>
-           <div class="col-md-2"></div>
-                    <div class="gap gap-small"></div>
-                    <div class="col-md-10">
-                    <div class="booking-item-payment">
+            <!---flight detail end--->
+    
+            <!---Passengers detail-->
+           
+            <div class="gap gap-small"></div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="booking-item-payment">
                     <header class="clearfix">
                     <h5 class="mb0">Passengers</h5>
                     </header>
+                    <form name="userForm" class="userFormcls">
+                     <input type="text" class="form-control donotshowthis userFormValid" name="v<?php echo 1; ?>" ng-model="userForm.$invalid" value="{{userForm.$invalid}}" />
                     <ul class="list booking-item-passengers">
-                         <li>
+                      
+                    <style> .donotshowthis { display: none; } </style>       
+                    <input class="donotshowthis" name="allflightdata" value="<?php echo isset($_REQUEST["saledata"])?str_replace('"', "'", $_REQUEST["saledata"]):""; ?>" type="text" />
+
+                    <?php $totalpassenger = $adult+$children;?>
+
+                    <?php for ($i=0; $i < $totalpassenger ; $i++) {  ?>
+                    <li>
                             <div class="row">
-                            <div class="col-md-12">
+                                    <div class="col-md-12 sukh_height">
                                 <div class="col-md-2">
                                    <div class="form-group">
-                                        <label>Traveler 1</label>
+                                        <label>Traveler <?php echo $i+1; ?></label>
                                         <select>
                                         <option>Adult</option>
                                         <option>Senior</option>
                                         <option>Child</option>
                                         <option>Seat Infant</option>
                                         </select>
+                                    </div>
+                                </div>
+                                
+                                
+                                 <div class="col-md-2">
+                                    <div class="form-group">
+                                         <label>First Name</label>
+                                        <input type="text" class="form-control" name="fn<?php echo $i+1; ?>" ng-model="user.fn<?php echo $i+1; ?>" ng-minlength="3" ng-maxlength="18" required />
+                                       
+                                        <!-- show an error if username is too short -->
+                                        <p ng-show="userForm.fn<?php echo $i+1; ?>.$error.minlength">Firstname is too short.</p>
+
+                                        <!-- show an error if username is too long -->
+                                        <p ng-show="userForm.fn<?php echo $i+1; ?>.$error.maxlength">Firstname is too long.</p>
+
+                                        <!-- show an error if this isn't filled in -->
+                                        <p ng-show="userForm.fn<?php echo $i+1; ?>.$error.required">Your Firstname is required.</p>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Middle Name</label>
+                                        
+                                         <input type="text" class="form-control" name="mn<?php echo $i+1; ?>" ng-model="user.mn<?php echo $i+1; ?>" ng-minlength="3" ng-maxlength="18" required />
+
+                                        <!-- show an error if username is too short -->
+                                        <p ng-show="userForm.mn<?php echo $i+1; ?>.$error.minlength">Middle name is too short.</p>
+
+                                        <!-- show an error if username is too long -->
+                                        <p ng-show="userForm.mn<?php echo $i+1; ?>.$error.maxlength">Middle name is too long.</p>
+
+                                        <!-- show an error if this isn't filled in -->
+                                        <p ng-show="userForm.mn<?php echo $i+1; ?>.$error.required">Your Middle name is required.</p>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                             <label>Last Name</label>
+                                         
+                                            <input type="text" class="form-control" name="ln<?php echo $i+1; ?>" ng-model="user.ln<?php echo $i+1; ?>" ng-minlength="3" ng-maxlength="18" required />
+
+                                            <!-- show an error if username is too short -->
+                                            <p ng-show="userForm.ln<?php echo $i+1; ?>.$error.minlength">Last name is too short.</p>
+
+                                            <!-- show an error if username is too long -->
+                                            <p ng-show="userForm.ln<?php echo $i+1; ?>.$error.maxlength">Last name is too long.</p>
+
+                                            <!-- show an error if this isn't filled in -->
+                                            <p ng-show="userForm.ln<?php echo $i+1; ?>.$error.required">Your Last name is required.</p>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Date of Birth</label>
+                                        <input class="date-pick-years form-control" name="dob<?php echo $i+1; ?>" type="text" required/>
+                                       
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <select>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        </select>
                                         
                                     </div>
-                                    </div>
-                                 <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>First Name</label>
-                                        <input class="form-control" type="text" />
-                                    </div>
+                                    
+                                    <!--<a class="add_field_button"><img class="sukh_icon" src="img/plus.png" alt="Travel Painters" /></a>-->
+                                    
                                 </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>Middle Name</label>
-                                        <input class="form-control" type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input class="form-control" type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>Date of Birth</label>
-                                        <input class="date-pick-years form-control" type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>Gender</label>
-                                        <select>
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                          </li>
-                        <li>
-                            <div class="row">
-                                <div class="col-md-12">
-                                <div class="col-md-2">
-                                   <div class="form-group">
-                                        <label>Traveler 2</label>
-                                        <select>
-                                        <option>Adult</option>
-                                        <option>Senior</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                 <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>First Name</label>
-                                        <input class="form-control" type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>Middle Name</label>
-                                        <input class="form-control" type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input class="form-control" type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>Date of Birth</label>
-                                        <input class="date-pick-years form-control" type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>Gender</label>
-                                        <select>
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                        </select>
-                                    </div>
-                                </div>
+                            
                             </div>
                         </div>
-                            
-                        </li>
-                    </ul></div></div>
+           </li>
+           <?php } ?>
+                        
+
+                    <!--<li>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                <div class="col-md-2">
+                                   <div class="form-group">
+                                        <label class="donotshowthis">Traveler 2</label>
+                                        <select class="donotshowthis">
+                                        <option>Adult</option>
+                                        <option>Senior</option>
+                                        <option>Child</option>
+                                        <option>Seat Infant</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                
+                                 <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="donotshowthis">First Name</label>
+                                        <input  class="donotshowthis form-control" type="text" />
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="donotshowthis">Middle Name</label>
+                                        <input class="form-control donotshowthis" type="text" />
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="donotshowthis">Last Name</label>
+                                        <input class="form-control donotshowthis" type="text" />
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="donotshowthis">Date of Birth</label>
+                                        <input class="date-pick-years form-control donotshowthis donotshowthis" type="text" />
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-md-2">
+                                    <div class="form-group donotshowthis">
+                                        <label>Gender</label>
+                                        <select>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+           </li>      -->
+                        
+                    </ul>
+                    </form>
+              
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <!---Passengers detail end-->
+                    
                     <div class="gap gap-small"></div>
-                        <div class="row">
-                            <div class="col-md-10">
-                                <div class="booking-item-payment">
+        
+        <!---Price detail-->
+        
+            <div class="row">
+                 <div class="col-md-10">
+                        <div class="booking-item-payment">
                                     <header class="clearfix">
                                     <h4 class="mb0"><strong>Price Details (USD)</strong></h4>
                                     </header>
+                                        
                                         <div class="col-md-12">
                                             <div class="clearfix col-md-6">
                                                 <h5> Total Traveler</h5>
                                                 <h5>Best Price</h5>
                                                 <h5>Taxes & Fees:</h5>
-                                                <h5>Trip Protection Insurance:</h5>
+                                               
                                             </div>
                                             <div class="clearfix col-md-6">
-                                                <h5>1 Adult</h5>
-                                                <h5>$400.99</h5>
-                                                <h5>$44.21</h5>
-                                                <h5>$15.21</h5>
+                                                <h5><?php echo isset($adult)?$adult:""; ?> Adult<?php if(isset($children)){ ?>, <?php echo isset($children)?$children:""; ?> Children<?php } ?></h5>
+                                                
+                                                <h5>$<?php echo number_format((float)$totalprice-$priceperadulttax, 2, '.', ''); ?></h5>
+                                                <h5>$<?php echo number_format((float)$priceperadulttax, 2, '.', ''); ?></h5>
+                                                
                                             </div>
                                         </div>
-                                    <!--<div class="col-md-12">
-                                    <a href="#">Promo Code </a> or <a href="#">Gift Card</a>
-                                    </div>-->
-                                        <!--<div class="col-md-10">
-                                        <h5>Old Price</h5>
-                                        </div>
-                                        <div class="col-md-2">
-                                        <h5>$1445.20</h5>
-                                        </div>      
-                                        <div class="col-md-6">
-                                        <h5 style="color:#990000">Total Discount:</h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                        <span class="sukh-book sukhselectlabel"></span>
-                                        </div>
-                                        <div class="col-md-2">
-                                        <h5 style="color:#990000">$15.20</h5>
-                                        </div>-->
                                         
-                                    <div class="row sukh-color">    
-                                        <div class="col-md-10 col-sm-8">
+                                <div class="row sukh-color">    
+                                     <div class="col-md-10 col-sm-8">
+                                        
                                         <h5 class="sukh-clr">Final Total Price:</h5>
-                                        </div>
+                                     </div>
+                                        
                                         <div class="col-md-2 col-sm-4">
-                                        <h5 class="sukh-clr">$1428.08</h5>
+                                        <h5 class="sukh-clr">$<?php echo $totalprice; ?></h5>
                                         </div>
+                                        
                                         <div class="row">
                                             <div class="col-md-1"></div>
                                             <div class="col-md-10">Please note: All fares are quoted in USD. Some airlines may charge baggage fees.</div>
                                             <div class="col-md-1"></div>
                                         </div>
-                                    </div>
+                        
                                         
-                                </div>              
-                             </div>
-                        </div>
+                    </div>              
+                </div>
+            </div>
+            
+            <!---Price detail end-->
+            
                     <div class="gap gap-small"></div>
-                    <div class="row">
-                      <div class="col-md-10">
+            
+            <!---Payment Info detail-->
+            
+            <div class="row row_abhi">
+                <div class="col-md-10">
                         <div class="booking-item-payment">
                             <header class="clearfix">
                             <h4 class="mb0"><strong>Payment Info (Secure SSL Encrypted Transaction)</strong></h4>
                             </header>
-                            <form class="cc-form">
+                            
+                            <form name="userFormcc" class="cc-form userFormcccls">
+                            <input type="text" class="form-control donotshowthis userFormccValid" name="userFormccfv" ng-model="userFormcc.$invalid" value="{{userFormcc.$invalid}}" />
                                 <div class="clearfix col-md-12">
                                     <div class="form-group form-group-cc-number col-md-6">
                                         <label>Payment Method</label>
-                                        <select class="form-control">
+                                        <select name="typepfcard" class="form-control">
                                         <option>Visa</option>
                                         <option>Mestro</option>
                                         <option>American Express</option>
@@ -366,31 +493,85 @@ $themeurl = file_create_url(path_to_theme());
                                         </div>
                                     </div>
                                 </div>
-                                <div class="clearfix col-md-8">
-                                    <div class="form-group form-group-cc-number col-md-6">
-                                        <label>Credit or Debit Card Number</label>
-                                        <input class="form-control" placeholder="xxxx xxxx xxxx xxxx" type="text" required="required" /><span class="cc-card-icon"></span>
+                                
+                                
+                    <div class="clearfix col-md-8">
+                    
+                                <div class="form-group form-group-cc-number col-md-6">
+                                  <label>Credit or Debit Card Number</label>
+                                  <input type="text" class="form-control donotshowthis" name="userFormccfv" ng-model="userFormcc.$invalid" value="{{userFormcc.$invalid}}" />
+                                  <input class="form-control" placeholder="xxxx xxxx xxxx xxxx" name="cc" type="text"  ng-model="user.cc" ng-minlength="19" ng-maxlength="19" required />
+                                  
+                                   
+
+                                    <!-- show an error if username is too short -->
+                                    <p ng-show="userFormcc.cc.$error.minlength">16 digit cc no. required.</p>
+
+                                    <!-- show an error if username is too long -->
+                                    <p ng-show="userFormcc.cc.$error.maxlength">16 digit cc no. required.</p>
+
+                                    <!-- show an error if this isn't filled in -->
+                                     <p ng-show="userFormcc.cc.$error.required">16 digit cc no. required.</p>
+                                  <span class="cc-card-icon"></span>
+
                                     </div>
+                                    
                                     <div class="form-group form-group-cc-cvc col-md-6">
                                         <label>CVV</label>
-                                        <input class="form-control" placeholder="xxxx" type="text" />
+                                        
+                                        <input class="form-control" placeholder="xxxx" name="ccv" type="text"  ng-model="user.ccv" ng-minlength="3" ng-maxlength="4" required />
+                                  
+                                   
+
+                                        <!-- show an error if username is too short -->
+                                        <p ng-show="userFormcc.ccv.$error.minlength">CCV no. required.</p>
+
+                                        <!-- show an error if username is too long -->
+                                        <p ng-show="userFormcc.ccv.$error.maxlength">CCV no. required.</p>
+
+                                        <!-- show an error if this isn't filled in -->
+                                         <p ng-show="userFormcc.ccv.$error.required">CCV no. required.</p>
                                     </div>
-                                </div>
-                                <div class="clearfix ">
+                                    
+                    </div>
+                                
+                                <div class="clearfix " style="padding-left: 14px;">
                                     <div class="form-group form-group-cc-name col-md-6">
                                         <label>Cardholder Name</label>
-                                        <input class="form-control" type="text" required="required" />
+                                        <input class="form-control" placeholder="Card Holder Name." name="ccn" type="text"  ng-model="user.ccn" ng-minlength="3" ng-maxlength="25" required />
+                                  
+                                   
+
+                                        <!-- show an error if username is too short -->
+                                        <p ng-show="userFormcc.ccn.$error.minlength">Card holder name required.</p>
+
+                                        <!-- show an error if username is too long -->
+                                        <p ng-show="userFormcc.ccn.$error.maxlength">Card holder name required.</p>
+
+                                        <!-- show an error if this isn't filled in -->
+                                         <p ng-show="userFormcc.ccn.$error.required">Card holder name required.</p>
                                     </div>
+                                    
                                     <div class="form-group form-group-cc-date col-md-6">
                                         <label>Valid Thru</label>
-                                        <input class="form-control" placeholder="mm/yy" type="text" required="required" />
+                                        <input class="form-control" placeholder="mm/yy" type="text" name="ccvth" ng-model="user.ccvth" ng-minlength="5" ng-maxlength="10" required />
+                                               <!-- show an error if username is too short -->
+                                        <p ng-show="userFormcc.ccvth.$error.minlength">Valid Thru required.</p>
+
+                                        <!-- show an error if username is too long -->
+                                        <p ng-show="userFormcc.ccvth.$error.maxlength">Valid Thru required.</p>
+
+                                        <!-- show an error if this isn't filled in -->
+                                         <p ng-show="userFormcc.ccvth.$error.required">Valid Thru required.</p>
                                     </div>
                                 </div>
-                                 <div class="clearfix sukh-height">
-                                    <div class="form-group form-group-cc-name col-md-11">
+                                
+                                
+                                 <div class="clearfix sukh-height ">
+                                    <div class="form-group form-group-cc-name col-md-10">
                                       
                                     </div>
-                                    <div class="form-group form-group-cc-date col-md-1">
+                                    <div class="form-group form-group-cc-date col-md-2">
                                         <a href="#" class="verisign"></a>
                                     </div>
                                 </div>
@@ -398,21 +579,27 @@ $themeurl = file_create_url(path_to_theme());
                             </form>     
                         </div>
                     </div>
-                    </div>
+                </div>
+                
+                <!---Payment Info detail end--> 
+                    
                     <div class="gap gap-small"></div>
-                    <div class="col-md-10">
-                    <div class="booking-item-payment">
+
+
+    <!---Payment Info detail end--> 
+<div class="row row_abhi">
+        <div class="col-md-10">
+            <div class="booking-item-payment">
                     <header class="clearfix">
                     <h4 class="mb0"><strong>Billing & Contact Information</strong></h4></header>
-                    <div class="row">
-                    
-                    <div class="col-md-8">
                     <strong>Credit Card Billing Address:</strong>
-                            <form class="cc-form">
+                            <form name="userFormd" class="cc-form userFormdcls">
+                                <input type="text" class="form-control donotshowthis userFormdValid" name="userFormdfv" ng-model="userFormd.$invalid" value="{{userFormd.$invalid}}" />
                                 <div class="clearfix col-md-8">
                                     <div class="form-group form-group-cc-number ">
                                         <label>Country</label>
-                                        <select class="form-control">
+
+                                        <select name="country" class="form-control">
                                         <option value="AF">Afghanistan</option>
                                         <option value="AX">Aland Islands</option>
                                         <option value="AL">Albania</option>
@@ -664,30 +851,46 @@ $themeurl = file_create_url(path_to_theme());
                                         <option value="ZW">Zimbabwe</option>
                                         </select>
                                     </div>
-                                    <div class="form-group form-group-cc-cvc">
-                                        
-                                    </div>
+                                    
+                                   
                                 </div>
                                 
                                 <div class="clearfix col-md-8">
                                     <div class="form-group form-group-cc-name">
                                         <label>Street</label>
-                                        <input class="form-control" type="text"required="required" />
+                                        
+                                        <input class="form-control" placeholder="Street" type="text" name="street" ng-model="user.street" ng-minlength="3" ng-maxlength="50" required />
+                                               <!-- show an error if username is too short -->
+                                        <p ng-show="userFormd.street.$error.minlength">Street required.</p>
+
+                                        <!-- show an error if username is too long -->
+                                        <p ng-show="userFormd.street.$error.maxlength">Street required.</p>
+
+                                        <!-- show an error if this isn't filled in -->
+                                         <p ng-show="userFormd.street.$error.required">Street required.</p>
+
                                     </div>
-                                    <div class="form-group form-group-cc-name">
-                                        <input class="form-control" type="text" required="required" />
-                                    </div>
+                                   
                                 </div>
                                  <div class="clearfix col-md-8">
                                     <div class="form-group form-group-cc-name">
                                         <label>City</label>
-                                        <input class="form-control"  placeholder="(example: Chicago)" type="text" required="required"/>
+                                        
+                                        <input class="form-control" placeholder="(example: Chicago)" type="text" name="city" ng-model="user.city" ng-minlength="3" ng-maxlength="50" required />
+                                               <!-- show an error if username is too short -->
+                                        <p ng-show="userFormd.city.$error.minlength">City required.</p>
+
+                                        <!-- show an error if username is too long -->
+                                        <p ng-show="userFormd.city.$error.maxlength">City required.</p>
+
+                                        <!-- show an error if this isn't filled in -->
+                                         <p ng-show="userFormd.city.$error.required">City required.</p>
                                     </div>
                                 </div>
                                 <div class="clearfix col-md-8">
                                     <div class="form-group form-group-cc-name">
                                         <label>State</label>
-                                         <select class="form-control">
+                                         <select name="state" class="form-control">
                                         <option value="AL">Alabama</option>
                                         <option value="AK">Alaska</option>
                                         <option value="AZ">Arizona</option>
@@ -745,34 +948,65 @@ $themeurl = file_create_url(path_to_theme());
                                 <div class="clearfix ">
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Zip</label>
-                                        <input class="form-control" type="text" required="required" />
+                                        
+                                        <input class="form-control" placeholder="Zipcode" type="text" name="zipcode" ng-model="user.zipcode" ng-minlength="3" ng-maxlength="6" required />
+                                               <!-- show an error if username is too short -->
+                                        <p ng-show="userFormd.zipcode.$error.minlength">Zipcode required.</p>
+
+                                        <!-- show an error if username is too long -->
+                                        <p ng-show="userFormd.zipcode.$error.maxlength">Zipcode required.</p>
+
+                                        <!-- show an error if this isn't filled in -->
+                                         <p ng-show="userFormd.zipcode.$error.required">Zipcode required.</p>
                                     </div>
                                 </div>
                               <strong>Contact Information:</strong>
                                 <div class="clearfix">
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Billing Phone:</label>
-                                        <input class="form-control" type="text" required="required" />
+                                        
+                                        <input class="form-control" placeholder="Billing Phone" type="text" name="bp" ng-model="user.bp" ng-minlength="3" ng-maxlength="16" required />
+                                               <!-- show an error if username is too short -->
+                                        <p ng-show="userFormd.bp.$error.minlength">Billing Phone required.</p>
+
+                                        <!-- show an error if username is too long -->
+                                        <p ng-show="userFormd.bp.$error.maxlength">Billing Phone required.</p>
+
+                                        <!-- show an error if this isn't filled in -->
+                                         <p ng-show="userFormd.bp.$error.required">Billing Phone required.</p>
                                     </div>
                                 </div>
                                 <div class="clearfix">
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Mobile Phone</label>
-                                        <input class="form-control" type="text" placeholder="optional" />   
-                                            I'd like FREE flight updates and more 
+                                        <input class="form-control" type="text" name="mp" placeholder="optional" />   
                                     </div>
                                 </div>
                                 <div class="clearfix">
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Email</label>
-                                        <input class="form-control" type="email" required="required"  />    
+                                        <input class="form-control" type="email" name="email" ng-model="user.email"  required/>    
+                                       
+                                          <br/>
+                                          <span class="error" ng-show="userFormd.email.$error.required">
+                                            Required!</span>
+                                          <span class="error" ng-show="userFormd.email.$error.email">
+                                            Not valid email!</span>
+                                         
                                             
                                 </div>
                                 </div>
                                 <div class="clearfix">
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Retype Email</label>
-                                        <input class="form-control" type="email" required="required"  />    
+                                        
+                                        <input class="form-control" type="email" name="emailc" ng-model="user.emailc"  required/>    
+                                       
+                                          <br/>
+                                          <span class="error" ng-show="userFormd.emailc.$error.required">
+                                            Required!</span>
+                                          <span class="error" ng-show="userFormd.emailc.$error.email">
+                                            Not valid email!</span>  
                                             
                                 </div>
                                 </div>
@@ -800,165 +1034,4 @@ Please also confirm that the dates and times of flight departures are accurate. 
         </div>
         
 
-<?php /* ?>
-<div id="page-wrapper"><div id="page">
-
-  <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>"><div class="section clearfix">
-
-    <?php if ($logo): ?>
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-      </a>
-    <?php endif; ?>
-
-    <?php if ($site_name || $site_slogan): ?>
-      <div id="name-and-slogan"<?php if ($hide_site_name && $hide_site_slogan) { print ' class="element-invisible"'; } ?>>
-
-        <?php if ($site_name): ?>
-          <?php if ($title): ?>
-            <div id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
-              <strong>
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-              </strong>
-            </div>
-          <?php else:  ?>
-            <h1 id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-            </h1>
-          <?php endif; ?>
-        <?php endif; ?>
-
-        <?php if ($site_slogan): ?>
-          <div id="site-slogan"<?php if ($hide_site_slogan) { print ' class="element-invisible"'; } ?>>
-            <?php print $site_slogan; ?>
-          </div>
-        <?php endif; ?>
-
-      </div> <!-- /#name-and-slogan -->
-    <?php endif; ?>
-
-    <?php print render($page['header']); ?>
-
-    <?php if ($main_menu): ?>
-      <div id="main-menu" class="navigation">
-        <?php print theme('links__system_main_menu', array(
-          'links' => $main_menu,
-          'attributes' => array(
-            'id' => 'main-menu-links',
-            'class' => array('links', 'clearfix'),
-          ),
-          'heading' => array(
-            'text' => t('Main menu'),
-            'level' => 'h2',
-            'class' => array('element-invisible'),
-          ),
-        )); ?>
-      </div> <!-- /#main-menu -->
-    <?php endif; ?>
-
-    <?php if ($secondary_menu): ?>
-      <div id="secondary-menu" class="navigation">
-        <?php print theme('links__system_secondary_menu', array(
-          'links' => $secondary_menu,
-          'attributes' => array(
-            'id' => 'secondary-menu-links',
-            'class' => array('links', 'inline', 'clearfix'),
-          ),
-          'heading' => array(
-            'text' => t('Secondary menu'),
-            'level' => 'h2',
-            'class' => array('element-invisible'),
-          ),
-        )); ?>
-      </div> <!-- /#secondary-menu -->
-    <?php endif; ?>
-
-  </div></div> <!-- /.section, /#header -->
-
-  <?php if ($messages): ?>
-    <div id="messages"><div class="section clearfix">
-      <?php print $messages; ?>
-    </div></div> <!-- /.section, /#messages -->
-  <?php endif; ?>
-
-  <?php if ($page['featured']): ?>
-    <div id="featured"><div class="section clearfix">
-      <?php print render($page['featured']); ?>
-    </div></div> <!-- /.section, /#featured -->
-  <?php endif; ?>
-
-  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
-
-    <?php if ($breadcrumb): ?>
-      <div id="breadcrumb"><?php print $breadcrumb; ?></div>
-    <?php endif; ?>
-
-    <?php if ($page['sidebar_first']): ?>
-      <div id="sidebar-first" class="column sidebar"><div class="section">
-        <?php print render($page['sidebar_first']); ?>
-      </div></div> <!-- /.section, /#sidebar-first -->
-    <?php endif; ?>
-
-    <div id="content" class="column"><div class="section">
-      <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
-      <a id="main-content"></a>
-      <?php print render($title_prefix); ?>
-      <?php if ($title): ?>
-        <h1 class="title" id="page-title">
-          <?php print $title; ?>
-        </h1>
-      <?php endif; ?>
-      <?php print render($title_suffix); ?>
-      <?php if ($tabs): ?>
-        <div class="tabs">
-          <?php print render($tabs); ?>
-        </div>
-      <?php endif; ?>
-      <?php print render($page['help']); ?>
-      <?php if ($action_links): ?>
-        <ul class="action-links">
-          <?php print render($action_links); ?>
-        </ul>
-      <?php endif; ?>
-      <?php print render($page['content']); ?>
-      <?php print $feed_icons; ?>
-
-    </div></div> <!-- /.section, /#content -->
-
-    <?php if ($page['sidebar_second']): ?>
-      <div id="sidebar-second" class="column sidebar"><div class="section">
-        <?php print render($page['sidebar_second']); ?>
-      </div></div> <!-- /.section, /#sidebar-second -->
-    <?php endif; ?>
-
-  </div></div> <!-- /#main, /#main-wrapper -->
-
-  <?php if ($page['triptych_first'] || $page['triptych_middle'] || $page['triptych_last']): ?>
-    <div id="triptych-wrapper"><div id="triptych" class="clearfix">
-      <?php print render($page['triptych_first']); ?>
-      <?php print render($page['triptych_middle']); ?>
-      <?php print render($page['triptych_last']); ?>
-    </div></div> <!-- /#triptych, /#triptych-wrapper -->
-  <?php endif; ?>
-
-  <div id="footer-wrapper"><div class="section">
-
-    <?php if ($page['footer_firstcolumn'] || $page['footer_secondcolumn'] || $page['footer_thirdcolumn'] || $page['footer_fourthcolumn']): ?>
-      <div id="footer-columns" class="clearfix">
-        <?php print render($page['footer_firstcolumn']); ?>
-        <?php print render($page['footer_secondcolumn']); ?>
-        <?php print render($page['footer_thirdcolumn']); ?>
-        <?php print render($page['footer_fourthcolumn']); ?>
-      </div> <!-- /#footer-columns -->
-    <?php endif; ?>
-
-    <?php if ($page['footer']): ?>
-      <div id="footer" class="clearfix">
-        <?php print render($page['footer']); ?>
-      </div> <!-- /#footer -->
-    <?php endif; ?>
-
-  </div></div> <!-- /.section, /#footer-wrapper -->
-
-</div></div> <!-- /#page, /#page-wrapper -->
-<?php */ ?>
+<?php } ?>
