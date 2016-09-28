@@ -85,12 +85,14 @@
                         $flightarray[$keynext]['arrives'] = $valuenext->arrivaltime;
                         $flightarray[$keynext]['destinationairport'] = $valuenext->arrivalaiport;
                         $flightarray[$keynext]['flightno'] = $valuenext->oafn;
+					}	
 						
                 }else
                 { 
                     
 
-                    foreach ($value->AllFlightsdataInOneOption as $keynext => $valuenext) {
+                    foreach ($value->AllFlightsdataInOneOption as $keynext => $valuenext) 
+					{
 
                         $flightarrayoutbound[$keynext]['logoofairline'] = $value->logoOfmarketingAirine;
                         $flightarrayoutbound[$keynext]['nameofairline'] = $value->nameOfmarketingAirine;
