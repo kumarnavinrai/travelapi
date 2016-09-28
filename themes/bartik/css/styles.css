@@ -6708,8 +6708,8 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   line-height: 1.3em;
 }
 .booking-item-airline-logo > img {
-  width: 90px;
-  height:50px;
+  /*width: 90px;
+  height:50px;*/
 }
 .booking-item-flight-class {
   margin-bottom: 7px;
