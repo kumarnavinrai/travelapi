@@ -50,7 +50,7 @@ $sitelink = $base_url . $base_path;
 
 
 
-if($base_url == "http://travelpainters.local")
+if(strpos($base_url, "travelpainters.local"))
 {
   $urlofwp = "http://blog.travelpainters.com/";  
   $_SESSION['urlforform'] = "http://travelpainters.local/";
@@ -58,7 +58,7 @@ if($base_url == "http://travelpainters.local")
   $urltoGetFilghts = "http://127.0.0.1:1337/fs/";
 //$urltoGetFilghts = "http://104.168.102.222:1337/fs/";
 }
-elseif($base_url == "http://travelpainters.com")
+elseif(strpos($base_url, "travelpainters.com"))
 {
   $urlofwp = "http://blog.travelpainters.com/";  
   $_SESSION['urlforform'] = "http://travelpainters.com/";
@@ -69,6 +69,7 @@ elseif($base_url == "http://travelpainters.com")
 
 
 $noofresultonpage = 50;
+
 
 $url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']; 
 
@@ -147,7 +148,7 @@ if(in_array("flightuser", $user->roles) && !strpos($url, $sitelinkforprofile) &&
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <a class="logo" href="index.php">
+                            <a class="logo" href="<?php echo $base_url; ?>">
                                 <img src="<?php echo $themeurl; ?>/img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
                             </a>
                         </div>

@@ -48,13 +48,13 @@ global $base_url;   // Will point to http://www.example.com
 global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
 $sitelink = $base_url . $base_path;
 
-if($base_url == "http://travelpainters.local")
+if(strpos($base_url, "travelpainters.local"))
 {
   $urlofwp = "http://blog.travelpainters.com/";  
   $_SESSION['urlforform'] = "http://travelpainters.local/";
   $sitelink = $_SESSION['urlforform'];
 }
-elseif($base_url == "http://travelpainters.com")
+elseif(strpos($base_url, "travelpainters.com"))
 {
   $urlofwp = "http://blog.travelpainters.com/";  
   $_SESSION['urlforform'] = "http://travelpainters.com/";
@@ -62,7 +62,7 @@ elseif($base_url == "http://travelpainters.com")
 }
 
 
-
+$noofresultonpage = 50;
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
@@ -115,12 +115,12 @@ elseif($base_url == "http://travelpainters.com")
   <?php print $styles; ?>
   <?php print $scripts; */?>
   <script type="text/javascript">
-  <?php if($base_url == "http://travelpainters.com")
+  <?php if(strpos($base_url, "travelpainters.com"))
         { ?>
     //var urlforapi = "http://127.0.0.1:1337/";
     var urlforapi = "http://104.168.102.222:1337/";
   <?php } ?>  
-  <?php if($base_url == "http://travelpainters.local")
+  <?php if(strpos($base_url, "travelpainters.local"))
         { ?>
     var urlforapi = "http://127.0.0.1:1337/";
     //var urlforapi = "http://104.168.102.222:1337/";
@@ -134,7 +134,7 @@ elseif($base_url == "http://travelpainters.com")
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <a class="logo" href="index.php">
+                            <a class="logo" href="<?php echo $base_url; ?>">
                                 <img src="<?php echo $themeurl; ?>/img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
                             </a>
                         </div>
