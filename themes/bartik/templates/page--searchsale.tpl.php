@@ -351,7 +351,7 @@
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Gender</label>
-                                        <select>
+                                        <select name="sex<?php echo $i+1; ?>">
                                         <option>Male</option>
                                         <option>Female</option>
                                         </select>

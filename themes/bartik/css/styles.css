@@ -7596,6 +7596,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .table-booking-history {
   font-size: 12px;
+  color: #5B5E61;
 }
 .table-booking-history .booking-history-type {
   text-align: center;
@@ -11211,3 +11212,90 @@ h5.sukh-clr {
   padding-left: 15px;
   padding-right: 15px;
 } 
+/* sw new css start */
+.sukh_catagry li {float: left; padding: 0 4px; color: #18b292;}
+ul.sukh_catagry {list-style: none;}
+
+.row.row_abhi {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+img.sukh_icon {
+    width: 30%;
+}
+button.sukh_btn.add_field_button.btn.btn-default.btn-sm {
+    margin: 1em 1em;
+}
+button.sukh_btn {
+    margin: 1.5em 2em;
+    width: 24%;
+}
+
+/*-----------Traveler Details page-------*/
+strong.sukh_header {
+    margin-left: 1em;
+}
+p.sukh_alert {
+    color: #f32222;
+}
+
+/*-----------Traveler user page-------*/
+td.views-field.sukh-width {
+    width: 50%;
+}
+/*-----------Flight Information page-------*/
+
+button.btn.btn-primary.right {
+      float: right;
+}
+.sukh_gap {
+    margin-top: 1em;
+}
+.my_hr{
+  border-top: dotted 1px;
+  margin: 0 0;
+  padding: 0 0;
+}
+.my_thead{
+  background-color: #18B292;
+  color:#FFF2E4;
+}
+.sukh_catagry li {float: left; padding: 0 4px; color: #18b292;}
+ul.sukh_catagry {list-style: none;}
+
+.row.row_abhi {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+img.sukh_icon {
+    width: 30%;
+}
+button.sukh_btn.add_field_button.btn.btn-default.btn-sm {
+    margin: 1em 1em;
+}
+button.sukh_btn {
+    margin: 1.5em 2em;
+    width: 24%;
+}
+
+/*-----------Traveler Details page-------*/
+strong.sukh_header {
+    margin-left: 1em;
+}
+p.sukh_alert {
+    color: #f32222;
+}
+
+/*-----------Traveler user page-------*/
+td.views-field.views-field-title.sukh-width {
+    width: 32%;
+}
+/*-----------Flight Information page-------*/
+
+button.btn.btn-primary.right {
+      float: right;
+}
+.sukh_gap {
+    margin-top: 1em;
+}
+/* sw new css ends */

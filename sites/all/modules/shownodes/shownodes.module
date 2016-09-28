@@ -275,30 +275,35 @@ function custom_callback () {
           $node->field_middel_name_one[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['mn1'])?$noofpassengersandallflightdata['mn1']:"none";
           $node->field_last_name_one[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['ln1'])?$noofpassengersandallflightdata['ln1']:"none";
           $node->field_date_of_birth_one[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['dob1'])?date('Y-m-d',strtotime($noofpassengersandallflightdata['dob1'])):"none";
+          $node->field_sex_one[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['sex1'])?$noofpassengersandallflightdata['sex1']:"none";
 
           //pessenger two
           $node->field_first_name_two[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['fn2'])?$noofpassengersandallflightdata['fn2']:"none";
           $node->field_middel_name_two[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['mn2'])?$noofpassengersandallflightdata['mn2']:"none";
           $node->field_last_name_two[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['ln2'])?$noofpassengersandallflightdata['ln2']:"none";
           $node->field_date_of_birth_two[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['dob2'])?date('Y-m-d',strtotime($noofpassengersandallflightdata['dob2'])):"none";
+          $node->field_sex_two[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['sex2'])?$noofpassengersandallflightdata['sex2']:"none";
 
           //pessenger three
           $node->field_first_name_three[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['fn3'])?$noofpassengersandallflightdata['fn3']:"none";
           $node->field_middel_name_three[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['mn3'])?$noofpassengersandallflightdata['mn3']:"none";
           $node->field_last_name_three[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['ln3'])?$noofpassengersandallflightdata['ln3']:"none";
           $node->field_date_of_birth_three[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['dob3'])?date('Y-m-d',strtotime($noofpassengersandallflightdata['dob3'])):"none";
+          $node->field_sex_three[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['sex3'])?$noofpassengersandallflightdata['sex3']:"none";
 
           //pessenger four field_middle_name_four[und][0][value]
           $node->field_first_name_four[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['fn4'])?$noofpassengersandallflightdata['fn4']:"none";
           $node->field_middle_name_four[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['mn4'])?$noofpassengersandallflightdata['mn4']:"none";
           $node->field_last_name_four[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['ln4'])?$noofpassengersandallflightdata['ln4']:"none";
           $node->field_date_of_birth_four[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['dob4'])?date('Y-m-d',strtotime($noofpassengersandallflightdata['dob4'])):"none";
+          $node->field_sex_four[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['sex4'])?$noofpassengersandallflightdata['sex4']:"none";
 
           //pessenger five
           $node->field_first_name_five[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['fn5'])?$noofpassengersandallflightdata['fn5']:"none";
           $node->field_middel_name_five[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['mn5'])?$noofpassengersandallflightdata['mn5']:"none";
           $node->field_last_name_five[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['ln5'])?$noofpassengersandallflightdata['ln5']:"none";
           $node->field_date_of_birth_five[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['dob5'])?date('Y-m-d',strtotime($noofpassengersandallflightdata['dob5'])):"none";
+          $node->field_sex_five[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['sex5'])?$noofpassengersandallflightdata['sex5']:"none";
 
           //allflightdata field_allflightdata[und][0][value]
           $node->field_allflightdata[LANGUAGE_NONE][0]['value'] = $allflightdatatosave;
@@ -366,10 +371,16 @@ function custom_callback () {
               $fnkey = 'fn'.$i;
               $mnkey = 'mn'.$i;
               $lnkey = 'ln'.$i;
+              $dobkey = 'dob'.$i;
+              $sexkey = 'sex'.$i;
+
               $firstname = isset($noofpassengersandallflightdata[$fnkey])?$noofpassengersandallflightdata[$fnkey]:"none";
               $middlename = isset($noofpassengersandallflightdata[$mnkey])?$noofpassengersandallflightdata[$mnkey]:"none";
               $lastname = isset($noofpassengersandallflightdata[$lnkey])?$noofpassengersandallflightdata[$lnkey]:"none";
-              $passengerinfo[$i] = array($firstname,$middlename,$lastname);
+              $dob = isset($noofpassengersandallflightdata[$dobkey])?$noofpassengersandallflightdata[$dobkey]:"none";
+              $sex = isset($noofpassengersandallflightdata[$sexkey])?$noofpassengersandallflightdata[$sexkey]:"none";
+
+              $passengerinfo[$i] = array($firstname,$middlename,$lastname,$dob,$sex);
           } 
 
           //field_passengers[und][0][value]

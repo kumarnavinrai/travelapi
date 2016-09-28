@@ -77,10 +77,215 @@
  * @see template_preprocess_node()
  * @see template_process()
  */
+global $base_url;
 
+$requesturi = $_SERVER['REQUEST_URI'];
+
+$passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
 
 ?>
-<?php print_r($node);  die; ?>
+
+<?php if(isset($node) && $node){ ?>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Flight Information</h2>
+    </div>
+    <div class="col-md-6">
+    <div class="sukh_gap"></div>
+    <a href="<?php echo $base_url; ?>/<?php echo "mybookingdetails"; ?>"><button class="btn btn-primary right">Back</button></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+<table class="table table-bordered table-striped table-booking-history sukh_table">
+                      <tbody>
+                           <tr>
+                                <th class="booking-history-title">Customer Details</th>
+                                <td><?php $title = explode("-", $node->title); echo "<b>Name</b>: ".$title[0]." </br><b>Email</b>: ".$title[1]."</br><b>Booking Date</b>: ".date('Y-m-d',strtotime($title[2])); ?></td>
+                           </tr>
+                           <?php for ($i=1; $i < 6; $i++) 
+                                 { 
+                                  $keyofpassengerfirstname = 'field_first_name_'.strtolower($passengerarray[$i]); 
+                                  $keyofpassengermiddelname = 'field_middel_name_'.strtolower($passengerarray[$i]);
+                                  $keyofpassengerlastname = 'field_last_name_'.strtolower($passengerarray[$i]);
+                                  $keyofpassengerdob = 'field_date_of_birth_'.strtolower($passengerarray[$i]);
+                                  $keyofpassengersex = 'field_sex_'.strtolower($passengerarray[$i]);
+                                  
+                                  
+                                  if(isset($node->$keyofpassengerfirstname))
+                                  {  
+                                   $firstnamearray = $node->$keyofpassengerfirstname;
+                                   $firstname = $firstnamearray['und'][0]['value'];
+
+                                   $middelnamearray = isset($node->$keyofpassengermiddelname)?$node->$keyofpassengermiddelname:"";
+                                   $middlename = isset($middelnamearray['und'][0]['value'])?$middelnamearray['und'][0]['value']:"";
+
+                                   $lastnamearray = $node->$keyofpassengerlastname;
+                                   $lastname = $lastnamearray['und'][0]['value'];
+
+                                   $dobarray = $node->$keyofpassengerdob;
+                                   $dob = $dobarray['und'][0]['value'];
+
+                                   $sexarray = $node->$keyofpassengersex;
+                                   $sex = $sexarray['und'][0]['value'];
+
+                                 if($firstname != 'none')
+                                 { 
+                           ?>
+                           
+                           <tr>
+                                <th class="booking-history-title">Passenger <?php echo ucwords($passengerarray[$i]); ?></th>
+                                <td><?php  echo "<b>Name</b> : ".$firstname." ".$middlename." ".$lastname." <b>DOB</b> : ".$dob." <b>Sex</b> :".$sex; ?></td>
+                           </tr>
+
+                           <?php }
+                                 }   
+                                 } ?>
+
+                           <?php
+                            if(isset($node->field_passengers))
+                            {  
+                              $allpassengerdata = json_decode($node->field_passengers['und'][0]['value']);
+                              
+                                for ($i=1; $i < 51; $i++) 
+                                { 
+                                   $firstname = reset($allpassengerdata->$i);
+                                   $middelname = next($allpassengerdata->$i);
+                                   $lastname = next($allpassengerdata->$i);
+                                   $dob = date('Y-m-d',strtotime(next($allpassengerdata->$i)));
+                                   $sex = next($allpassengerdata->$i);
+                                   if($i>5 && $firstname != 'none' )
+                                   {
+                                    ?>
+                            <tr>
+                                <th class="booking-history-title">Passenger <?php echo $i; ?></th>
+                                <td><?php  echo "<b>Name</b> : ".$firstname." ".$middlename." ".$lastname." <b>DOB</b> : ".$dob." <b>Sex</b> :".$sex; ?></td>
+                           </tr> 
+                                    <?php
+                                   }
+                                 }   
+                            }  
+
+                           ?>      
+                          <tr>
+                                <th class="booking-history-title">Flight Information</th>
+                                <td>
+                                  <?php
+                                     $fielddata = json_decode($node->field_flightdata['und'][0]['value']); //echo "<pre>"; print_r($fielddata); ?>
+                                    <?php $fielddatafromflight = isset($fielddata->flightarray)?reset($fielddata->flightarray):array(); ?>
+                                    <?php $fielddatafromflightend = isset($fielddata->flightarray)?end($fielddata->flightarray):array(); ?>
+                                    <?php $fielddatatoflight = isset($fielddata->flightarrayoutbound)?reset($fielddata->flightarrayoutbound):array(); ?>
+                                    <?php $fielddatatoflightend = isset($fielddata->flightarrayoutbound)?end($fielddata->flightarrayoutbound):array(); ?>
+                                    <?php echo "<b>From</b>: ".$fielddatafromflight->originairport; echo " </br><b>To</b>: ".$fielddatafromflightend->destinationairport." </br><b>Depart On</b>: ".date('Y-m-d h:i:s',strtotime($fielddatafromflight->depart)); ?>
+                                    <?php if(isset($fielddatatoflight) && $fielddatatoflight){ 
+                                      echo '<hr class="my_hr" />';echo "</br>"."  <b>Return From</b>: ".$fielddatatoflight->originairport; echo " </br><b>Return To</b>: ".$fielddatatoflightend->destinationairport." </br><b>Depart On</b>: ".date('Y-m-d h:i:s',strtotime($fielddatatoflight->depart));; 
+                                    }
+
+
+                                  ?>
+
+                                </td>
+                           </tr>
+                           <tr>
+                                <th class="booking-history-title">Street</th>
+                                <td>
+                                  <?php 
+                                    echo $node->field_street['und'][0]['value'];
+                                  ?>
+                                </td>
+                           </tr>
+               <tr>
+                                <th class="booking-history-title">City</th>
+                                <td>
+                                  <?php
+                                    echo $node->field_city['und'][0]['value'];
+                                  ?>
+                                </td>
+                           </tr>
+                           <tr>
+                                <th class="booking-history-title">State</th>
+                                <td>
+                                  <?php
+                                    echo $node->field_state['und'][0]['value'];
+                                  ?>
+                                </td>
+                           </tr>
+                           <tr>
+                                <th class="booking-history-title">Country</th>
+                                <td>
+                                  <?php
+                                    echo $node->field_country['und'][0]['value'];
+                                  ?>
+                                </td>
+                           </tr>
+               <tr>
+                                <th class="booking-history-title">Zipcode</th>
+                                <td>
+                                  <?php
+                                    echo $node->field_zipcode['und'][0]['value'];
+                                  ?>
+                                </td>
+                           </tr>
+                           <tr>
+                                <th class="booking-history-title">Business Phone</th>
+                                <td>
+                                <?php
+                                    echo $node->field_business_phone['und'][0]['value'];
+                                  ?>
+                                </td>
+                           </tr>
+                <tr>
+                                <th class="booking-history-title">Mobile Phone</th>
+                                <td>
+                                  <?php
+                                    echo $node->field_mobile_phone['und'][0]['value'];
+                                  ?>
+                                </td>
+                           </tr>
+               <tr>
+                                <th class="booking-history-title">Email</th>
+                                <td>
+                                  <?php
+                                    echo $node->field_email['und'][0]['value'];
+                                  ?>
+                                </td>
+                           </tr>
+                <tr>
+                                <th class="booking-history-title">Tax</th>
+                                <td>$<?php
+                                    echo $node->field_tax['und'][0]['value'];
+                                  ?></td>
+                           </tr>
+               <tr>
+                               <?php $price = $node->field_total_price['und'][0]['value'] - $node->field_tax['und'][0]['value']; ?>          
+                                <th class="booking-history-title">Price</th>
+                                <td>
+                                  $<?php echo $price; ?>
+                                </td>
+                           </tr>
+                           <tr>
+                                <th class="booking-history-title">Total</th>
+                                <td>$<?php echo $node->field_total_price['und'][0]['value']; ?></td>
+                           </tr>
+                        </tbody>
+                </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <a href="<?php echo $base_url; ?>/<?php echo "mybookingdetails"; ?>"><h2>Go back</h2></a>
+    </div>
+    <div class="col-md-6">
+    <div class="sukh_gap"></div>
+    <a href="<?php echo $base_url; ?>/<?php echo "mybookingdetails"; ?>"><button class="btn btn-primary right">Back</button></a>
+    </div>
+  </div>
+</div>
+<?php } ?>
+<?php //echo "<pre>"; print_r($node); ?>
+
+<?php /* ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php print render($title_prefix); ?>
@@ -125,3 +330,4 @@
   <?php print render($content['comments']); ?>
 
 </div>
+<?php */ ?>

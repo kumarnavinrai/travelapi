@@ -132,11 +132,9 @@ $noofresultonpage = 50;
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-<<<<<<< HEAD
-                            <a class="logo" href="<?php echo $sitelink; ?>">
-=======
+
                             <a class="logo" href="<?php echo $base_url; ?>">
->>>>>>> 962f316045f3bc4efa7f0019f79a1eb7184a1681
+
                                 <img src="<?php echo $themeurl; ?>/img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
                             </a>
                         </div>

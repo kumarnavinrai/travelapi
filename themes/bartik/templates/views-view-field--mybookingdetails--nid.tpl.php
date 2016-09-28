@@ -24,4 +24,4 @@
 
 ?>
 
-<p><a class="btn btn-default btn-sm" target="_blank" href="/node/<?php echo $output; ?>">View</a></p>
+<p><a class="btn btn-primary btn-sm"  href="/node/<?php echo $output; ?>">View</a></p>

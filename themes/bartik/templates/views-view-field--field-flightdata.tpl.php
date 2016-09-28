@@ -28,9 +28,9 @@
 <?php $fielddatafromflightend = isset($fielddata->flightarray)?end($fielddata->flightarray):array(); ?>
 <?php $fielddatatoflight = isset($fielddata->flightarrayoutbound)?reset($fielddata->flightarrayoutbound):array(); ?>
 <?php $fielddatatoflightend = isset($fielddata->flightarrayoutbound)?end($fielddata->flightarrayoutbound):array(); ?>
-<?php echo "From: ".$fielddatafromflight->originairport; echo " To: ".$fielddatafromflightend->destinationairport." Depart On: ".date('Y-m-d h:i:s',strtotime($fielddatafromflight->depart)); ?>
+<?php echo "<b>From</b>: ".$fielddatafromflight->originairport; echo " </br><b>To</b>: ".$fielddatafromflightend->destinationairport." </br><b>Depart On</b>: ".date('Y-m-d h:i:s',strtotime($fielddatafromflight->depart)); ?>
 <?php if(isset($fielddatatoflight) && $fielddatatoflight){ 
-	echo "</br>"."  Return From: ".$fielddatatoflight->originairport; echo " To: ".$fielddatatoflightend->destinationairport." Depart On: ".date('Y-m-d h:i:s',strtotime($fielddatatoflight->depart));; 
+	echo '<hr class="my_hr" />';echo "</br>"."  <b>Return From</b>: ".$fielddatatoflight->originairport; echo " </br><b>Return To</b>: ".$fielddatatoflightend->destinationairport." </br><b>Depart On</b>: ".date('Y-m-d h:i:s',strtotime($fielddatatoflight->depart));; 
 }
 ?>
 
