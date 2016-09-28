@@ -56,7 +56,7 @@ if(strpos($base_url, "travelpainters.local"))
 }
 elseif(strpos($base_url, "travelpainters.com"))
 {
-  $urlofwp = "http://blog.travelpainters.com/";  
+  $urlofwp = "http://travelpainters.com/";  
   $_SESSION['urlforform'] = "http://travelpainters.com/";
   $sitelink = $_SESSION['urlforform'];
 }
