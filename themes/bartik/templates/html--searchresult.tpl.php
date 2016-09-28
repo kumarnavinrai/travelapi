@@ -861,7 +861,7 @@ trk=nav_responsive_tab_profile"></a>
             }
 
             function bookme(ele){
-                $('.saledata').val($(ele).closest('li.saberresult').children('div').children('div').children('span').html());
+                $('.saledata').val($(ele).closest('li.amadeusresult').children('div').children('div').children('span').html());
                 $("#idformforselect").submit();
             }
         </script>
