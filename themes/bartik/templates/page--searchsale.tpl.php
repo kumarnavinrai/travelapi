@@ -119,12 +119,24 @@
         global $user;
         $user = user_load($user->uid);
         //echo "<pre>"; print_r($user); die;
-        $userstreet = $user->field_streetuser['und'][0]['value'];
-        $usercity = $user->field_cityuser['und'][0]['value'];
-        $userzipcode = $user->field_zipcodeuser['und'][0]['value'];
-        $userbillingphone = $user->field_billing_phone['und'][0]['value'];
-        $usermobilephone = $user->field_mobile_phoneuser['und'][0]['value'];
-        $usermail = $user->mail; 
+        if(isset($user->field_streetuser['und']))
+        {    
+            $userstreet = $user->field_streetuser['und'][0]['value'];
+            $usercity = $user->field_cityuser['und'][0]['value'];
+            $userzipcode = $user->field_zipcodeuser['und'][0]['value'];
+            $userbillingphone = $user->field_billing_phone['und'][0]['value'];
+            $usermobilephone = $user->field_mobile_phoneuser['und'][0]['value'];
+            $usermail = $user->mail; 
+        }
+        else
+        {
+            $userstreet = "";
+            $usercity = "";
+            $userzipcode = "";
+            $userbillingphone = "";
+            $usermobilephone = "";
+            $usermail = ""; 
+        }    
       
    ?>
     <div class="gap"></div>
