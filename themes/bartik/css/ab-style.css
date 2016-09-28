@@ -44,11 +44,92 @@ body{
  clear:both;
  padding:15px 0 0px 0px;
  }
+
 .input_email{
  width:434px;
  padding:5px;
  font-size:18px;
  }
+ 
+/* Manually overiding the default theme for login and misc screens */
+#email_form > div > label
+{
+ font-size:17px;
+ color:#FFFFFF;
+
+}
+
+#edit-account--2 > div > label
+{
+ font-size:17px;
+ color:#FFFFFF;
+}
+
+#password_form > div > label
+{
+ font-size:17px;
+ color:#FFFFFF;
+
+}
+
+#edit-mail
+{
+ width:434px;
+ padding:5px;
+ font-size:18px;
+}
+
+#edit-mail--2
+{
+ width:434px;
+ padding:5px;
+ font-size:18px;
+}
+
+#email_form > div > input
+{
+ width:434px;
+ padding:5px;
+ font-size:18px;
+}
+
+#password_form > div > input
+{
+ width:434px;
+ padding:5px;
+ font-size:18px;
+}
+
+.description
+{
+visibility: hidden;
+}
+
+#edit-submit 
+{
+    width: 87.5%;
+    background-color: #18b292;
+    border: none;
+    padding: 9px;
+    font-size: 21px;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+#edit-submit--2
+{
+    width: 87.5%;
+    background-color: #18b292;
+    border: none;
+    padding: 9px;
+    font-size: 21px;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+
+/* End here */
+
 
 #password_form{
  padding:10px 0 10px 0px;
@@ -98,9 +179,10 @@ input.ab-signup {
 input.form-control.sukh {
     width: 43%;
 }
-.connectingflight{
-    margin-bottom: 2em;
-}
-.widthofowsel{
-    width:120px;
+
+/*-->Local Change */
+
+.description
+{
+display:none;
 }

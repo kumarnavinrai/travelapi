@@ -7210,12 +7210,12 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .booking-item-passengers > li {
   margin-top: 20px;
   padding-top: 20px;
-  
+  border-top: 2px dashed #e6e6e6;
 }
 .booking-item-passengers > li:last-child {
   margin-bottom: 20px;
   padding-bottom: 20px;
- 
+  border-bottom: 2px dashed #e6e6e6;
 }
 .booking-item-passengers label {
   font-weight: 100;
@@ -11123,14 +11123,55 @@ img.air__logo {
 /*---- PAYMENT PAGE   ---*/
 p.double {
     border-style: double;
-	padding: 1em;
+  padding: 1em;
 }
 input.btn.btn-primary.book_btn {
     width: 17%;
-	height:3em;
+  height:3em;
     font-size:large;
-	margin-left:40%;
+  margin-left:40%;
 }
+span.sukh-book.sukhselectlabel {
+    background: url(../img/trvl.png) no-repeat scroll;
+    width: 227px;
+  height: 26px;
+    margin-top: 6px;
+    display: inline-block;
+}
+.pvisa, .VI {
+    width: 217px;
+    height: 26px;
+    background: url(../img/common-cards.png) 0px 0px no-repeat;
+    display: inline-block;
+}
+.clearfix.sukh-height {
+    height: 4em;
+}
+a.verisign {
+    position: absolute;
+    right: 0px;
+    width: 116px;
+    height: 50px;
+    background: url(../img/payment-sprite-ot.png) 0px -177px no-repeat;
+}
+h5.sukh-clr {
+    background-color: #dddddd;
+  height: 2em;
+    padding: 0.5em 0.2em;
+      font-weight: 800;
+}
+p.double {
+    border-style: double;
+      padding: 1em;
+}
+input.btn.btn-primary.book_btn {
+    width: 17%;
+  height:3em;
+    font-size:large;
+  margin-left:40%;
+}
+
+/*-->Local Change */
 span.sukh-book.sukhselectlabel {
     background: url(../img/trvl.png) no-repeat scroll;
     width: 227px;
@@ -11160,3 +11201,13 @@ h5.sukh-clr {
     padding: 0.5em 0.2em;
 	    font-weight: 800;
 }
+.sheets {
+    background-color: #f6f6f6;
+    padding: 53px;
+}
+
+.container1{max-width:1270px;margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+} 

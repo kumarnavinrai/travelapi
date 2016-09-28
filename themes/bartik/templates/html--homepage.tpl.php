@@ -50,7 +50,7 @@ $sitelink = $base_url . $base_path;
 
 if($base_url == "http://travelpainters.local")
 {
-  $urlofwp = "http://blog.travelpainters.com/";  
+  $urlofwp = "http://travelpainters.local/";  
   $_SESSION['urlforform'] = "http://travelpainters.local/";
   $sitelink = $_SESSION['urlforform'];
 }
@@ -88,27 +88,33 @@ elseif($base_url == "http://travelpainters.com")
     <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/mystyles.css">
     <script src="<?php echo $themeurl; ?>/js/modernizr.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	
+	<!--Added for destinations -->
+	<link rel="stylesheet" href="<?php echo $themeurl; ?>/css/dest.min.css">
+	<link rel="stylesheet" href="<?php echo $themeurl; ?>/css/default.css">
+	<link rel="stylesheet" href="<?php echo $themeurl; ?>/css/component.css">
+	<script src="<?php echo $themeurl; ?>/js/modernizr.custom.js"></script>
 
     
       <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/ab-style.css" />
      <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/menu-style.css" />
      <!--
-     <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/switcher.css" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/bright-turquoise.css" title="bright-turquoise" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/turkish-rose.css" title="turkish-rose" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/salem.css" title="salem" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/hippie-blue.css" title="hippie-blue" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/mandy.css" title="mandy" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/green-smoke.css" title="green-smoke" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/horizon.css" title="horizon" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/cerise.css" title="cerise" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/brick-red.css" title="brick-red" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/de-york.css" title="de-york" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/shamrock.css" title="shamrock" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/studio.css" title="studio" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/leather.css" title="leather" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/denim.css" title="denim" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php echo $themeurl; ?>/css/schemes/scarlet.css" title="scarlet" media="all" />
+     <link rel="stylesheet" href="<?php //echo $themeurl; ?>/css/switcher.css" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/bright-turquoise.css" title="bright-turquoise" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/turkish-rose.css" title="turkish-rose" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/salem.css" title="salem" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/hippie-blue.css" title="hippie-blue" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/mandy.css" title="mandy" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/green-smoke.css" title="green-smoke" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/horizon.css" title="horizon" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/cerise.css" title="cerise" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/brick-red.css" title="brick-red" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/de-york.css" title="de-york" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/shamrock.css" title="shamrock" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/studio.css" title="studio" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/leather.css" title="leather" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/denim.css" title="denim" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/scarlet.css" title="scarlet" media="all" />
     -->
   <?php /* print $head; ?>
   <title><?php print $head_title; ?></title>
@@ -122,8 +128,8 @@ elseif($base_url == "http://travelpainters.com")
   <?php } ?>  
   <?php if($base_url == "http://travelpainters.local")
         { ?>
-    var urlforapi = "http://127.0.0.1:1337/";
-    //var urlforapi = "http://104.168.102.222:1337/";
+    //var urlforapi = "http://127.0.0.1:1337/";
+    var urlforapi = "http://104.168.102.222:1337/";
   <?php } ?>  
     
   </script>
@@ -134,7 +140,7 @@ elseif($base_url == "http://travelpainters.com")
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <a class="logo" href="index.php">
+                            <a class="logo" href="<?php echo $sitelink; ?>">
                                 <img src="<?php echo $themeurl; ?>/img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
                             </a>
                         </div>
@@ -197,98 +203,169 @@ elseif($base_url == "http://travelpainters.com")
 
           <ul class="dropdown-menu mega-dropdown-menu row">
            
+		   <!-- Destinations Begin -->
             <li class="col-sm-2">
               <ul>
-                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>destinations-packages/europe/" >Europe</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/amsterdam/">Amsterdam</a></li>
-          <li><a href="<?php echo $urlofwp; ?>packages/berlin/">Berlin</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/hallstatt/">Hallstatt</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/lille-france/">Lille,France</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/london/">London</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/sicily-italy/">Sicily,Italy</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/cinque-terre/">Cinque Terre,Italy</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/rome-2/">Rome</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/greek-island/">The Greek Islands</a></li>
+                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>continent-europe" >Europe</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-amsterdam">Amsterdam</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-berlin">Berlin</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-hallstatt/">Hallstatt</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-lille/">Lille,France</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-london">London</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-sicily">Sicily,Italy</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-cinque-terre">Cinque Terre,Italy</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-rome">Rome</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-greek-island">The Greek Islands</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-budapest">Budapest</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-prague">Prague</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-cartagena">Cartagena</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-italy">Italy</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-noumea">Noumea</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-athens">Athens</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-barcelona">Barcelona</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-burges">Burges</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-copenhagen">Copenhagen</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-dublin">Dublin</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-edinburgh">Edinburgh</a></li>
+			    <li><a href="<?php echo $urlofwp; ?>destination-florence">Florence</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-helsinki">Helsinki</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-madrid">Madrid</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-moscow">Moscow</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-munich">Munich</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-newcastle">New Castle</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-paris">Paris</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-reykjavik">Reykjavik</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-saint-petersburg">Saint Petersburg</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-seville">Seville</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-stockholm">Stockholm</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-venice">Venice</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-vienna">Vienna</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-zurich">Zurich</a></li>
+			  </ul>
+            </li>
+            <li class="col-sm-2">
+              <ul>
+                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>continent-africa">Africa</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-port-elizabeth">Port Elizabeth</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-livingstone-island">Livingstone Islands</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-pyramids-of-giza">Pyramids of Giza</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-mombasa">Monbasa</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-casablanca">Casablanca</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-alexandria">Alexandria</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-okavango-delta">Okavango Delta</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-capetown">Cape Town</a></li>
+
               </ul>
             </li>
             <li class="col-sm-2">
               <ul>
-                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>destinations-packages/africa/">Africa</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/port-elizabeth/">Port Elizabeth</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/livingstone-island/">Livingstone Islands</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/pyramids-of-giza/">pyramids of Giza</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/mombasa/">Monbasa</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/port-elizabeth">Casablanca</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/alexandria-2/">Alexandria</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/okavango-delta/">Okavango Delta</a></li>
-                
-              </ul>
-            </li>
-            <li class="col-sm-2">
-              <ul>
-                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>destinations-packages/asia/">Aisa</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/andaman-islands/">Andaman islands</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/mie-prefecture-2/">Mie Prefecture</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/taipei-taiwan/">Taipei Taiwan </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/hangzhou/">Hangzhou,China</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/dubai/">Dubai</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/tokyo/">Tokoyo</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/hong-kong/">Hong Kong</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/shanghai/">Shanghai</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/beijing/">Beizing </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/seoul/">Seoul</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/kuala-lumpur/">Kuala Lunpur</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/siberia/">Sideria </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/new-delhi/">New Delhi</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/bangkok-trip/">Bangkok</a></li>
-              </ul>
+                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>continent-asia">Asia</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-andaman-islands">Andaman Islands</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-mie-prefecture-2">Mie Prefecture</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-taipei-taiwan">Taipei Taiwan</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-hangzhou">Hangzhou,China</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-dubai">Dubai</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-tokyo">Tokoyo</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-hongkong">Hong Kong</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-shanghai">Shanghai</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-beijing">Beijing </a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-seoul">Seoul</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-kuala-lumpur">Kuala Lumpur</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-siberia">Siberia </a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-new-delhi">New Delhi</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-bangkok">Bangkok</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-bengaluru">Bengaluru</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-chennai">Chennai</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-chengdu">Chengdu</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-hanoi">Hanoi</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-ho-chi-minh-city">Ho Chi Minh City</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-istanbul">Instanbul</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-jakarta">Jakarta</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-kathmandu">Kathmandu</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-kuala-lumpur">Kuala Lumpur</a></li>
+
+			  
+			  </ul>
             </li>
        <li class="col-sm-2">
               <ul>
-                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>destinations-packages/america/">South America</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/chiloe-chile/">Chiloe,Chile</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/santiago-chile/">Santiago,Chile</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/rio-de-janeiro/">Rio De janeiro </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/mar-del-plata/">Mar Del Plata</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/lake-titicaca/">Lake Titicaca</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/peru/">Peru</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/venezuela/">Venezuela</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/argentina/">Argentina</a></li>
-              </ul>
+                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>continent-south-america">South America</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-chiloe">Chiloe,Chile</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-santiago">Santiago,Chile</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-rio-de-janeiro">Rio De Janeiro </a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-mar-del-plata">Mar Del Plata</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-lake-titicaca">Lake Titicaca</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-peru">Peru</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-venezuela">Venezuela</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-argentina">Argentina</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-belo-horizonte">Belo Horizonte</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-bogota">Bogota</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-buenos-aires">Buenos Aires</a></li>
+			    <li><a href="<?php echo $urlofwp; ?>destination-cali">Cali</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-caracas">Caracas</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-cusco">Cusco</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-florianopolis">Florianopolis</a></li>
+				
+				
+				
+			  </ul>
             </li>
        <li class="col-sm-2">
               <ul>
-                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>destinations-packages/america/">North America</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/san-antonio-texas/">San Antonio</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/alcatraz/">Alcatraz</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/volcan-paricutin/">Volcan Paricutin</a></li>
-         <li><a href="<?php echo $urlofwp; ?>packages/aspen-and-the-roaring-fork-valley/">Aspen And Fork Velley</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/los-angeles-vacation/">Los Angeless</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/florida-keys-vacation/">Florita </a></li>
-         <li><a href="<?php echo $urlofwp; ?>packages/new-york/">New York</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/hearst-san-simeon-state-historic-monument/">Hearst San Simeon</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/cuba/">Cuba </a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/bishop-museum/">Bishop Museum</a></li>
-              </ul>
+                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>continent-north-america">North America</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-san-antonio">San Antonio</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-alcatraz">Alcatraz</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-volcan-paricutin">Volcan Paricutin</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-aspen">Aspen</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-fork-valley">Fork Valley</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-los-angeles">Los Angeles</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-florida">Florida </a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-newyork">New York</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-hearst-san-simeon">Hearst San Simeon</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-cuba">Cuba </a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-bishop-museum">Bishop Museum</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-dallas">Dallas</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-philadelphia">Philadelphia</a></li>
+			    <li><a href="<?php echo $urlofwp; ?>destination-mexico-city">Mexico City</a></li>
+			  </ul>
             </li>
        <li class="col-sm-2">
               <ul>
-                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>destinations-packages/oceania/">Oceania</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/tasmania/">Tasmania</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/kangaroo-island/">Kangaroo Islands</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/fraser-island/">Fraser Islands </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/fiji/">Fiji</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/adelaide/">Adelaite,Austrila</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/sydney/">Sydney,Austrila </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/perth/">Perth,Austrila</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/brisbane/">Brisbane,Austrila</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/melbourne/">Melbourne,Austrila </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/darwin/">Darwin,Austrila</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/polynesia/">Polynesia</a></li>
-              </ul>
+                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>continent-oceania">Oceania</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-tasmania">Tasmania</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-kangaroo-islands">Kangaroo Islands</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-fraser-island">Fraser Islands </a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-fiji">Fiji</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-adelaide">Adelaide,Australia</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-sydney">Sydney,Australia </a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-perth">Perth,Australia</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-brisbane">Brisbane,Australia</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-melbourne">Melbourne,Australia </a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-darwin">Darwin,Australia</a></li>
+                <li><a href="<?php echo $urlofwp; ?>destination-polynesia">Polynesia</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-canberra">Canberra,Australia</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-auckland">Auckland</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-cairns">Cairns</a></li>
+			    <li><a href="<?php echo $urlofwp; ?>destination-christchurch">Christ Church</a></li>
+			    <li><a href="<?php echo $urlofwp; ?>destination-dunedin">Dunedin</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-gold-coast">Gold Coast</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-hobart">Hobart,Australia</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-nadi">Nadi</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-nuku-alofa">Nuku Alofa</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-port-moresby">Port Moresby</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-port-villa">Port Villa</a></li>
+			    <li><a href="<?php echo $urlofwp; ?>destination-queenstown">Queens Town</a></li>
+			    <li><a href="<?php echo $urlofwp; ?>destination-suva">Suva</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-tauranga">Tauranga</a></li>
+				<li><a href="<?php echo $urlofwp; ?>destination-toowoomba">Toowoomba</a></li>
+			    <li><a href="<?php echo $urlofwp; ?>destination-townsville">Townsville</a></li>
+			  
+			  
+			  </ul>
             </li>
       </ul>
     </li>
+	<!-- Destinations End -->
     <li ><a href="#">FLIGHTS</a> </li>
                 <li><a href="#">HOTELS</a> </li>
                                 <li><a href="<?php echo $urlofwp; ?>insurance/">INSURANCE</a></li>
