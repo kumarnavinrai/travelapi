@@ -52,7 +52,7 @@ $sitelink = $base_url . $base_path;
 
 if($base_url == "http://travelpainters.local")
 {
-  $urlofwp = "http://blog.travelpainters.com/";  
+  $urlofwp = "http://travelpainters.local/"; 
   $_SESSION['urlforform'] = "http://travelpainters.local/";
   $sitelink = $_SESSION['urlforform'];
   $urltoGetFilghts = "http://127.0.0.1:1337/fs/";
@@ -60,7 +60,7 @@ if($base_url == "http://travelpainters.local")
 }
 elseif($base_url == "http://travelpainters.com")
 {
-  $urlofwp = "http://blog.travelpainters.com/";  
+  $urlofwp = "http://travelpainters.com/";  
   $_SESSION['urlforform'] = "http://travelpainters.com/";
   $sitelink = $_SESSION['urlforform'];
   //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";

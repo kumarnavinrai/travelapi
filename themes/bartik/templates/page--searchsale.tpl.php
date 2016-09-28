@@ -6,8 +6,8 @@
         $children = 0;
 
         $bookingdata = json_decode($_REQUEST['saledata']);
-        $adult = $bookingdata->adults;
-        $children = $bookingdata->children;
+        $adult = isset($bookingdata->adults)?$bookingdata->adults:0;
+        $children = isset($bookingdata->children)?$bookingdata->children:0;
         //echo "<pre>"; print_r($bookingdata); die;
         $nameofmktairline = "";
         $flightarray = array();
@@ -67,6 +67,11 @@
                 
                 if($key == 0)
                 {    
+					if($adult == 0 || $children == 0)
+					{
+						$adult = isset($value->adults)?$value->adults:0;
+						$children = isset($value->children)?$value->children:0;
+					}
                     foreach ($value->AllFlightsdataInOneOption as $keynext => $valuenext) 
                     {
                         $flightarray[$keynext]['logoofairline'] = $value->logoOfmarketingAirine;
@@ -80,12 +85,14 @@
                         $flightarray[$keynext]['arrives'] = $valuenext->arrivaltime;
                         $flightarray[$keynext]['destinationairport'] = $valuenext->arrivalaiport;
                         $flightarray[$keynext]['flightno'] = $valuenext->oafn;
-                    }
+					}	
+						
                 }else
                 { 
                     
 
-                    foreach ($value->AllFlightsdataInOneOption as $keynext => $valuenext) {
+                    foreach ($value->AllFlightsdataInOneOption as $keynext => $valuenext) 
+					{
 
                         $flightarrayoutbound[$keynext]['logoofairline'] = $value->logoOfmarketingAirine;
                         $flightarrayoutbound[$keynext]['nameofairline'] = $value->nameOfmarketingAirine;
