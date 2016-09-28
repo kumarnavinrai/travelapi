@@ -115,6 +115,28 @@
                 $priceperadulttax = $bookingdata->alldataofsaberoneflight->AirItineraryPricingInfo->PTC_FareBreakdowns->PTC_FareBreakdown->PassengerFare->Taxes->TotalTax->Amount;
             }
         }
+
+        global $user;
+        $user = user_load($user->uid);
+        //echo "<pre>"; print_r($user); die;
+        if(isset($user->field_streetuser['und']))
+        {    
+            $userstreet = $user->field_streetuser['und'][0]['value'];
+            $usercity = $user->field_cityuser['und'][0]['value'];
+            $userzipcode = $user->field_zipcodeuser['und'][0]['value'];
+            $userbillingphone = $user->field_billing_phone['und'][0]['value'];
+            $usermobilephone = $user->field_mobile_phoneuser['und'][0]['value'];
+            $usermail = $user->mail; 
+        }
+        else
+        {
+            $userstreet = "";
+            $usercity = "";
+            $userzipcode = "";
+            $userbillingphone = "";
+            $usermobilephone = "";
+            $usermail = ""; 
+        }    
       
    ?>
     <div class="gap"></div>
@@ -859,7 +881,7 @@
                                     <div class="form-group form-group-cc-name">
                                         <label>Street</label>
                                         
-                                        <input class="form-control" placeholder="Street" type="text" name="street" ng-model="user.street" ng-minlength="3" ng-maxlength="50" required />
+                                        <input class="form-control" placeholder="Street" type="text" name="street" ng-model="user.street" ng-minlength="3" ng-maxlength="50" ng-init="user.street='<?php echo $userstreet ?>'"  required />
                                                <!-- show an error if username is too short -->
                                         <p ng-show="userFormd.street.$error.minlength">Street required.</p>
 
@@ -876,7 +898,7 @@
                                     <div class="form-group form-group-cc-name">
                                         <label>City</label>
                                         
-                                        <input class="form-control" placeholder="(example: Chicago)" type="text" name="city" ng-model="user.city" ng-minlength="3" ng-maxlength="50" required />
+                                        <input class="form-control" placeholder="(example: Chicago)" type="text" name="city" ng-model="user.city" ng-minlength="3" ng-maxlength="50" ng-init="user.city='<?php echo $usercity; ?>'" required />
                                                <!-- show an error if username is too short -->
                                         <p ng-show="userFormd.city.$error.minlength">City required.</p>
 
@@ -949,7 +971,7 @@
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Zip</label>
                                         
-                                        <input class="form-control" placeholder="Zipcode" type="text" name="zipcode" ng-model="user.zipcode" ng-minlength="3" ng-maxlength="6" required />
+                                        <input class="form-control" placeholder="Zipcode" type="text" name="zipcode" ng-model="user.zipcode" ng-minlength="3" ng-maxlength="6" ng-init="user.zipcode='<?php echo $userzipcode; ?>'" required />
                                                <!-- show an error if username is too short -->
                                         <p ng-show="userFormd.zipcode.$error.minlength">Zipcode required.</p>
 
@@ -964,8 +986,8 @@
                                 <div class="clearfix">
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Billing Phone:</label>
-                                        
-                                        <input class="form-control" placeholder="Billing Phone" type="text" name="bp" ng-model="user.bp" ng-minlength="3" ng-maxlength="16" required />
+                                       
+                                        <input class="form-control" placeholder="Billing Phone" type="text" name="bp" ng-model="user.bp" ng-minlength="3" ng-maxlength="16" ng-init="user.bp='<?php echo $userbillingphone; ?>'" required />
                                                <!-- show an error if username is too short -->
                                         <p ng-show="userFormd.bp.$error.minlength">Billing Phone required.</p>
 
@@ -979,13 +1001,22 @@
                                 <div class="clearfix">
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Mobile Phone</label>
-                                        <input class="form-control" type="text" name="mp" placeholder="optional" />   
+                                     
+                                        <input class="form-control" type="text" name="mp" placeholder="Mobile Phone" ng-minlength="3" ng-maxlength="16" ng-model="user.mobilephone" ng-init="user.mobilephone='<?php echo $usermobilephone; ?>'" required />  
+                                               <!-- show an error if username is too short -->
+                                        <p ng-show="userFormd.mp.$error.minlength">Mobile Phone required.</p>
+
+                                        <!-- show an error if username is too long -->
+                                        <p ng-show="userFormd.mp.$error.maxlength">Mobile Phone required.</p>
+
+                                        <!-- show an error if this isn't filled in -->
+                                         <p ng-show="userFormd.mp.$error.required">Mobile Phone required.</p> 
                                     </div>
                                 </div>
                                 <div class="clearfix">
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Email</label>
-                                        <input class="form-control" type="email" name="email" ng-model="user.email"  required/>    
+                                        <input class="form-control" type="email" name="email" ng-model="user.email" ng-init="user.email='<?php echo $usermail; ?>'"  required/>    
                                        
                                           <br/>
                                           <span class="error" ng-show="userFormd.email.$error.required">
@@ -1000,7 +1031,7 @@
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Retype Email</label>
                                         
-                                        <input class="form-control" type="email" name="emailc" ng-model="user.emailc"  required/>    
+                                        <input class="form-control" type="email" name="emailc" ng-model="user.emailc" ng-init="user.emailc='<?php echo $usermail; ?>'"  required/>    
                                        
                                           <br/>
                                           <span class="error" ng-show="userFormd.emailc.$error.required">

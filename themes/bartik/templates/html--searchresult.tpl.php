@@ -50,7 +50,7 @@ $sitelink = $base_url . $base_path;
 
 
 
-if($base_url == "http://travelpainters.local")
+if(strpos($base_url, "travelpainters.local"))
 {
   $urlofwp = "http://blog.travelpainters.com/";  
   $_SESSION['urlforform'] = "http://travelpainters.local/";
@@ -58,7 +58,7 @@ if($base_url == "http://travelpainters.local")
   //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
   $urltoGetFilghts = "http://104.168.102.222:1337/fs/";
 }
-elseif($base_url == "http://travelpainters.com")
+elseif(strpos($base_url, "travelpainters.com"))
 {
   $urlofwp = "http://blog.travelpainters.com/";  
   $_SESSION['urlforform'] = "http://travelpainters.com/";
@@ -134,7 +134,8 @@ $noofresultonpage = 50;
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <a class="logo" href="<?php echo $sitelink; ?>">
+
+                            <a class="logo" href="<?php echo $base_url; ?>">
                                 <img src="<?php echo $themeurl; ?>/img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
                             </a>
                         </div>
@@ -938,7 +939,7 @@ trk=nav_responsive_tab_profile"></a>
             }
 
             function bookme(ele){
-                $('.saledata').val($(ele).closest('li.saberresult').children('div').children('div').children('span').html());
+                $('.saledata').val($(ele).closest('li.amadeusresult').children('div').children('div').children('span').html());
                 $("#idformforselect").submit();
             }
         </script>
