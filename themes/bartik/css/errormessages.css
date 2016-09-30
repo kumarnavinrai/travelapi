@@ -2,7 +2,7 @@
 {
 margin-left: 0px;
 margin-right: 0px;
-background-color:#F0DADA;
+background-color: rgba(51, 51, 51, 0.58);
 border-radius: 2px;
 list-style-type: none;
 border: 0px solid ;
@@ -10,6 +10,4 @@ font-family: Arial;
 font-size: 15px;
 color:#C54D4D;
 text-align: center;
-
 }
- 
