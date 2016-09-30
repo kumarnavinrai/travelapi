@@ -94,6 +94,9 @@ $noofresultonpage = 50;
 	<link rel="stylesheet" href="<?php echo $themeurl; ?>/css/default.css">
 	<link rel="stylesheet" href="<?php echo $themeurl; ?>/css/component.css">
 	<script src="<?php echo $themeurl; ?>/js/modernizr.custom.js"></script>
+	
+	<!--Added for error messages to be displayed -->
+	<link rel="stylesheet" href="<?php echo $themeurl; ?>/css/errormessages.css">
 
     
       <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/ab-style.css" />
