@@ -43,7 +43,7 @@ function sendEmailSendGrid($to,$from,$subject,$body){
 	  CURLOPT_CUSTOMREQUEST => "POST",
 	  CURLOPT_POSTFIELDS => '{"personalizations": [{"to": [{"email": "'.$to.'"}]}],"from": {"email": "'.$from.'"},"subject": "'.$subject.'","content": [{"type": "text/html", "value": "'.$body.'"}]}',
 	  CURLOPT_HTTPHEADER => array(
-	    "authorization: Bearer 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",
+	    "authorization: Bearer ",
 	    "cache-control: no-cache",
 	    "content-type: application/json"
 	  ),
