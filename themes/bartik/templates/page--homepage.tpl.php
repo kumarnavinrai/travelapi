@@ -167,8 +167,24 @@ $themeurl = file_create_url(path_to_theme());
                 <div class="tab-content">
                   <div class="tab-pane fade in active" id="tab-2">
                     <h2>Search for Cheap Flights</h2>
-                    <form method="POST" action="<?php echo isset($_SESSION['urlforform'])?$_SESSION['urlforform']:""; ?>searchresult">
+                    <form method="POST" action="<?php echo isset($_SESSION['urlforform'])?$_SESSION['urlforform']:""; ?>searchresult">		
                       <div class="tabbable">
+					  
+<!-- Added to handle the form -->					  
+<div id="messages" class="fromcity" style="display:none;" >
+From city is required
+</div>	
+<div id="messages" class="tocity" style="display:none;" >
+To city is required
+</div>	
+<div id="messages" class="startdate" style="display:none;" >
+Please choose a start date
+</div>
+<div id="messages" class="enddate" style="display:none;" >
+Please choose a end date
+</div>		
+<p></p>	
+<!-- Finish Here -->		  
                         <ul class="nav nav-pills nav-sm nav-no-br mb10" id="flightChooseTab">
                           <li class="active">
                             <a href="#flight-search-1" class="rtripandowselectorrt" data-toggle="tab">Round Trip</a>
@@ -908,37 +924,307 @@ $themeurl = file_create_url(path_to_theme());
 <?php */ ?>
 <script type="text/javascript">
   $(document).ready(function(){
+  
+  
+    		$('.rtripandowselectorow').on('click',function(e)
+				{
+					$('.tocity').hide();
+					$('.fromcity').hide();
+					$('.startdate').hide();
+					$('.enddate').hide();
+				});
+				
+			$('.rtripandowselectorrt').on('click',function(e)
+				{
+					$('.tocity').hide();
+					$('.fromcity').hide();
+					$('.startdate').hide();
+					$('.enddate').hide();
+				});
+			
+					
     $('.nav_search_for_flights').on('click',function(e){
       if ($('#flight-search-1').hasClass('active')){
-        if($("input[name=from]").val() == "" || $("input[name=to]").val() == "")
+	
+		/* Added to handle and display the form so that user inputs all the required information to process successfully */
+  
+        
+		if($("input[name=from]").val() == "" && $("input[name=to]").val() == "" && $("input[name=start]").val() == "" && $("input[name=end]").val() == "")
         {
-          alert('Please select origin or desitanation for flights.');
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+          $(".fromcity").fadeIn();
+		  $(".tocity").fadeIn();
+		  $(".startdate").fadeIn(); 
+		  $(".enddate").fadeIn();	  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=from]").val() == "" && $("input[name=to]").val() == "" && $("input[name=start]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+          $(".fromcity").fadeIn();
+		  $(".tocity").fadeIn();
+		  $(".startdate").fadeIn(); 	  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=from]").val() == "" && $("input[name=to]").val() == "" && $("input[name=end]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+          $(".fromcity").fadeIn();
+		  $(".tocity").fadeIn();
+		  $(".enddate").fadeIn();	  
           e.preventDefault();
         }
 
-        if($("input[name=start]").val() == "" || $("input[name=end]").val() == "")
+		else if($("input[name=from]").val() == "" && $("input[name=start]").val() == "" && $("input[name=end]").val() == "")
         {
-          alert('Please select Departing or Returning Dates for flights.');
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+          $(".fromcity").fadeIn();
+		  $(".startdate").fadeIn();
+		  $(".enddate").fadeIn();	  
           e.preventDefault();
         }
 
+		else if($("input[name=to]").val() == "" && $("input[name=start]").val() == "" && $("input[name=end]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+          $(".tocity").fadeIn();
+		  $(".startdate").fadeIn();
+		  $(".enddate").fadeIn();	  
+          e.preventDefault();
+        }			
+		
+		else if($("input[name=from]").val() == "" && $("input[name=to]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		
+          $(".fromcity").fadeIn();
+		  $(".tocity").fadeIn();	  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=start]").val() == "" && $("input[name=end]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+		  $(".startdate").fadeIn();	
+		  $(".enddate").fadeIn();	  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=from]").val() == "" && $("input[name=start]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+		  $(".fromcity").fadeIn();	
+		  $(".startdate").fadeIn();	  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=from]").val() == "" && $("input[name=end]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+		  $(".fromcity").fadeIn();	
+		  $(".enddate").fadeIn();	  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=to]").val() == "" && $("input[name=start]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+		  $(".tocity").fadeIn();	
+		  $(".startdate").fadeIn();	  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=to]").val() == "" && $("input[name=end]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+		  $(".tocity").fadeIn();	
+		  $(".enddate").fadeIn();	  
+          e.preventDefault();
+        }
+	
+		else if($("input[name=from]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+		  $(".fromcity").fadeIn();  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=to]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+		  $(".tocity").fadeIn();  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=start]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+		  $(".startdate").fadeIn();  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=end]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+		  $(".enddate").fadeIn();  
+          e.preventDefault();
+        }
+ /* End here*/	
+	
         $("input[name=rfrom]").val("");
         $("input[name=tfrom]").val("");
       }    
 
+		
       if ($('#flight-search-2').hasClass('active')){
-        if($("input[name=rfrom]").val() == "" || $("input[name=tfrom]").val() == "")
-        {
-          alert('Please select origin or desitanation for flights.');
-          e.preventDefault();
-        }
-
-        if($("input[name=departing]").val() == "")
-        {
-          alert('Please select departing date for flights.');
-          e.preventDefault();
-        }
+	  
+	  		/* Added to handle and display the form so that user inputs all the required information to process successfully */
+  
         
+		if($("input[name=rfrom]").val() == "" && $("input[name=tfrom]").val() == "" && $("input[name=departing]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  
+          $(".fromcity").fadeIn();
+		  $(".tocity").fadeIn();
+		  $(".startdate").fadeIn(); 	  
+          e.preventDefault();
+        }
+				
+		else if($("input[name=rfrom]").val() == "" && $("input[name=tfrom]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		
+          $(".fromcity").fadeIn();
+		  $(".tocity").fadeIn();	  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=rfrom]").val() == "" && $("input[name=departing]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  
+		  $(".fromcity").fadeIn();
+		  $(".startdate").fadeIn();	
+ 
+          e.preventDefault();
+        }
+		
+		else if($("input[name=tfrom]").val() == "" && $("input[name=departing]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  
+		  $(".tocity").fadeIn();	
+		  $(".startdate").fadeIn();	  
+          e.preventDefault();
+        }
+		
+	
+		else if($("input[name=rfrom]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+		  $(".fromcity").fadeIn();  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=tfrom]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+		  $(".tocity").fadeIn();  
+          e.preventDefault();
+        }
+		
+		else if($("input[name=departing]").val() == "")
+        {
+		  $(".fromcity").hide();
+		  $(".tocity").hide();
+		  $(".startdate").hide(); 
+		  $(".enddate").hide();
+		  
+		  $(".startdate").fadeIn();  
+          e.preventDefault();
+        }
+		
+ /* End here*/	
+		
+
         $("input[name=from]").val("");
         $("input[name=to]").val("");
       }    
