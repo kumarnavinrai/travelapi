@@ -88,34 +88,7 @@ $themeurl = file_create_url(path_to_theme());
 
 ?>
 
-<?php if ($messages): ?>
-    <div id="messages"><div class="section clearfix">
-    
-      <?php $source = explode("</div>", $messages); 
-            $messageofmailcame = "no";
-            foreach ($source as $key => $value) {
-              $source = str_replace('<p>', '&lt;p&gt;', $value);
-              $source = strip_tags($source);
-              if(strpos($source, "Unable to send e-mail. Contact the site administrator if the problem persists.") !== false)
-              {
-                $messageofmailcame = "yes";
-              }
-            }
-              
-           
-            if($messageofmailcame=='yes')
-            {
-             if($_SESSION['userregisteredmessage'] != "")
-             { 
-                echo '<div class="messages status"><i class="fa fa-check round box-icon-large box-icon-left mb30 box-icon-success"></i><h2 class="element-invisible">Success !!</h2>'.$_SESSION['userregisteredmessage'].'</div>'; $_SESSION['userregisteredmessage'] = ""; 
-             } 
-            }else{
-              echo $messages; 
-            }
-             ?>
-            
-    </div></div> <!-- /.section, /#messages -->
-<?php endif; ?>        
+
 <div class="top-area show-onload">
   <div class="bg-holder full">
     <div class="bg-mask"></div>
@@ -127,6 +100,34 @@ $themeurl = file_create_url(path_to_theme());
     <div class="bg-content">
       <div class="container">
         <div class="row">
+          <?php if ($messages): ?>
+              <div id="messages"><div class="section clearfix">
+              
+                <?php $source = explode("</div>", $messages); 
+                      $messageofmailcame = "no";
+                      foreach ($source as $key => $value) {
+                        $source = str_replace('<p>', '&lt;p&gt;', $value);
+                        $source = strip_tags($source);
+                        if(strpos($source, "Unable to send e-mail. Contact the site administrator if the problem persists.") !== false)
+                        {
+                          $messageofmailcame = "yes";
+                        }
+                      }
+                        
+                     
+                      if($messageofmailcame=='yes')
+                      {
+                       if($_SESSION['userregisteredmessage'] != "")
+                       { 
+                          echo '<div class="messages status"><i class="fa fa-check round box-icon-large box-icon-left mb30 box-icon-success"></i><h2 class="element-invisible">Success !!</h2>'.$_SESSION['userregisteredmessage'].'</div>'; $_SESSION['userregisteredmessage'] = ""; 
+                       } 
+                      }else{
+                        echo $messages; 
+                      }
+                       ?>
+                      
+              </div></div> <!-- /.section, /#messages -->
+          <?php endif; ?>        
           <div class="col-md-8">
             <div class="search-tabs search-tabs-bg mt50">
               <h1>Find Your Perfect Trip</h1>

@@ -11328,4 +11328,16 @@ h2.element-invisible {
     color: #fff;
   margin-top:1em;
 }
+
+input#edit-pass-pass1--2 {
+width: 434px;
+padding: 5px;
+}
+input#edit-pass-pass2--2 {
+width: 434px;
+padding: 5px;
+}
+.top-area, .special-area {
+height: auto;
+}
 /* sw new css ends */
