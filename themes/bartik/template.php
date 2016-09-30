@@ -65,6 +65,13 @@ function bartik_preprocess_page(&$vars, $hook) {
     $vars['theme_hook_suggestions'][] = 'page__'. $vars['node']->type;
   }
 
+  $header = drupal_get_http_header("status");
+   if($header == "404 Not Found") {    
+     $vars['theme_hook_suggestions'][] = 'page__404';
+   }elseif ($header == "403 Forbidden") {
+     $vars['theme_hook_suggestions'][] = 'page__403';
+  }
+   
  
 }
 

@@ -159,12 +159,35 @@
     <?php endif; */?>
 
   </div></div> <!-- /.section, /#header -->
-
-  <?php if ($messages): ?>
-    <div id="container"><div class="row clearfix rh_custom">
-      <?php print $messages; ?>
+<style>.messages.status { color: #171515 !important; } .nk_cls{ text-align: center; }</style>
+<?php if ($messages): ?>
+    <div id="messages" class="container"><div class="section clearfix">
+    
+      <?php $source = explode("</div>", $messages); 
+            $messageofmailcame = "no";
+            foreach ($source as $key => $value) {
+              $source = str_replace('<p>', '&lt;p&gt;', $value);
+              $source = strip_tags($source);
+              if(strpos($source, "Unable to send e-mail. Contact the site administrator if the problem persists.") !== false)
+              {
+                $messageofmailcame = "yes";
+              }
+            }
+              
+           
+            if($messageofmailcame=='yes')
+            {
+             if($_SESSION['userregisteredmessage'] != "")
+             {  
+                echo '<div class="messages status nk_cls row"><i class="fa fa-check round box-icon-large box-icon-success"></i><h2 class="">Success !!</h2>'.$_SESSION['userregisteredmessage'].'</div>'; $_SESSION['userregisteredmessage'] = ""; 
+             } 
+            }else{
+              echo $messages; 
+            }
+             ?>
+            
     </div></div> <!-- /.section, /#messages -->
-  <?php endif; ?>
+<?php endif; ?>            
 
   <?php if ($page['featured']): ?>
     <div id="featured"><div class="section clearfix">

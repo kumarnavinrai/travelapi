@@ -1874,7 +1874,7 @@ body {
 }
 .top-area,
 .special-area {
-  height: 700px;
+  height: 50em;
   position: relative;
   overflow: hidden;
 }
@@ -11283,7 +11283,10 @@ strong.sukh_header {
     margin-left: 1em;
 }
 p.sukh_alert {
-    color: #f32222;
+    color: #8B1820;
+}
+.error.sukh_alert {
+    color: #8B1820;
 }
 
 /*-----------Traveler user page-------*/
@@ -11297,5 +11300,32 @@ button.btn.btn-primary.right {
 }
 .sukh_gap {
     margin-top: 1em;
+}
+/*-----------Flight Not Found page-------*/
+img.sukh_not_found {
+    width: 30%;
+    margin-left: 22em;
+    margin-top: 4em;}
+li.sukh_list{
+  list-style:none;
+}
+
+
+.container-fuild.full-sukh {
+    background: url(../img/196_365_1300x900.jpg);
+      height: 600px;
+}
+
+.container-fuild.full-sukh-404 {
+    background: url(../img/196_365_1300x900.jpg);
+      height: 800px;
+}
+/*-----------Register status-------*/
+h2.element-invisible {
+    color: #fff;
+}
+.messages.status {
+    color: #fff;
+  margin-top:1em;
 }
 /* sw new css ends */
