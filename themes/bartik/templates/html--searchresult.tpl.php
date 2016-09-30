@@ -55,8 +55,8 @@ if(strpos($base_url, "travelpainters.local"))
   $urlofwp = "http://travelpainters.local/"; 
   $_SESSION['urlforform'] = "http://travelpainters.local/";
   $sitelink = $_SESSION['urlforform'];
-  //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
-  $urltoGetFilghts = "http://104.168.102.222:1337/fs/";
+  $urltoGetFilghts = "http://127.0.0.1:1337/fs/";
+  //$urltoGetFilghts = "http://104.168.102.222:1337/fs/";
 }
 elseif(strpos($base_url, "travelpainters.com"))
 {
@@ -947,7 +947,7 @@ trk=nav_responsive_tab_profile"></a>
           
           var app = angular.module('myApp', ['angularMoment']);
 
-          app.controller('filghtCtrl', ['$scope', '$log', 'flightServiceNew' , 'getFlightDataService', function($scope, $log, flightServiceNew, getFlightDataService)  { 
+          app.controller('filghtCtrl', ['$scope', '$log', 'flightServiceNew' , 'getFlightDataService', 'getFlightBmf', function($scope, $log, flightServiceNew, getFlightDataService, getFlightBmf)  { 
             <?php 
                 if(isset($_POST['from']) && $_POST['from'] != "" && isset($_POST['to']) && $_POST['to'] != "")
                 {    
@@ -1062,264 +1062,267 @@ trk=nav_responsive_tab_profile"></a>
                     var tempamadeaus;
                     var countera = 0;
                       //loop for results
-                    for(countera = 0; countera < amadeusdata.results.length; countera++){
-                        tempamadeaus = amadeusdata.results[countera];
-
-                        
-                        var counternext = 0;
-                        var tempamadeausnext;
-                        //this loop is for iteratiories
-                        for(counternext = 0; counternext < tempamadeaus.itineraries.length; counternext++){
-                            tempamadeausnext = tempamadeaus.itineraries[counternext];
-                            
-                            var arraytorunloop = []; 
-                            var arraytorunloopinbound = [];
-                            var totaljourneytime;
-                            var journeystartdate;
-                            var journeyenddate;
-
-
-                            if(tempamadeausnext.outbound != undefined){
-                               arraytorunloop.push(tempamadeausnext.outbound.flights);
-                            }
-
-                            if(tempamadeausnext.inbound != undefined){
-                               arraytorunloopinbound.push(tempamadeausnext.inbound.flights);
-                            }
+                    //if for if no amadeus result found
+                    if(amadeusdata.results != undefined){  
+                        for(countera = 0; countera < amadeusdata.results.length; countera++){
+                            tempamadeaus = amadeusdata.results[countera];
 
                             
-                            
-                            var insideflightdata = [];
-                            var insideflightdatainbound = [];
-                            
-                            var counterforloopforjourney = 0;
-                            //this loop is for outbound flights
-                            for(counterforloopforjourney = 0; counterforloopforjourney < arraytorunloop.length; counterforloopforjourney++){
-
-                                var arraytorunlooptempouter = arraytorunloop[counterforloopforjourney];
-                                var counterfornoofflightsinflights = 0;
-                                var totalflyingtime = 0;
-                                var layovertime = 0;
-                                //this loop is for no of flights
-                                for(counterfornoofflightsinflights = 0; counterfornoofflightsinflights < arraytorunlooptempouter.length; counterfornoofflightsinflights++){ 
+                            var counternext = 0;
+                            var tempamadeausnext;
+                            //this loop is for iteratiories
+                            for(counternext = 0; counternext < tempamadeaus.itineraries.length; counternext++){
+                                tempamadeausnext = tempamadeaus.itineraries[counternext];
+                                
+                                var arraytorunloop = []; 
+                                var arraytorunloopinbound = [];
+                                var totaljourneytime;
+                                var journeystartdate;
+                                var journeyenddate;
 
 
+                                if(tempamadeausnext.outbound != undefined){
+                                   arraytorunloop.push(tempamadeausnext.outbound.flights);
+                                }
 
-                                        var arraytorunlooptemp = arraytorunlooptempouter[counterfornoofflightsinflights];
+                                if(tempamadeausnext.inbound != undefined){
+                                   arraytorunloopinbound.push(tempamadeausnext.inbound.flights);
+                                }
 
-                                        var mktairline;
-                                        var temparryone;
-                                        var tempdatearrive;
-                                        var totalflighttime;
+                                
+                                
+                                var insideflightdata = [];
+                                var insideflightdatainbound = [];
+                                
+                                var counterforloopforjourney = 0;
+                                //this loop is for outbound flights
+                                for(counterforloopforjourney = 0; counterforloopforjourney < arraytorunloop.length; counterforloopforjourney++){
 
-                                        var flightdepart=new Date(arraytorunlooptemp.departs_at);
-                                        // flightdepart.getTime();
-                            
-                                        var flightarrive=new Date(arraytorunlooptemp.arrives_at);
-                                        // flightarrive.getTime();
-                                        
-                                        totalflighttime = flightarrive.getTime() - flightdepart.getTime();
-                                        totalflyingtime = totalflyingtime + totalflighttime;
-                            
-                                        //totalflighttime=getYoutubeLikeToDisplay(totalflighttime);
+                                    var arraytorunlooptempouter = arraytorunloop[counterforloopforjourney];
+                                    var counterfornoofflightsinflights = 0;
+                                    var totalflyingtime = 0;
+                                    var layovertime = 0;
+                                    //this loop is for no of flights
+                                    for(counterfornoofflightsinflights = 0; counterfornoofflightsinflights < arraytorunlooptempouter.length; counterfornoofflightsinflights++){ 
 
 
-                                        tempdatearrive = arraytorunlooptemp.arrives_at.replace('T',' ');
-                                        var tempdatedepart;
-                                        tempdatedepart = arraytorunlooptemp.departs_at.replace('T',' ');
-                                        //journey start date
-                                        if(counterfornoofflightsinflights == 0){
-                                            journeystartdate = arraytorunlooptemp.departs_at;
-                                        } 
 
-                                        if(counterfornoofflightsinflights == arraytorunlooptempouter.length-1){
-                                            journeyenddate = arraytorunlooptemp.arrives_at;
-                                        }
-                                        var destinationairport;
-                                        destinationairport = listwithcode[arraytorunlooptemp.destination.airport];
-                                        var marketingairline;
-                                        marketingairline = listofairports[arraytorunlooptemp.marketing_airline];
-                                        var operatingline;
-                                        operatingline = listofairports[arraytorunlooptemp.operating_airline];
-                                        var originairport;
-                                        originairport = listwithcode[arraytorunlooptemp.origin.airport];
-                                        var totaljourneytime = 0;
-                                        var totaljourneytimeinmiliseconds = 0;
-                                        if(counterfornoofflightsinflights == arraytorunlooptempouter.length-1){
+                                            var arraytorunlooptemp = arraytorunlooptempouter[counterfornoofflightsinflights];
 
-                                        var d=new Date(journeyenddate);
-                                        journeyenddate = d.getTime();
-                            
-                                        var c=new Date(journeystartdate);
-                                        journeystartdate = c.getTime();
-                          
-                                        totaljourneytime = journeyenddate - journeystartdate;
-                                        totaljourneytimeinmiliseconds = totaljourneytime;
-                                        totaljourneytime=getYoutubeLikeToDisplay(totaljourneytime);
+                                            var mktairline;
+                                            var temparryone;
+                                            var tempdatearrive;
+                                            var totalflighttime;
 
-                                        layovertime = totaljourneytimeinmiliseconds-totalflyingtime;
-                                        layovertime=getYoutubeLikeToDisplay(layovertime);
-                           
-                                        }
+                                            var flightdepart=new Date(arraytorunlooptemp.departs_at);
+                                            // flightdepart.getTime();
+                                
+                                            var flightarrive=new Date(arraytorunlooptemp.arrives_at);
+                                            // flightarrive.getTime();
+                                            
+                                            totalflighttime = flightarrive.getTime() - flightdepart.getTime();
+                                            totalflyingtime = totalflyingtime + totalflighttime;
+                                
+                                            //totalflighttime=getYoutubeLikeToDisplay(totalflighttime);
 
-                                        //nonstopor stop
-                                        var nonstopofstop = "non-stop";
-                                        if(arraytorunlooptempouter.length>1){
-                                            nonstopofstop = arraytorunlooptempouter.length-1 + " Stop";
-                                        }
-                           
 
-                                        temparrayone = {arrives_at:tempdatearrive,departs_at:tempdatedepart,aircraft:arraytorunlooptemp.aircraft,booking_info:arraytorunlooptemp.booking_info,destinationairport:destinationairport,destinationairportcode:arraytorunlooptemp.destination.airport,flightno:arraytorunlooptemp.flight_number,marketingairline:marketingairline,marketingairlinecode:arraytorunlooptemp.marketing_airline,operatingline:operatingline,operatinglinecode:arraytorunlooptemp.operating_airline,originairport:originairport,originairportcode:arraytorunlooptemp.origin.airport,counterfornoofflightsinflights:counterfornoofflightsinflights,totaljourneytime:totaljourneytime,nonstopofstop:nonstopofstop,totalflighttime:totalflighttime,layovertime:layovertime};
+                                            tempdatearrive = arraytorunlooptemp.arrives_at.replace('T',' ');
+                                            var tempdatedepart;
+                                            tempdatedepart = arraytorunlooptemp.departs_at.replace('T',' ');
+                                            //journey start date
+                                            if(counterfornoofflightsinflights == 0){
+                                                journeystartdate = arraytorunlooptemp.departs_at;
+                                            } 
 
-                                      insideflightdata.push(temparrayone);
+                                            if(counterfornoofflightsinflights == arraytorunlooptempouter.length-1){
+                                                journeyenddate = arraytorunlooptemp.arrives_at;
+                                            }
+                                            var destinationairport;
+                                            destinationairport = listwithcode[arraytorunlooptemp.destination.airport];
+                                            var marketingairline;
+                                            marketingairline = listofairports[arraytorunlooptemp.marketing_airline];
+                                            var operatingline;
+                                            operatingline = listofairports[arraytorunlooptemp.operating_airline];
+                                            var originairport;
+                                            originairport = listwithcode[arraytorunlooptemp.origin.airport];
+                                            var totaljourneytime = 0;
+                                            var totaljourneytimeinmiliseconds = 0;
+                                            if(counterfornoofflightsinflights == arraytorunlooptempouter.length-1){
 
-                                }//for inner arraytorunlooptemp
+                                            var d=new Date(journeyenddate);
+                                            journeyenddate = d.getTime();
+                                
+                                            var c=new Date(journeystartdate);
+                                            journeystartdate = c.getTime();
                               
-                            }//for for outer array arrytorunloop
+                                            totaljourneytime = journeyenddate - journeystartdate;
+                                            totaljourneytimeinmiliseconds = totaljourneytime;
+                                            totaljourneytime=getYoutubeLikeToDisplay(totaljourneytime);
+
+                                            layovertime = totaljourneytimeinmiliseconds-totalflyingtime;
+                                            layovertime=getYoutubeLikeToDisplay(layovertime);
+                               
+                                            }
+
+                                            //nonstopor stop
+                                            var nonstopofstop = "non-stop";
+                                            if(arraytorunlooptempouter.length>1){
+                                                nonstopofstop = arraytorunlooptempouter.length-1 + " Stop";
+                                            }
+                               
+
+                                            temparrayone = {arrives_at:tempdatearrive,departs_at:tempdatedepart,aircraft:arraytorunlooptemp.aircraft,booking_info:arraytorunlooptemp.booking_info,destinationairport:destinationairport,destinationairportcode:arraytorunlooptemp.destination.airport,flightno:arraytorunlooptemp.flight_number,marketingairline:marketingairline,marketingairlinecode:arraytorunlooptemp.marketing_airline,operatingline:operatingline,operatinglinecode:arraytorunlooptemp.operating_airline,originairport:originairport,originairportcode:arraytorunlooptemp.origin.airport,counterfornoofflightsinflights:counterfornoofflightsinflights,totaljourneytime:totaljourneytime,nonstopofstop:nonstopofstop,totalflighttime:totalflighttime,layovertime:layovertime};
+
+                                          insideflightdata.push(temparrayone);
+
+                                    }//for inner arraytorunlooptemp
+                                  
+                                }//for for outer array arrytorunloop
 
 
 
-                            var counterforloopforjourney = 0;
-                            //loop inbound flights journey
-                            for(counterforloopforjourney = 0; counterforloopforjourney < arraytorunloopinbound.length; counterforloopforjourney++){
+                                var counterforloopforjourney = 0;
+                                //loop inbound flights journey
+                                for(counterforloopforjourney = 0; counterforloopforjourney < arraytorunloopinbound.length; counterforloopforjourney++){
 
-                                var arraytorunlooptempouter = arraytorunloopinbound[counterforloopforjourney];
-                                var counterfornoofflightsinflights = 0;
-                                var totalflyingtime = 0;
-                                var layovertime = 0;
-                                //loop flights no of flights
-                                for(counterfornoofflightsinflights = 0; counterfornoofflightsinflights < arraytorunlooptempouter.length; counterfornoofflightsinflights++){    
+                                    var arraytorunlooptempouter = arraytorunloopinbound[counterforloopforjourney];
+                                    var counterfornoofflightsinflights = 0;
+                                    var totalflyingtime = 0;
+                                    var layovertime = 0;
+                                    //loop flights no of flights
+                                    for(counterfornoofflightsinflights = 0; counterfornoofflightsinflights < arraytorunlooptempouter.length; counterfornoofflightsinflights++){    
 
-                                        var arraytorunlooptemp = arraytorunlooptempouter[counterfornoofflightsinflights];
+                                            var arraytorunlooptemp = arraytorunlooptempouter[counterfornoofflightsinflights];
 
-                                        var mktairline;
-                                        var temparryone;
-                                        var tempdatearrive;
+                                            var mktairline;
+                                            var temparryone;
+                                            var tempdatearrive;
 
-                                        var totalflighttime;
+                                            var totalflighttime;
 
-                                        var flightdepart=new Date(arraytorunlooptemp.departs_at);
-                                        // flightdepart.getTime();
-                            
-                                        var flightarrive=new Date(arraytorunlooptemp.arrives_at);
-                                        // flightarrive.getTime();
-                                        
-                                        totalflighttime = flightarrive.getTime() - flightdepart.getTime();
-                                        totalflyingtime = totalflyingtime + totalflighttime;
+                                            var flightdepart=new Date(arraytorunlooptemp.departs_at);
+                                            // flightdepart.getTime();
+                                
+                                            var flightarrive=new Date(arraytorunlooptemp.arrives_at);
+                                            // flightarrive.getTime();
+                                            
+                                            totalflighttime = flightarrive.getTime() - flightdepart.getTime();
+                                            totalflyingtime = totalflyingtime + totalflighttime;
 
-                                        tempdatearrive = arraytorunlooptemp.arrives_at.replace('T',' ');
-                                        var tempdatedepart;
-                                        tempdatedepart = arraytorunlooptemp.departs_at.replace('T',' ');
-                                        
-                                        
-                                        //journey start date
-                                        if(counterfornoofflightsinflights == 0){
-                                            journeystartdate = arraytorunlooptemp.departs_at;
-                                        } 
+                                            tempdatearrive = arraytorunlooptemp.arrives_at.replace('T',' ');
+                                            var tempdatedepart;
+                                            tempdatedepart = arraytorunlooptemp.departs_at.replace('T',' ');
+                                            
+                                            
+                                            //journey start date
+                                            if(counterfornoofflightsinflights == 0){
+                                                journeystartdate = arraytorunlooptemp.departs_at;
+                                            } 
 
-                                        if(counterfornoofflightsinflights == arraytorunlooptempouter.length-1){
-                                            journeyenddate = arraytorunlooptemp.arrives_at;
-                                        }
-                                        
-                                        var destinationairport;
-                                        destinationairport = listwithcode[arraytorunlooptemp.destination.airport];
-                                        var marketingairline;
-                                        marketingairline = listofairports[arraytorunlooptemp.marketing_airline];
-                                        var operatingline;
-                                        operatingline = listofairports[arraytorunlooptemp.operating_airline];
-                                        var originairport;
-                                        originairport = listwithcode[arraytorunlooptemp.origin.airport];
+                                            if(counterfornoofflightsinflights == arraytorunlooptempouter.length-1){
+                                                journeyenddate = arraytorunlooptemp.arrives_at;
+                                            }
+                                            
+                                            var destinationairport;
+                                            destinationairport = listwithcode[arraytorunlooptemp.destination.airport];
+                                            var marketingairline;
+                                            marketingairline = listofairports[arraytorunlooptemp.marketing_airline];
+                                            var operatingline;
+                                            operatingline = listofairports[arraytorunlooptemp.operating_airline];
+                                            var originairport;
+                                            originairport = listwithcode[arraytorunlooptemp.origin.airport];
 
-                                        var totaljourneytime = 0;
-                                        var totaljourneytimeinmiliseconds = 0;
-                                        if(counterfornoofflightsinflights == arraytorunlooptempouter.length-1){
+                                            var totaljourneytime = 0;
+                                            var totaljourneytimeinmiliseconds = 0;
+                                            if(counterfornoofflightsinflights == arraytorunlooptempouter.length-1){
 
-                                        var d=new Date(journeyenddate);
-                                        journeyenddate = d.getTime();
-                            
-                                        var c=new Date(journeystartdate);
-                                        journeystartdate = c.getTime();
-                          
-                                        totaljourneytime = journeyenddate - journeystartdate;
-                                        totaljourneytimeinmiliseconds = totaljourneytime;
-                                        totaljourneytime=getYoutubeLikeToDisplay(totaljourneytime);
-
-                                        layovertime = totaljourneytimeinmiliseconds-totalflyingtime;
-
-                                        layovertime=getYoutubeLikeToDisplay(layovertime);
-                           
-                                        }
-
-                                        //nonstopor stop
-                                        var nonstopofstop = "non-stop";
-                                        if(arraytorunlooptempouter.length>1){
-                                            nonstopofstop = arraytorunlooptempouter.length-1 + " Stop";
-                                        }
-
-
-                                        temparrayone = {arrives_at:tempdatearrive,departs_at:tempdatedepart,aircraft:arraytorunlooptemp.aircraft,booking_info:arraytorunlooptemp.booking_info,destinationairport:destinationairport,destinationairportcode:arraytorunlooptemp.destination.airport,flightno:arraytorunlooptemp.flight_number,marketingairline:marketingairline,marketingairlinecode:arraytorunlooptemp.marketing_airline,operatingline:operatingline,operatinglinecode:arraytorunlooptemp.operating_airline,originairport:originairport,originairportcode:arraytorunlooptemp.origin.airport,counterfornoofflightsinflights:counterfornoofflightsinflights,totaljourneytime:totaljourneytime,nonstopofstop:nonstopofstop,totalflighttime:totalflighttime,layovertime:layovertime};
-
-                                      insideflightdatainbound.push(temparrayone);
-
-                                }//for inner arraytorunlooptemp
+                                            var d=new Date(journeyenddate);
+                                            journeyenddate = d.getTime();
+                                
+                                            var c=new Date(journeystartdate);
+                                            journeystartdate = c.getTime();
                               
-                            }//for for outer array arrytorunloop
-                          
-                          //shifting value of totaltime in up array
-                          var tempforthisloop;
-                          var anothertempforthisloop;
-                          var lengthofinsideflightdata = insideflightdata.length;
-                          var countertoshiftval =   insideflightdata.length - 1;
-                          for (countertoshiftval =   insideflightdata.length - 1; countertoshiftval >= 0; countertoshiftval--){
+                                            totaljourneytime = journeyenddate - journeystartdate;
+                                            totaljourneytimeinmiliseconds = totaljourneytime;
+                                            totaljourneytime=getYoutubeLikeToDisplay(totaljourneytime);
 
-                              if(insideflightdata[countertoshiftval].layovertime == 0){
-                                insideflightdata[countertoshiftval].layovertime = tempforthisloop;
-                              } 
+                                            layovertime = totaljourneytimeinmiliseconds-totalflyingtime;
 
-                              if(insideflightdata[countertoshiftval].totaljourneytime == 0){
-                                insideflightdata[countertoshiftval].totaljourneytime = anothertempforthisloop;
-                              } 
-                              tempforthisloop = insideflightdata[countertoshiftval].layovertime;
+                                            layovertime=getYoutubeLikeToDisplay(layovertime);
+                               
+                                            }
 
-                              anothertempforthisloop = insideflightdata[countertoshiftval].totaljourneytime;
-                          }
+                                            //nonstopor stop
+                                            var nonstopofstop = "non-stop";
+                                            if(arraytorunlooptempouter.length>1){
+                                                nonstopofstop = arraytorunlooptempouter.length-1 + " Stop";
+                                            }
 
 
-                          //shifting value of totaltime in up array
-                          var tempforthisloop;
-                          var anothertempforthisloop;
-                          var lengthofinsideflightdata = insideflightdatainbound.length;
-                          var countertoshiftval =   insideflightdatainbound.length - 1;
-                          for (countertoshiftval =   insideflightdatainbound.length - 1; countertoshiftval >= 0; countertoshiftval--){
+                                            temparrayone = {arrives_at:tempdatearrive,departs_at:tempdatedepart,aircraft:arraytorunlooptemp.aircraft,booking_info:arraytorunlooptemp.booking_info,destinationairport:destinationairport,destinationairportcode:arraytorunlooptemp.destination.airport,flightno:arraytorunlooptemp.flight_number,marketingairline:marketingairline,marketingairlinecode:arraytorunlooptemp.marketing_airline,operatingline:operatingline,operatinglinecode:arraytorunlooptemp.operating_airline,originairport:originairport,originairportcode:arraytorunlooptemp.origin.airport,counterfornoofflightsinflights:counterfornoofflightsinflights,totaljourneytime:totaljourneytime,nonstopofstop:nonstopofstop,totalflighttime:totalflighttime,layovertime:layovertime};
 
-                              if(insideflightdatainbound[countertoshiftval].layovertime == 0){
-                                insideflightdatainbound[countertoshiftval].layovertime = tempforthisloop;
-                              } 
+                                          insideflightdatainbound.push(temparrayone);
 
-                              if(insideflightdatainbound[countertoshiftval].totaljourneytime == 0){
-                                insideflightdatainbound[countertoshiftval].totaljourneytime = anothertempforthisloop;
-                              } 
-                              tempforthisloop = insideflightdatainbound[countertoshiftval].layovertime;
+                                    }//for inner arraytorunlooptemp
+                                  
+                                }//for for outer array arrytorunloop
+                              
+                              //shifting value of totaltime in up array
+                              var tempforthisloop;
+                              var anothertempforthisloop;
+                              var lengthofinsideflightdata = insideflightdata.length;
+                              var countertoshiftval =   insideflightdata.length - 1;
+                              for (countertoshiftval =   insideflightdata.length - 1; countertoshiftval >= 0; countertoshiftval--){
 
-                              anothertempforthisloop = insideflightdatainbound[countertoshiftval].totaljourneytime;
-                          }
-                            
-                            var amadeusnoofrest = countera+1;
-                            amadeusnoofrest = "amadeus"+amadeusnoofrest;
+                                  if(insideflightdata[countertoshiftval].layovertime == 0){
+                                    insideflightdata[countertoshiftval].layovertime = tempforthisloop;
+                                  } 
 
-                            amadeausdatatodiaplay[countera] = {sequenceno: countera,fare: tempamadeaus.fare.total_price,noofflightsintotalwithreturnflights:tempamadeausnext,insideflightdata:insideflightdata,insideflightdatainbound,insideflightdatainbound,noofrest:amadeusnoofrest,totaljourneytime:totaljourneytime,amadeusalldataforsingle:tempamadeaus,fareall: tempamadeaus.fare,adults:$scope.adult,children:$scope.children};
+                                  if(insideflightdata[countertoshiftval].totaljourneytime == 0){
+                                    insideflightdata[countertoshiftval].totaljourneytime = anothertempforthisloop;
+                                  } 
+                                  tempforthisloop = insideflightdata[countertoshiftval].layovertime;
 
-                        }//iten=rateory loop ends here    
+                                  anothertempforthisloop = insideflightdata[countertoshiftval].totaljourneytime;
+                              }
 
-                       
-                    }//result loop ends here
+
+                              //shifting value of totaltime in up array
+                              var tempforthisloop;
+                              var anothertempforthisloop;
+                              var lengthofinsideflightdata = insideflightdatainbound.length;
+                              var countertoshiftval =   insideflightdatainbound.length - 1;
+                              for (countertoshiftval =   insideflightdatainbound.length - 1; countertoshiftval >= 0; countertoshiftval--){
+
+                                  if(insideflightdatainbound[countertoshiftval].layovertime == 0){
+                                    insideflightdatainbound[countertoshiftval].layovertime = tempforthisloop;
+                                  } 
+
+                                  if(insideflightdatainbound[countertoshiftval].totaljourneytime == 0){
+                                    insideflightdatainbound[countertoshiftval].totaljourneytime = anothertempforthisloop;
+                                  } 
+                                  tempforthisloop = insideflightdatainbound[countertoshiftval].layovertime;
+
+                                  anothertempforthisloop = insideflightdatainbound[countertoshiftval].totaljourneytime;
+                              }
+                                
+                                var amadeusnoofrest = countera+1;
+                                amadeusnoofrest = "amadeus"+amadeusnoofrest;
+
+                                amadeausdatatodiaplay[countera] = {sequenceno: countera,fare: tempamadeaus.fare.total_price,noofflightsintotalwithreturnflights:tempamadeausnext,insideflightdata:insideflightdata,insideflightdatainbound,insideflightdatainbound,noofrest:amadeusnoofrest,totaljourneytime:totaljourneytime,amadeusalldataforsingle:tempamadeaus,fareall: tempamadeaus.fare,adults:$scope.adult,children:$scope.children};
+
+                            }//iten=rateory loop ends here    
+
+                           
+                        }//result loop ends here for amadeus
+                    }// if for if no amadeus result found ends here   
                     console.log("---new flight data amadeus ends---");
                 //});
 //return true;
                 
                  //getFlightDataService.getFlights(urltogetFlights,postData).then(function (data) {
                     $scope.dataforamadeus = amadeausdatatodiaplay; 
-                    $scope.appState = true;
+                    $scope.appState = false;
                     $scope.lpcfound = false;
                     $scope.totalnoofresultsfound = 0;
                     $scope.fromcity = listwithcode[$scope.origin];
@@ -1705,15 +1708,229 @@ trk=nav_responsive_tab_profile"></a>
 
                     }
 
-                  }); 
+                    //Decision for no data found in amadeus and saber in insta flights and bargain max
+                    $scope.hasanyresultfound = "no";
+                    console.log("Decision for no data found in amadeus and saber in insta flights and bargain max");
+                    if($scope.dataforamadeus!=undefined && $scope.dataforamadeus.length != 0){
+                      $scope.hasanyresultfound = "yes";
+                      console.log($scope.dataforamadeus.length);
+                    }
+                    if($scope.DisplayDatainstantflights!=undefined && $scope.DisplayDatainstantflights.length != 0){  
+                      $scope.hasanyresultfound = "yes";
+                      console.log($scope.DisplayDatainstantflights.length);
+                    }
+                    if($scope.DisplayData!=undefined && $scope.DisplayData.length != 0){  
+                      $scope.hasanyresultfound = "yes";
+                      console.log($scope.DisplayData.length);
+                    }  
+                    console.log("---------------------------------------------------------------------------------");
+
+                  }); //flight service ends here
+
+
+                  getFlightBmf.getFlights(urltogetFlights,postData).then(function (data) {
+                      console.log("-----bargain max finder------");
+                      console.log(data);
+                      console.log("-----bargain max finder------");
+                      if(data.bfm !== undefined && data.bfm.FirstItinerary !== undefined && data.bfm.FirstItinerary.OTA_AirLowFareSearchRS ){
+                      $scope.bfm = data.bfm;
+                      $scope.allflightdata = $scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
+                      $scope.totalnoofresultsfound = $scope.totalnoofresultsfound + $scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItinCount;
+                      //console.log($scope.bfm.FirstItinerary.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary);
+                      $scope.DisplayData = [];
+                      $scope.DatatoShow = {};
+                      var totaldataarray = [];
+                     
+                      var x = 1;
+                      var noofrestb = 1;
+                       angular.forEach($scope.allflightdata,function(value,index){
+                          var odoptionslen = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption.length;
+                          var odoptionsdata = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption;
+                          var datatoshownew = [];
+                          $scope.DatatoShow.lenofodoptionsdata = odoptionslen;
+                          for(odoptions = 0; odoptions < odoptionslen; odoptions++){
+                              $scope.DatatoShow = {};
+                              //logo of mkt airline
+                              $scope.DatatoShow.logoOfmarketingAirine = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].MarketingAirline.Code + ".png";
+
+                              $scope.DatatoShow.nameOfmarketingAirine = listofairports[value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].MarketingAirline.Code];             
+
+                                         
+                              
+                              //total time with layover
+                              //$scope.TotalFlightTimeWithWait = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime;
+                              $scope.TotalFlightTimeWithWait = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[odoptions].ElapsedTime;
+                              
+                              //$scope.AllFlightsdataInOneOption = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0];
+                              $scope.AllFlightsdataInOneOption = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[odoptions];
+
+                              //var lengthofflightsegement = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment.length;
+                              var lengthofflightsegement = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[odoptions].FlightSegment.length;
+
+                              $scope.TotalFlightTime = 0;
+                              var counter = 1;
+                              $scope.DatatoShow.noofflightdataarray = [];
+                              $scope.DatatoShow.noofflightdata = {};
+                              var flightSegementArray = [];
+                              var flightSegementObject = {};
+                              
+                              for(count = 0; count < $scope.AllFlightsdataInOneOption.FlightSegment.length; count++){
+                                 //console.log($scope.AllFlightsdataInOneOption.FlightSegment[count]);
+                                 
+                                 flightSegementObject = {arrivalaiport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalAirport.LocationCode],departureairport:listwithcode[$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureAirport.LocationCode],departuretime:$scope.AllFlightsdataInOneOption.FlightSegment[count].DepartureDateTime,arrivaltime:$scope.AllFlightsdataInOneOption.FlightSegment[count].ArrivalDateTime,flightSeq:count,FlightNumber:$scope.AllFlightsdataInOneOption.FlightSegment[count].FlightNumber,MarketingAirline:$scope.AllFlightsdataInOneOption.FlightSegment[count].MarketingAirline.Code,OperatingAirline:$scope.AllFlightsdataInOneOption.FlightSegment[count].OperatingAirline,oafn:$scope.AllFlightsdataInOneOption.FlightSegment[count].FlightNumber};
+
+
+
+                                 flightSegementArray[count] = flightSegementObject;
+                                 $scope.TotalFlightTime = $scope.TotalFlightTime + $scope.AllFlightsdataInOneOption.FlightSegment[count].ElapsedTime;
+                                 
+                              }
+
+                              $scope.DatatoShow.TotalFlightTime = $scope.TotalFlightTime;
+
+
+                              //console.log(flightSegementArray);
+                              
+                            
+                              $scope.DatatoShow.AllFlightsdataInOneOption = flightSegementArray;
+
+                              //layover time
+                              $scope.DatatoShow.LayoverTime = $scope.TotalFlightTimeWithWait - $scope.TotalFlightTime;
+
+        
+                              $scope.DatatoShow.TotalTimeWithLayoverTime = $scope.TotalFlightTimeWithWait;
+
+                              //calculating total time
+                              var hours = Math.floor( $scope.DatatoShow.TotalTimeWithLayoverTime / 60);          
+                              var minutes = $scope.DatatoShow.TotalTimeWithLayoverTime % 60;
+
+                              if(hours){  
+                                $scope.DatatoShow.TotalTimeWithLayoverTime = hours + "h " + minutes + "m";
+                              }else{
+                                $scope.DatatoShow.TotalTimeWithLayoverTime = minutes + "m";
+                              }  
+
+                              //calculating layover ime
+                              var hours = Math.floor( $scope.DatatoShow.LayoverTime / 60);          
+                              var minutes = $scope.DatatoShow.LayoverTime % 60;
+
+                              if(hours){  
+                                $scope.DatatoShow.LayoverTime = hours + "h " + minutes + "m";
+                              }else{
+                                $scope.DatatoShow.LayoverTime = minutes + "m";
+                              }
+                              
+
+                              $scope.DatatoShow.searchedClass = $scope.searchedclass;
+
+                              
+                              if(lengthofflightsegement == 1){
+                                $scope.DatatoShow.nonStopOrwithStop = "non-stop";
+                              }else{
+                                var templen = lengthofflightsegement - 1;
+                                $scope.DatatoShow.nonStopOrwithStop = templen  + " stop";
+                              }
+
+                              //new data
+                            
+                               datatoshownew[odoptions] = {
+                                logoOfmarketingAirine:odoptionsdata[odoptions].FlightSegment[0].MarketingAirline.Code + ".png",
+                                nameOfmarketingAirine:listofairports[odoptionsdata[odoptions].FlightSegment[0].MarketingAirline.Code],
+                                AllFlightsdataInOneOption:flightSegementArray,
+                                LayoverTime : $scope.DatatoShow.LayoverTime,
+                                searchedClass : $scope.DatatoShow.searchedClass,
+                                nonStopOrwithStop : $scope.DatatoShow.nonStopOrwithStop,
+                                TotalTimeWithLayoverTime: $scope.DatatoShow.TotalTimeWithLayoverTime,
+                                MarketingAirlineCode : odoptionsdata[odoptions].FlightSegment[0].MarketingAirline.Code,
+                                ResBookDesigCode: odoptionsdata[odoptions].FlightSegment[0].ResBookDesigCode,
+                                AirEquipType: odoptionsdata[odoptions].FlightSegment[0].Equipment.AirEquipType,
+                                FlightNumber: odoptionsdata[odoptions].FlightSegment[0].FlightNumber,
+                                OperatingAirlineCode: odoptionsdata[odoptions].FlightSegment[0].OperatingAirline.Code,
+                                OperatingAirlineFlightNumber: odoptionsdata[odoptions].FlightSegment[0].OperatingAirline.FlightNumber,
+                                returnorarrvial :  odoptions,adults:$scope.adult,children:$scope.children
+                                
+                              };
+
+
+                              
+                          }
+
+                          $scope.DatatoShow.noofrest =   "bargainfinder"+noofrestb;
+                          noofrestb++; 
+                          $scope.DatatoShow.datatoshownew = datatoshownew;
+                          //total fare in usd
+                          $scope.DatatoShow.totalfareInUsd =  value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount;
+
+                          totaldataarray[value.SequenceNumber] = $scope.DatatoShow;
+                           ////////////////FARE STARTED //////////////////
+                          
+                          
+
+                          //console.log(totaldataarray);
+                         
+                          
+                       });
+                        //console.log(totaldataarray);
+                        $scope.DisplayData = totaldataarray;
+                        console.log($scope.DisplayData);
+                    }
+
+                    runbargainfindersortout();
+                  });
                
+                  $scope.appState = true;
 
                 
-            };
-          }]);
+            }; //scope init function ends heres
+
+          }]);//controller ends here
 
         </script>
         <script type="text/javascript">
+            
+            function runbargainfindersortout(){
+              setTimeout(function(){
+                  
+                        var arrayofsaberbargain = [];
+                        var arrayofsaberforcomparebargain = [];
+                        var arrayofsaberforcomparewithindexbargain = [];
+                        $.each($(".bargainfinderresult"), function(index, value) { 
+                            var ele = $(this).children('div').children('div').children('div').children('.datahere');
+                            var fare = ele.children('.saberfare').html();
+                            
+                            var stops = ele.children('.saberstops').html();
+                            var departuretime = ele.children('.saberdepartturetime').html();
+                            var airlines = ele.children('.saberairlines').html();
+                            var layover = ele.children('.saberlayover').html();
+                            var flightno = ele.children('.saberflightno').html();
+                            var operatingairline = ele.children('.saberoperatinglinecode').html();
+                            var flightnoreturn = "";
+                            if($(this).find(".saberflightnoreturn").html()!=undefined){
+                                flightnoreturn = $(this).find(".saberflightnoreturn").html();
+                            }
+                            
+                            var operatingairlinereturn = "";
+                            if($(this).find(".saberoperatinglinecodereturn").html() != undefined){
+                                operatingairlinereturn = $(this).find(".saberoperatinglinecodereturn").html();
+                            }
+                            
+
+                            var allarray = {stops:stops,departuretime:departuretime,airlines:airlines,layover:layover,flightno:flightno,operatingairline:operatingairline,index:index,fare:fare,flightnoreturn:flightnoreturn,operatingairlinereturn:operatingairlinereturn};
+
+                            arrayofsaberforcomparebargain.push(allarray);
+                            
+                            var valtocompare = airlines+"-"+flightno+"-"+operatingairline+"-"+fare+"-"+flightnoreturn+"-"+operatingairlinereturn;
+                            
+                            arrayofsaberforcomparewithindexbargain.push(valtocompare);
+                        });
+ 
+                        console.log(arrayofsaberforcomparebargain);
+                        console.log(arrayofsaberforcomparewithindexbargain);
+
+
+              },2000);
+            }
+
             function getYoutubeLikeToDisplay(millisec) {
                 var seconds = (millisec / 1000).toFixed(0);
                 var minutes = Math.floor(seconds / 60);

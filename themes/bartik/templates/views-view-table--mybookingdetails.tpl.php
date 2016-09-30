@@ -24,7 +24,7 @@
      <caption><?php print $caption . $title; ?></caption>
   <?php endif; ?>
   <?php if (!empty($header)) : ?>
-    <thead>
+    <thead class="my_thead">
       <tr>
         <th>Type</th>
         <th>Current</th>  
@@ -48,11 +48,12 @@
         <td class="text-center">
           <i class="fa fa-check"></i>
         </td>
-        <?php foreach ($row as $field => $content): ?>
-          <td <?php if ($field_classes[$field][$row_count]) { print 'class="'. $field_classes[$field][$row_count] . '" '; } ?><?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
+        <?php $i=1; foreach ($row as $field => $content): ?>
+          <?php $classesfortd = $field_classes[$field][$row_count]; $classesfortd = $i==2?$classesfortd." sukh-width":$classesfortd; ?>
+          <td <?php if ($field_classes[$field][$row_count]) { print 'class="'. $classesfortd . '" '; } ?><?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
             <?php print $content; ?>
           </td>
-        <?php endforeach; ?>
+        <?php $i++; endforeach; ?>
         
         
       </tr>

@@ -521,7 +521,24 @@ $themeurl = file_create_url(path_to_theme());
                             </li>
                         </ul>
                     </div>
+                    <ul ng-if="hasanyresultfound == 'no'">
+                      <li class="sukh_list">
+                        <img src="<?php echo $themeurl; ?>/img/tp.png" alt="Travel Painters" >
+                       </li>
+                      <li class="sukh_list">        
+                          <h1 align="center"> OOPS !!!</h1>
+                      </li>
+                      <li class="sukh_list">      
+                        <h2 align="center">There are no flights found for your entered search criteria please change the origin or destination and search again.</h2>
+                        
+                      </li>
+                      <li class="sukh_list" style="text-align: center;" >      
+                         <a href="<?php global $base_url; echo $base_url; ?>"><button class="btn btn-primary btn-lg mt5 btn-sukh">Search Again</button></a>
+                      </li>
+                      
+                    </ul>
                     <ul class="booking-list allresult">
+                   
                     <!-- Amadeus search serch start -->
                     <h1 style="display:none;">Amadeus</h1>
                     <li class="amadeusresult"  ng-repeat="xy in dataforamadeus" >
@@ -857,9 +874,9 @@ $themeurl = file_create_url(path_to_theme());
                         </li> 
                         <!-- Instant flight search ends -->
                         
-                        <li style="display:none;"><h1>Bargain Finder </h1></li>
+                        <li ><h1>Bargain Finder </h1></li>
                         <!-- Bargain max finder start -->
-                        <li style="display:none;" class="bargainfinderresult" ng-repeat="xy in DisplayData" ng-if="xy.logoOfmarketingAirine !== undefined">
+                        <li  class="bargainfinderresult" ng-repeat="xy in DisplayData" ng-if="xy.logoOfmarketingAirine !== undefined">
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->
                         <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
                         
@@ -869,7 +886,7 @@ $themeurl = file_create_url(path_to_theme());
                                 <div class="booking-item">
                                 <span class="{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
                                 <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row"  ng-repeat="x in xy.datatoshownew" >
+                                    <div class="row"  ng-repeat="x in xy.datatoshownew" ng-init="parentIndex = $index" >
                                         <div class="col-md-2">
                                             <div class="booking-item-airline-logo">
                                                 <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
@@ -884,6 +901,11 @@ $themeurl = file_create_url(path_to_theme());
                                         <span class="saberlayover" style="display:none;">{{x.LayoverTime}}</span>
                                         <span class="saberflightno" style="display:none;">{{y.FlightNumber}}</span>
                                         <span class="saberoperatinglinecode" style="display:none;">{{y.OperatingAirline.Code}}</span>
+
+                                        <span class="saberflightnoreturn" ng-if="parentIndex == 1" style="display:none;">{{y.oafn}}</span>
+
+                                        <span class="saberoperatinglinecodereturn" ng-if="parentIndex == 1" style="display:none;">{{x.OperatingAirlineCode}}</span>
+
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-plane"></i>
                                                     <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>

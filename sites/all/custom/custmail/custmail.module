@@ -1,0 +1,10 @@
+<?php
+
+function webfpdf_mail_alter(&$message) {
+    $attach=genpdf($message['params']['message']);
+    $message['params']['attachments'][] = $attach;
+    dpm($message);
+    return $message;
+}
+
+?>

@@ -151,8 +151,23 @@
 
     <div class="row">
         <div class="col-md-10">
-        <h3>Traveler Details</h3>
-        <p>Sign in to your <a href="/user">Travel Painter Account</a> for fast booking.</p>
+        <?php
+           global $user;
+
+          if ( $user->uid ) 
+          { ?>
+            <h3>Traveler Details</h3>
+           <?php
+          }
+          elseif(!$user->uid) 
+          {
+            ?>
+            <h3>Traveler Details</h3>
+            <p>Sign in to your <a href="/user">Travel Painter Account</a> for fast booking.</p>
+          <?php  
+          }
+        ?>
+        
         
     </div>
     
@@ -161,7 +176,7 @@
             <div class="col-md-10">
                     <div class="booking-item-payment">
                         <header class="clearfix">
-                            <h5 class="mb0"><?php echo $nameofmktairline; ?></h5>
+                            <h4 class="mb0"><strong><?php echo $nameofmktairline; ?></strong></h4>
                         </header>
                                                 
                         <div class="booking-item-container">
@@ -258,7 +273,7 @@
         <div class="col-md-10">
             <div class="booking-item-payment">
                     <header class="clearfix">
-                    <h5 class="mb0">Passengers</h5>
+                    <h4 class="mb0"><strong>Passengers</strong></h4>
                     </header>
                     <form name="userForm" class="userFormcls">
                      <input type="text" class="form-control donotshowthis userFormValid" name="v<?php echo 1; ?>" ng-model="userForm.$invalid" value="{{userForm.$invalid}}" />
@@ -292,13 +307,13 @@
                                         <input type="text" class="form-control" name="fn<?php echo $i+1; ?>" ng-model="user.fn<?php echo $i+1; ?>" ng-minlength="3" ng-maxlength="18" required />
                                        
                                         <!-- show an error if username is too short -->
-                                        <p ng-show="userForm.fn<?php echo $i+1; ?>.$error.minlength">Firstname is too short.</p>
+                                        <p class="sukh_alert" ng-show="userForm.fn<?php echo $i+1; ?>.$error.minlength">Firstname is too short.</p>
 
                                         <!-- show an error if username is too long -->
-                                        <p ng-show="userForm.fn<?php echo $i+1; ?>.$error.maxlength">Firstname is too long.</p>
+                                        <p class="sukh_alert" ng-show="userForm.fn<?php echo $i+1; ?>.$error.maxlength">Firstname is too long.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                        <p ng-show="userForm.fn<?php echo $i+1; ?>.$error.required">Your Firstname is required.</p>
+                                        <p class="sukh_alert" ng-show="userForm.fn<?php echo $i+1; ?>.$error.required">Your Firstname is required.</p>
                                     </div>
                                 </div>
                                 
@@ -310,13 +325,13 @@
                                          <input type="text" class="form-control" name="mn<?php echo $i+1; ?>" ng-model="user.mn<?php echo $i+1; ?>" ng-minlength="3" ng-maxlength="18" required />
 
                                         <!-- show an error if username is too short -->
-                                        <p ng-show="userForm.mn<?php echo $i+1; ?>.$error.minlength">Middle name is too short.</p>
+                                        <p class="sukh_alert" ng-show="userForm.mn<?php echo $i+1; ?>.$error.minlength">Middle name is too short.</p>
 
                                         <!-- show an error if username is too long -->
-                                        <p ng-show="userForm.mn<?php echo $i+1; ?>.$error.maxlength">Middle name is too long.</p>
+                                        <p class="sukh_alert" ng-show="userForm.mn<?php echo $i+1; ?>.$error.maxlength">Middle name is too long.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                        <p ng-show="userForm.mn<?php echo $i+1; ?>.$error.required">Your Middle name is required.</p>
+                                        <p class="sukh_alert" ng-show="userForm.mn<?php echo $i+1; ?>.$error.required">Your Middle name is required.</p>
                                     </div>
                                 </div>
                                 
@@ -328,13 +343,13 @@
                                             <input type="text" class="form-control" name="ln<?php echo $i+1; ?>" ng-model="user.ln<?php echo $i+1; ?>" ng-minlength="3" ng-maxlength="18" required />
 
                                             <!-- show an error if username is too short -->
-                                            <p ng-show="userForm.ln<?php echo $i+1; ?>.$error.minlength">Last name is too short.</p>
+                                            <p class="sukh_alert" ng-show="userForm.ln<?php echo $i+1; ?>.$error.minlength">Last name is too short.</p>
 
                                             <!-- show an error if username is too long -->
-                                            <p ng-show="userForm.ln<?php echo $i+1; ?>.$error.maxlength">Last name is too long.</p>
+                                            <p class="sukh_alert" ng-show="userForm.ln<?php echo $i+1; ?>.$error.maxlength">Last name is too long.</p>
 
                                             <!-- show an error if this isn't filled in -->
-                                            <p ng-show="userForm.ln<?php echo $i+1; ?>.$error.required">Your Last name is required.</p>
+                                            <p class="sukh_alert" ng-show="userForm.ln<?php echo $i+1; ?>.$error.required">Your Last name is required.</p>
                                     </div>
                                 </div>
                                 
@@ -342,7 +357,9 @@
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Date of Birth</label>
-                                        <input class="date-pick-years form-control" name="dob<?php echo $i+1; ?>" type="text" required/>
+                                        <input ng-model="user.dobx<?php echo $i+1; ?>" class="date-pick-years form-control" name="dob<?php echo $i+1; ?>" type="text" required/>
+                                        <!-- show an error if this isn't filled in -->
+                                        <p class="sukh_alert" ng-show="userForm.dob<?php echo $i+1; ?>.$error.required">DOB is required.</p>
                                        
                                     </div>
                                 </div>
@@ -351,7 +368,7 @@
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Gender</label>
-                                        <select>
+                                        <select name="sex<?php echo $i+1; ?>">
                                         <option>Male</option>
                                         <option>Female</option>
                                         </select>
@@ -534,13 +551,13 @@
                                    
 
                                     <!-- show an error if username is too short -->
-                                    <p ng-show="userFormcc.cc.$error.minlength">16 digit cc no. required.</p>
+                                    <p class="sukh_alert" ng-show="userFormcc.cc.$error.minlength">16 digit cc no. required.</p>
 
                                     <!-- show an error if username is too long -->
-                                    <p ng-show="userFormcc.cc.$error.maxlength">16 digit cc no. required.</p>
+                                    <p class="sukh_alert" ng-show="userFormcc.cc.$error.maxlength">16 digit cc no. required.</p>
 
                                     <!-- show an error if this isn't filled in -->
-                                     <p ng-show="userFormcc.cc.$error.required">16 digit cc no. required.</p>
+                                     <p class="sukh_alert" ng-show="userFormcc.cc.$error.required">Please check your 16 digit cc no.</p>
                                   <span class="cc-card-icon"></span>
 
                                     </div>
@@ -553,13 +570,13 @@
                                    
 
                                         <!-- show an error if username is too short -->
-                                        <p ng-show="userFormcc.ccv.$error.minlength">CCV no. required.</p>
+                                        <p class="sukh_alert" ng-show="userFormcc.ccv.$error.minlength">3 digit CCV no. required.</p>
 
                                         <!-- show an error if username is too long -->
-                                        <p ng-show="userFormcc.ccv.$error.maxlength">CCV no. required.</p>
+                                        <p class="sukh_alert" ng-show="userFormcc.ccv.$error.maxlength">3 digit CCV no. required.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p ng-show="userFormcc.ccv.$error.required">CCV no. required.</p>
+                                         <p class="sukh_alert" ng-show="userFormcc.ccv.$error.required">Please check CCV no.</p>
                                     </div>
                                     
                     </div>
@@ -572,26 +589,26 @@
                                    
 
                                         <!-- show an error if username is too short -->
-                                        <p ng-show="userFormcc.ccn.$error.minlength">Card holder name required.</p>
+                                        <p class="sukh_alert" ng-show="userFormcc.ccn.$error.minlength">Card holder name min 3 characters.</p>
 
                                         <!-- show an error if username is too long -->
-                                        <p ng-show="userFormcc.ccn.$error.maxlength">Card holder name required.</p>
+                                        <p class="sukh_alert" ng-show="userFormcc.ccn.$error.maxlength">Card holder name max 25 characters.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p ng-show="userFormcc.ccn.$error.required">Card holder name required.</p>
+                                         <p class="sukh_alert" ng-show="userFormcc.ccn.$error.required">Card holder name required.</p>
                                     </div>
                                     
                                     <div class="form-group form-group-cc-date col-md-6">
                                         <label>Valid Thru</label>
                                         <input class="form-control" placeholder="mm/yy" type="text" name="ccvth" ng-model="user.ccvth" ng-minlength="5" ng-maxlength="10" required />
                                                <!-- show an error if username is too short -->
-                                        <p ng-show="userFormcc.ccvth.$error.minlength">Valid Thru required.</p>
+                                        <p class="sukh_alert" ng-show="userFormcc.ccvth.$error.minlength">CC Valid Till required.</p>
 
                                         <!-- show an error if username is too long -->
-                                        <p ng-show="userFormcc.ccvth.$error.maxlength">Valid Thru required.</p>
+                                        <p class="sukh_alert" ng-show="userFormcc.ccvth.$error.maxlength">Please check CC Valid Till.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p ng-show="userFormcc.ccvth.$error.required">Valid Thru required.</p>
+                                         <p class="sukh_alert" ng-show="userFormcc.ccvth.$error.required">Enter CC Valid Till in right format.</p>
                                     </div>
                                 </div>
                                 
@@ -620,8 +637,8 @@
         <div class="col-md-10">
             <div class="booking-item-payment">
                     <header class="clearfix">
-                    <h4 class="mb0"><strong>Billing & Contact Information</strong></h4></header>
-                    <strong>Credit Card Billing Address:</strong>
+                    <h4 class="mb0"><strong >Billing & Contact Information</strong></h4></header>
+                    <strong class="sukh_header">Credit Card Billing Address:</strong>
                             <form name="userFormd" class="cc-form userFormdcls">
                                 <input type="text" class="form-control donotshowthis userFormdValid" name="userFormdfv" ng-model="userFormd.$invalid" value="{{userFormd.$invalid}}" />
                                 <div class="clearfix col-md-8">
@@ -890,13 +907,13 @@
                                         
                                         <input class="form-control" placeholder="Street" type="text" name="street" ng-model="user.street" ng-minlength="3" ng-maxlength="50" ng-init="user.street='<?php echo $userstreet ?>'"  required />
                                                <!-- show an error if username is too short -->
-                                        <p ng-show="userFormd.street.$error.minlength">Street required.</p>
+                                        <p class="sukh_alert" ng-show="userFormd.street.$error.minlength">Street min of 3 characters.</p>
 
                                         <!-- show an error if username is too long -->
-                                        <p ng-show="userFormd.street.$error.maxlength">Street required.</p>
+                                        <p class="sukh_alert" ng-show="userFormd.street.$error.maxlength">Street max of 25 characters.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p ng-show="userFormd.street.$error.required">Street required.</p>
+                                         <p class="sukh_alert" ng-show="userFormd.street.$error.required">Street is required.</p>
 
                                     </div>
                                    
@@ -907,13 +924,13 @@
                                         
                                         <input class="form-control" placeholder="(example: Chicago)" type="text" name="city" ng-model="user.city" ng-minlength="3" ng-maxlength="50" ng-init="user.city='<?php echo $usercity; ?>'" required />
                                                <!-- show an error if username is too short -->
-                                        <p ng-show="userFormd.city.$error.minlength">City required.</p>
+                                        <p class="sukh_alert" ng-show="userFormd.city.$error.minlength">City min of 3 characters.</p>
 
                                         <!-- show an error if username is too long -->
-                                        <p ng-show="userFormd.city.$error.maxlength">City required.</p>
+                                        <p class="sukh_alert" ng-show="userFormd.city.$error.maxlength">City max of 25 characters.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p ng-show="userFormd.city.$error.required">City required.</p>
+                                         <p class="sukh_alert" ng-show="userFormd.city.$error.required">City is required.</p>
                                     </div>
                                 </div>
                                 <div class="clearfix col-md-8">
@@ -980,29 +997,29 @@
                                         
                                         <input class="form-control" placeholder="Zipcode" type="text" name="zipcode" ng-model="user.zipcode" ng-minlength="3" ng-maxlength="6" ng-init="user.zipcode='<?php echo $userzipcode; ?>'" required />
                                                <!-- show an error if username is too short -->
-                                        <p ng-show="userFormd.zipcode.$error.minlength">Zipcode required.</p>
+                                        <p class="sukh_alert" ng-show="userFormd.zipcode.$error.minlength">Zipcode too short.</p>
 
                                         <!-- show an error if username is too long -->
-                                        <p ng-show="userFormd.zipcode.$error.maxlength">Zipcode required.</p>
+                                        <p class="sukh_alert" ng-show="userFormd.zipcode.$error.maxlength">Zipcode too long.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p ng-show="userFormd.zipcode.$error.required">Zipcode required.</p>
+                                         <p class="sukh_alert" ng-show="userFormd.zipcode.$error.required">Zipcode required.</p>
                                     </div>
                                 </div>
-                              <strong>Contact Information:</strong>
+                              <strong class="sukh_header">Contact Information:</strong>
                                 <div class="clearfix">
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Billing Phone:</label>
                                        
                                         <input class="form-control" placeholder="Billing Phone" type="text" name="bp" ng-model="user.bp" ng-minlength="3" ng-maxlength="16" ng-init="user.bp='<?php echo $userbillingphone; ?>'" required />
                                                <!-- show an error if username is too short -->
-                                        <p ng-show="userFormd.bp.$error.minlength">Billing Phone required.</p>
+                                        <p class="sukh_alert" ng-show="userFormd.bp.$error.minlength">Billing Phone too short.</p>
 
                                         <!-- show an error if username is too long -->
-                                        <p ng-show="userFormd.bp.$error.maxlength">Billing Phone required.</p>
+                                        <p class="sukh_alert" ng-show="userFormd.bp.$error.maxlength">Billing Phone too long.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p ng-show="userFormd.bp.$error.required">Billing Phone required.</p>
+                                         <p class="sukh_alert" ng-show="userFormd.bp.$error.required">Billing Phone required.</p>
                                     </div>
                                 </div>
                                 <div class="clearfix">
@@ -1011,13 +1028,13 @@
                                      
                                         <input class="form-control" type="text" name="mp" placeholder="Mobile Phone" ng-minlength="3" ng-maxlength="16" ng-model="user.mobilephone" ng-init="user.mobilephone='<?php echo $usermobilephone; ?>'" required />  
                                                <!-- show an error if username is too short -->
-                                        <p ng-show="userFormd.mp.$error.minlength">Mobile Phone required.</p>
+                                        <p class="sukh_alert" ng-show="userFormd.mp.$error.minlength">Mobile Phone too short.</p>
 
                                         <!-- show an error if username is too long -->
-                                        <p ng-show="userFormd.mp.$error.maxlength">Mobile Phone required.</p>
+                                        <p class="sukh_alert" ng-show="userFormd.mp.$error.maxlength">Mobile Phone too long.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p ng-show="userFormd.mp.$error.required">Mobile Phone required.</p> 
+                                         <p class="sukh_alert" ng-show="userFormd.mp.$error.required">Mobile Phone required.</p> 
                                     </div>
                                 </div>
                                 <div class="clearfix">
@@ -1026,25 +1043,25 @@
                                         <input class="form-control" type="email" name="email" ng-model="user.email" ng-init="user.email='<?php echo $usermail; ?>'"  required/>    
                                        
                                           <br/>
-                                          <span class="error" ng-show="userFormd.email.$error.required">
-                                            Required!</span>
-                                          <span class="error" ng-show="userFormd.email.$error.email">
-                                            Not valid email!</span>
+                                          <span class="sukh_alert error" ng-show="userFormd.email.$error.required">
+                                            Email Required!</span>
+                                          <span class="sukh_alert error" ng-show="userFormd.email.$error.email">
+                                            Check your email entered!</span>
                                          
                                             
                                 </div>
                                 </div>
                                 <div class="clearfix">
                                     <div class="form-group form-group-cc-name col-md-8">
-                                        <label>Retype Email</label>
+                                        <label>Confirm Email</label>
                                         
                                         <input class="form-control" type="email" name="emailc" ng-model="user.emailc" ng-init="user.emailc='<?php echo $usermail; ?>'"  required/>    
                                        
                                           <br/>
-                                          <span class="error" ng-show="userFormd.emailc.$error.required">
-                                            Required!</span>
-                                          <span class="error" ng-show="userFormd.emailc.$error.email">
-                                            Not valid email!</span>  
+                                          <span class="sukh_alert error" ng-show="userFormd.emailc.$error.required">
+                                            Confirm Email Required!</span>
+                                          <span class="sukh_alert error" ng-show="userFormd.emailc.$error.email">
+                                            Check your email entered!</span>  
                                             
                                 </div>
                                 </div>
