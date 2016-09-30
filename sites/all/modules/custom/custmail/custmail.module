@@ -15,14 +15,12 @@ function custmail_mail_alter(&$message) {
 		$urls = $matches[0];
 		$urltosend = reset($urls);
 		$msg = "Thank you for registering at Travelpainters. You may now log in and verify your account by clicking this link or copying and pasting it to your browser: ".$urltosend. " This link can only be used once to login and change your password. "." Your Username: ".$to." Password: Your Password . Please also check your junk or spam folder some times custom setting of inbox redirect good emails to spam or junk folder.     --Travelpainters Team";
-		//echo $to = strtolower("navinkumar@geekexperthelp.com");
-		//echo $from = strtolower("navinrai@travelpainters.com");
-		//echo $subject = strtolower("I am working");
+		
 		$body = $msg;
 
 		sendEmailSendGrid($to,$from,$subject,$body);
 		$_SESSION['userregisteredmessage'] = "Thank you form Travelpainters. Please check Your email and use the link to verify.";
-		//sendEmailSendGrid($to,$from,$subject,$body);
+	
 	}
 
 	 //echo "<pre>"; print_r($message); die;
@@ -45,7 +43,7 @@ function sendEmailSendGrid($to,$from,$subject,$body){
 	  CURLOPT_CUSTOMREQUEST => "POST",
 	  CURLOPT_POSTFIELDS => '{"personalizations": [{"to": [{"email": "'.$to.'"}]}],"from": {"email": "'.$from.'"},"subject": "'.$subject.'","content": [{"type": "text/html", "value": "'.$body.'"}]}',
 	  CURLOPT_HTTPHEADER => array(
-	    "authorization: Bearer ",
+	    "authorization: Bearer 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",
 	    "cache-control: no-cache",
 	    "content-type: application/json"
 	  ),

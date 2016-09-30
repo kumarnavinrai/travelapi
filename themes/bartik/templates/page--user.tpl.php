@@ -177,7 +177,7 @@
            
             if($messageofmailcame=='yes')
             {
-             if($_SESSION['userregisteredmessage'] != "")
+             if(isset($_SESSION['userregisteredmessage']) && $_SESSION['userregisteredmessage'] != "")
              {  
                 echo '<div class="messages status nk_cls row"><i class="fa fa-check round box-icon-large box-icon-success"></i><h2 class="">Success !!</h2>'.$_SESSION['userregisteredmessage'].'</div>'; $_SESSION['userregisteredmessage'] = ""; 
              } 
