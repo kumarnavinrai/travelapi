@@ -920,6 +920,10 @@ trk=nav_responsive_tab_profile"></a>
                         }
                     }
 
+                    if($('.cls_stops').val() != "" || $('.cls_departure').val() != "" || $('.cls_airlines').val() != "" || $('.cls_layover').val() != ""){
+                        $('.formforfilters').submit();
+                    }
+
                 });
                 $('.fliter_apply').on('click',function(){
                     if($('.cls_stops').val() != "" || $('.cls_departure').val() != "" || $('.cls_airlines').val() != "" || $('.cls_layover').val() != ""){
