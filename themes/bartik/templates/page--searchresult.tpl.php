@@ -950,7 +950,7 @@ $themeurl = file_create_url(path_to_theme());
                                             </div>
                                         </div>
                                         <div class="col-md-2">
-                                            <h5>{{x.TotalTimeWithLayoverTime}}</h5>
+                                            <h5></h5>
                                             <p>{{x.nonStopOrwithStop}}</p>
                                         </div>
                                         <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>

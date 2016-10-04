@@ -716,7 +716,7 @@ trk=nav_responsive_tab_profile"></a>
                           }
                       */
                       carrayblod.hide();
-
+                      $('.bargainfinderresult').hide();
                       
                       //$('.totalnoofresultsfound').html($(".saberresult").size());
                       $('.totalnoofresultsfound').html($(".amadeusresult").size());
@@ -1080,16 +1080,13 @@ trk=nav_responsive_tab_profile"></a>
                     
                     //Decision for no data found in amadeus and saber in insta flights and bargain max
                     var singlearrayofallapi = {};
-                    /*$scope.hasanyresultfound = "yes";
+                    $scope.hasanyresultfound = "no";
          
-                    if($scope.DisplayDatainstantflights!=undefined && $scope.DisplayDatainstantflights.length != 0){  
+                    if($scope.dataforamadeus!=undefined && $scope.dataforamadeus.length != 0){  
                       $scope.hasanyresultfound = "yes";
-                      console.log($scope.DisplayDatainstantflights.length);
+                      //console.log($scope.DisplayDatainstantflights.length);
                     }
-                    if($scope.DisplayData!=undefined && $scope.DisplayData.length != 0){  
-                      $scope.hasanyresultfound = "yes";
-                      console.log($scope.DisplayData.length);
-                    } */ 
+                    
                     console.log("---------------------------------------------------------------------------------");
                       
                 }); //flight service ends here
