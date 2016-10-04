@@ -74,57 +74,43 @@ function custom_callback () {
     $allflightdata = json_decode($allflightdata);
 
     $bookingdata = $allflightdata;
-       
+   
         $nameofmktairline = "";
         $flightarray = array();
         $flightarrayoutbound = array();
 
-        if(isset($bookingdata->insideflightdata) && $bookingdata->insideflightdata){
+        if(isset($bookingdata->inoutflightarr) && $bookingdata->inoutflightarr)
+        {
             //amadeus data
-            foreach ( $bookingdata->insideflightdata as $key => $value) {
-                $nameofmktairline = $value->marketingairline;
-                $adult = $value->adults;
-                $children = $value->children;
-
-                $flightarray[$key]['logoofairline'] = $value->marketingairlinecode.".png";
-                $flightarray[$key]['nameofairline'] = $value->marketingairline;
-                $flightarray[$key]['depart'] = $value->departs_at;
-                $flightarray[$key]['originairport'] = $value->originairport;
-                $flightarray[$key]['arrives'] = $value->arrives_at;
-                $flightarray[$key]['destinationairport'] = $value->destinationairport;
-                $flightarray[$key]['flightno'] = $value->flightno;
-                $flightarray[$key]['stops'] = $value->nonstopofstop;
-                $flightarray[$key]['fare'] = $bookingdata->fare;
-                $flightarray[$key]['travelclass'] = $value->booking_info->travel_class;
-                $flightarray[$key]['layovertime'] = $value->layovertime;
-
-                $flightarrayoutbound[$key]['logoofairline'] = $bookingdata->insideflightdatainbound[$key]->marketingairlinecode.".png";
-                $flightarrayoutbound[$key]['nameofairline'] = $bookingdata->insideflightdatainbound[$key]->marketingairline;
-                $flightarrayoutbound[$key]['depart'] = $bookingdata->insideflightdatainbound[$key]->departs_at;
-                $flightarrayoutbound[$key]['originairport'] = $bookingdata->insideflightdatainbound[$key]->originairport;
-                $flightarrayoutbound[$key]['arrives'] = $bookingdata->insideflightdatainbound[$key]->arrives_at;
-                $flightarrayoutbound[$key]['destinationairport'] = $bookingdata->insideflightdatainbound[$key]->destinationairport;
-                $flightarrayoutbound[$key]['flightno'] = $bookingdata->insideflightdatainbound[$key]->flightno;
-                $flightarrayoutbound[$key]['stops'] = $bookingdata->insideflightdatainbound[$key]->nonstopofstop;
-                $flightarrayoutbound[$key]['fare'] = $bookingdata->fare;
-                $flightarrayoutbound[$key]['travelclass'] = $bookingdata->insideflightdatainbound[$key]->booking_info->travel_class;
-                $flightarrayoutbound[$key]['layovertime'] = $bookingdata->insideflightdatainbound[$key]->layovertime;
+            $ikey = 0;
+            foreach ( $bookingdata->inoutflightarr as $key => $value) {  //echo "<pre>"; print_r($value); die;
+                $nameofmktairline = $value->marketingairlinefullname;
                 
 
+                $flightarray[$ikey]['logoofairline'] = $value->logoofmarketingairline;
+                $flightarray[$ikey]['nameofairline'] = $value->marketingairlinefullname;
+                $flightarray[$ikey]['depart'] = $value->departtime;
+                $flightarray[$ikey]['originairport'] = $value->departureairportfullname;
+                $flightarray[$ikey]['arrives'] = $value->arrivaltime;
+                $flightarray[$ikey]['destinationairport'] = $value->arrivalairportfullname;
+                $flightarray[$ikey]['flightno'] = $value->flightno;
+                $flightarray[$ikey]['stops'] = $value->stopornonstop;
+                $flightarray[$ikey]['fare'] = $bookingdata->totalfare;
+                $flightarray[$ikey]['travelclass'] = $value->travelclass;
+                $flightarray[$ikey]['layovertime'] = $value->layovertime;
+
+                $totalprice = $bookingdata->totalfare;
+                $priceperadulttotalfare = $bookingdata->totaltax;
+                $priceperadulttax = $bookingdata->totalbeforetax;
+
+                $ikey++;
             }
 
-            //amadeus price details
-            if(isset($bookingdata->fareall) && $bookingdata->fareall)
-            {
-                $totalprice = $bookingdata->fareall->total_price;
-                $priceperadulttotalfare = $bookingdata->fareall->price_per_adult->total_fare;
-                $priceperadulttax = $bookingdata->fareall->price_per_adult->tax;
-
-            }
-            
+          
         }
 
-        if(isset($bookingdata->datatoshownew) && $bookingdata->datatoshownew){
+        /*if(isset($bookingdata->datatoshownew) && $bookingdata->datatoshownew)
+        {
             
             foreach ( $bookingdata->datatoshownew as $key => $value) 
             {   
@@ -182,7 +168,7 @@ function custom_callback () {
                 $priceperadulttotalfare = $bookingdata->alldataofsaberoneflight->AirItineraryPricingInfo->PTC_FareBreakdowns->PTC_FareBreakdown->PassengerFare->TotalFare->Amount;
                 $priceperadulttax = $bookingdata->alldataofsaberoneflight->AirItineraryPricingInfo->PTC_FareBreakdowns->PTC_FareBreakdown->PassengerFare->Taxes->TotalTax->Amount;
             }
-        }
+        }*/
 
         //user info to create user
         if(isset($noofpassengersandallflightdata['fn1']) 

@@ -18,23 +18,26 @@
                     <h5 class="text-center mb30">Booking details will been sent to <?php echo $node->field_email['und'][0]['value']; ?></h5>
                     
                     <ul class="order-payment-list list mb30">
+                        <?php $allflightdata = json_decode($node->field_flightdata['und'][0]['value']); ?>
+                       
+                        <?php 
+                        if(isset($allflightdata) && $allflightdata)
+                        {   
+
+                         $allflightdata = $allflightdata->flightarray;   
+                         foreach ($allflightdata as $key => $value) 
+                         {
+                                      // echo "<pre>"; print_r($value); die;
+                        ?>             
                         <li>
                             <div class="row">
                                 <div class="col-xs-9">
-                                    <?php $allflightdata = json_decode($node->field_flightdata['und'][0]['value']); ?>
-                                    <?php 
-
-                                        //echo "<pre>"; 
-                                        //print_r($allflightdata); die;
-                                        
-                                        $to = reset($allflightdata->flightarray); 
-                                        $from = end($allflightdata->flightarray);
-                                        
-
-                                        
-                                     ?>
-                                    <h5><i class="fa fa-plane"></i> Flight from <?php echo $to->originairport; ?> to <?php echo $from->destinationairport ?>.</h5>
-                                    <p><small><?php echo date('Y-m-d h:i:s',strtotime($to->depart)); ?></small>
+                                    
+                                    
+                                    <h5><i class="fa fa-plane"></i> Flight from <?php echo $value->originairport; ?> to <?php echo $value->destinationairport; ?>.</h5>
+                                    <p><small><?php echo date('Y-m-d h:i:s',strtotime($value->depart)); ?></small><small><?php echo $value->nameofairline; ?></small><small>Flight No. <?php echo $value->flightno; ?></small>
+                                    </p>
+                                     <p><small>Class <?php echo $value->travelclass; ?></small>
                                     </p>
                                 </div>
                                 <div class="col-xs-3">
@@ -46,6 +49,9 @@
                                 </div>
                             </div>
                         </li>
+                        <?php
+                         } 
+                         } ?>
                         <li>
                             <div class="row">
                                 <div class="col-xs-9">

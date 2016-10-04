@@ -5,58 +5,42 @@
         $adult = 0;
         $children = 0;
 
-        $bookingdata = json_decode($_REQUEST['saledata']);
-        $adult = isset($bookingdata->adults)?$bookingdata->adults:0;
+        $bookingdata = json_decode($_REQUEST['saledata']); 
+        $adult = isset($bookingdata->adult)?$bookingdata->adult:0;
         $children = isset($bookingdata->children)?$bookingdata->children:0;
         //echo "<pre>"; print_r($bookingdata); die;
         $nameofmktairline = "";
         $flightarray = array();
         $flightarrayoutbound = array();
 
-        if(isset($bookingdata->insideflightdata) && $bookingdata->insideflightdata){
+        if(isset($bookingdata->inoutflightarr) && $bookingdata->inoutflightarr)
+        {
             //amadeus data
-            foreach ( $bookingdata->insideflightdata as $key => $value) {
-                $nameofmktairline = $value->marketingairline;
+            $ikey = 0;
+            foreach ( $bookingdata->inoutflightarr as $key => $value) {  //echo "<pre>"; print_r($value); die;
+                $nameofmktairline = $value->marketingairlinefullname;
                 
 
-                $flightarray[$key]['logoofairline'] = $value->marketingairlinecode.".png";
-                $flightarray[$key]['nameofairline'] = $value->marketingairline;
-                $flightarray[$key]['depart'] = $value->departs_at;
-                $flightarray[$key]['originairport'] = $value->originairport;
-                $flightarray[$key]['arrives'] = $value->arrives_at;
-                $flightarray[$key]['destinationairport'] = $value->destinationairport;
-                $flightarray[$key]['flightno'] = $value->flightno;
-                $flightarray[$key]['stops'] = $value->nonstopofstop;
-                $flightarray[$key]['fare'] = $bookingdata->fare;
-                $flightarray[$key]['travelclass'] = $value->booking_info->travel_class;
-                $flightarray[$key]['layovertime'] = $value->layovertime;
+                $flightarray[$ikey]['logoofairline'] = $value->logoofmarketingairline;
+                $flightarray[$ikey]['nameofairline'] = $value->marketingairlinefullname;
+                $flightarray[$ikey]['depart'] = $value->departtime;
+                $flightarray[$ikey]['originairport'] = $value->departureairportfullname;
+                $flightarray[$ikey]['arrives'] = $value->arrivaltime;
+                $flightarray[$ikey]['destinationairport'] = $value->arrivalairportfullname;
+                $flightarray[$ikey]['flightno'] = $value->flightno;
+                $flightarray[$ikey]['stops'] = $value->stopornonstop;
+                $flightarray[$ikey]['fare'] = $bookingdata->totalfare;
+                $flightarray[$ikey]['travelclass'] = $value->travelclass;
+                $flightarray[$ikey]['layovertime'] = $value->layovertime;
 
-                if($bookingdata->insideflightdatainbound[$key]->marketingairline != "")
-                {    
-                    $flightarrayoutbound[$key]['logoofairline'] = $bookingdata->insideflightdatainbound[$key]->marketingairlinecode.".png";
-                    $flightarrayoutbound[$key]['nameofairline'] = $bookingdata->insideflightdatainbound[$key]->marketingairline;
-                    $flightarrayoutbound[$key]['depart'] = $bookingdata->insideflightdatainbound[$key]->departs_at;
-                    $flightarrayoutbound[$key]['originairport'] = $bookingdata->insideflightdatainbound[$key]->originairport;
-                    $flightarrayoutbound[$key]['arrives'] = $bookingdata->insideflightdatainbound[$key]->arrives_at;
-                    $flightarrayoutbound[$key]['destinationairport'] = $bookingdata->insideflightdatainbound[$key]->destinationairport;
-                    $flightarrayoutbound[$key]['flightno'] = $bookingdata->insideflightdatainbound[$key]->flightno;
-                    $flightarrayoutbound[$key]['stops'] = $bookingdata->insideflightdatainbound[$key]->nonstopofstop;
-                    $flightarrayoutbound[$key]['fare'] = $bookingdata->fare;
-                    $flightarrayoutbound[$key]['travelclass'] = $bookingdata->insideflightdatainbound[$key]->booking_info->travel_class;
-                    $flightarrayoutbound[$key]['layovertime'] = $bookingdata->insideflightdatainbound[$key]->layovertime;
-                }
+                $totalprice = $bookingdata->totalfare;
+                $priceperadulttotalfare = $bookingdata->totaltax;
+                $priceperadulttax = $bookingdata->totalbeforetax;
 
+                $ikey++;
             }
 
-            //amadeus price details
-            if(isset($bookingdata->fareall) && $bookingdata->fareall)
-            {
-                $totalprice = $bookingdata->fareall->total_price;
-                $priceperadulttotalfare = $bookingdata->fareall->price_per_adult->total_fare;
-                $priceperadulttax = $bookingdata->fareall->price_per_adult->tax;
-
-            }
-            
+          
         }
 
         if(isset($bookingdata->datatoshownew) && $bookingdata->datatoshownew){
@@ -182,15 +166,15 @@
                         <div class="booking-item-container">
                                 <div class="booking-item">
                                     <?php if(isset($flightarray) && $flightarray){ ?>
-                                    <?php foreach ($flightarray as $key => $value) { ?>
+                                    <?php foreach ($flightarray as $key => $value) { //echo "<pre>"; echo $key; print_r($value); die; ?>
                                     
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="booking-item-airline-logo">
-                                                <?php if($key == 0){ ?>
+                                                
                                                 <img src="<?php echo $themeurl; ?>/img/airlineslogo/<?php echo $value['logoofairline']; ?>" alt="Image Alternative text" title="Image Title">
                                                 <p><?php echo $value['nameofairline']; ?></p>
-                                                <?php } ?>
+                                                
                                             </div>
                                         </div>
                                         <div class="col-md-5">
@@ -209,15 +193,16 @@
                                         </div>
                                         <div class="col-md-2">
                                             <h5>Flight No.<?php echo $value['flightno']; ?></h5>
-                                            <?php if($key == 0){ ?><p><?php echo $value['stops']; ?></p><?php } ?>
+                                            <p><?php echo $value['stops']; ?></p>
                                         </div>
-                                        <?php if($key == 0){ ?>
-                                        <div class="col-md-3"><span class="booking-item-price">$<?php echo $value['fare']; ?></span>
-                                        <span>/person</span><br>
-                                        <span>Layover: <?php echo $value['layovertime']; ?></span><br>
+                                        
+                                        <div class="col-md-3"><span class="booking-item-price"><?php if($key == 0){ ?>$<?php echo $value['fare']; ?><?php } ?></span>
+
+                                        <span></span><br>
+                                        <span><?php if($value['layovertime']!=0){ ?>Layover: <?php echo $value['layovertime']; ?><?php } ?></span><br>
                                             <p class="booking-item-flight-class">Class: <?php echo $value['travelclass']; ?></p>
                                         </div>
-                                        <?php } ?>
+                                        
                                     </div>
                                     <?php } ?>
                                     <?php } //flight array ?>
