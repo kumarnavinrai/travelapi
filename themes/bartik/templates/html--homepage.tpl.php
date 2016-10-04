@@ -131,8 +131,8 @@ $noofresultonpage = 50;
   <?php } ?>  
   <?php if(strpos($base_url, "travelpainters.local"))
         { ?>
-    //var urlforapi = "http://127.0.0.1:1337/";
-    var urlforapi = "http://104.168.102.222:1337/";
+    var urlforapi = "http://127.0.0.1:1337/";
+    //var urlforapi = "http://104.168.102.222:1337/";
   <?php } ?>  
     
   </script>

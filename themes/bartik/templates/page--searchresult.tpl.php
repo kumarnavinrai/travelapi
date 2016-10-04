@@ -292,7 +292,30 @@ $themeurl = file_create_url(path_to_theme());
                     <button class="btn btn-primary btn-lg" type="submit">Search for Flights</button>
                 </form>
             </div>
-            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from {{fromcity}} to {{tocity}} for <?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?> Adults , <?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?> Children<small><!--<a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a>--></small></h3>
+            <?php
+            
+                require_once realpath(__DIR__).'/../../../phpsaber/data/listofairport.php';
+                require_once realpath(__DIR__).'/../../../phpsaber/data/listwithcode.php';
+
+              
+
+                if(isset($_POST['from']) && $_POST['from'] != "" && isset($_POST['to']) && $_POST['to'] != "")
+                { 
+
+                  $fromairportcode = explode("-",$_POST['from']);
+                  $fromairportcode = reset($fromairportcode);
+                  $fromairportcode = trim($fromairportcode);
+                  
+                  $toairportcode  = explode("-",$_POST['to']);
+                  $toairportcode = reset($toairportcode);
+                  $toairportcode = trim($toairportcode);
+
+                 
+                }  
+
+                
+            ?>
+            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from <?php echo isset($fromairportcode)&&$fromairportcode?$listwithcode[$fromairportcode]:""; ?> to <?php echo isset($toairportcode)&&$toairportcode?$listwithcode[$toairportcode]:""; ?> for <?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?> Adults , <?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?> Children<small><!--<a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a>--></small></h3>
             <div class="row">
                 <div class="col-md-3">
                     <aside class="booking-filters text-white">
@@ -437,7 +460,7 @@ $themeurl = file_create_url(path_to_theme());
           <div class="booking-item-container">
                                 <div class="sukh_container">
                                     <div class="row">
-                                        <div class="col-md-12 mtrx__wrapper main hidden-xs">
+                                        <div class="col-md-12 mtrx__wrapper main hidden-xs" style="display:none">
                                         <!--{{lpc}}-->
         <table id="mtrx_table" class="mtrx__table animation-fast" ng-if="lpcfound != false">
             <thead>
@@ -507,19 +530,32 @@ $themeurl = file_create_url(path_to_theme());
           </div>
                            
                     <div class="nav-drop booking-sort">
-                        <h5 class="booking-sort-title"><a href="#">Sort: Sort: Price (low to high)<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>
+                        <h5 class="booking-sort-title"><a href="#">Sort by Price, Stops, Waiting Time <i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>
                         <ul class="nav-drop-menu">
-                            <li><a href="#">Price (high to low)</a>
+                            <li><a class="high-to-low-price sortingcls" href="#">Price (high to low)</a>
                             </li>
-                            <li><a href="#">Duration</a>
+                            <li><a class="low-to-high-price sortingcls" href="#">Price (low to high)</a>
                             </li>
-                            <li><a href="#">Stops</a>
+                            <li><a class="waiting-duration-up sortingcls" href="#">Waiting Duration up</a>
                             </li>
-                            <li><a href="#">Arrival</a>
+                            <li><a class="waiting-duration-dn sortingcls" href="#">Waiting Duration dn</a>
                             </li>
-                            <li><a href="#">Departure</a>
+                            <li><a class="noofstopsasc sortingcls" href="#">Stops Asc</a>
                             </li>
+                            <li><a class="noofstopsdecs sortingcls" href="#">Stops Desc</a>
+                            </li>
+                           
                         </ul>
+                        <?php
+                          $showifsorteddatamsg = array();
+                          $showifsorteddatamsg["high-to-low-price"] = "Flights are sorted from High to Low Price.";
+                          $showifsorteddatamsg["low-to-high-price"] = "Flights are sorted from Low to High Price.";
+                          $showifsorteddatamsg["waiting-duration-up"] = "Flights are sorted By max Waiting time in a trip from low to high waiting time.";
+                          $showifsorteddatamsg["waiting-duration-dn"] = "Flights are sorted By max Waiting time in a trip from high to low waiting time.";
+                          $showifsorteddatamsg["noofstopsasc"] = "Flights are sorted By max number of stops in a trip from low to high.";
+                          $showifsorteddatamsg["noofstopsdecs"] = "Flights are sorted By max number of stops in a trip from high to low.";
+                        ?>
+                        <h5 class="booking-sort-title"><?php if(isset($_REQUEST["sortbyval"])){ echo $showifsorteddatamsg[$_REQUEST["sortbyval"]]; } ?></h5>
                     </div>
                     <ul ng-if="hasanyresultfound == 'no'">
                       <li class="sukh_list">
@@ -549,46 +585,40 @@ $themeurl = file_create_url(path_to_theme());
                         <!--<h4>{{xy.insideflightdata}}</h4>-->
                            <div class="booking-item-container" >
                                 <div class="booking-item">
-                                <span class="{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
+                                <span whoami="{{xy.whoami}}" style="display:none;" >{{xy}}</span>
                                 <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row"  ng-repeat="x in xy.insideflightdata" >
+                                    <div class="row"  ng-repeat="x in xy.inoutflightarr" >
                                     
-                                      <span class="amadeusfare" style="display:none;">{{xy.fare}}</span> 
-                                      <span class="amadeusstops" style="display:none;">{{x.nonstopofstop}}</span>
-                                      <span class="amadeusdepartturetime" style="display:none;">{{x.departs_at | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
-                                      <span class="amadeusairlines" style="display:none;">{{x.marketingairlinecode}}</span>
-                                      <span class="amadeuslayover" style="display:none;">{{x.layovertime}}</span>
-                                      <span class="amadeusflightno" style="display:none;">{{x.flightno}}</span>
-                                      <span class="amadeusoperatinglinecode" style="display:none;">{{x.operatinglinecode}}</span>
-
                                         <div class="col-md-2">
                                             <div class="booking-item-airline-logo">
-                                                <img ng-if="x.counterfornoofflightsinflights==0" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.marketingairlinecode}}.png" alt="{{x.marketingairline}}" title="{{x.marketingairline}}" />
-                                                <p ng-if="x.counterfornoofflightsinflights==0">{{x.marketingairline}}</p>
+                                                <img  src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoofmarketingairline}}" alt="{{x.marketingairlinefullname}}" title="{{x.marketingairlinefullname}}" />
+                                                <p >{{x.marketingairlinefullname}}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-5" >
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{x.departs_at | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <h5>{{x.departtime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
                                                     <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{x.originairport}}</p>
+                                                    <p class="booking-item-destination">{{x.departureairportfullname}}</p>
                                                 </div>
                                                 <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{x.arrives_at | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                                    <h5>{{x.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
                                                     <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{x.destinationairport}}</p>
+                                                    <p class="booking-item-destination">{{x.destinationairportfullname}}</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div  class="col-md-2">
                                             <h5 >Flight No.{{x.flightno}}</h5>
-                                            <p ng-if="x.counterfornoofflightsinflights==0">{{x.nonstopofstop}}</p>
+                                            <p >{{x.stopornonstop}}</p>
                                         </div>
-                                        <div class="col-md-3" ><span class="booking-item-price" ng-if="x.counterfornoofflightsinflights==0" >${{xy.fare}}</span><span ng-if="x.counterfornoofflightsinflights==0">/person</span>
-                                            <p class="booking-item-flight-class" ng-if="x.counterfornoofflightsinflights==0" >Layover Time: {{x.layovertime}}</p>
-                                            <p class="booking-item-flight-class" ng-if="x.counterfornoofflightsinflights==0">Class: {{x.booking_info.travel_class}}</p>
-                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.counterfornoofflightsinflights==0" ng-click="calljsfunction(xy.noofrest)" onclick="bookme(this)" >Select</a>
+                                        <div class="col-md-3" >
+                                         
+                                        <span class="booking-item-price" ng-if="x.counterfornoofflights==1" >${{xy.totalfare}}</span><span class="booking-item-flight-class" ng-if="x.counterfornoofflights==1">${{xy.totaltax}}(Tax)+${{xy.totalbeforetax}}(Fare)=${{xy.totalfare}}</span>
+                                            <p class="booking-item-flight-class layoverpaddingclass" ng-if="x.layovertime!=0" >Layover Time: {{x.layovertime}}</p>
+                                            <p class="booking-item-flight-class" >Class: {{x.travelclass}}</p>
+                                        <a class="btn btn-primary clsselectedbycustomer" ng-if="x.counterfornoofflights==xy.totalflightcounter"  onclick="bookme(this)" >Select</a>     
                                         </div>
 
                                         <!-- row rpeate first step ends here -->  
@@ -874,7 +904,7 @@ $themeurl = file_create_url(path_to_theme());
                         </li> 
                         <!-- Instant flight search ends -->
                         
-                        <li ><h1>Bargain Finder </h1></li>
+                        <li style="display:none;" ><h1>Bargain Finder </h1></li>
                         <!-- Bargain max finder start -->
                         <li  class="bargainfinderresult" ng-repeat="xy in DisplayData" ng-if="xy.logoOfmarketingAirine !== undefined">
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->

@@ -12,7 +12,7 @@ app.service('flightServiceNew', function($http, $q) {
             'Content-Type' : 'application/x-www-form-urlencoded', 
             'Accept': 'application/json' 
           }; 
-          console.log(data);
+         
           if(data.outboundflightstops != "" && data.outboundflightstops == 0){
             nonstop = true;
           }
@@ -75,16 +75,16 @@ app.service('flightServiceNew', function($http, $q) {
             urlamadeus = urlamadeus +"&children="+data.children;
           }
           
-
+        
           //,adult:$scope.adult,children:$scope.children,infant:$scope.infant
 
           var deferred = $q.defer();
           var urlCalls = [];
           var urlsnew = [];
           urlsnew.push(urls);
-          urls = urls.replace("fs/","");
-          urls = urls + "amadeusurl";
-          urlsnew.push(urls);
+          //urls = urls.replace("fs/","");
+          //urls = urls + "amadeusurl";
+          //urlsnew.push(urls);
           var counter = 1;
           angular.forEach(urlsnew, function(url) {
 
@@ -94,7 +94,7 @@ app.service('flightServiceNew', function($http, $q) {
                   method: 'POST', 
                   url: url,
                   cache: false, 
-                  data: "origin="+data.origin+"&destination="+data.destination+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&lengthofstay="+data.lengthofstay+"&limit="+data.limit+"&outboundflightstops="+data.outboundflightstops+"&outbounddeparturewindow="+data.outbounddeparturewindow+"&includedcarriers="+data.includedcarriers+"&inboundstopduration="+data.inboundstopduration+"&passengercount="+data.adult, 
+                  data: "origin="+data.origin+"&destination="+data.destination+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&lengthofstay="+data.lengthofstay+"&limit="+data.limit+"&outboundflightstops="+data.outboundflightstops+"&outbounddeparturewindow="+data.outbounddeparturewindow+"&includedcarriers="+data.includedcarriers+"&inboundstopduration="+data.inboundstopduration+"&passengercount="+data.adult+"&sortbyval="+data.sortbyval, 
                   headers: headers 
               }) 
               .success(function(data) { 

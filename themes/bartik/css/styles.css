@@ -11340,4 +11340,7 @@ padding: 5px;
 .top-area, .special-area {
 height: auto;
 }
+.layoverpaddingclass{
+  padding-top: 10px;
+}
 /* sw new css ends */
