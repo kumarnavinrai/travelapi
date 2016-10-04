@@ -265,8 +265,16 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
                                 </td>
                            </tr>
                            <tr>
-                                <th class="booking-history-title">Total</th>
+                                <th class="booking-history-title">Total Per Person</th>
                                 <td>$<?php echo $node->field_total_price['und'][0]['value']; ?></td>
+                           </tr>
+                           <tr>
+                                <th class="booking-history-title">No of Passengers</th>
+                                <td><?php echo $node->field_noofpassenger['und'][0]['value']; ?></td>
+                           </tr>
+                           <tr>
+                                <th class="booking-history-title">Grand Total</th>
+                                <td><h5><strong>$<?php echo $node->field_totalpriceofbooking['und'][0]['value']; ?></strong><h5></td>
                            </tr>
                         </tbody>
                 </table>

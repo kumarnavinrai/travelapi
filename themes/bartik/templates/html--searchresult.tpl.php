@@ -1076,8 +1076,7 @@ trk=nav_responsive_tab_profile"></a>
                       console.log($scope.dataforamadeus);
                     }
                    
-                   
-                    
+                        
                     //Decision for no data found in amadeus and saber in insta flights and bargain max
                     var singlearrayofallapi = {};
                     $scope.hasanyresultfound = "no";
@@ -1401,6 +1400,7 @@ trk=nav_responsive_tab_profile"></a>
                     <input name="inboundstopduration" class="cls_layover"  value="<?php echo isset($_REQUEST['inboundstopduration'])?$_REQUEST['inboundstopduration']:""; ?>" />
                     <label>Sort By</label>
                     <input name="sortbyval" class="cls_sortbyval"  value="<?php echo isset($_REQUEST['sortbyval'])?$_REQUEST['sortbyval']:""; ?>" />
+
                   </form>
                 <?php
                 }  

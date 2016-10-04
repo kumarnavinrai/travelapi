@@ -8,7 +8,7 @@
         $bookingdata = json_decode($_REQUEST['saledata']); 
         $adult = isset($bookingdata->adult)?$bookingdata->adult:0;
         $children = isset($bookingdata->children)?$bookingdata->children:0;
-        //echo "<pre>"; print_r($bookingdata); die;
+        
         $nameofmktairline = "";
         $flightarray = array();
         $flightarrayoutbound = array();
@@ -34,8 +34,8 @@
                 $flightarray[$ikey]['layovertime'] = $value->layovertime;
 
                 $totalprice = $bookingdata->totalfare;
-                $priceperadulttotalfare = $bookingdata->totaltax;
-                $priceperadulttax = $bookingdata->totalbeforetax;
+                $priceperadulttotalfare = $bookingdata->totalbeforetax;
+                $priceperadulttax = $bookingdata->totaltax;
 
                 $ikey++;
             }
@@ -475,7 +475,7 @@
                                      </div>
                                         
                                         <div class="col-md-2 col-sm-4">
-                                        <h5 class="sukh-clr">$<?php echo $totalprice; ?></h5>
+                                        <h5 class="sukh-clr">$<?php echo ($totalprice*$adult); ?></h5>
                                         </div>
                                         
                                         <div class="row">

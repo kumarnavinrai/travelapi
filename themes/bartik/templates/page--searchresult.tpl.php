@@ -583,6 +583,7 @@ $themeurl = file_create_url(path_to_theme());
                         
                         <!--<h4>{{xy}}</h4>-->
                         <!--<h4>{{xy.insideflightdata}}</h4>-->
+                          <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
                            <div class="booking-item-container" >
                                 <div class="booking-item">
                                 <span whoami="{{xy.whoami}}" style="display:none;" >{{xy}}</span>

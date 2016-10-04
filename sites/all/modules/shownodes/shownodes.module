@@ -372,7 +372,12 @@ function custom_callback () {
           //field_flightdata[und][0][value] 
           $node->field_flightdata[LANGUAGE_NONE][0]['value'] = $flightdata;
 
-              
+          //noofpassenger
+          $node->field_noofpassenger[LANGUAGE_NONE][0]['value'] = $bookingdata->adult;
+
+          //totalpriceofbooking
+          $node->field_totalpriceofbooking[LANGUAGE_NONE][0]['value'] = ($totalprice * $bookingdata->adult);
+
           $i=1;
           $passengerinfo = array();
           for ($i=1; $i < 51 ; $i++) { 
