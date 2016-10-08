@@ -148,23 +148,90 @@ $('.typeahead').typeahead({
 
 
 
-$('input.date-pick, .input-daterange, .date-pick-inline').datepicker({
-    todayHighlight: true
+//$('input.date-pick, .input-daterange, .date-pick-inline').datepicker({
+   // todayHighlight: true
+//});
+//totay date seletor
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+
+var yyyy = today.getFullYear();
+if(dd<10){
+    dd='0'+dd
+} 
+if(mm<10){
+    mm='0'+mm
+} 
+
+var today = yyyy+'-'+mm+'-'+dd;
+
+//next date seletor
+var tt = today;
+var date = new Date(tt);
+    var newdate = new Date(date);
+
+    newdate.setDate(newdate.getDate() + 7);
+    
+    var dd = newdate.getDate();
+    var mm = newdate.getMonth() + 1;
+    var y = newdate.getFullYear();
+
+    var someFormattedDate =  y + '-' + mm + '-' + dd;
+
+
+
+
+var currentdate = today;
+$('input.date-pick, .input-daterange input[name="start"]').daterangepicker(
+{
+    locale: {
+      format: 'YYYY-MM-DD'
+    },
+    singleDatePicker: true,
+    showDropdowns: true,
+    minDate: currentdate,
+    startDate: currentdate
+}, 
+function(start, end, label) {
+    console.log("A new date range was chosen: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    var tt = start.format('YYYY-MM-DD');
+
+    var date = new Date(tt);
+    var newdate = new Date(date);
+
+    newdate.setDate(newdate.getDate() + 7);
+    
+    var dd = newdate.getDate();
+    var mm = newdate.getMonth() + 1;
+    var y = newdate.getFullYear();
+
+    var someFormattedDate =  y + '-' + mm + '-' + dd;
+    
+
+});
+$('.input-daterange input[name="end"]').daterangepicker(
+{
+    locale: {
+      format: 'YYYY-MM-DD'
+    },
+    singleDatePicker: true,
+    showDropdowns: true,
+    minDate: currentdate,
+    startDate: someFormattedDate
+}, 
+function(start, end, label) {
+    console.log("A new date range was chosen: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
 });
 
-
-
-$('input.date-pick, .input-daterange input[name="start"]').datepicker('setDate', 'today');
-$('.input-daterange input[name="end"]').datepicker('setDate', '+7d');
-
-$('input.time-pick').timepicker({
+/*$('input.time-pick').timepicker({
     minuteStep: 15,
     showInpunts: false
 })
 
 $('input.date-pick-years').datepicker({
     startView: 2
-});
+});*/
 
 
 

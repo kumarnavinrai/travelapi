@@ -170,21 +170,21 @@ $themeurl = file_create_url(path_to_theme());
                     <form method="POST" action="<?php echo isset($_SESSION['urlforform'])?$_SESSION['urlforform']:""; ?>searchresult">		
                       <div class="tabbable">
 					  
-<!-- Added to handle the form -->					  
-<div id="messages" class="fromcity" style="display:none;" >
-From city is required
-</div>	
-<div id="messages" class="tocity" style="display:none;" >
-To city is required
-</div>	
-<div id="messages" class="startdate" style="display:none;" >
-Please choose a start date
-</div>
-<div id="messages" class="enddate" style="display:none;" >
-Please choose a end date
-</div>		
-<p></p>	
-<!-- Finish Here -->		  
+                        <!-- Added to handle the form -->					  
+                        <div id="messages" class="fromcity" style="display:none;" >
+                        From city is required
+                        </div>	
+                        <div id="messages" class="tocity" style="display:none;" >
+                        To city is required
+                        </div>	
+                        <div id="messages" class="startdate" style="display:none;" >
+                        Please choose a start date
+                        </div>
+                        <div id="messages" class="enddate" style="display:none;" >
+                        Please choose a end date
+                        </div>		
+                        <p></p>	
+                        <!-- Finish Here -->		  
                         <ul class="nav nav-pills nav-sm nav-no-br mb10" id="flightChooseTab">
                           <li class="active">
                             <a href="#flight-search-1" class="rtripandowselectorrt" data-toggle="tab">Round Trip</a>
@@ -222,14 +222,14 @@ Please choose a end date
                                   <div class="form-group form-group-lg form-group-icon-left">
                                     <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                     <label>Departing</label>
-                                    <input class="form-control" name="start" type="text" />
+                                    <input class="form-control" class="clsstart" name="start" type="text" />
                                   </div>
                                 </div>
                                 <div class="col-md-3">
                                   <div class="form-group form-group-lg form-group-icon-left">
                                     <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                     <label>Returning</label>
-                                    <input class="form-control" name="end" type="text" />
+                                    <input class="form-control" class="clsend" name="end" type="text" />
                                   </div>
                                 </div>
                                 <div class="col-md-2">

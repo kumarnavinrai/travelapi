@@ -300,3 +300,56 @@ app.filter('split', function() {
             return input.split(splitChar)[splitIndex];
         }
 });
+
+app.directive('validateCcRemotely', function($http) {
+   return {
+     restrict: 'A',
+        //scope: true,
+        require: 'ngModel',
+        link: function(scope, elem, attrs, ctrls) {
+            var ngModel = ctrls;
+            scope.$watch(attrs.ngModel, function(email) {
+            
+            console.log(scope.baseurlofd);
+            console.log(scope.ccairline);
+            console.log(scope.user.typepfcard);
+            console.log(scope.user.ccvth);
+            console.log(scope.user.cc);
+            console.log(scope.faretopass);
+            
+            
+            if(scope.ccairline !== undefined && scope.ccairline !="" && scope.user != undefined && scope.user.typepfcard !== undefined && scope.user.typepfcard != "" && scope.user.ccvth !== undefined &&  scope.user.ccvth != "" && scope.user.cc !== undefined)
+            {
+
+              var ccnum = scope.user.cc;
+              ccnum = ccnum.replace(" ","");
+              ccnum = ccnum.replace(" ","");
+              ccnum = ccnum.replace(" ","");
+
+              var datatosend = scope.ccairline+'##'+scope.user.typepfcard+'##'+scope.user.ccvth+'##'+ccnum+'##'+scope.faretopass;
+              var datatopass = Base64.encode(datatosend);
+              var url = scope.baseurlofd+'/phpsaber/validatecc.php?data='+datatopass;
+              console.log(url);
+              $http.get(url)
+             .then(function(data) {
+                if(data.data.Success!==undefined)
+                {
+                  scope.ccvalid ='yes';
+                }
+
+                if(data.data.Error!==undefined)
+                {
+                  scope.ccvalid = 'no';
+                  scope.ccmsg = data.data.Error;
+                }
+              }, function(error) {
+                   ngModel.$setValidity('validEmail', false);
+              });
+            }
+            
+            
+            
+          });
+        }
+  }
+});

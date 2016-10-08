@@ -315,7 +315,8 @@ $themeurl = file_create_url(path_to_theme());
 
                 
             ?>
-            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from <?php echo isset($fromairportcode)&&$fromairportcode?$listwithcode[$fromairportcode]:""; ?> to <?php echo isset($toairportcode)&&$toairportcode?$listwithcode[$toairportcode]:""; ?> for <?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?> Adults , <?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?> Children<small><!--<a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a>--></small></h3>
+            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; } if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?> Adults , <?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?> Children<small><!--<a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a>--></small></h3>
+
             <div class="row">
                 <div class="col-md-3">
                     <aside class="booking-filters text-white">
@@ -577,6 +578,7 @@ $themeurl = file_create_url(path_to_theme());
                    
                     <!-- Amadeus search serch start -->
                     <h1 style="display:none;">Amadeus</h1>
+                   
                     <li class="amadeusresult"  ng-repeat="xy in dataforamadeus" >
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->
                         <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->

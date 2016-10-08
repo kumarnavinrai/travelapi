@@ -128,6 +128,52 @@
             $usermobilephone = "";
             $usermail = ""; 
         }    
+
+    
+        if(isset($flightarray) && $flightarray)
+        {
+            $firstflightdetails = reset($flightarray);
+            
+                $flightnotopass = $firstflightdetails["flightno"];
+                $departuretimetopass =  substr($firstflightdetails["depart"],5,12);
+                $arrivaltimetopass = substr($firstflightdetails["arrives"],5,12);;
+                $mktairlinepass = explode(".", $firstflightdetails["logoofairline"]);
+                $mktairlinepass = reset($mktairlinepass);
+                $originalocationtopass = substr($firstflightdetails["originairport"],strpos($firstflightdetails["originairport"], "(")+1,3);
+                $destinationlocationtopass = substr($firstflightdetails["destinationairport"],strpos($firstflightdetails["destinationairport"], "(")+1,3);
+
+                //$pathoffile = realpath("./");
+                //$pathoffile = $pathoffile."\/"."phpsaber"."\/";
+                //require_once $pathoffile.'workflow\/Workflow.php';
+                //require_once $pathoffile.'soap_activities\/VerifyFlightDetailsSoapActivity.php';
+
+                $datatopass = array("departuretime"=>$departuretimetopass,"flightno"=>$flightnotopass,"destinationlocation"=>$destinationlocationtopass,"originlocation"=>$originalocationtopass,"marketingairline"=>$mktairlinepass);
+                
+                global $base_url;
+                
+                $urltosendrequest = $base_url."/phpsaber/validateflight.php";
+                
+                $urltosendrequest = $urltosendrequest.'?'.http_build_query($datatopass, '', '&');
+                $result = file_get_contents($urltosendrequest);
+                
+                $flightdetailsresponse = json_decode($result);
+
+                //$urltosendrequest = $base_url."/phpsaber/getflightdetails.php";
+                
+                //$urltosendrequest = $urltosendrequest.'?'.http_build_query($datatopass, '', '&');
+                //$result = file_get_contents($urltosendrequest);
+                
+                //echo "<pre>"; print_r($flightdetailsresponse); die;                
+        }    
+
+
+        
+       //if(!isset($flightdetailsresponse))
+       //{
+        //echo "<h1>Please try another flight as this flight is fully booked. !!!</h1>"; die;
+       //}    
+
+
       
    ?>
     <div class="gap"></div>
@@ -196,7 +242,7 @@
                                             <p><?php echo $value['stops']; ?></p>
                                         </div>
                                         
-                                        <div class="col-md-3"><span class="booking-item-price"><?php if($key == 0){ ?>$<?php echo $value['fare']; ?><?php } ?></span>
+                                        <div class="col-md-3"><span class="booking-item-price" <?php if($key == 0){ ?>ng-init="faretopass='<?php echo $value['fare']; ?>'"<?php } ?> ><?php if($key == 0){ ?>$<?php echo $value['fare']; ?><?php } ?></span>
 
                                         <span></span><br>
                                         <span><?php if($value['layovertime']!=0){ ?>Layover: <?php echo $value['layovertime']; ?><?php } ?></span><br>
@@ -504,14 +550,15 @@
                             
                             <form name="userFormcc" class="cc-form userFormcccls">
                             <input type="text" class="form-control donotshowthis userFormccValid" name="userFormccfv" ng-model="userFormcc.$invalid" value="{{userFormcc.$invalid}}" />
-                                <div class="clearfix col-md-12">
+                                <div class="clearfix col-md-12" >
                                     <div class="form-group form-group-cc-number col-md-6">
-                                        <label>Payment Method</label>
-                                        <select name="typepfcard" class="form-control">
-                                        <option>Visa</option>
-                                        <option>Mestro</option>
-                                        <option>American Express</option>
-                                        <option>Diners Club</option>
+                                        <label ng-init="user.typepfcard='VI'">Payment Method</label>
+                                        <select name="typepfcard" ng-model="user.typepfcard" required class="form-control">
+                                        <option value="VI">Visa</option>
+                                        <option value="CA">Master Card</option>
+                                        <option value="AX">American Express</option>
+                                        <option value="DS">Discover</option>
+                                        <option value="DC">Diners Club</option>
                                         </select>
                                     </div>
                                     
@@ -526,15 +573,21 @@
                                 </div>
                                 
                                 
-                    <div class="clearfix col-md-8">
+                    <div ng-init="baseurlofd = '<?php echo $base_url; ?>'" class="clearfix col-md-8">
                     
-                                <div class="form-group form-group-cc-number col-md-6">
-                                  <label>Credit or Debit Card Number</label>
+                                <div ng-init="ccvalid='no'" class="form-group form-group-cc-number col-md-6">
+                                  <label ng-init="ccairline='<?php echo $mktairlinepass; ?>'">Credit or Debit Card Number</label>
                                   <input type="text" class="form-control donotshowthis" name="userFormccfv" ng-model="userFormcc.$invalid" value="{{userFormcc.$invalid}}" />
-                                  <input class="form-control" placeholder="xxxx xxxx xxxx xxxx" name="cc" type="text"  ng-model="user.cc" ng-minlength="19" ng-maxlength="19" required />
+                                  <input class="form-control" placeholder="xxxx xxxx xxxx xxxx" name="cc" type="text"   ng-model="user.cc" ng-minlength="19" ng-maxlength="19" validate-cc-remotely required />
                                   
                                    
-
+                                    <p class="sukh_alert" ng-show="ccvalid=='no'">
+                                      Credit card must be valid. !!
+                                   </p>
+                                   <p class="sukh_alert" ng-hide="ccvalid=='yes'" ng-show="ccmsg!=undefined">
+                                      {{ccmsg}}
+                                   </p>
+                                   
                                     <!-- show an error if username is too short -->
                                     <p class="sukh_alert" ng-show="userFormcc.cc.$error.minlength">16 digit cc no. required.</p>
 
@@ -550,7 +603,7 @@
                                     <div class="form-group form-group-cc-cvc col-md-6">
                                         <label>CVV</label>
                                         
-                                        <input class="form-control" placeholder="xxxx" name="ccv" type="text"  ng-model="user.ccv" ng-minlength="3" ng-maxlength="4" required />
+                                        <input class="form-control" placeholder="xxxx" name="ccv" type="text"  ng-model="user.ccv" ng-minlength="3" ng-maxlength="4"  required />
                                   
                                    
 
@@ -571,7 +624,6 @@
                                         <label>Cardholder Name</label>
                                         <input class="form-control" placeholder="Card Holder Name." name="ccn" type="text"  ng-model="user.ccn" ng-minlength="3" ng-maxlength="25" required />
                                   
-                                   
 
                                         <!-- show an error if username is too short -->
                                         <p class="sukh_alert" ng-show="userFormcc.ccn.$error.minlength">Card holder name min 3 characters.</p>
@@ -585,7 +637,7 @@
                                     
                                     <div class="form-group form-group-cc-date col-md-6">
                                         <label>Valid Thru</label>
-                                        <input class="form-control" placeholder="mm/yy" type="text" name="ccvth" ng-model="user.ccvth" ng-minlength="5" ng-maxlength="10" required />
+                                        <input class="form-control" placeholder="mm/yy" type="text" name="ccvth" ng-model="user.ccvth" ng-minlength="7" ng-maxlength="10" validate-cc-remotely required />
                                                <!-- show an error if username is too short -->
                                         <p class="sukh_alert" ng-show="userFormcc.ccvth.$error.minlength">CC Valid Till required.</p>
 
@@ -631,7 +683,7 @@
                                         <label>Country</label>
 
                                         <select name="country" class="form-control">
-                                        <option value="AF">Afghanistan</option>
+                                        <!--<option value="AF">Afghanistan</option>
                                         <option value="AX">Aland Islands</option>
                                         <option value="AL">Albania</option>
                                         <option value="DZ">Algeria</option>
@@ -864,10 +916,12 @@
                                         <option value="TV">Tuvalu</option>
                                         <option value="UG">Uganda</option>
                                         <option value="UA">Ukraine</option>
-                                        <option value="AE">United Arab Emirates</option>
+                                        <option value="AE">United Arab Emirates</option>-->
+                                        <option value="AU">Australia</option>
+                                        <option value="CA">Canada</option>
                                         <option value="GB">United Kingdom</option>
                                         <option value="US">United States</option>
-                                        <option value="UM">United States Minor Outlying Islands</option>
+                                        <!--<option value="UM">United States Minor Outlying Islands</option>
                                         <option value="UY">Uruguay</option>
                                         <option value="UZ">Uzbekistan</option>
                                         <option value="VU">Vanuatu</option>
@@ -879,7 +933,7 @@
                                         <option value="EH">Western Sahara</option>
                                         <option value="YE">Yemen</option>
                                         <option value="ZM">Zambia</option>
-                                        <option value="ZW">Zimbabwe</option>
+                                        <option value="ZW">Zimbabwe</option>-->
                                         </select>
                                     </div>
                                     
@@ -1069,7 +1123,8 @@ Please also confirm that the dates and times of flight departures are accurate. 
             MACP (Major Airlines Cancelation Policy), is a customer protection program offered by Travel Painters that assures total customer satisfaction with each airfare purchase. You can now cancel your flight booking within 24 hours - 100% free of charge. With LookUpFare you can enjoy the benefits of MACP), and can cancel your ticket with a full refund within 24 hours after booking - no questions asked! For the low price of $14.99, you can rest easy as Travelpainters will refund 100% of the ticket cost. Key Features of MACP Allows you to cancel your booking for any reason within 24 hours without any penalty Cancel & reebok your flights within the same day without any penalty if there is a drop in price Free Seat Assignments for certain Airlines, qualifying rules and regulations apply Name changes are not allowed according to Airlines Policies, but some airlines allow minor corrections, usually involving 2-3 characters free of charge (Specific airline conditions applies) Low cost for high convenience - just $14.99 per person! MACP Terms & Conditions MACP Fees are added per pax and not per ticket This program is available to all Travelpainters customers If you are not interested in the program you can just click the 'NO' button, the extra charge of $14.99 won't be calculated in your total ticket fare If you are cancelling your flight ticket within 24 hours of the booking, 100% of your ticket value is refunded, (excluding $14.99 the MACP Fee) By adding the MACP, you also agree to all of Travelpainters Terms and Conditions: This program is not applicable if your flight is with a low cost carrier (ticketless carrier) like Spirit Airlines or Frontier Airlines and if your travel is scheduled in the next 7 days You can apply for a cancelation and refund with us if the fare rules are applicable Refunds are not applicable if you're a "no show". "No Show" refers to the state where the passenger at the time of boarding does not show up and provides no warning to the airlines. We can accept refund requests only if we are able to secure waivers from the Airline to confirm that the following conditions have been met.
             </p>
             <P align="center">By clicking BOOK, I agree that I have read and accepted Travelpainters.com's Terms and Conditions and Privacy Policy.</P>
-            <input class="btn btn-primary book_btn" type="submit" value="Book" />
+            <P align="center">If you do not see Book Flight button check your credit card and its validity.</P>
+             <input class="btn btn-primary book_btn" type="submit" /*ng-show="ccvalid=='yes'"*/ value="Book" />
             </div>
             <div class="gap"></div>
             

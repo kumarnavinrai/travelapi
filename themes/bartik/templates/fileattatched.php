@@ -1,0 +1,21 @@
+<script src="<?php echo $themeurl; ?>/js/jquery.js"></script>
+<script src="<?php echo $themeurl; ?>/js/bootstrap.js"></script>
+<script src="<?php echo $themeurl; ?>/js/slimmenu.js"></script>
+<script src="<?php echo $themeurl; ?>/js/bootstrap-datepicker.js"></script>
+<script src="<?php echo $themeurl; ?>/js/bootstrap-timepicker.js"></script>
+<script src="<?php echo $themeurl; ?>/js/nicescroll.js"></script>
+<script src="<?php echo $themeurl; ?>/js/dropit.js"></script>
+<script src="<?php echo $themeurl; ?>/js/ionrangeslider.js"></script>
+<script src="<?php echo $themeurl; ?>/js/icheck.js"></script>
+<script src="<?php echo $themeurl; ?>/js/fotorama.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script src="<?php echo $themeurl; ?>/js/typeahead.js"></script>
+<script src="<?php echo $themeurl; ?>/js/card-payment.js"></script>
+<script src="<?php echo $themeurl; ?>/js/magnific.js"></script>
+<script src="<?php echo $themeurl; ?>/js/owl-carousel.js"></script>
+<script src="<?php echo $themeurl; ?>/js/fitvids.js"></script>
+<script src="<?php echo $themeurl; ?>/js/tweet.js"></script>
+<script src="<?php echo $themeurl; ?>/js/countdown.js"></script>
+<script src="<?php echo $themeurl; ?>/js/gridrotator.js"></script>
+<script src="<?php echo $themeurl; ?>/js/custom.js"></script>
+<script src="<?php echo $themeurl; ?>/js/switcher.js"></script>

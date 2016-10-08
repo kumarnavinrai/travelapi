@@ -183,113 +183,11 @@ $noofresultonpage = 50;
 
 
     <div class="collapse navbar-collapse js-navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="dropdown mega-dropdown">
-          <a href="<?php echo $urlofwp; ?>destinations" class="dropdown-toggle" data-toggle="dropdown">DESTINATIONS<i class="fa fa-sort-desc sukh" aria-hidden="true"></i></a>
-
-          <ul class="dropdown-menu mega-dropdown-menu row">
-           
-            <li class="col-sm-2">
-              <ul>
-                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>destinations-packages/europe/" >Europe</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/amsterdam/">Amsterdam</a></li>
-          <li><a href="<?php echo $urlofwp; ?>packages/berlin/">Berlin</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/hallstatt/">Hallstatt</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/lille-france/">Lille,France</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/london/">London</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/sicily-italy/">Sicily,Italy</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/cinque-terre/">Cinque Terre,Italy</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/rome-2/">Rome</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/greek-island/">The Greek Islands</a></li>
-              </ul>
-            </li>
-            <li class="col-sm-2">
-              <ul>
-                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>destinations-packages/africa/">Africa</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/port-elizabeth/">Port Elizabeth</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/livingstone-island/">Livingstone Islands</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/pyramids-of-giza/">pyramids of Giza</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/mombasa/">Monbasa</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/port-elizabeth">Casablanca</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/alexandria-2/">Alexandria</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/okavango-delta/">Okavango Delta</a></li>
-                
-              </ul>
-            </li>
-            <li class="col-sm-2">
-              <ul>
-                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>destinations-packages/asia/">Aisa</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/andaman-islands/">Andaman islands</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/mie-prefecture-2/">Mie Prefecture</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/taipei-taiwan/">Taipei Taiwan </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/hangzhou/">Hangzhou,China</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/dubai/">Dubai</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/tokyo/">Tokoyo</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/hong-kong/">Hong Kong</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/shanghai/">Shanghai</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/beijing/">Beizing </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/seoul/">Seoul</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/kuala-lumpur/">Kuala Lunpur</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/siberia/">Sideria </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/new-delhi/">New Delhi</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/bangkok-trip/">Bangkok</a></li>
-              </ul>
-            </li>
-       <li class="col-sm-2">
-              <ul>
-                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>destinations-packages/america/">South America</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/chiloe-chile/">Chiloe,Chile</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/santiago-chile/">Santiago,Chile</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/rio-de-janeiro/">Rio De janeiro </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/mar-del-plata/">Mar Del Plata</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/lake-titicaca/">Lake Titicaca</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/peru/">Peru</a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/venezuela/">Venezuela</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/argentina/">Argentina</a></li>
-              </ul>
-            </li>
-       <li class="col-sm-2">
-              <ul>
-                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>destinations-packages/america/">North America</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/san-antonio-texas/">San Antonio</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/alcatraz/">Alcatraz</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/volcan-paricutin/">Volcan Paricutin</a></li>
-         <li><a href="<?php echo $urlofwp; ?>packages/aspen-and-the-roaring-fork-valley/">Aspen And Fork Velley</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/los-angeles-vacation/">Los Angeless</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/florida-keys-vacation/">Florita </a></li>
-         <li><a href="<?php echo $urlofwp; ?>packages/new-york/">New York</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/hearst-san-simeon-state-historic-monument/">Hearst San Simeon</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/cuba/">Cuba </a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/bishop-museum/">Bishop Museum</a></li>
-              </ul>
-            </li>
-       <li class="col-sm-2">
-              <ul>
-                <li class="dropdown-header"><a href="<?php echo $urlofwp; ?>destinations-packages/oceania/">Oceania</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/tasmania/">Tasmania</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/kangaroo-island/">Kangaroo Islands</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/fraser-island/">Fraser Islands </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/fiji/">Fiji</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/adelaide/">Adelaite,Austrila</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/sydney/">Sydney,Austrila </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/perth/">Perth,Austrila</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/brisbane/">Brisbane,Austrila</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/melbourne/">Melbourne,Austrila </a></li>
-        <li><a href="<?php echo $urlofwp; ?>packages/darwin/">Darwin,Austrila</a></li>
-                <li><a href="<?php echo $urlofwp; ?>packages/polynesia/">Polynesia</a></li>
-              </ul>
-            </li>
-      </ul>
-    </li>
-    <li ><a href="#">FLIGHTS</a> </li>
-                <li><a href="#">HOTELS</a> </li>
-                                <li><a href="<?php echo $urlofwp; ?>insurance/">INSURANCE</a></li>
-                                <li><a href="<?php echo $urlofwp; ?>cars/">CARS</a></li>
-                                <li><a href="about.php">ABOUT US</a> </li>
-                               
-                                <li><a href="<?php echo $urlofwp; ?>contacts/">CONTACT US</a></li>
-    
-    </ul>
+      <?php 
+        $pathoffile = realpath(__DIR__);
+        //echo $pathoffile; die;
+        require_once $pathoffile."\/"."menu.php"
+      ?>
    
     </div>
     <!-- /.nav-collapse -->
@@ -300,62 +198,11 @@ $noofresultonpage = 50;
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
-  <footer id="main-footer">
-            <div class="container">
-                <div class="row row-wrap">
-                    <div class="col-md-3">
-                        <a class="logo" href="<?php echo $themeurl; ?>/index.html">
-                            <img src="<?php echo $themeurl; ?>/img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
-                        </a>
-                        <p class="mb20">Booking, reviews and advices on hotels, resorts, flights, vacation rentals, travel packages, and lots more!</p>
-                        <ul class="list list-horizontal list-space">
-                            <li>
-                                <a class="fa fa-facebook box-icon-normal round animate-icon-bottom-to-top" href="https://www.facebook.com/Travel-Painters-306631056363730/"></a>
-                            </li>
-                            <li>
-                                <a class="fa fa-twitter box-icon-normal round animate-icon-bottom-to-top" href="https://twitter.com/travelpainters"></a>
-                            </li>
-                            <li>
-                                <a class="fa fa-google-plus box-icon-normal round animate-icon-bottom-to-top" href="https://plus.google.com/u/0/102787608504703821299"></a>
-                            </li>
-                            <li>
-                                <a class="fa fa-linkedin box-icon-normal round animate-icon-bottom-to-top" href="https://www.linkedin.com/in/travel-painters-955359128?
-trk=nav_responsive_tab_profile"></a>
-                            </li>
-                            
-                        </ul>
-                    </div>
-
-                    <div class="col-md-3">
-                        <h4>Newsletter</h4>
-                        <form>
-                            <label>Enter your E-mail Address</label>
-                            <input type="text" class="form-control">
-                            <p class="mt5"><small>*We Never Send Spam</small>
-                            </p>
-                            <input type="submit" class="btn btn-primary" value="Subscribe">
-                        </form>
-                    </div>
-                    <div class="col-md-2">
-                        <ul class="list list-footer">
-                            <li><a href="about.php">About US</a>
-                            </li>
-                            <li><a href="#">Privacy Policy</a>
-                            </li>
-                            <li><a href="#">Terms of Use</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <h4>Have Questions?</h4>
-                        <h4 class="text-color">1-888-417-0446</h4>
-                        <h4><a href="#" class="text-color">support@travelpainters.com</a></h4>
-                        <p>24/7 Dedicated Customer Support</p>
-                    </div>
-
-                </div>
-            </div>
-        </footer>
+  <?php 
+        $pathoffile = realpath(__DIR__);
+        //echo $pathoffile; die;
+        require_once $pathoffile."\/"."footer.php"
+  ?>
 
         <script src="<?php echo $themeurl; ?>/js/jquery.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
@@ -378,9 +225,15 @@ trk=nav_responsive_tab_profile"></a>
         <script src="<?php echo $themeurl; ?>/js/gridrotator.js"></script>
         <script src="<?php echo $themeurl; ?>/js/switcher.js"></script>
         <script src="<?php echo $themeurl; ?>/js/ac.js"></script>
-        <script src="<?php echo $themeurl; ?>/js/custom.js"></script>
+   
+    
         <script src="<?php echo $themeurl; ?>/js/moment.min.js"></script>
         <script src="<?php echo $themeurl; ?>/js/angular-moment.min.js"></script>
+
+                <!-- Include Date Range Picker -->
+        <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+        <script src="<?php echo $themeurl; ?>/js/custom.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
                 <?php if(isset($_REQUEST['outboundflightstops']) && $_REQUEST['outboundflightstops'] != ""){ ?>
