@@ -192,7 +192,10 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
                                 <th class="booking-history-title">PNR</th>
                                 <td>
                                   <?php 
-                                    echo $node->field_pnr['und'][0]['value'];
+                                    if(isset($node->field_pnr['und']))
+                                    {
+                                      echo $node->field_pnr['und'][0]['value'];
+                                    } 
                                   ?>
                                 </td>
                            </tr>
