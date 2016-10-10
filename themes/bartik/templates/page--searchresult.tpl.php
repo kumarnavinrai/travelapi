@@ -249,39 +249,38 @@ $themeurl = file_create_url(path_to_theme());
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
+                                            <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                             <label>Departing</label>
-                                            <input class="date-pick form-control" data-date-format="MM d, D" type="text" />
+                                            <input class="date-pick form-control" name="departing" data-date-format="M d, D" type="text" />
                                         </div>
                                     </div>
                                    <div class="col-md-2">
                                                                             <div class="form-group form-group-lg">
                                                                                 
                                                                                 
-                                        <label>Adults(+18)</label>
-                                                                                
-                                        
-                                        <select class="form-control" >
+                                         <label>Adults</label>
+                                        <select name="adultow" class="form-control">
                                           <option value="1">1</option>
-                                         <option value="2">2</option>
+                                          <option value="2">2</option>
                                           <option value="3">3</option>
-                                          <option value="3">4</option>
-                                          <option value="3">5</option>
-                                          <option value="3">6</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                          <option value="6">6</option>
                                         </select>
-                                                                            </div>
+                                                                                </div>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <div class="form-group form-group-lg form-group-select-plus">
-                                      <label>Childs(0-17)</label>
-                                                                            <select class="form-control" >
-                                          <option value="0">0</option>
-                                          <option value="1">1</option>
-                                         <option value="2">2</option>
-                                          <option value="3">3</option>
-                                          <option value="3">4</option>
-                                          <option value="3">5</option>
-                                          <option value="3">6</option>
-                                        </select>
+                                                <label>Childs(0-11)</label>
+                                                <select name="childrenow" class="form-control widthofowsel">
+                                                  <option value="0">0</option>
+                                                  <option value="1">1</option>
+                                                  <option value="2">2</option>
+                                                  <option value="3">3</option>
+                                                  <option value="4">4</option>
+                                                  <option value="5">5</option>
+                                                  <option value="6">6</option>
+                                                </select>
                                       </div>
                                      
                                     </div>
@@ -289,7 +288,7 @@ $themeurl = file_create_url(path_to_theme());
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary btn-lg" type="submit">Search for Flights</button>
+                    <button class="btn btn-primary btn-lg bt-change-search" type="submit">Search for Flights</button>
                 </form>
             </div>
             <?php
@@ -1828,3 +1827,313 @@ $themeurl = file_create_url(path_to_theme());
 
 </div></div> <!-- /#page, /#page-wrapper -->
 <?php */ ?>
+<script type="text/javascript">
+  $(document).ready(function(){
+  
+  
+        $('.rtripandowselectorow').on('click',function(e)
+        {
+          $('.tocity').hide();
+          $('.fromcity').hide();
+          $('.startdate').hide();
+          $('.enddate').hide();
+        });
+        
+      $('.rtripandowselectorrt').on('click',function(e)
+        {
+          $('.tocity').hide();
+          $('.fromcity').hide();
+          $('.startdate').hide();
+          $('.enddate').hide();
+        });
+      
+          
+    $('.nav_search_for_flights').on('click',function(e){
+      if ($('#flight-search-1').hasClass('active')){
+  
+    /* Added to handle and display the form so that user inputs all the required information to process successfully */
+  
+        
+    if($("input[name=from]").val() == "" && $("input[name=to]").val() == "" && $("input[name=start]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+          $(".fromcity").fadeIn();
+      $(".tocity").fadeIn();
+      $(".startdate").fadeIn(); 
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }
+    
+    else if($("input[name=from]").val() == "" && $("input[name=to]").val() == "" && $("input[name=start]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+          $(".fromcity").fadeIn();
+      $(".tocity").fadeIn();
+      $(".startdate").fadeIn();     
+          e.preventDefault();
+        }
+    
+    else if($("input[name=from]").val() == "" && $("input[name=to]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+          $(".fromcity").fadeIn();
+      $(".tocity").fadeIn();
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }
+
+    else if($("input[name=from]").val() == "" && $("input[name=start]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+          $(".fromcity").fadeIn();
+      $(".startdate").fadeIn();
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }
+
+    else if($("input[name=to]").val() == "" && $("input[name=start]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+          $(".tocity").fadeIn();
+      $(".startdate").fadeIn();
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }     
+    
+    else if($("input[name=from]").val() == "" && $("input[name=to]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+    
+          $(".fromcity").fadeIn();
+      $(".tocity").fadeIn();    
+          e.preventDefault();
+        }
+    
+    else if($("input[name=start]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".startdate").fadeIn(); 
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }
+    
+    else if($("input[name=from]").val() == "" && $("input[name=start]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".fromcity").fadeIn();  
+      $(".startdate").fadeIn();   
+          e.preventDefault();
+        }
+    
+    else if($("input[name=from]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".fromcity").fadeIn();  
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }
+    
+    else if($("input[name=to]").val() == "" && $("input[name=start]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".tocity").fadeIn();  
+      $(".startdate").fadeIn();   
+          e.preventDefault();
+        }
+    
+    else if($("input[name=to]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".tocity").fadeIn();  
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }
+  
+    else if($("input[name=from]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".fromcity").fadeIn();  
+          e.preventDefault();
+        }
+    
+    else if($("input[name=to]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".tocity").fadeIn();  
+          e.preventDefault();
+        }
+    
+    else if($("input[name=start]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".startdate").fadeIn();  
+          e.preventDefault();
+        }
+    
+    else if($("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".enddate").fadeIn();  
+          e.preventDefault();
+        }
+ /* End here*/  
+  
+        $("input[name=rfrom]").val("");
+        $("input[name=tfrom]").val("");
+      }    
+
+    
+      if ($('#flight-search-2').hasClass('active')){
+    
+        /* Added to handle and display the form so that user inputs all the required information to process successfully */
+  
+        
+    if($("input[name=rfrom]").val() == "" && $("input[name=tfrom]").val() == "" && $("input[name=departing]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      
+          $(".fromcity").fadeIn();
+      $(".tocity").fadeIn();
+      $(".startdate").fadeIn();     
+          e.preventDefault();
+        }
+        
+    else if($("input[name=rfrom]").val() == "" && $("input[name=tfrom]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+    
+          $(".fromcity").fadeIn();
+      $(".tocity").fadeIn();    
+          e.preventDefault();
+        }
+    
+    else if($("input[name=rfrom]").val() == "" && $("input[name=departing]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      
+      $(".fromcity").fadeIn();
+      $(".startdate").fadeIn(); 
+ 
+          e.preventDefault();
+        }
+    
+    else if($("input[name=tfrom]").val() == "" && $("input[name=departing]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      
+      $(".tocity").fadeIn();  
+      $(".startdate").fadeIn();   
+          e.preventDefault();
+        }
+    
+  
+    else if($("input[name=rfrom]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".fromcity").fadeIn();  
+          e.preventDefault();
+        }
+    
+    else if($("input[name=tfrom]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".tocity").fadeIn();  
+          e.preventDefault();
+        }
+    
+    else if($("input[name=departing]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".startdate").fadeIn();  
+          e.preventDefault();
+        }
+    
+ /* End here*/  
+    
+
+        $("input[name=from]").val("");
+        $("input[name=to]").val("");
+      }    
+        
+    });
+  });
+</script>

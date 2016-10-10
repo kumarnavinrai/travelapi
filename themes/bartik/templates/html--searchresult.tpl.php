@@ -69,7 +69,7 @@ elseif(strpos($base_url, "travelpainters.com"))
 }
 
 
-$noofresultonpage = 50;
+$noofresultonpage = 200;
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
@@ -127,6 +127,19 @@ $noofresultonpage = 50;
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; */?>
+  <script type="text/javascript">
+  <?php if(strpos($base_url, "travelpainters.com"))
+        { ?>
+    //var urlforapi = "http://127.0.0.1:1337/";
+    var urlforapi = "http://104.168.102.222:1337/";
+  <?php } ?>  
+  <?php if(strpos($base_url, "travelpainters.local"))
+        { ?>
+    var urlforapi = "http://127.0.0.1:1337/";
+    //var urlforapi = "http://104.168.102.222:1337/";
+  <?php } ?>  
+    
+  </script>
 </head>
 <body data-ng-init="init()"  class="<?php print $classes; ?>" <?php print $attributes;?>>
 <header id="main-header">
@@ -982,7 +995,7 @@ $noofresultonpage = 50;
 
                 flightServiceNew.loadDataFromUrls(urltogetFlights,postData).then(function (datanew) {
                     maskedfuncoff();
-                    
+                    $scope.totalnoofresultsfound = 0;
                    
                     if(datanew[0] != undefined && datanew[0].data != undefined && datanew[0].data.amadeusresult != undefined){
                       $scope.dataforamadeus = datanew[0].data.amadeusresult;
