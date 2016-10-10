@@ -1124,7 +1124,7 @@ Please also confirm that the dates and times of flight departures are accurate. 
             </p>
             <P align="center">By clicking BOOK, I agree that I have read and accepted Travelpainters.com's Terms and Conditions and Privacy Policy.</P>
             <P align="center">If you do not see Book Flight button check your credit card and its validity.</P>
-             <input class="btn btn-primary book_btn" type="submit" /*ng-show="ccvalid=='yes'"*/ value="Book" />
+             <input class="btn btn-primary book_btn" type="submit" ng-show="ccvalid=='yes'" value="Book" />
             </div>
             <div class="gap"></div>
             

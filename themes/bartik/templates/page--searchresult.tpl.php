@@ -321,7 +321,7 @@ $themeurl = file_create_url(path_to_theme());
             <div class="row">
                 <div class="col-md-3">
                     <aside class="booking-filters text-white">
-                        <h3>Filter By:<button class="btn btn-primary fliter_apply">Apply</button></h3>
+                        <h3>Filter By<!--:<button class="btn btn-primary fliter_apply">Apply</button>--></h3>
                         <ul class="list booking-filters-list">
                             <li class="checkboxesli">
                                 <h5 class="booking-filters-title">Stops <small></small></h5>
@@ -355,15 +355,15 @@ $themeurl = file_create_url(path_to_theme());
                                 <h5 class="booking-filters-title">Departure Time</h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="05001159" type="checkbox" />Morning (5:00a - 11:59a)</label>
+                                        <input class="i-check checkbox_dt" value="05001159" ng-click="filterFuncTime('05001159')" type="checkbox" />Morning (5:00a - 11:59a)</label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="12001759" type="checkbox" />Afternoon (12:00p - 5:59p)</label>
+                                        <input class="i-check checkbox_dt" value="12001759" ng-click="filterFuncTime('12001759')" type="checkbox" />Afternoon (12:00p - 5:59p)</label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="18002359" type="checkbox" />Evening (6:00p - 11:59p)</label>
+                                        <input class="i-check checkbox_dt" value="18002359" ng-click="filterFuncTime('18002359')" type="checkbox" />Evening (6:00p - 11:59p)</label>
                                 </div>
                             </li>
                             <!--<li>
@@ -374,32 +374,32 @@ $themeurl = file_create_url(path_to_theme());
                                 <h5 class="booking-filters-title">Airlines <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox"  value="VX" />Virgin America<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('VX')" value="VX" />Virgin America<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="DL" />Delta Air Lines<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('DL')" value="DL" />Delta Air Lines<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="UA" />United Airlines<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('UA')" value="UA" />United Airlines<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="AA" />American Airlines<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('AA')" value="AA" />American Airlines<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="B6" />jetBlue Airways<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('B6')" value="B6" />jetBlue Airways<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="AC" />Air Canada<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('AC')" value="AC" />Air Canada<span class="pull-right"></span>
                                     </label>
                                 </div>
                             </li>
@@ -407,47 +407,47 @@ $themeurl = file_create_url(path_to_theme());
                                 <h5 class="booking-filters-title">Waiting Time <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="1" />1hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(1)" value="1" />1hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="2" />2hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(2)" value="2" />2hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="3" />3hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(3)" value="3" />3hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="4" />4hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(4)" value="4" />4hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="5" />5hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(5)" value="5" />5hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="6" />6hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(6)" value="6" />6hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="7" />7hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(7)" value="7" />7hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="8" />8hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(8)" value="8" />8hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="9" />9hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(9)" value="9" />9hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                             </li>

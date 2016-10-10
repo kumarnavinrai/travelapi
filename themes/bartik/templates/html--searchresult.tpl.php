@@ -595,7 +595,6 @@ $noofresultonpage = 50;
                         //filghtCtrlId
                         //calling angular function here
                         if(elementoscheckbox.is(':checked')===true){
-
                           angular.element(document.getElementById('filghtCtrlId')).scope().filterFunc(valueofcheckedcheckbox);
                         }else if(elementoscheckbox.is(':checked')===false){
                           angular.element(document.getElementById('filghtCtrlId')).scope().filterFunc("");
@@ -624,7 +623,17 @@ $noofresultonpage = 50;
                     if($(this).siblings('.checkbox_dt').length == 1){
                         
                         var valueofcheckedcheckbox = $(this).siblings('.checkbox_dt').val();
+
+                        var elementoscheckbox = $(this).siblings('.checkbox_dt');
                         $('.cls_departure').val(valueofcheckedcheckbox);
+
+                        //filghtCtrlId
+                        //calling angular function here
+                        if(elementoscheckbox.is(':checked')===true){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncTime(valueofcheckedcheckbox);
+                        }else if(elementoscheckbox.is(':checked')===false){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncTime("");
+                        }
                         //$('.formforfilters').submit();
                         $('.departtimecheckboxes .checkbox_dt').each(function() {
 
@@ -646,8 +655,18 @@ $noofresultonpage = 50;
 
 
                     if($(this).siblings('.cls_airline').length == 1){
-                        
+
+
+                          
                         var valueofcheckedcheckbox = $(this).siblings('.cls_airline').val();
+                        var elementoscheckbox = $(this).siblings('.cls_airline');
+                        //filghtCtrlId
+                        //calling angular function here
+                        if(elementoscheckbox.is(':checked')===true){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncAirlines(valueofcheckedcheckbox);
+                        }else if(elementoscheckbox.is(':checked')===false){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncAirlines("");
+                        }
                                                 
                         if($(this).parent('.i-check').hasClass("checked") && $(this).siblings('.cls_airline').prop("checked") == true){
                             
@@ -694,6 +713,14 @@ $noofresultonpage = 50;
                         
                         var valueofcheckedcheckbox = $(this).siblings('.layoverchkbox').val();
                         $('.cls_layover').val(valueofcheckedcheckbox);
+                        var elementoscheckbox = $(this).siblings('.layoverchkbox');
+                        //filghtCtrlId
+                        //calling angular function here
+                        if(elementoscheckbox.is(':checked')===true){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncLayover(valueofcheckedcheckbox);
+                        }else if(elementoscheckbox.is(':checked')===false){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncLayover("");
+                        }
                         //$('.formforfilters').submit();
                         $('.layoverli .layoverchkbox').each(function() {
 
@@ -856,10 +883,44 @@ $noofresultonpage = 50;
 
                $scope.filterFunc = function (data) {
                   console.log(data);
+                  $scope.dataforamadeus = {};
                   $scope.outboundflightstops = data;
                   maskedfunc();
                   $scope.init();
                   console.log("----------i am navin-----------");
+               };
+
+               $scope.filterFuncTime = function(data){
+
+                console.log(data);
+                $scope.dataforamadeus = {};
+                $scope.outbounddeparturewindow = data;
+                maskedfunc();
+                $scope.init();
+                console.log("----------i am navin-----------");
+
+               };
+
+               $scope.filterFuncAirlines = function(data){
+
+                console.log(data);
+                $scope.dataforamadeus = {};
+                $scope.includedcarriers = data;
+                maskedfunc();
+                $scope.init();
+                console.log("----------i am navin-----------");
+
+               };
+
+               $scope.filterFuncLayover = function(data){
+
+                console.log(data);
+                $scope.dataforamadeus = {};
+                $scope.inboundstopduration = data;
+                maskedfunc();
+                $scope.init();
+                console.log("----------i am navin-----------");
+
                };
 
               $scope.init = function () {
