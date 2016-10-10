@@ -761,7 +761,13 @@ $noofresultonpage = 50;
                   sortingdata = sortingdata.replace(/ /g,'')
                   console.log(sortingdata);
                   $('.cls_sortbyval').val(sortingdata);
-                  $('.formforfilters').submit();
+                  if(sortingdata){
+                    angular.element(document.getElementById('filghtCtrlId')).scope().sortFunc(sortingdata);
+                  }else if(!sortingdata){
+                    angular.element(document.getElementById('filghtCtrlId')).scope().sortFunc("");
+                  }
+                  //sortFunc
+                  //$('.formforfilters').submit();
 
                 });
 
@@ -917,6 +923,17 @@ $noofresultonpage = 50;
                 console.log(data);
                 $scope.dataforamadeus = {};
                 $scope.inboundstopduration = data;
+                maskedfunc();
+                $scope.init();
+                console.log("----------i am navin-----------");
+
+               };
+
+                $scope.sortFunc = function(data){
+
+                console.log(data);
+                $scope.dataforamadeus = {};
+                $scope.sortbyval = data;
                 maskedfunc();
                 $scope.init();
                 console.log("----------i am navin-----------");
