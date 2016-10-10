@@ -72,7 +72,6 @@ elseif(strpos($base_url, "travelpainters.com"))
 $noofresultonpage = 50;
 
 
-
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?> ng-app="myApp" id="filghtCtrlId" ng-controller="filghtCtrl" >
@@ -822,9 +821,18 @@ $noofresultonpage = 50;
 
             ?>
               maskedfunc();
-
+              <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
               $scope.adult = "<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>";
               $scope.children = "<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>";
+              $scope.infant = "<?php echo isset($_REQUEST['infant'])&&$_REQUEST['infant']?$_REQUEST['infant']:0; ?>";
+              <?php } ?>
+              <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
+              $scope.adult = "<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adultow']?$_REQUEST['adultow']:0; ?>";
+              $scope.children = "<?php echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; ?>";
+              $scope.infant = "<?php echo isset($_REQUEST['infantow'])&&$_REQUEST['infantow']?$_REQUEST['infantow']:0; ?>";
+              <?php } ?>
+              
+
               $scope.infant = "<?php echo isset($_REQUEST['infant'])&&$_REQUEST['infant']?$_REQUEST['infant']:0; ?>";
               
 

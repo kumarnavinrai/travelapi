@@ -312,9 +312,11 @@ $themeurl = file_create_url(path_to_theme());
 
                  
                 }  
- 
+
             ?>
-            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; echo isset($_REQUEST['rfrom'])?$_REQUEST['rfrom']:""; }  if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; echo isset($_REQUEST['tfrom'])?$_REQUEST['tfrom']:"";  } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?> Adults , <?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?> Children<small><!--<a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a>--></small></h3>
+
+
+            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; echo isset($_REQUEST['rfrom'])?$_REQUEST['rfrom']:""; } if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; echo isset($_REQUEST['tfrom'])?$_REQUEST['tfrom']:""; } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] ==""){ echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; } ?><?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] !=""){ echo isset($_REQUEST['adultow'])&&$_REQUEST['adultow']?$_REQUEST['adultow']:0; } ?> Adults , <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; } ?>  Children<small><!--<a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a>--></small></h3>
 
             <div class="row">
                 <div class="col-md-3">
@@ -580,7 +582,13 @@ $themeurl = file_create_url(path_to_theme());
                         
                         <!--<h4>{{xy}}</h4>-->
                         <!--<h4>{{xy.insideflightdata}}</h4>-->
+                          <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
                           <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
+                          <?php } ?>
+                          <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
+                          <span ng-init="xy.adult=<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adult']?$_REQUEST['adultow']:0; ?>"></span>
+                          <?php } ?>
+                          
                            <div class="booking-item-container" >
                                 <div class="booking-item">
                                 <span whoami="{{xy.whoami}}" style="display:none;" >{{xy}}</span>
