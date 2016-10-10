@@ -316,11 +316,25 @@ $themeurl = file_create_url(path_to_theme());
             ?>
 
 
-            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; echo isset($_REQUEST['rfrom'])?$_REQUEST['rfrom']:""; } if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; echo isset($_REQUEST['tfrom'])?$_REQUEST['tfrom']:""; } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] ==""){ echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; } ?><?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] !=""){ echo isset($_REQUEST['adultow'])&&$_REQUEST['adultow']?$_REQUEST['adultow']:0; } ?> Adults , <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; } ?>  Children<small><!--<a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a>--></small></h3>
+            <h3 class="booking-title"><span class="totalnoofresultsfound">{{totalnoofresultsfound}}</span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; echo isset($_REQUEST['rfrom'])?$_REQUEST['rfrom']:""; } if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; echo isset($_REQUEST['tfrom'])?$_REQUEST['tfrom']:""; } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] ==""){ echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; } ?><?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] !=""){ echo isset($_REQUEST['adultow'])&&$_REQUEST['adultow']?$_REQUEST['adultow']:0; } ?> Adults , <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; } ?>  Children<small><!--<a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a>--></small></h3>
 
+             <!-- pagination start -->
+             <div class="row">
+                    <div  class="col-xs-12 col-md-12 col-lg-12 text-center">
+                      <h6 style="display: none;>Current Page: {{ currentPage }}</h6>
+                      <label style="display: none;" for="search">Search:</label>
+                      <input style="display: none;" ng-model="q" id="search" class="form-control" placeholder="Filter text">
+                    </div>
+                    <div style="display: none;" class="col-xs-4">
+                      <label for="search">items per page:</label>
+                      <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+                    </div>
+              </div>      
+              <!-- pagination ends -->
             <div class="row">
                 <div class="col-md-3">
                     <aside class="booking-filters text-white">
+                   
                         <h3>Filter By<!--:<button class="btn btn-primary fliter_apply">Apply</button>--></h3>
                         <ul class="list booking-filters-list">
                             <li class="checkboxesli">
@@ -526,6 +540,14 @@ $themeurl = file_create_url(path_to_theme());
                   </div>
                 </div>
           </div>
+                      <!-- pagination start -->
+                      <div ng-controller="OtherController" class="other-controller">
+                        <!--<small>this is in "OtherController"</small>-->
+                        <div class="text-center">
+                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html"></dir-pagination-controls>
+                        </div>
+                      </div>
+                      <!-- pagination ends -->
                            
                     <div class="nav-drop booking-sort">
                         <h5 class="booking-sort-title"><a href="#">Sort by Price, Stops, Waiting Time <i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>
@@ -554,6 +576,7 @@ $themeurl = file_create_url(path_to_theme());
                           $showifsorteddatamsg["noofstopsdecs"] = "Flights are sorted By max number of stops in a trip from high to low.";
                         ?>
                         <h5 class="booking-sort-title"><?php if(isset($_REQUEST["sortbyval"])){ echo $showifsorteddatamsg[$_REQUEST["sortbyval"]]; } ?></h5>
+
                     </div>
                     <ul ng-if="hasanyresultfound == 'no'">
                       <li class="sukh_list">
@@ -571,12 +594,15 @@ $themeurl = file_create_url(path_to_theme());
                       </li>
                       
                     </ul>
+
                     <ul class="booking-list allresult">
                    
                     <!-- Amadeus search serch start -->
                     <h1 style="display:none;">Amadeus</h1>
+
+                     <li dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
                    
-                    <li class="amadeusresult"  ng-repeat="xy in dataforamadeus" >
+                    <!--<li class="amadeusresult"  ng-repeat="xy in dataforamadeus" >-->
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->
                         <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
                         
@@ -769,6 +795,12 @@ $themeurl = file_create_url(path_to_theme());
                                 </div>
                             </div>
                         </li> 
+                        <div ng-controller="OtherController" class="other-controller">
+                          <!--<small>this is in "OtherController"</small>-->
+                          <div class="text-center">
+                          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html"></dir-pagination-controls>
+                          </div>
+                        </div>
                           
                         <!-- Amadeus search ends -->
                         <h1 style="display:none;">Saber</h1>

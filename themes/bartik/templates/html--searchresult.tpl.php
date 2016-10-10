@@ -498,7 +498,7 @@ $noofresultonpage = 50;
                       $('.bargainfinderresult').hide();
                       
                       //$('.totalnoofresultsfound').html($(".saberresult").size());
-                      $('.totalnoofresultsfound').html($(".amadeusresult").size());
+                      //$('.totalnoofresultsfound').html($(".amadeusresult").size());
                       
 
                 },1000);
@@ -543,6 +543,9 @@ $noofresultonpage = 50;
 
         <script src="<?php echo $themeurl; ?>/js/angular-moment.min.js"></script>
         <script src="<?php echo $themeurl; ?>/js/underscore-min.js"></script>
+        <script src="<?php echo $themeurl; ?>/js/dirPagination.js"></script>
+
+
         <script src="<?php echo $themeurl; ?>/js/custom.js"></script>
         <script type="text/javascript" src="<?php echo $themeurl; ?>/bload/bload.js"></script>
         <script type="text/javascript">
@@ -789,9 +792,18 @@ $noofresultonpage = 50;
         <!--      ######################################################################################################################################################################################################################################################       -->
         <script type="text/javascript">
           
-          var app = angular.module('myApp', ['angularMoment']);
+          var app = angular.module('myApp', ['angularMoment','angularUtils.directives.dirPagination']);
 
-          app.controller('filghtCtrl', ['$scope', '$log', 'flightServiceNew' , 'getFlightDataService', 'getFlightBmf', function($scope, $log, flightServiceNew, getFlightDataService, getFlightBmf)  { 
+          function OtherController($scope) {
+            $scope.pageChangeHandler = function(num) {
+              console.log('going to page ' + num);
+            };
+          }
+
+          //myApp.controller('MyController', MyController);
+          app.controller('OtherController', OtherController);
+
+          app.controller('filghtCtrl', ['$scope', '$log', 'flightServiceNew' , 'getFlightDataService', 'getFlightBmf',  function($scope, $log, flightServiceNew, getFlightDataService, getFlightBmf)  { 
             <?php 
                 if(isset($_POST['from']) && $_POST['from'] != "" && isset($_POST['to']) && $_POST['to'] != "")
                 { 
@@ -887,6 +899,10 @@ $noofresultonpage = 50;
               //limit
               <?php //print_r($_POST); die; ?>
 
+                $scope.pageChangeHandler = function(num) {
+                    console.log('meals page changed to ' + num);
+                };
+
                $scope.filterFunc = function (data) {
                   console.log(data);
                   $scope.dataforamadeus = {};
@@ -941,6 +957,10 @@ $noofresultonpage = 50;
                };
 
               $scope.init = function () {
+
+                $scope.currentPage = 1;
+                $scope.pageSize = 20;
+
                 // check if there is query in url
                 // and fire search in case its value is not empty
                 var urltogetFlights = '<?php echo $urltoGetFilghts; ?>';
@@ -967,6 +987,7 @@ $noofresultonpage = 50;
                     if(datanew[0] != undefined && datanew[0].data != undefined && datanew[0].data.amadeusresult != undefined){
                       $scope.dataforamadeus = datanew[0].data.amadeusresult;
                       $scope.filterdate = datanew[0].data.filterdate;
+                      
                       console.log($scope.dataforamadeus);
                     }
                    
@@ -977,6 +998,7 @@ $noofresultonpage = 50;
          
                     if($scope.dataforamadeus!=undefined && $scope.dataforamadeus.length != 0){  
                       $scope.hasanyresultfound = "yes";
+                      $scope.totalnoofresultsfound = $scope.dataforamadeus.length;
                       //console.log($scope.DisplayDatainstantflights.length);
                     }
 
