@@ -75,7 +75,7 @@ $noofresultonpage = 50;
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?> ng-app="myApp" ng-controller="filghtCtrl" >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?> ng-app="myApp" id="filghtCtrlId" ng-controller="filghtCtrl" >
 
 <head profile="<?php print $grddl_profile; ?>">
   <title>Travel Painters</title>
@@ -591,7 +591,17 @@ $noofresultonpage = 50;
                     if($(this).siblings('.checkbox_stops').length == 1){
                         
                         var valueofcheckedcheckbox = $(this).siblings('.checkbox_stops').val();
+                        var elementoscheckbox = $(this).siblings('.checkbox_stops');
                         $('.cls_stops').val(valueofcheckedcheckbox);
+                        //filghtCtrlId
+                        //calling angular function here
+                        if(elementoscheckbox.is(':checked')===true){
+
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFunc(valueofcheckedcheckbox);
+                        }else if(elementoscheckbox.is(':checked')===false){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFunc("");
+                        }
+
                         //$('.formforfilters').submit();
                         $('.checkboxesli .checkbox_stops').each(function() {
 
@@ -705,13 +715,13 @@ $noofresultonpage = 50;
                     }
 
                     if($('.cls_stops').val() != "" || $('.cls_departure').val() != "" || $('.cls_airlines').val() != "" || $('.cls_layover').val() != ""){
-                        $('.formforfilters').submit();
+                       // $('.formforfilters').submit();
                     }
 
                 });
                 $('.fliter_apply').on('click',function(){
                     if($('.cls_stops').val() != "" || $('.cls_departure').val() != "" || $('.cls_airlines').val() != "" || $('.cls_layover').val() != ""){
-                        $('.formforfilters').submit();
+                        //$('.formforfilters').submit();
                     }else{
                         alert("Please select a filter");
                     }
@@ -744,6 +754,7 @@ $noofresultonpage = 50;
                 $("#idformforselect").submit();
             }
         </script>
+        <!--      ######################################################################################################################################################################################################################################################       -->
         <script type="text/javascript">
           
           var app = angular.module('myApp', ['angularMoment']);
@@ -834,6 +845,15 @@ $noofresultonpage = 50;
               //sortbyval
               //limit
               <?php //print_r($_POST); die; ?>
+
+               $scope.filterFunc = function (data) {
+                  console.log(data);
+                  $scope.outboundflightstops = data;
+                  maskedfunc();
+                  $scope.init();
+                  console.log("----------i am navin-----------");
+               };
+
               $scope.init = function () {
                 // check if there is query in url
                 // and fire search in case its value is not empty
@@ -873,8 +893,9 @@ $noofresultonpage = 50;
                       $scope.hasanyresultfound = "yes";
                       //console.log($scope.DisplayDatainstantflights.length);
                     }
-                    
-                    console.log("---------------------------------------------------------------------------------");
+
+                    //$scope.$apply();
+                    console.log("---------------------------------###------------------------------------------------");
                       
                 }); //flight service ends here
 

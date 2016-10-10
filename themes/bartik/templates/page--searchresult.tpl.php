@@ -312,10 +312,9 @@ $themeurl = file_create_url(path_to_theme());
 
                  
                 }  
-
-                
+ 
             ?>
-            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; } if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?> Adults , <?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?> Children<small><!--<a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a>--></small></h3>
+            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; echo isset($_REQUEST['rfrom'])?$_REQUEST['rfrom']:""; }  if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; echo isset($_REQUEST['tfrom'])?$_REQUEST['tfrom']:"";  } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?> Adults , <?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?> Children<small><!--<a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a>--></small></h3>
 
             <div class="row">
                 <div class="col-md-3">
@@ -326,27 +325,27 @@ $themeurl = file_create_url(path_to_theme());
                                 <h5 class="booking-filters-title">Stops <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" value="0" />Non-stop<span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(0)" value="0" />Non-stop<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox"  value="1" />1 Stop<span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(1)"  value="1" />1 Stop<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox"  value="2" />2 Stops<span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(2)"  value="2" />2 Stops<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox"  value="3" />3 Stops<span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(3)"  value="3" />3 Stops<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox"  value="4" />4 Stops<span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(4)"  value="4" />4 Stops<span class="pull-right"></span>
                                     </label>
                                 </div>
                             </li>
@@ -455,7 +454,7 @@ $themeurl = file_create_url(path_to_theme());
                         </ul>
                     </aside>
                 </div>
-                <div class="col-md-9">
+        <div class="col-md-9">
   
           
           <div class="booking-item-container">
@@ -483,7 +482,7 @@ $themeurl = file_create_url(path_to_theme());
                        
                         
                         
-                    </tr>
+                  </tr>
                     
           <tr class="mtrx__row">
                         <th id="tr_6" class="mtrx__cell-header" scope="row" style="min-width: 126.286px;">
@@ -503,22 +502,18 @@ $themeurl = file_create_url(path_to_theme());
                                               <sup>.{{xyz.lowestfareairlinefaresup}}</sup>
                                             </span>
                                         </span>
-                                    <em title="Full price incl. taxes and fees" class="total-price">
-                                        <span>Total</span>
-                    <b class="currency" title="{{xyz.lowestfareairlinefare}}" defaultvalue="{{xyz.lowestfareairlinefare}}">
-                      ${{xyz.lowestfareairlinefare}}
-                    </b>
-                    <span class="fpSuper" title="{{xyz.lowestfareairlinefare}}" defaultvalue="{{xyz.lowestfareairlinefare}}">
-                      <sup>.{{xyz.lowestfareairlinefaresup}}</sup>
-                    </span>
-                                    </em>
+                                        <em title="Full price incl. taxes and fees" class="total-price">
+                                          <span>Total</span>
+                                            <b class="currency" title="{{xyz.lowestfareairlinefare}}" defaultvalue="{{xyz.lowestfareairlinefare}}">
+                                              ${{xyz.lowestfareairlinefare}}
+                                            </b>
+                                            <span class="fpSuper" title="{{xyz.lowestfareairlinefare}}" defaultvalue="{{xyz.lowestfareairlinefare}}">
+                                              <sup>.{{xyz.lowestfareairlinefaresup}}</sup>
+                                            </span>
+                                        </em>
                                     </a>
                             </td>
-                          
-                          
-                           
-                     
-                    </tr>
+            </tr>
             </tbody>
         </table>
     <div class="row sukh_p">
