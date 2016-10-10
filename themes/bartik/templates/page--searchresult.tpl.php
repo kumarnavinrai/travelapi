@@ -178,7 +178,7 @@ $themeurl = file_create_url(path_to_theme());
                                 </div>
                                 <div class="col-md-2">
                                   <div class="form-group form-group-lg form-group-select-plus">
-                                    <label>Childs(0-17)</label>
+                                    <label>Child(0-17)</label>
                                     <select name="children" class="form-control" >
                                       <option value="0">0</option>
                                       <option value="1">1</option>
@@ -215,10 +215,11 @@ $themeurl = file_create_url(path_to_theme());
                             <div class="form-group form-group-lg form-group-icon-left "><i class="fa fa-plane input-icon input-icon-highlight"></i>
                             <label>Class</label>
                                 <select name="rclass" class="form-control" >
-                <option value="economy" class="su_option">Economy</p></option>
-                <option value="premiumeco">premium Economy</option>
-                <option value="business">Business</option>
-                </select>
+                                  <option value="economy" class="su_option">Economy</option>
+                                  <option value="premiumeco">Premium Economy</option>
+                                  <option value="business">Business</option>
+                                  <option value="first">First</option>
+                                </select>
                             </div>
                             </div>        
               </div>
@@ -271,7 +272,7 @@ $themeurl = file_create_url(path_to_theme());
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <div class="form-group form-group-lg form-group-select-plus">
-                                                <label>Childs(0-11)</label>
+                                                <label>Child(0-11)</label>
                                                 <select name="childrenow" class="form-control widthofowsel">
                                                   <option value="0">0</option>
                                                   <option value="1">1</option>

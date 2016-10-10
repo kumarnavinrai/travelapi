@@ -148,7 +148,7 @@ $themeurl = file_create_url(path_to_theme());
                   <li>
                     <a href="#tab-3" data-toggle="tab">
                       <i class="fa fa-home"></i>
-                      <span >Insurance</span>
+                      <span >Rails</span>
                     </a>
                   </li>
                   <li>
@@ -160,7 +160,7 @@ $themeurl = file_create_url(path_to_theme());
                   <li>
                     <a href="#tab-5" data-toggle="tab">
                       <i class="fa fa-bolt"></i>
-                      <span >Activities</span>
+                      <span >Vacations</span>
                     </a>
                   </li>
                 </ul>
@@ -247,7 +247,7 @@ $themeurl = file_create_url(path_to_theme());
                                 </div>
                                 <div class="col-md-2">
                                   <div class="form-group form-group-lg form-group-select-plus">
-                                    <label>Childs(0-11)</label>
+                                    <label>Child(0-11)</label>
                                     <select name="children" class="form-control" >
                                       <option value="0">0</option>
                                       <option value="1">1</option>
@@ -289,12 +289,11 @@ $themeurl = file_create_url(path_to_theme());
                                 <i class="fa fa-plane input-icon input-icon-highlight"></i>
                                 <label>Class</label>
                                 <select name="pclass" class="form-control" >
-                                  <option value="economy" class="su_option">Economy
-                                  </p>
-                                </option>
-                                <option value="premiumeco">premium Economy</option>
+                                <option value="economy" class="su_option">Economy</option>
+                                <option value="premiumeco">Premium Economy</option>
                                 <option value="business">Business</option>
-                              </select>
+                                <option value="first">First</option>
+                                </select>
                             </div>
                           </div>
                         </div>
@@ -333,9 +332,10 @@ $themeurl = file_create_url(path_to_theme());
                                 <i class="fa fa-plane input-icon input-icon-highlight"></i>
                                 <label>Class</label>
                                 <select name="rclass" class="form-control" >
-                                  <option value="economy">Economy</option>
-                                  <option value="premiumeco">Premium Economy</option>
-                                  <option value="business">Business</option>
+                                  <option value="economy" class="su_option">Economy</option>
+                                <option value="premiumeco">Premium Economy</option>
+                                <option value="business">Business</option>
+                                <option value="first">First</option>
                                 </select>
                               </div>
                             </div>
@@ -354,7 +354,7 @@ $themeurl = file_create_url(path_to_theme());
                                     </select>
                                   </div>
                                   <div class="widthofowsel col-md-6">  
-                                    <label>Childs(0-11)</label>
+                                    <label>Child(0-11)</label>
                                     <select name="childrenow" class="form-control widthofowsel">
                                       <option value="0">0</option>
                                       <option value="1">1</option>
