@@ -140,6 +140,7 @@ if(in_array("flightuser", $user->roles) && !strpos($url, $sitelinkforprofile) &&
   </script>
   <style type="text/css">
     .form-type-password .description a{ display: none; }
+    .form-item-mail{ display: none; }
   </style>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>

@@ -599,7 +599,73 @@ $themeurl = file_create_url(path_to_theme());
                    
                     <!-- Amadeus search serch start -->
                     <h1 style="display:none;">Amadeus</h1>
+                                       <!-- new design start -->
+                    <li class="amadeusresult" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                    <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
+                    <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
+                    <?php } ?>
+                    <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
+                    <span ng-init="xy.adult=<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adult']?$_REQUEST['adultow']:0; ?>"></span>
+                    <?php } ?>
+                    <div class="booking-item-container">
+                      <div class="booking-item">
+                        <span whoami="{{xy.whoami}}" style="display:none;" >{{xy}}</span>
+                        <!-- Repeat this row for showing no of flights from des for no of stops -->
+                        <div class="container-sukh" ng-repeat="x in xy.inoutflightarr" >
+                            <div class="row price_row" ng-if="x.counterfornoofflights==1" >
+                              <div class="col-md-5 col-sm-12 col-xs-12">
+                                <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
+                              </div>
+                              <div class="col-md-7 col-sm-12 col-xs-12 text-algn-sukh-right">
+                                <h4 style="color:#fff;padding:10px;">
+                                      ${{xy.totaltax}} 
+                                  <small>(Base Price)+ </small>${{xy.totalbeforetax}} 
+                                  <small>(taxes)</small>= ${{xy.totalfare}}
+                                  <small>(Total)</small>
+                                </h4>
+                              </div>
+                            </div>
+                          
+                              <div class="row">
+                                <div class="col-md-2">
+                                  <div class="booking-item-airline-logo">
+                                    <img  src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoofmarketingairline}}" alt="{{x.marketingairlinefullname}}" title="{{x.marketingairlinefullname}}" />
+                                    <p >{{x.marketingairlinefullname}}</p>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="booking-item-flight-details">
+                                      <div class="booking-item-departure">
+                                        <i class="fa fa-plane"></i>
+                                        <h5>{{x.departtime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                        <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                        <p class="booking-item-destination">{{x.departureairportfullname}}</p>
+                                      </div>
+                                      <div class="booking-item-arrival">
+                                        <i class="fa fa-plane fa-flip-vertical"></i>
+                                        <h5>{{x.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                        <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                        <p class="booking-item-destination">{{x.destinationairportfullname}}</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                     <h5 >Flight No.{{x.flightno}}</h5>
+                                     <p >{{x.stopornonstop}}</p>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <span class="booking-item-price">Class: {{x.travelclass}}</span>
+                                    <p class="booking-item-flight-class" ng-if="x.layovertime!=0" >Waiting Time: {{x.layovertime}}</p>
+                                  </div>
+                                </div>
+                                <hr>
+                                </div><!-- sukh container -->
+                            </div><!-- booking item -->
+                          </div><!-- booking item container -->
+                        </li>
 
+                  <!-- new design ends -->
+                  <?php /* ?>
                      <li class="amadeusresult" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
                    
                     <!--<li class="amadeusresult"  ng-repeat="xy in dataforamadeus" >-->
@@ -795,6 +861,7 @@ $themeurl = file_create_url(path_to_theme());
                                 </div>
                             </div>
                         </li> 
+                        <?php */ ?>
                         <div ng-controller="OtherController" class="other-controller">
                           <!--<small>this is in "OtherController"</small>-->
                           <div class="text-center">

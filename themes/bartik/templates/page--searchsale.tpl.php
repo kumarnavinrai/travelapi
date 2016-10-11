@@ -1090,17 +1090,23 @@
                                             
                                 </div>
                                 </div>
+
+                                
                                 <div class="clearfix">
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Confirm Email</label>
                                         
-                                        <input class="form-control" type="email" name="emailc" ng-model="user.emailc" ng-init="user.emailc='<?php echo $usermail; ?>'"  required/>    
+                                        <input class="form-control" type="email" name="emailc" ng-model="user.emailc" match="user.email" ng-init="user.emailc='<?php echo $usermail; ?>'"  required/>    
                                        
                                           <br/>
                                           <span class="sukh_alert error" ng-show="userFormd.emailc.$error.required">
                                             Confirm Email Required!</span>
                                           <span class="sukh_alert error" ng-show="userFormd.emailc.$error.email">
-                                            Check your email entered!</span>  
+                                            Check your email entered!</span> 
+                                          <br/>
+                                          <span class="sukh_alert error" ng-show="userFormd.emailc.$error.mismatch">
+                                            <span class="sukh_alert error msg-error">Email and Confirm Email must match.</span>
+                                          </span>   
                                             
                                 </div>
                                 </div>

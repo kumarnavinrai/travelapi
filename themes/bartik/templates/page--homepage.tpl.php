@@ -145,12 +145,12 @@ $themeurl = file_create_url(path_to_theme());
                       <span >Hotels</span>
                     </a>
                   </li>
-                  <li>
+                  <!--<li>
                     <a href="#tab-3" data-toggle="tab">
                       <i class="fa fa-home"></i>
                       <span >Rails</span>
                     </a>
-                  </li>
+                  </li>-->
                   <li>
                     <a href="#tab-4" data-toggle="tab">
                       <i class="fa fa-car"></i>
@@ -475,7 +475,7 @@ $themeurl = file_create_url(path_to_theme());
                     <button class="btn btn-primary btn-lg" type="submit">Search for Hotels</button>
                   </form>
                 </div>
-                <div class="tab-pane fade" id="tab-3">
+                <!--<div class="tab-pane fade" id="tab-3">
                   <h2>Find Your Perfect Insurance</h2>
                   <form>
                     <div class="form-group form-group-lg form-group-icon-left">
@@ -486,7 +486,7 @@ $themeurl = file_create_url(path_to_theme());
                     <div class="input-daterange" data-date-format="M d, D"></div>
                     <button class="btn btn-primary btn-lg" type="submit">Search for Insurance</button>
                   </form>
-                </div>
+                </div>-->
                 <div class="tab-pane fade" id="tab-4">
                   <h2>Search for Cheap Rental Cars</h2>
                   <form>
@@ -606,7 +606,7 @@ $themeurl = file_create_url(path_to_theme());
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="#">PRICE GUARANTEED</a>
+              <a class="text-darken" href="#">BEST SELECTION</a>
             </h5>
             <p class="thumb-desc">Find our lowest price to destinations worldwide, guaranteed</p>
           </div>
@@ -632,7 +632,7 @@ $themeurl = file_create_url(path_to_theme());
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="#">24/7 Customer Care</a>
+              <a class="text-darken" href="#">24/7 Support</a>
             </h5>
             <p class="thumb-desc">Get award-winning service and special deals by calling 1-888-417-0446</p>
           </div>

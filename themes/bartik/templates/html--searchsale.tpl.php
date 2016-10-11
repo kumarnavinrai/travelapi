@@ -688,8 +688,8 @@ $noofresultonpage = 50;
              ?>   
               
            </div>
-
+           <script src="<?php echo $themeurl; ?>/js/controllers.js"></script>
 </body>
 </html>
               
-        <script src="<?php echo $themeurl; ?>/js/controllers.js"></script>
+        

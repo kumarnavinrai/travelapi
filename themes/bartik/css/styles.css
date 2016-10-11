@@ -6523,7 +6523,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   cursor: pointer;
   display: block;
   position: relative;
-  padding: 17px;
+  padding: 0px 15px;
   border: 1px solid #e6e6e6;
   color: #737373;
   -webkit-transition: 0.2s;
@@ -6637,7 +6637,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   line-height: 1em;
 }
 .booking-item-price {
-  font-size: 37px;
+  font-size: 13px;
   color: #626262;
   line-height: 1em;
   display: inline-block;
@@ -11354,4 +11354,24 @@ height: auto;
 .msg_name_nav{
   font-size: 8px;
 }
+
+.tabbable {
+    padding: 4px 0px;
+}
+
+/* CSS Document */
+ <!-- flight page header 10-10-2016 -->
+.row.header-sukh {border: 1px solid #cccccc;padding: 7px 2px; background-color: #ccc;}
+.text-algn-sukh-right{ text-align:right;}
+.price_row{
+  border: 2px solid #434a54;
+  background: #434a54;
+  color:white;
+  padding:14px 0 0px 0px;
+  margin-bottom: 1em; 
+}
+.btn_sukh {
+    width: 65%;
+}
+ <!-- flight page header 10-10-2016 end-->
 /* sw new css ends */

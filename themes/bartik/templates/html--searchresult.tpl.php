@@ -1024,7 +1024,7 @@ $noofresultonpage = 200;
                 }); //flight service ends here
 
 
-                  getFlightBmf.getFlights(urltogetFlights,postData).then(function (data) {
+                getFlightBmf.getFlights(urltogetFlights,postData).then(function (data) {
                       console.log("-----bargain max finder------");
                       console.log(data);
                       console.log("-----bargain max finder------");
@@ -1173,6 +1173,7 @@ $noofresultonpage = 200;
 
                     runbargainfindersortout();
                   });
+                  
                
                   $scope.appState = true;
 
