@@ -153,14 +153,14 @@ $themeurl = file_create_url(path_to_theme());
                                   <div class="form-group form-group-lg form-group-icon-left">
                                     <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                     <label>Departing</label>
-                                    <input class="form-control" name="start" type="text" />
+                                    <input class="form-control" placeholder="yyyy-mm-dd" id="from_datepicker" name="start" type="text" />
                                   </div>
                                 </div>
                                 <div class="col-md-3">
                                   <div class="form-group form-group-lg form-group-icon-left">
                                     <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                     <label>Returning</label>
-                                    <input class="form-control" name="end" type="text" />
+                                    <input class="form-control" placeholder="yyyy-mm-dd" id="to_datepicker" name="end" type="text" />
                                   </div>
                                 </div>
                                 <div class="col-md-2">
@@ -178,7 +178,7 @@ $themeurl = file_create_url(path_to_theme());
                                 </div>
                                 <div class="col-md-2">
                                   <div class="form-group form-group-lg form-group-select-plus">
-                                    <label>Childs(0-17)</label>
+                                    <label>Child(0-17)</label>
                                     <select name="children" class="form-control" >
                                       <option value="0">0</option>
                                       <option value="1">1</option>
@@ -215,10 +215,11 @@ $themeurl = file_create_url(path_to_theme());
                             <div class="form-group form-group-lg form-group-icon-left "><i class="fa fa-plane input-icon input-icon-highlight"></i>
                             <label>Class</label>
                                 <select name="rclass" class="form-control" >
-                <option value="economy" class="su_option">Economy</p></option>
-                <option value="premiumeco">premium Economy</option>
-                <option value="business">Business</option>
-                </select>
+                                  <option value="economy" class="su_option">Economy</option>
+                                  <option value="premiumeco">Premium Economy</option>
+                                  <option value="business">Business</option>
+                                  <option value="first">First</option>
+                                </select>
                             </div>
                             </div>        
               </div>
@@ -230,7 +231,7 @@ $themeurl = file_create_url(path_to_theme());
                                       <div class="form-group form-group-lg form-group-icon-left">
                                         <i class="fa fa-map-marker input-icon"></i>
                                         <label>From</label>
-                                        <input class="typeahead form-control" name="rfrom" placeholder="City, Airport, U.S. Zip" type="text" />
+                                        <input class="typeahead form-control" name="rfrom" placeholder="City, Airport" type="text" />
                                       </div>
                                     </div>
                                     <div class="col-md-2 imgdiv">
@@ -242,46 +243,45 @@ $themeurl = file_create_url(path_to_theme());
                                       <div class="form-group form-group-lg form-group-icon-left">
                                         <i class="fa fa-map-marker input-icon"></i>
                                         <label>To</label>
-                                        <input class="typeahead form-control" name="tfrom" placeholder="City, Airport, U.S. Zip" type="text" />
+                                        <input class="typeahead form-control" name="tfrom" placeholder="City, Airport" type="text" />
                                       </div>
                                     </div>
                                   </div>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
+                                            <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                             <label>Departing</label>
-                                            <input class="date-pick form-control" data-date-format="MM d, D" type="text" />
+                                            <input class="date-pick form-control" id="ow_date" name="departing" placeholder="yyyy-mm-dd" data-date-format="M d, D" type="text" />
                                         </div>
                                     </div>
                                    <div class="col-md-2">
                                                                             <div class="form-group form-group-lg">
                                                                                 
                                                                                 
-                                        <label>Adults(+18)</label>
-                                                                                
-                                        
-                                        <select class="form-control" >
+                                         <label>Adults</label>
+                                        <select name="adultow" class="form-control">
                                           <option value="1">1</option>
-                                         <option value="2">2</option>
+                                          <option value="2">2</option>
                                           <option value="3">3</option>
-                                          <option value="3">4</option>
-                                          <option value="3">5</option>
-                                          <option value="3">6</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                          <option value="6">6</option>
                                         </select>
-                                                                            </div>
+                                                                                </div>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <div class="form-group form-group-lg form-group-select-plus">
-                                      <label>Childs(0-17)</label>
-                                                                            <select class="form-control" >
-                                          <option value="0">0</option>
-                                          <option value="1">1</option>
-                                         <option value="2">2</option>
-                                          <option value="3">3</option>
-                                          <option value="3">4</option>
-                                          <option value="3">5</option>
-                                          <option value="3">6</option>
-                                        </select>
+                                                <label>Child(0-11)</label>
+                                                <select name="childrenow" class="form-control widthofowsel">
+                                                  <option value="0">0</option>
+                                                  <option value="1">1</option>
+                                                  <option value="2">2</option>
+                                                  <option value="3">3</option>
+                                                  <option value="4">4</option>
+                                                  <option value="5">5</option>
+                                                  <option value="6">6</option>
+                                                </select>
                                       </div>
                                      
                                     </div>
@@ -289,7 +289,7 @@ $themeurl = file_create_url(path_to_theme());
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary btn-lg" type="submit">Search for Flights</button>
+                    <button class="btn btn-primary btn-lg bt-change-search" type="submit">Search for Flights</button>
                 </form>
             </div>
             <?php
@@ -316,12 +316,26 @@ $themeurl = file_create_url(path_to_theme());
             ?>
 
 
-            <h3 class="booking-title"><span class="totalnoofresultsfound"></span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; echo isset($_REQUEST['rfrom'])?$_REQUEST['rfrom']:""; } if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; echo isset($_REQUEST['tfrom'])?$_REQUEST['tfrom']:""; } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] ==""){ echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; } ?><?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] !=""){ echo isset($_REQUEST['adultow'])&&$_REQUEST['adultow']?$_REQUEST['adultow']:0; } ?> Adults , <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; } ?>  Children<small><!--<a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a>--></small></h3>
+            <h3 class="booking-title"><span class="totalnoofresultsfound" ng-if="totalnoofresultsfound!='NaN'">{{totalnoofresultsfound}}</span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; echo isset($_REQUEST['rfrom'])?$_REQUEST['rfrom']:""; } if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; echo isset($_REQUEST['tfrom'])?$_REQUEST['tfrom']:""; } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] ==""){ echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; } ?><?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] !=""){ echo isset($_REQUEST['adultow'])&&$_REQUEST['adultow']?$_REQUEST['adultow']:0; } ?> Adults , <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; } ?>  Children<small><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a></small></h3>
 
+             <!-- pagination start -->
+             <div class="row">
+                    <div  class="col-xs-12 col-md-12 col-lg-12 text-center">
+                      <h6 style="display: none;>Current Page: {{ currentPage }}</h6>
+                      <label style="display: none;" for="search">Search:</label>
+                      <input style="display: none;" ng-model="q" id="search" class="form-control" placeholder="Filter text">
+                    </div>
+                    <div style="display: none;" class="col-xs-4">
+                      <label for="search">items per page:</label>
+                      <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+                    </div>
+              </div>      
+              <!-- pagination ends -->
             <div class="row">
                 <div class="col-md-3">
                     <aside class="booking-filters text-white">
-                        <h3>Filter By:<button class="btn btn-primary fliter_apply">Apply</button></h3>
+                   
+                        <h3>Filter By<!--:<button class="btn btn-primary fliter_apply">Apply</button>--></h3>
                         <ul class="list booking-filters-list">
                             <li class="checkboxesli">
                                 <h5 class="booking-filters-title">Stops <small></small></h5>
@@ -355,15 +369,15 @@ $themeurl = file_create_url(path_to_theme());
                                 <h5 class="booking-filters-title">Departure Time</h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="05001159" type="checkbox" />Morning (5:00a - 11:59a)</label>
+                                        <input class="i-check checkbox_dt" value="05001159" ng-click="filterFuncTime('05001159')" type="checkbox" />Morning (5:00a - 11:59a)</label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="12001759" type="checkbox" />Afternoon (12:00p - 5:59p)</label>
+                                        <input class="i-check checkbox_dt" value="12001759" ng-click="filterFuncTime('12001759')" type="checkbox" />Afternoon (12:00p - 5:59p)</label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="18002359" type="checkbox" />Evening (6:00p - 11:59p)</label>
+                                        <input class="i-check checkbox_dt" value="18002359" ng-click="filterFuncTime('18002359')" type="checkbox" />Evening (6:00p - 11:59p)</label>
                                 </div>
                             </li>
                             <!--<li>
@@ -374,32 +388,32 @@ $themeurl = file_create_url(path_to_theme());
                                 <h5 class="booking-filters-title">Airlines <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox"  value="VX" />Virgin America<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('VX')" value="VX" />Virgin America<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="DL" />Delta Air Lines<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('DL')" value="DL" />Delta Air Lines<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="UA" />United Airlines<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('UA')" value="UA" />United Airlines<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="AA" />American Airlines<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('AA')" value="AA" />American Airlines<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="B6" />jetBlue Airways<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('B6')" value="B6" />jetBlue Airways<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" value="AC" />Air Canada<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('AC')" value="AC" />Air Canada<span class="pull-right"></span>
                                     </label>
                                 </div>
                             </li>
@@ -407,47 +421,47 @@ $themeurl = file_create_url(path_to_theme());
                                 <h5 class="booking-filters-title">Waiting Time <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="1" />1hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(1)" value="1" />1hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="2" />2hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(2)" value="2" />2hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="3" />3hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(3)" value="3" />3hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="4" />4hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(4)" value="4" />4hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="5" />5hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(5)" value="5" />5hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="6" />6hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(6)" value="6" />6hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="7" />7hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(7)" value="7" />7hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="8" />8hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(8)" value="8" />8hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" value="9" />9hr<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(9)" value="9" />9hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                             </li>
@@ -526,6 +540,14 @@ $themeurl = file_create_url(path_to_theme());
                   </div>
                 </div>
           </div>
+                      <!-- pagination start -->
+                      <div ng-controller="OtherController" class="other-controller">
+                        <!--<small>this is in "OtherController"</small>-->
+                        <div class="text-center">
+                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html"></dir-pagination-controls>
+                        </div>
+                      </div>
+                      <!-- pagination ends -->
                            
                     <div class="nav-drop booking-sort">
                         <h5 class="booking-sort-title"><a href="#">Sort by Price, Stops, Waiting Time <i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>
@@ -554,6 +576,7 @@ $themeurl = file_create_url(path_to_theme());
                           $showifsorteddatamsg["noofstopsdecs"] = "Flights are sorted By max number of stops in a trip from high to low.";
                         ?>
                         <h5 class="booking-sort-title"><?php if(isset($_REQUEST["sortbyval"])){ echo $showifsorteddatamsg[$_REQUEST["sortbyval"]]; } ?></h5>
+
                     </div>
                     <ul ng-if="hasanyresultfound == 'no'">
                       <li class="sukh_list">
@@ -571,12 +594,81 @@ $themeurl = file_create_url(path_to_theme());
                       </li>
                       
                     </ul>
+
                     <ul class="booking-list allresult">
                    
                     <!-- Amadeus search serch start -->
                     <h1 style="display:none;">Amadeus</h1>
+                                       <!-- new design start -->
+                    <li class="amadeusresult" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                    <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
+                    <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
+                    <?php } ?>
+                    <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
+                    <span ng-init="xy.adult=<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adult']?$_REQUEST['adultow']:0; ?>"></span>
+                    <?php } ?>
+                    <div class="booking-item-container">
+                      <div class="booking-item">
+                        <span whoami="{{xy.whoami}}" style="display:none;" >{{xy}}</span>
+                        <!-- Repeat this row for showing no of flights from des for no of stops -->
+                        <div class="container-sukh" ng-repeat="x in xy.inoutflightarr" >
+                            <div class="row price_row" ng-if="x.counterfornoofflights==1" >
+                              <div class="col-md-5 col-sm-12 col-xs-12">
+                                <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
+                              </div>
+                              <div class="col-md-7 col-sm-12 col-xs-12 text-algn-sukh-right">
+                                <h4 style="color:#fff;padding:10px;">
+                                      ${{xy.totaltax}} 
+                                  <small>(Base Price)+ </small>${{xy.totalbeforetax}} 
+                                  <small>(taxes)</small>= ${{xy.totalfare}}
+                                  <small>(Total)</small>
+                                </h4>
+                              </div>
+                            </div>
+                          
+                              <div class="row">
+                                <div class="col-md-2">
+                                  <div class="booking-item-airline-logo">
+                                    <img  src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoofmarketingairline}}" alt="{{x.marketingairlinefullname}}" title="{{x.marketingairlinefullname}}" />
+                                    <p >{{x.marketingairlinefullname}}</p>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="booking-item-flight-details">
+                                      <div class="booking-item-departure">
+                                        <i class="fa fa-plane"></i>
+                                        <h5>{{x.departtime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                        <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                        <p class="booking-item-destination">{{x.departureairportfullname}}</p>
+                                      </div>
+                                      <div class="booking-item-arrival">
+                                        <i class="fa fa-plane fa-flip-vertical"></i>
+                                        <h5>{{x.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
+                                        <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                        <p class="booking-item-destination">{{x.destinationairportfullname}}</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                     <h5 >Flight No.{{x.flightno}}</h5>
+                                     <p >{{x.stopornonstop}}</p>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <span class="booking-item-price">Class: {{x.travelclass}}</span>
+                                    <p class="booking-item-flight-class" ng-if="x.layovertime!=0" >Waiting Time: {{x.layovertime}}</p>
+                                  </div>
+                                </div>
+                                <hr>
+                                </div><!-- sukh container -->
+                            </div><!-- booking item -->
+                          </div><!-- booking item container -->
+                        </li>
+
+                  <!-- new design ends -->
+                  <?php /* ?>
+                     <li class="amadeusresult" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
                    
-                    <li class="amadeusresult"  ng-repeat="xy in dataforamadeus" >
+                    <!--<li class="amadeusresult"  ng-repeat="xy in dataforamadeus" >-->
                         <!--<h4>{{x.TotalFlightTime}}</h4>-->
                         <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
                         
@@ -769,6 +861,13 @@ $themeurl = file_create_url(path_to_theme());
                                 </div>
                             </div>
                         </li> 
+                        <?php */ ?>
+                        <div ng-controller="OtherController" class="other-controller">
+                          <!--<small>this is in "OtherController"</small>-->
+                          <div class="text-center">
+                          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html"></dir-pagination-controls>
+                          </div>
+                        </div>
                           
                         <!-- Amadeus search ends -->
                         <h1 style="display:none;">Saber</h1>
@@ -1796,3 +1895,313 @@ $themeurl = file_create_url(path_to_theme());
 
 </div></div> <!-- /#page, /#page-wrapper -->
 <?php */ ?>
+<script type="text/javascript">
+  $(document).ready(function(){
+  
+  
+        $('.rtripandowselectorow').on('click',function(e)
+        {
+          $('.tocity').hide();
+          $('.fromcity').hide();
+          $('.startdate').hide();
+          $('.enddate').hide();
+        });
+        
+      $('.rtripandowselectorrt').on('click',function(e)
+        {
+          $('.tocity').hide();
+          $('.fromcity').hide();
+          $('.startdate').hide();
+          $('.enddate').hide();
+        });
+      
+          
+    $('.nav_search_for_flights').on('click',function(e){
+      if ($('#flight-search-1').hasClass('active')){
+  
+    /* Added to handle and display the form so that user inputs all the required information to process successfully */
+  
+        
+    if($("input[name=from]").val() == "" && $("input[name=to]").val() == "" && $("input[name=start]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+          $(".fromcity").fadeIn();
+      $(".tocity").fadeIn();
+      $(".startdate").fadeIn(); 
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }
+    
+    else if($("input[name=from]").val() == "" && $("input[name=to]").val() == "" && $("input[name=start]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+          $(".fromcity").fadeIn();
+      $(".tocity").fadeIn();
+      $(".startdate").fadeIn();     
+          e.preventDefault();
+        }
+    
+    else if($("input[name=from]").val() == "" && $("input[name=to]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+          $(".fromcity").fadeIn();
+      $(".tocity").fadeIn();
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }
+
+    else if($("input[name=from]").val() == "" && $("input[name=start]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+          $(".fromcity").fadeIn();
+      $(".startdate").fadeIn();
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }
+
+    else if($("input[name=to]").val() == "" && $("input[name=start]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+          $(".tocity").fadeIn();
+      $(".startdate").fadeIn();
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }     
+    
+    else if($("input[name=from]").val() == "" && $("input[name=to]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+    
+          $(".fromcity").fadeIn();
+      $(".tocity").fadeIn();    
+          e.preventDefault();
+        }
+    
+    else if($("input[name=start]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".startdate").fadeIn(); 
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }
+    
+    else if($("input[name=from]").val() == "" && $("input[name=start]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".fromcity").fadeIn();  
+      $(".startdate").fadeIn();   
+          e.preventDefault();
+        }
+    
+    else if($("input[name=from]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".fromcity").fadeIn();  
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }
+    
+    else if($("input[name=to]").val() == "" && $("input[name=start]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".tocity").fadeIn();  
+      $(".startdate").fadeIn();   
+          e.preventDefault();
+        }
+    
+    else if($("input[name=to]").val() == "" && $("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".tocity").fadeIn();  
+      $(".enddate").fadeIn();   
+          e.preventDefault();
+        }
+  
+    else if($("input[name=from]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".fromcity").fadeIn();  
+          e.preventDefault();
+        }
+    
+    else if($("input[name=to]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".tocity").fadeIn();  
+          e.preventDefault();
+        }
+    
+    else if($("input[name=start]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".startdate").fadeIn();  
+          e.preventDefault();
+        }
+    
+    else if($("input[name=end]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".enddate").fadeIn();  
+          e.preventDefault();
+        }
+ /* End here*/  
+  
+        $("input[name=rfrom]").val("");
+        $("input[name=tfrom]").val("");
+      }    
+
+    
+      if ($('#flight-search-2').hasClass('active')){
+    
+        /* Added to handle and display the form so that user inputs all the required information to process successfully */
+  
+        
+    if($("input[name=rfrom]").val() == "" && $("input[name=tfrom]").val() == "" && $("input[name=departing]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      
+          $(".fromcity").fadeIn();
+      $(".tocity").fadeIn();
+      $(".startdate").fadeIn();     
+          e.preventDefault();
+        }
+        
+    else if($("input[name=rfrom]").val() == "" && $("input[name=tfrom]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+    
+          $(".fromcity").fadeIn();
+      $(".tocity").fadeIn();    
+          e.preventDefault();
+        }
+    
+    else if($("input[name=rfrom]").val() == "" && $("input[name=departing]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      
+      $(".fromcity").fadeIn();
+      $(".startdate").fadeIn(); 
+ 
+          e.preventDefault();
+        }
+    
+    else if($("input[name=tfrom]").val() == "" && $("input[name=departing]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      
+      $(".tocity").fadeIn();  
+      $(".startdate").fadeIn();   
+          e.preventDefault();
+        }
+    
+  
+    else if($("input[name=rfrom]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".fromcity").fadeIn();  
+          e.preventDefault();
+        }
+    
+    else if($("input[name=tfrom]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".tocity").fadeIn();  
+          e.preventDefault();
+        }
+    
+    else if($("input[name=departing]").val() == "")
+        {
+      $(".fromcity").hide();
+      $(".tocity").hide();
+      $(".startdate").hide(); 
+      $(".enddate").hide();
+      
+      $(".startdate").fadeIn();  
+          e.preventDefault();
+        }
+    
+ /* End here*/  
+    
+
+        $("input[name=from]").val("");
+        $("input[name=to]").val("");
+      }    
+        
+    });
+  });
+</script>

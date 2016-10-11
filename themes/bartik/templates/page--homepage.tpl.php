@@ -145,12 +145,12 @@ $themeurl = file_create_url(path_to_theme());
                       <span >Hotels</span>
                     </a>
                   </li>
-                  <li>
+                  <!--<li>
                     <a href="#tab-3" data-toggle="tab">
                       <i class="fa fa-home"></i>
-                      <span >Insurance</span>
+                      <span >Rails</span>
                     </a>
-                  </li>
+                  </li>-->
                   <li>
                     <a href="#tab-4" data-toggle="tab">
                       <i class="fa fa-car"></i>
@@ -160,7 +160,7 @@ $themeurl = file_create_url(path_to_theme());
                   <li>
                     <a href="#tab-5" data-toggle="tab">
                       <i class="fa fa-bolt"></i>
-                      <span >Activities</span>
+                      <span >Vacations</span>
                     </a>
                   </li>
                 </ul>
@@ -212,7 +212,7 @@ $themeurl = file_create_url(path_to_theme());
                                 <div class="form-group form-group-lg form-group-icon-left">
                                   <i class="fa fa-map-marker input-icon"></i>
                                   <label>To</label>
-                                  <input class="typeahead form-control nav_to" name="to" placeholder="City, Airport" type="text" />
+                                  <input  class="typeahead form-control nav_to" name="to" placeholder="City, Airport" type="text" />
                                 </div>
                               </div>
                             </div>
@@ -222,14 +222,14 @@ $themeurl = file_create_url(path_to_theme());
                                   <div class="form-group form-group-lg form-group-icon-left">
                                     <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                     <label>Departing</label>
-                                    <input class="form-control" class="clsstart" name="start" type="text" />
+                                    <input id="from_datepicker" class="form-control" class="clsstart" placeholder="yyyy-mm-dd" name="start" type="text" />
                                   </div>
                                 </div>
                                 <div class="col-md-3">
                                   <div class="form-group form-group-lg form-group-icon-left">
                                     <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                     <label>Returning</label>
-                                    <input class="form-control" class="clsend" name="end" type="text" />
+                                    <input id="to_datepicker" class="form-control" class="clsend" placeholder="yyyy-mm-dd" name="end" type="text" />
                                   </div>
                                 </div>
                                 <div class="col-md-2">
@@ -247,7 +247,7 @@ $themeurl = file_create_url(path_to_theme());
                                 </div>
                                 <div class="col-md-2">
                                   <div class="form-group form-group-lg form-group-select-plus">
-                                    <label>Childs(0-11)</label>
+                                    <label>Child(0-11)</label>
                                     <select name="children" class="form-control" >
                                       <option value="0">0</option>
                                       <option value="1">1</option>
@@ -289,12 +289,11 @@ $themeurl = file_create_url(path_to_theme());
                                 <i class="fa fa-plane input-icon input-icon-highlight"></i>
                                 <label>Class</label>
                                 <select name="pclass" class="form-control" >
-                                  <option value="economy" class="su_option">Economy
-                                  </p>
-                                </option>
-                                <option value="premiumeco">premium Economy</option>
+                                <option value="economy" class="su_option">Economy</option>
+                                <option value="premiumeco">Premium Economy</option>
                                 <option value="business">Business</option>
-                              </select>
+                                <option value="first">First</option>
+                                </select>
                             </div>
                           </div>
                         </div>
@@ -304,7 +303,7 @@ $themeurl = file_create_url(path_to_theme());
                               <div class="form-group form-group-lg form-group-icon-left">
                                 <i class="fa fa-map-marker input-icon"></i>
                                 <label>From</label>
-                                <input class="typeahead form-control" name="rfrom" placeholder="City, Airport, U.S. Zip" type="text" />
+                                <input class="typeahead form-control" name="rfrom" placeholder="City, Airport" type="text" />
                               </div>
                             </div>
                             <div class="col-md-2 imgdiv">
@@ -316,7 +315,7 @@ $themeurl = file_create_url(path_to_theme());
                               <div class="form-group form-group-lg form-group-icon-left">
                                 <i class="fa fa-map-marker input-icon"></i>
                                 <label>To</label>
-                                <input class="typeahead form-control" name="tfrom" placeholder="City, Airport, U.S. Zip" type="text" />
+                                <input class="typeahead form-control" name="tfrom" placeholder="City, Airport" type="text" />
                               </div>
                             </div>
                           </div>
@@ -325,7 +324,7 @@ $themeurl = file_create_url(path_to_theme());
                               <div class="form-group form-group-lg form-group-icon-left">
                                 <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                 <label>Departing</label>
-                                <input class="date-pick form-control" name="departing" data-date-format="M d, D" type="text" />
+                                <input id="ow_date" class="date-pick form-control" name="departing" placeholder="yyyy-mm-dd" data-date-format="M d, D" type="text" />
                               </div>
                             </div>
                             <div class="col-md-3">
@@ -333,9 +332,10 @@ $themeurl = file_create_url(path_to_theme());
                                 <i class="fa fa-plane input-icon input-icon-highlight"></i>
                                 <label>Class</label>
                                 <select name="rclass" class="form-control" >
-                                  <option value="economy">Economy</option>
-                                  <option value="premiumeco">Premium Economy</option>
-                                  <option value="business">Business</option>
+                                  <option value="economy" class="su_option">Economy</option>
+                                <option value="premiumeco">Premium Economy</option>
+                                <option value="business">Business</option>
+                                <option value="first">First</option>
                                 </select>
                               </div>
                             </div>
@@ -354,7 +354,7 @@ $themeurl = file_create_url(path_to_theme());
                                     </select>
                                   </div>
                                   <div class="widthofowsel col-md-6">  
-                                    <label>Childs(0-11)</label>
+                                    <label>Child(0-11)</label>
                                     <select name="childrenow" class="form-control widthofowsel">
                                       <option value="0">0</option>
                                       <option value="1">1</option>
@@ -475,7 +475,7 @@ $themeurl = file_create_url(path_to_theme());
                     <button class="btn btn-primary btn-lg" type="submit">Search for Hotels</button>
                   </form>
                 </div>
-                <div class="tab-pane fade" id="tab-3">
+                <!--<div class="tab-pane fade" id="tab-3">
                   <h2>Find Your Perfect Insurance</h2>
                   <form>
                     <div class="form-group form-group-lg form-group-icon-left">
@@ -486,7 +486,7 @@ $themeurl = file_create_url(path_to_theme());
                     <div class="input-daterange" data-date-format="M d, D"></div>
                     <button class="btn btn-primary btn-lg" type="submit">Search for Insurance</button>
                   </form>
-                </div>
+                </div>-->
                 <div class="tab-pane fade" id="tab-4">
                   <h2>Search for Cheap Rental Cars</h2>
                   <form>
@@ -606,7 +606,7 @@ $themeurl = file_create_url(path_to_theme());
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="#">PRICE GUARANTEED</a>
+              <a class="text-darken" href="#">BEST SELECTION</a>
             </h5>
             <p class="thumb-desc">Find our lowest price to destinations worldwide, guaranteed</p>
           </div>
@@ -632,7 +632,7 @@ $themeurl = file_create_url(path_to_theme());
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="#">24/7 Customer Care</a>
+              <a class="text-darken" href="#">24/7 Support</a>
             </h5>
             <p class="thumb-desc">Get award-winning service and special deals by calling 1-888-417-0446</p>
           </div>
@@ -645,7 +645,7 @@ $themeurl = file_create_url(path_to_theme());
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="#">EASY ONLINE BOOKING</a>
+              <a class="text-darken" href="#">EASY BOOKING</a>
             </h5>
             <p class="thumb-desc">Search, select and save - the fastest way to book your trip</p>
           </div>

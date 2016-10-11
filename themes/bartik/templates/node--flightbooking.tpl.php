@@ -263,6 +263,39 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
                                   ?>
                                 </td>
                            </tr>
+                              <tr>
+                                <th class="booking-history-title">Credit Card Last 4 Digits</th>
+                                <td>
+                                  <?php
+                                    echo "XXXX XXXX XXXX ".substr($node->field_credit_card_no['und'][0]['value'],-4);
+                                  ?>
+                                </td>
+                           </tr>
+                           <?php
+                            $cardtypes = array(
+                                'VI' => 'Visa',
+                                'AX' => 'American Express',
+                                'BC' => 'BC Card',
+                                'CA' => 'MasterCard',
+                                'DS' => 'Discover',
+                                'DC' => 'Diners Club',
+                                'T' => 'Carta Si',
+                                'R' => 'Carte Bleue',
+                                'E' => 'Visa Electron',
+                                'JC' => 'Japan Credit Bureau',
+                                'TO' => 'Maestro'
+                              );
+
+                           ?>
+                        
+                              <tr>
+                                <th class="booking-history-title">Credit Type</th>
+                                <td>
+                                  <?php
+                                    echo $cardtypes[$node->field_type_of_card['und'][0]['value']];
+                                  ?>
+                                </td>
+                           </tr>
                 <tr>
                                 <th class="booking-history-title">Tax</th>
                                 <td>$<?php
@@ -294,7 +327,7 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
   </div>
   <div class="row">
     <div class="col-md-6">
-      <a href="<?php echo $base_url; ?>/<?php echo "mybookingdetails"; ?>"><h2>Go back</h2></a>
+      <!--<a href="<?php echo $base_url; ?>/<?php echo "mybookingdetails"; ?>"><h2>Go back</h2></a>-->
     </div>
     <div class="col-md-6">
     <div class="sukh_gap"></div>

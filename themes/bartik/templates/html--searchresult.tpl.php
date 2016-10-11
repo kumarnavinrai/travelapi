@@ -69,7 +69,7 @@ elseif(strpos($base_url, "travelpainters.com"))
 }
 
 
-$noofresultonpage = 50;
+$noofresultonpage = 200;
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
@@ -127,6 +127,19 @@ $noofresultonpage = 50;
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; */?>
+  <script type="text/javascript">
+  <?php if(strpos($base_url, "travelpainters.com"))
+        { ?>
+    //var urlforapi = "http://127.0.0.1:1337/";
+    var urlforapi = "http://104.168.102.222:1337/";
+  <?php } ?>  
+  <?php if(strpos($base_url, "travelpainters.local"))
+        { ?>
+    var urlforapi = "http://127.0.0.1:1337/";
+    //var urlforapi = "http://104.168.102.222:1337/";
+  <?php } ?>  
+    
+  </script>
 </head>
 <body data-ng-init="init()"  class="<?php print $classes; ?>" <?php print $attributes;?>>
 <header id="main-header">
@@ -498,7 +511,7 @@ $noofresultonpage = 50;
                       $('.bargainfinderresult').hide();
                       
                       //$('.totalnoofresultsfound').html($(".saberresult").size());
-                      $('.totalnoofresultsfound').html($(".amadeusresult").size());
+                      //$('.totalnoofresultsfound').html($(".amadeusresult").size());
                       
 
                 },1000);
@@ -543,6 +556,12 @@ $noofresultonpage = 50;
 
         <script src="<?php echo $themeurl; ?>/js/angular-moment.min.js"></script>
         <script src="<?php echo $themeurl; ?>/js/underscore-min.js"></script>
+        <script src="<?php echo $themeurl; ?>/js/dirPagination.js"></script>
+        
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
         <script src="<?php echo $themeurl; ?>/js/custom.js"></script>
         <script type="text/javascript" src="<?php echo $themeurl; ?>/bload/bload.js"></script>
         <script type="text/javascript">
@@ -595,7 +614,6 @@ $noofresultonpage = 50;
                         //filghtCtrlId
                         //calling angular function here
                         if(elementoscheckbox.is(':checked')===true){
-
                           angular.element(document.getElementById('filghtCtrlId')).scope().filterFunc(valueofcheckedcheckbox);
                         }else if(elementoscheckbox.is(':checked')===false){
                           angular.element(document.getElementById('filghtCtrlId')).scope().filterFunc("");
@@ -624,7 +642,17 @@ $noofresultonpage = 50;
                     if($(this).siblings('.checkbox_dt').length == 1){
                         
                         var valueofcheckedcheckbox = $(this).siblings('.checkbox_dt').val();
+
+                        var elementoscheckbox = $(this).siblings('.checkbox_dt');
                         $('.cls_departure').val(valueofcheckedcheckbox);
+
+                        //filghtCtrlId
+                        //calling angular function here
+                        if(elementoscheckbox.is(':checked')===true){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncTime(valueofcheckedcheckbox);
+                        }else if(elementoscheckbox.is(':checked')===false){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncTime("");
+                        }
                         //$('.formforfilters').submit();
                         $('.departtimecheckboxes .checkbox_dt').each(function() {
 
@@ -646,8 +674,18 @@ $noofresultonpage = 50;
 
 
                     if($(this).siblings('.cls_airline').length == 1){
-                        
+
+
+                          
                         var valueofcheckedcheckbox = $(this).siblings('.cls_airline').val();
+                        var elementoscheckbox = $(this).siblings('.cls_airline');
+                        //filghtCtrlId
+                        //calling angular function here
+                        if(elementoscheckbox.is(':checked')===true){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncAirlines(valueofcheckedcheckbox);
+                        }else if(elementoscheckbox.is(':checked')===false){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncAirlines("");
+                        }
                                                 
                         if($(this).parent('.i-check').hasClass("checked") && $(this).siblings('.cls_airline').prop("checked") == true){
                             
@@ -694,6 +732,14 @@ $noofresultonpage = 50;
                         
                         var valueofcheckedcheckbox = $(this).siblings('.layoverchkbox').val();
                         $('.cls_layover').val(valueofcheckedcheckbox);
+                        var elementoscheckbox = $(this).siblings('.layoverchkbox');
+                        //filghtCtrlId
+                        //calling angular function here
+                        if(elementoscheckbox.is(':checked')===true){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncLayover(valueofcheckedcheckbox);
+                        }else if(elementoscheckbox.is(':checked')===false){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncLayover("");
+                        }
                         //$('.formforfilters').submit();
                         $('.layoverli .layoverchkbox').each(function() {
 
@@ -734,7 +780,13 @@ $noofresultonpage = 50;
                   sortingdata = sortingdata.replace(/ /g,'')
                   console.log(sortingdata);
                   $('.cls_sortbyval').val(sortingdata);
-                  $('.formforfilters').submit();
+                  if(sortingdata){
+                    angular.element(document.getElementById('filghtCtrlId')).scope().sortFunc(sortingdata);
+                  }else if(!sortingdata){
+                    angular.element(document.getElementById('filghtCtrlId')).scope().sortFunc("");
+                  }
+                  //sortFunc
+                  //$('.formforfilters').submit();
 
                 });
 
@@ -756,9 +808,18 @@ $noofresultonpage = 50;
         <!--      ######################################################################################################################################################################################################################################################       -->
         <script type="text/javascript">
           
-          var app = angular.module('myApp', ['angularMoment']);
+          var app = angular.module('myApp', ['angularMoment','angularUtils.directives.dirPagination']);
 
-          app.controller('filghtCtrl', ['$scope', '$log', 'flightServiceNew' , 'getFlightDataService', 'getFlightBmf', function($scope, $log, flightServiceNew, getFlightDataService, getFlightBmf)  { 
+          function OtherController($scope) {
+            $scope.pageChangeHandler = function(num) {
+              console.log('going to page ' + num);
+            };
+          }
+
+          //myApp.controller('MyController', MyController);
+          app.controller('OtherController', OtherController);
+
+          app.controller('filghtCtrl', ['$scope', '$log', 'flightServiceNew' , 'getFlightDataService', 'getFlightBmf',  function($scope, $log, flightServiceNew, getFlightDataService, getFlightBmf)  { 
             <?php 
                 if(isset($_POST['from']) && $_POST['from'] != "" && isset($_POST['to']) && $_POST['to'] != "")
                 { 
@@ -854,15 +915,68 @@ $noofresultonpage = 50;
               //limit
               <?php //print_r($_POST); die; ?>
 
+                $scope.pageChangeHandler = function(num) {
+                    console.log('meals page changed to ' + num);
+                };
+
                $scope.filterFunc = function (data) {
                   console.log(data);
+                  $scope.dataforamadeus = {};
                   $scope.outboundflightstops = data;
                   maskedfunc();
                   $scope.init();
                   console.log("----------i am navin-----------");
                };
 
+               $scope.filterFuncTime = function(data){
+
+                console.log(data);
+                $scope.dataforamadeus = {};
+                $scope.outbounddeparturewindow = data;
+                maskedfunc();
+                $scope.init();
+                console.log("----------i am navin-----------");
+
+               };
+
+               $scope.filterFuncAirlines = function(data){
+
+                console.log(data);
+                $scope.dataforamadeus = {};
+                $scope.includedcarriers = data;
+                maskedfunc();
+                $scope.init();
+                console.log("----------i am navin-----------");
+
+               };
+
+               $scope.filterFuncLayover = function(data){
+
+                console.log(data);
+                $scope.dataforamadeus = {};
+                $scope.inboundstopduration = data;
+                maskedfunc();
+                $scope.init();
+                console.log("----------i am navin-----------");
+
+               };
+
+                $scope.sortFunc = function(data){
+
+                console.log(data);
+                $scope.dataforamadeus = {};
+                $scope.sortbyval = data;
+                maskedfunc();
+                $scope.init();
+                console.log("----------i am navin-----------");
+
+               };
+
               $scope.init = function () {
+
+                $scope.currentPage = 1;
+                $scope.pageSize = 20;
+
                 // check if there is query in url
                 // and fire search in case its value is not empty
                 var urltogetFlights = '<?php echo $urltoGetFilghts; ?>';
@@ -884,11 +998,12 @@ $noofresultonpage = 50;
 
                 flightServiceNew.loadDataFromUrls(urltogetFlights,postData).then(function (datanew) {
                     maskedfuncoff();
-                    
+                    $scope.totalnoofresultsfound = 0;
                    
                     if(datanew[0] != undefined && datanew[0].data != undefined && datanew[0].data.amadeusresult != undefined){
                       $scope.dataforamadeus = datanew[0].data.amadeusresult;
                       $scope.filterdate = datanew[0].data.filterdate;
+                      
                       console.log($scope.dataforamadeus);
                     }
                    
@@ -899,6 +1014,7 @@ $noofresultonpage = 50;
          
                     if($scope.dataforamadeus!=undefined && $scope.dataforamadeus.length != 0){  
                       $scope.hasanyresultfound = "yes";
+                      $scope.totalnoofresultsfound = $scope.dataforamadeus.length;
                       //console.log($scope.DisplayDatainstantflights.length);
                     }
 
@@ -908,7 +1024,7 @@ $noofresultonpage = 50;
                 }); //flight service ends here
 
 
-                  getFlightBmf.getFlights(urltogetFlights,postData).then(function (data) {
+                getFlightBmf.getFlights(urltogetFlights,postData).then(function (data) {
                       console.log("-----bargain max finder------");
                       console.log(data);
                       console.log("-----bargain max finder------");
@@ -1057,6 +1173,7 @@ $noofresultonpage = 50;
 
                     runbargainfindersortout();
                   });
+                  
                
                   $scope.appState = true;
 

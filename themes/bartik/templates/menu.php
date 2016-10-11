@@ -170,8 +170,10 @@
     <li ><a href="#">FLIGHTS</a> </li>
                 <li><a href="#">HOTELS</a> </li>
                                 <!--<li><a href="<?php echo $urlofwp; ?>insurance/">INSURANCE</a></li>-->
-                                <li><a href="<?php echo $urlofwp; ?>cars/">CARS</a></li>
-                                <li><a href="about.php">ABOUT US</a> </li>
+                                <li><a href="<?php echo $urlofwp; ?>/">CARS</a></li>
+                                <li><a href="<?php echo $urlofwp; ?>/">Check Booking Info</a></li>
+                                <li><a href="<?php echo $urlofwp; ?>/">Online Check-in</a></li>
+                                <li><a href="<?php echo $urlofwp; ?>/">ABOUT US</a> </li>
                                
                                 <li><a href="<?php echo $urlofwp; ?>contacts/">CONTACT US</a></li>
     

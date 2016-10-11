@@ -1,13 +1,31 @@
-#messages
-{
-margin-left: 0px;
-margin-right: 0px;
-background-color: rgba(51, 51, 51, 0.58);
-border-radius: 2px;
-list-style-type: none;
-border: 0px solid ;
-font-family: Arial;
-font-size: 15px;
-color:#C54D4D;
-text-align: center;
+#messages {
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: rgba(24, 178, 146, 0.24);
+    border-radius: 1px;
+    list-style-type: none;
+    border: 0px solid;
+    font-family: Arial;
+    font-size: 15px;
+    color: #bd362f;
+    text-align: center;
+}
+h2.element-invisible {
+    font-family: Arial;
+    color: #bd362f;
+}
+.messages {
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: rgba(24, 178, 146, 0.24);
+    border-radius: 1px;
+    list-style-type: none;
+    border: 0px solid;
+    font-family: Arial;
+    font-size: 15px;
+    color: #bd362f;
+    text-align: center;
+}
+.messages >ul> li {
+    list-style-type: none;
 }

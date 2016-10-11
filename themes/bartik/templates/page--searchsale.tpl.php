@@ -334,7 +334,7 @@
                                 
                                  <div class="col-md-2">
                                     <div class="form-group">
-                                         <label>First Name</label>
+                                         <label>First Name<span class="msg_name_nav"></br>(* according to the ID & Passport.)</span></label>
                                         <input type="text" class="form-control" name="fn<?php echo $i+1; ?>" ng-model="user.fn<?php echo $i+1; ?>" ng-minlength="3" ng-maxlength="18" required />
                                        
                                         <!-- show an error if username is too short -->
@@ -351,7 +351,7 @@
                                 
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label>Middle Name</label>
+                                        <label>Middle Name<span class="msg_name_nav"></br>(* according to the ID & Passport.)</span></label>
                                         
                                          <input type="text" class="form-control" name="mn<?php echo $i+1; ?>" ng-model="user.mn<?php echo $i+1; ?>" ng-minlength="3" ng-maxlength="18" required />
 
@@ -369,7 +369,7 @@
                                 
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                             <label>Last Name</label>
+                                             <label>Last Name<span class="msg_name_nav"></br>(* according to the ID & Passport.)</span></label>
                                          
                                             <input type="text" class="form-control" name="ln<?php echo $i+1; ?>" ng-model="user.ln<?php echo $i+1; ?>" ng-minlength="3" ng-maxlength="18" required />
 
@@ -1090,17 +1090,23 @@
                                             
                                 </div>
                                 </div>
+
+                                
                                 <div class="clearfix">
                                     <div class="form-group form-group-cc-name col-md-8">
                                         <label>Confirm Email</label>
                                         
-                                        <input class="form-control" type="email" name="emailc" ng-model="user.emailc" ng-init="user.emailc='<?php echo $usermail; ?>'"  required/>    
+                                        <input class="form-control" type="email" name="emailc" ng-model="user.emailc" match="user.email" ng-init="user.emailc='<?php echo $usermail; ?>'"  required/>    
                                        
                                           <br/>
                                           <span class="sukh_alert error" ng-show="userFormd.emailc.$error.required">
                                             Confirm Email Required!</span>
                                           <span class="sukh_alert error" ng-show="userFormd.emailc.$error.email">
-                                            Check your email entered!</span>  
+                                            Check your email entered!</span> 
+                                          <br/>
+                                          <span class="sukh_alert error" ng-show="userFormd.emailc.$error.mismatch">
+                                            <span class="sukh_alert error msg-error">Email and Confirm Email must match.</span>
+                                          </span>   
                                             
                                 </div>
                                 </div>
@@ -1124,7 +1130,7 @@ Please also confirm that the dates and times of flight departures are accurate. 
             </p>
             <P align="center">By clicking BOOK, I agree that I have read and accepted Travelpainters.com's Terms and Conditions and Privacy Policy.</P>
             <P align="center">If you do not see Book Flight button check your credit card and its validity.</P>
-             <input class="btn btn-primary book_btn" type="submit" /*ng-show="ccvalid=='yes'"*/ value="Book" />
+             <input class="btn btn-primary book_btn" type="submit" ng-show="ccvalid=='yes'" value="Book" />
             </div>
             <div class="gap"></div>
             
