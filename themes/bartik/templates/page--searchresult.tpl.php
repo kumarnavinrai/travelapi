@@ -613,6 +613,7 @@ $themeurl = file_create_url(path_to_theme());
                         <!-- Repeat this row for showing no of flights from des for no of stops -->
                         <div class="container-sukh" ng-repeat="x in xy.inoutflightarr" >
                             <div class="row price_row" ng-if="x.counterfornoofflights==1" >
+                            
                               <div class="col-md-5 col-sm-12 col-xs-12">
                                 <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
                               </div>

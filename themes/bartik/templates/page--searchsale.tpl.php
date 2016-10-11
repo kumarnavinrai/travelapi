@@ -387,7 +387,7 @@
                                 
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label>Date of Birth</label>
+                                        <label>Date of Birth<span class="msg_name_nav"></br>(* according to the ID & Passport.)</span></label>
                                         <input ng-model="user.dobx<?php echo $i+1; ?>" class="date-pick-years form-control" name="dob<?php echo $i+1; ?>" type="text" required/>
                                         <!-- show an error if this isn't filled in -->
                                         <p class="sukh_alert" ng-show="userForm.dob<?php echo $i+1; ?>.$error.required">DOB is required.</p>
