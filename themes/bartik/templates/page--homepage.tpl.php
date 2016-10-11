@@ -632,7 +632,7 @@ $themeurl = file_create_url(path_to_theme());
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="#">24/7 Support</a>
+              <a class="text-darken" href="#">24/7 SUPPORT</a>
             </h5>
             <p class="thumb-desc">Get award-winning service and special deals by calling 1-888-417-0446</p>
           </div>
