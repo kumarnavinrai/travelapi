@@ -69,4 +69,26 @@ margin-right: 0px;
 background-color:#FED2D3;
 border-radius: 2px;
 }
+div#loginblock
+{
+width:30px;
+
+}
+
+.social-text
+{
+font-family: Arial;
+font-size: 15px;
+color: white;
+}
+
+.cceform
+{
+position: relative;
+width: 300px;
+z-index: 15;
+left: 40%;
+margin: 100px 0 0 -75px;
+}
+
  

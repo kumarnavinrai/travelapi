@@ -84,6 +84,7 @@
  * @see bartik_process_page()
  * @see html.tpl.php
  */
+ $themeurl = file_create_url(path_to_theme());
 ?>
 <div id="page-wrapper"><div id="page">
 
@@ -91,7 +92,7 @@
 
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+         <img src="<?php echo $themeurl; ?>/img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
       </a>
     <?php endif; ?>
 

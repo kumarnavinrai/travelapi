@@ -1,0 +1,215 @@
+<?php
+
+//Custom module developed to create CCE roles by subadmin. Also showing the power of drupal form API using hooks.
+
+//This is the function to provide the URL for the form with additional arguments to set the user permissions. 
+function editcce_menu() {
+  $items['editcce'] = array(
+    'page callback' => 'drupal_get_form',
+	//'type' => MENU_CALLBACK,
+    'page arguments' => array('editcce_form'),
+	'access arguments' => array('access editcce content'),
+    );
+  return $items;
+}
+
+function editcce_form($form,&$form_state) {
+	if(!isset($_REQUEST['uid']))
+	{
+	global $base_url;
+	$url=$base_url."/pagenotfound";
+	drupal_goto($url);
+	}
+	
+$uid=$_REQUEST['uid'];
+$existingUser = user_load($uid);
+$uname=$existingUser->name;
+
+//echo "<pre>"; print_r($existingUser);
+//die();	
+drupal_set_title($title = "SUB ADMIN Panel ##   Editing:".$uname, $output = CHECK_PLAIN);
+ $form['#attributes'] = array('class' => 'cceform');
+ 
+  $form['empid'] = array(
+    '#title' => t('Employee ID'),
+    '#type' => 'textfield',
+	'#default_value' => isset($existingUser->field_employee_id['und'])?$existingUser->field_employee_id['und'][0]['value']:null,
+    '#required' => FALSE,
+  );
+  
+  $form['empdept'] = array(
+    '#title' => t('Employee Department'),
+    '#type' => 'textfield',
+	'#default_value' => isset($existingUser->field_employee_department['und'])?$existingUser->field_employee_department['und'][0]['value']:null,
+    '#required' => FALSE,
+  );
+  
+    $form['empextn'] = array(
+    '#title' => t('Employee Extension Number'),
+    '#type' => 'textfield',
+	'#default_value' => isset($existingUser->field_employee_extension['und'])?$existingUser->field_employee_extension['und'][0]['value']:null,
+    '#required' => FALSE,
+  );
+  
+    $form['password'] = array(
+    '#title' => t('Change Password'),
+    '#type' => 'password',
+    '#required' => FALSE,
+  );
+  
+    $form['verifypassword'] = array(
+    '#title' => t('Re-enter changed password'),
+    '#type' => 'password',
+    '#required' => FALSE,
+  );
+  
+//	$form['ccedetails'] = array(
+//  '#type' =>'button', 
+//  '#value' => t('See ALL CCE Details'), 
+//  '#weight' => 19,
+//  '#attributes' => array('onclick' => 'document.location.href="mycce"; return false;'),
+//);
+
+  
+  //Submit will go to the submit function where a new CCE will be created
+  $form['submit'] = array(
+    '#value' => t('Save CCE Information'),
+    '#type' => 'submit',
+	'#executes_submit_callback' => TRUE,
+    '#limit_validation_errors' => FALSE,
+    );
+	
+	//$form['#submit'][]='cce_form_submit';
+  return $form;
+}
+
+function editcce_form_validate($form, &$form_state) {
+  if (($form_state['values']['password'] != $form_state['values']['verifypassword'] )){
+    form_set_error('password', t('The two passwords should match'));
+  }
+}
+
+
+function editcce_form_submit($form, &$form_state)
+{
+		//Get form variables
+		$getempid=$form_state['values']['empid'];
+		$getempdept=$form_state['values']['empdept'];
+		$getempextn=$form_state['values']['empextn'];
+		$password=$form_state['values']['password'];
+
+		//Get the current user id
+		$uid=$_REQUEST['uid'];
+		//echo $uid;
+		//echo "<pre>"; print_r($uid);
+
+		// load user object
+		$existingUser = user_load($uid);
+
+		$uname=$existingUser->name;
+
+		
+		//echo $getempid;
+		//echo $getempdept;
+		//echo $getempextn;
+		//echo "<pre>"; print_r($existingUser);
+		//die();
+		
+		//echo "<pre>"; print_r($existingUser->field_employee_extension[und][0][value]);
+		//$pass=$existingUser->pass;
+		
+		//Check if the data has to be inserted or updated
+		if($password == "")
+		{
+			//Get the data from the form and build an array which will be saved
+			$edit = array(
+				//'pass' => $password,
+				'status' => 1,
+				'roles' => array(
+								DRUPAL_AUTHENTICATED_RID => 'authenticated user',
+								6 => 'cce',
+								),
+			  'field_employee_id' => array(
+								'und' => array(
+								0 => array(
+								'value'=> $getempid ,
+								)
+								)
+								),					
+			  'field_employee_department' => array(
+								'und' => array(
+								0 => array(
+								'value'=>$getempdept,
+								)
+								)
+								),					
+			  'field_employee_extension' => array(
+								'und' => array(
+								0 => array(
+								'value'=>$getempextn,
+								)
+								)
+								),				
+			);
+			//echo "<pre>"; print_r($edit);
+
+			// save existing user
+			user_save(user_load($uid),$edit);
+
+			drupal_set_message("\nSuccessfully updated user: ".$uname." settings");
+		}
+		else
+		{
+			//Get the data from the form and build an array which will be saved
+			$edit = array(
+				'pass' => $password,
+				'status' => 1,
+				'roles' => array(
+								DRUPAL_AUTHENTICATED_RID => 'authenticated user',
+								6 => 'cce',
+								),
+			  'field_employee_id' => array(
+								'und' => array(
+								0 => array(
+								'value'=> $getempid ,
+								)
+								)
+								),					
+			  'field_employee_department' => array(
+								'und' => array(
+								0 => array(
+								'value'=>$getempdept,
+								)
+								)
+								),					
+			  'field_employee_extension' => array(
+								'und' => array(
+								0 => array(
+								'value'=>$getempextn,
+								)
+								)
+								),				
+			);
+			//echo "<pre>"; print_r($edit);
+
+			// save existing user
+			user_save(user_load($uid),$edit);
+
+			drupal_set_message("\nSuccessfully updated user: ".$uname." settings");		
+		}
+
+
+}
+
+
+function editcce_permission() {
+  return array(
+    'access editcce content' => array(
+      'title' => t('Access content for the Admin Panel module'),
+    )
+  );
+}
+
+
+
+

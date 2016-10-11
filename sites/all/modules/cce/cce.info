@@ -1,0 +1,4 @@
+name = CCE
+description = This module is for the Customer Care Executives that will get calls from real time customers
+core = 7.x
+

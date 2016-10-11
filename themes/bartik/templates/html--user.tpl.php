@@ -113,6 +113,10 @@ if(in_array("flightuser", $user->roles) && !strpos($url, $sitelinkforprofile) &&
       <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/ab-style.css" />
      <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/menu-style.css" />
 	 <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/removal.css" />
+	 <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/hybridauth.css" />
+	 <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/hybridauth.modal.css" />
+	 <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/hybridauth_32.css" />
+	 
      <!--
      <link rel="stylesheet" href="<?php //echo $themeurl; ?>/css/switcher.css" />
     <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/bright-turquoise.css" title="bright-turquoise" media="all" />
