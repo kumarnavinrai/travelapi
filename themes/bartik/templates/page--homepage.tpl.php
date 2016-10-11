@@ -645,7 +645,7 @@ $themeurl = file_create_url(path_to_theme());
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="#">EASY ONLINE BOOKING</a>
+              <a class="text-darken" href="#">EASY BOOKING</a>
             </h5>
             <p class="thumb-desc">Search, select and save - the fastest way to book your trip</p>
           </div>

@@ -334,7 +334,7 @@
                                 
                                  <div class="col-md-2">
                                     <div class="form-group">
-                                         <label>First Name</label>
+                                         <label>First Name<span class="msg_name_nav"></br>(* according to the ID & Passport.)</span></label>
                                         <input type="text" class="form-control" name="fn<?php echo $i+1; ?>" ng-model="user.fn<?php echo $i+1; ?>" ng-minlength="3" ng-maxlength="18" required />
                                        
                                         <!-- show an error if username is too short -->
@@ -351,7 +351,7 @@
                                 
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label>Middle Name</label>
+                                        <label>Middle Name<span class="msg_name_nav"></br>(* according to the ID & Passport.)</span></label>
                                         
                                          <input type="text" class="form-control" name="mn<?php echo $i+1; ?>" ng-model="user.mn<?php echo $i+1; ?>" ng-minlength="3" ng-maxlength="18" required />
 
@@ -369,7 +369,7 @@
                                 
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                             <label>Last Name</label>
+                                             <label>Last Name<span class="msg_name_nav"></br>(* according to the ID & Passport.)</span></label>
                                          
                                             <input type="text" class="form-control" name="ln<?php echo $i+1; ?>" ng-model="user.ln<?php echo $i+1; ?>" ng-minlength="3" ng-maxlength="18" required />
 
