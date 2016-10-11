@@ -28,6 +28,14 @@ function bartik_preprocess_html(&$variables) {
     || !empty($variables['page']['footer_fourthcolumn'])) {
     $variables['classes_array'][] = 'footer-columns';
   }
+  
+    global $user;
+	$role=$user->roles;
+
+	if(isset($node->type) &&$node->type == 'flightbooking' && (in_array('subadmin',$role) || in_array('cce',$role)))
+	{
+		$variables['theme_hook_suggestion'] = 'html__subadminflightbookings';
+	}
 
   
   // Add conditional stylesheets for IE
@@ -71,7 +79,17 @@ function bartik_preprocess_page(&$vars, $hook) {
    }elseif ($header == "403 Forbidden") {
      $vars['theme_hook_suggestions'][] = 'page__403';
   }
-   
+  
+   if ($node = menu_get_object()) {
+    $vars['node'] = $node;
+	global $user;
+	$role=$user->roles;
+	if($node->type == 'flightbooking' && (in_array('subadmin',$role) || in_array('cce',$role)))
+	{
+		$vars['theme_hook_suggestion'] = 'page__subadminflightbookings';
+	}
+	
+  }   
  
 }
 
@@ -114,6 +132,7 @@ function bartik_process_page(&$variables) {
     // Make sure the shortcut link is the first item in title_suffix.
     $variables['title_suffix']['add_or_remove_shortcut']['#weight'] = -100;
   }
+  
 }
 
 /**
@@ -155,6 +174,28 @@ function bartik_preprocess_node(&$variables) {
   if ($variables['view_mode'] == 'full' && node_is_page($variables['node'])) {
     $variables['classes_array'][] = 'node-full';
   }
+  
+  //Added for flightbooking to show SUBADMIN and a FLIGHTUSER
+  $node=$variables['node'];
+  global $user;
+
+	$role=$user->roles;
+
+	
+	if($node->type == 'flightbooking' && (in_array('subadmin',$role) || in_array('cce',$role)))
+	{
+	
+	//echo "<pre>";
+	//die('rahul');
+		$variables['theme_hook_suggestion'] = 'node__subadminflightbookings';
+	}
+  
+	
+	//if($node->type == 'flightbooking' && strpos($_SERVER['HTTP_REFERER'], 'allflights') !== false)
+	//{
+	//	$variables['theme_hook_suggestion'] = 'node__subadminflightbookings';
+	//}
+  
 }
 
 /**
@@ -226,6 +267,16 @@ function bartik_theme(){
       'bartik_preprocess_user_pass'   
     ),    
   );    
+    $items['flightbooking_node_form'] = array(    
+    'render element' => 'form',   
+    'path' => drupal_get_path('theme', 'bartik') . '/templates',    
+    'template' => 'editflightbooking-node-form',  
+	//'arguments'=>array('form' => null),  
+    
+  );
+  
+  	
+
   return $items;    
 }   
 /*    

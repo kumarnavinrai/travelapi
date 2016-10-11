@@ -1,0 +1,224 @@
+<?php
+
+//Custom module developed to create CCE roles by subadmin. Also showing the power of drupal form API using hooks.
+
+//This is the function to provide the URL for the form with additional arguments to set the user permissions. 
+function cce_menu() {
+  $items['cce'] = array(
+    'title' => 'SUBADMIN PANEL ## CCE Create User',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('cce_form'),
+	'access arguments' => array('access cce content'),
+    //'access callback' => TRUE,
+    );
+	
+	
+  return $items;
+}
+
+
+
+//This the drupal core form API function that renders the form with our custom fields. The implementation is quite straightforward with the usage of arrays
+function cce_form($form,&$form_state) {
+
+
+ $form['#attributes'] = array('class' => 'cceform');
+
+//Add the required form fields to create a cce user
+ 
+    $form['empid'] = array(
+    '#title' => t('Employee ID'),
+    '#type' => 'textfield',
+    '#required' => TRUE,
+  );
+  
+  $form['empdept'] = array(
+    '#title' => t('Employee Department'),
+    '#type' => 'textfield',
+    '#required' => TRUE,
+  );
+  
+    $form['empextn'] = array(
+    '#title' => t('Employee Extension Number'),
+    '#type' => 'textfield',
+    '#required' => TRUE,
+  );
+ 
+  $form['email'] = array(
+    '#title' => t('Email ID'),
+    '#type' => 'textfield',
+    '#required' => TRUE,
+  );
+  
+  $form['password'] = array(
+    '#title' => t('Password'),
+    '#type' => 'password',
+    '#required' => TRUE,
+  );
+  
+    $form['verifypassword'] = array(
+    '#title' => t('Re-enter password'),
+    '#type' => 'password',
+    '#required' => TRUE,
+  );
+  
+
+	$form['clear'] = array(
+  '#type' =>'button', 
+  '#value' => t('Clear'), 
+  '#weight' => 19,
+  '#attributes' => array('onclick' => 'this.form.reset(); return false;'),
+);
+
+//	$form['ccedetails'] = array(
+//  '#type' =>'button', 
+//  '#value' => t('See All CCE Details'), 
+//  '#weight' => 19,
+//  '#attributes' => array('onclick' => 'document.location.href="mycce"; return false;'),
+//);
+//
+//	$form['allflights'] = array(
+//  '#type' =>'button', 
+//  '#value' => t('Go to all bookings'), 
+//  '#weight' => 19,
+//  '#attributes' => array('onclick' => 'document.location.href="allflights"; return false;'),
+//);
+
+  
+  //Submit will go to the submit function where a new CCE will be created
+  $form['submit'] = array(
+    '#value' => t('Create CCE'),
+    '#type' => 'submit',
+	'#executes_submit_callback' => TRUE,
+    '#limit_validation_errors' => FALSE,
+    );
+	
+
+	
+	//$form['#submit'][]='cce_form_submit';
+  return $form;
+}
+
+function cce_form_validate($form, &$form_state) {
+  if (($form_state['values']['password'] != $form_state['values']['verifypassword'] )){
+    form_set_error('password', t('The two passwords should match'));
+  }
+}
+
+
+//Function which will create a new cce based on the variables from the form
+function cce_form_submit($form, &$form_state) 
+{
+global $user;
+
+//Get the user variables here
+$email=$form_state['values']['email'];
+$password=$form_state['values']['password'];
+$getempid=$form_state['values']['empid'];
+$getempdept=$form_state['values']['empdept'];
+$getempextn=$form_state['values']['empextn'];
+$username="cce";
+            
+			//Check if the user already exists in the system
+			$olduser = user_load_by_mail($email);
+			
+			//If Not
+			if(!$olduser)
+			{
+			//Create a unique random username for every cce
+              $username = $username.rand(10,1000);
+
+					//Create the user credentials for the cce role here to be processed by the form API. 
+					  $new_user = array(
+						'name' => $username,
+						'pass' => $password, // note: do not md5 the password
+						'mail' => $email,
+						'status' => 1,
+						'init' => $email,
+						'roles' => array(
+						  DRUPAL_AUTHENTICATED_RID => 'authenticated user',
+						  6 => 'cce',
+						),
+						'field_employee_id' => array(
+								'und' => array(
+								0 => array(
+								'value'=> $getempid ,
+								)
+								)
+								),					
+			  'field_employee_department' => array(
+								'und' => array(
+								0 => array(
+								'value'=>$getempdept,
+								)
+								)
+								),					
+			  'field_employee_extension' => array(
+								'und' => array(
+								0 => array(
+								'value'=>$getempextn,
+								)
+								)
+								),	
+					  );
+					  
+					  //Save the user here
+					$createduser=user_save('', $new_user);
+					 
+					 //Once the user is created load them again by the primary key(email)
+					 $saveduser = user_load_by_mail($email);
+					 
+					 //echo "<pre>"; print_r($saveduser->uid);
+					 //die();
+					 
+					 //Remove role for flightuser
+					 $role_id_rm = 4; 
+					 $uid = $saveduser->uid; //Current user whose account was created
+					 user_multiple_role_edit(array($uid), 'remove_role', $role_id_rm);
+					 
+					  
+					  //When we are ready to send emails, please uncomment
+					  //$to = strtolower($email);
+					  //$from = strtolower("subadmin@travelpainters.com");
+					  //$subject = "Successfully created a CCE role";
+					  //
+					  //$msg = "You have been asssigned as a CCE user. Your Username: ".$username." Password: ".$password." . Please login to the admin panel via these credentials.  --Travelpainters Admin";
+					  ////echo $to = strtolower("navinkumar@geekexperthelp.com");
+					  //echo $from = strtolower("navinrai@travelpainters.com");
+					  //echo $subject = strtolower("I am working");
+					  //$body = $msg;
+					  //sendEmailSendGrid($to,$from,$subject,$body);
+						
+					  //YIPEEEEE
+					  drupal_set_message("Successfully Created a CCE user with the USERNAME: ".$username." and PASSWORD: ".$password);
+			}
+			
+			elseif($olduser)
+			{
+	//When we are ready to send emails, please uncomment
+	//              $useridofcurrentuser = $olduser->uid;
+	//
+	//              $to = strtolower($email);
+	//              $from = strtolower("subadmin@travelpainters.com");
+	//              $subject = "Thanks for booking flight with travelpainters.com";
+	//              
+	//              $msg = "Thanks for booking flight with Travelpainters. Your Username: ".$to." . Please login and check your booking status. If you you do not know your password please user forgotpassword link on Travelpainters.     --Travelpainters Team";
+	//           
+	//              $body = $msg;
+	//              sendEmailSendGrid($to,$from,$subject,$body);
+				//YIPEEEEE
+				drupal_set_message("User already exists in the system. Please create a new user with the correct credentials. For any problems contact the admin",'error');
+          }
+}
+
+
+function cce_permission() {
+  return array(
+    'access cce content' => array(
+      'title' => t('Access content for the Admin Panel module'),
+    )
+  );
+}
+
+
+

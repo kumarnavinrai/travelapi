@@ -1,0 +1,4 @@
+name = Edit CCE
+description = This module is for the Subadmin to edit the Customer Care Executives
+core = 7.x
+

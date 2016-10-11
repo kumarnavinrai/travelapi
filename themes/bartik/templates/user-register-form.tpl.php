@@ -45,7 +45,24 @@
 		print drupal_render($form['form_id']);
 		print drupal_render($form['actions']);
 		?>
-
+<p class="social-text">Or Register Using:</p>
+			<ul class="list list-horizontal list-space">
+				<li>
+					<a href="/hybridauth/window/Facebook?destination=user/register&amp;destination_error=user/register" title="Facebook" class="hybridauth-widget-provider hybridauth-onclick-current" rel="nofollow" data-hybridauth-provider="Facebook" data-hybridauth-url="/hybridauth/window/Facebook?destination=user/register&amp;destination_error=user/register" data-ajax="false" data-hybridauth-width="800" data-hybridauth-height="500"><span class="hybridauth-icon facebook hybridauth-icon-hybridauth-32 hybridauth-facebook hybridauth-facebook-hybridauth-32" title="Facebook"></span></a>
+                </li>
+                <li>
+					<a href="/hybridauth/window/Google?destination=user/register&amp;destination_error=user/register" title="Google" class="hybridauth-widget-provider hybridauth-onclick-current" rel="nofollow" data-hybridauth-provider="Google" data-hybridauth-url="/hybridauth/window/Google?destination=user/register&amp;destination_error=user/register" data-ajax="false" data-hybridauth-width="800" data-hybridauth-height="500"><span class="hybridauth-icon google hybridauth-icon-hybridauth-32 hybridauth-google hybridauth-google-hybridauth-32" title="Google"></span></a>
+                </li>
+                <li>
+                     <a href="/hybridauth/window/LinkedIn?destination=user/register&amp;destination_error=user/register" title="LinkedIn" class="hybridauth-widget-provider hybridauth-onclick-current" rel="nofollow" data-hybridauth-provider="LinkedIn" data-hybridauth-url="/hybridauth/window/LinkedIn?destination=user/register&amp;destination_error=user/register" data-ajax="false" data-hybridauth-width="800" data-hybridauth-height="500"><span class="hybridauth-icon linkedin hybridauth-icon-hybridauth-32 hybridauth-linkedin hybridauth-linkedin-hybridauth-32" title="LinkedIn"></span></a>
+                </li>
+                <li>
+                     <a href="/hybridauth/window/Twitter?destination=user/register&amp;destination_error=user/register" title="Twitter" class="hybridauth-widget-provider hybridauth-onclick-current" rel="nofollow" data-hybridauth-provider="Twitter" data-hybridauth-url="/hybridauth/window/Twitter?destination=user/register&amp;destination_error=user/register" data-ajax="false" data-hybridauth-width="800" data-hybridauth-height="500"><span class="hybridauth-icon twitter hybridauth-icon-hybridauth-32 hybridauth-twitter hybridauth-twitter-hybridauth-32" title="Twitter"></span></a>
+				</li>
+                            
+			</ul>
+<p></p>
+		
        </div>
      </form>
     </div>
