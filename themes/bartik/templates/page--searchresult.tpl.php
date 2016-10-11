@@ -613,6 +613,7 @@ $themeurl = file_create_url(path_to_theme());
                         <!-- Repeat this row for showing no of flights from des for no of stops -->
                         <div class="container-sukh" ng-repeat="x in xy.inoutflightarr" >
                             <div class="row price_row" ng-if="x.counterfornoofflights==1" >
+
                               <div class="col-md-5 col-sm-12 col-xs-12">
                                 <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
                               </div>
@@ -633,7 +634,7 @@ $themeurl = file_create_url(path_to_theme());
                                     <p >{{x.marketingairlinefullname}}</p>
                                     </div>
                                   </div>
-                                  <div class="col-md-6">
+                                  <div class="col-md-7">
                                     <div class="booking-item-flight-details">
                                       <div class="booking-item-departure">
                                         <i class="fa fa-plane"></i>
@@ -653,7 +654,7 @@ $themeurl = file_create_url(path_to_theme());
                                      <h5 >Flight No.{{x.flightno}}</h5>
                                      <p >{{x.stopornonstop}}</p>
                                   </div>
-                                  <div class="col-md-2">
+                                  <div class="col-md-1">
                                     <span class="booking-item-price">Class: {{x.travelclass}}</span>
                                     <p class="booking-item-flight-class" ng-if="x.layovertime!=0" >Waiting Time: {{x.layovertime}}</p>
                                   </div>
