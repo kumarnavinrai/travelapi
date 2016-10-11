@@ -146,13 +146,98 @@ $('.typeahead').typeahead({
 
 */
 
+$( function() {
+    //totay date seletor
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+    var today = yyyy+'-'+mm+'-'+dd;
+
+    var elestart = $('input.date-pick, .input-daterange input[name="start"]');
+    var eleend = $('.input-daterange input[name="end"]');
+
+    //var dateFormat = "mm/dd/yy",
+    var dateFormat = "yy-mm-dd";
+    $('#from_datepicker').datepicker({
+      minDate: 'D',
+      dateFormat: dateFormat,
+      defaultDate: "+1w",
+      numberOfMonths: 2,
+      onClose: function(selectedDate) {
+        $('#to_datepicker').datepicker("option", "minDate", selectedDate);
+        $('#to_datepicker').datepicker("show");
+      }
+    });
+    $('#to_datepicker').datepicker({
+        minDate: '+1D',
+        dateFormat: dateFormat,
+        defaultDate: "+1w",
+        numberOfMonths: 2
+    });
+
+    $('#ow_date').datepicker({
+      minDate: 'D',
+      dateFormat: dateFormat,
+      defaultDate: "+1w",
+      numberOfMonths: 2,
+    });
+
+      /*from = elestart
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          dateFormat: dateFormat,
+          minDate: today,
+          showAnim: "slideDown",
+          numberOfMonths: 2,
+          onClose: function(selectedDate) {
+            
+            $('#to_datepicker').datepicker("show");
+          }
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+          //$('#to_datepicker').datepicker("show");
+        }),
+      to = eleend.datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        dateFormat: dateFormat,
+        minDate: today,
+        showAnim: "slideDown",
+        numberOfMonths: 2
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });*/
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+  } );
 
 
 //$('input.date-pick, .input-daterange, .date-pick-inline').datepicker({
    // todayHighlight: true
 //});
 //totay date seletor
-var today = new Date();
+/*var today = new Date();
 var dd = today.getDate();
 var mm = today.getMonth()+1; //January is 0!
 
@@ -222,7 +307,7 @@ $('.input-daterange input[name="end"]').daterangepicker(
 }, 
 function(start, end, label) {
     console.log("A new date range was chosen: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-});
+});*/
 
 /*$('input.time-pick').timepicker({
     minuteStep: 15,

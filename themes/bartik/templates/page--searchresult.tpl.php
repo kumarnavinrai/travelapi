@@ -153,14 +153,14 @@ $themeurl = file_create_url(path_to_theme());
                                   <div class="form-group form-group-lg form-group-icon-left">
                                     <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                     <label>Departing</label>
-                                    <input class="form-control" name="start" type="text" />
+                                    <input class="form-control" placeholder="yyyy-mm-dd" id="from_datepicker" name="start" type="text" />
                                   </div>
                                 </div>
                                 <div class="col-md-3">
                                   <div class="form-group form-group-lg form-group-icon-left">
                                     <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                     <label>Returning</label>
-                                    <input class="form-control" name="end" type="text" />
+                                    <input class="form-control" placeholder="yyyy-mm-dd" id="to_datepicker" name="end" type="text" />
                                   </div>
                                 </div>
                                 <div class="col-md-2">
@@ -231,7 +231,7 @@ $themeurl = file_create_url(path_to_theme());
                                       <div class="form-group form-group-lg form-group-icon-left">
                                         <i class="fa fa-map-marker input-icon"></i>
                                         <label>From</label>
-                                        <input class="typeahead form-control" name="rfrom" placeholder="City, Airport, U.S. Zip" type="text" />
+                                        <input class="typeahead form-control" name="rfrom" placeholder="City, Airport" type="text" />
                                       </div>
                                     </div>
                                     <div class="col-md-2 imgdiv">
@@ -243,7 +243,7 @@ $themeurl = file_create_url(path_to_theme());
                                       <div class="form-group form-group-lg form-group-icon-left">
                                         <i class="fa fa-map-marker input-icon"></i>
                                         <label>To</label>
-                                        <input class="typeahead form-control" name="tfrom" placeholder="City, Airport, U.S. Zip" type="text" />
+                                        <input class="typeahead form-control" name="tfrom" placeholder="City, Airport" type="text" />
                                       </div>
                                     </div>
                                   </div>
@@ -252,7 +252,7 @@ $themeurl = file_create_url(path_to_theme());
                                         <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
                                             <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                             <label>Departing</label>
-                                            <input class="date-pick form-control" name="departing" data-date-format="M d, D" type="text" />
+                                            <input class="date-pick form-control" id="ow_date" name="departing" placeholder="yyyy-mm-dd" data-date-format="M d, D" type="text" />
                                         </div>
                                     </div>
                                    <div class="col-md-2">
