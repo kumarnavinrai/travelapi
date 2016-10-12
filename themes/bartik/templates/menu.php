@@ -167,14 +167,24 @@
       </ul>
     </li>-->
 	<!-- Destinations End -->
-    <li ><a href="#">FLIGHTS</a> </li>
-                <li><a href="#">HOTELS</a> </li>
+                                
+                                <li ><a href="<?php echo $urlofwp; ?>">FLIGHTS</a> </li>
+                                <li><a href="<?php echo $urlofwp; ?>">HOTELS</a> </li>
                                 <!--<li><a href="<?php echo $urlofwp; ?>insurance/">INSURANCE</a></li>-->
-                                <li><a href="<?php echo $urlofwp; ?>/">CARS</a></li>
-                                <li><a href="<?php echo $urlofwp; ?>/">Check Booking Info</a></li>
-                                <li><a href="<?php echo $urlofwp; ?>/">Online Check-in</a></li>
-                                <li><a href="<?php echo $urlofwp; ?>/">ABOUT US</a> </li>
+                                <li><a href="<?php echo $urlofwp; ?>">CARS</a></li>
+                                <!-- diff menu start -->
+                                <li class="dropdown mega-dropdown">
+                                  <a href="<?php echo $urlofwp; ?>destinations" class="dropdown-toggle" data-toggle="dropdown">TRAVEL INFO<i class="fa fa-sort-desc sukh" aria-hidden="true"></i></a>
+                                    <ul class="dropdown-menu mega-dropdown-menu row">
+                                        <li><a href="<?php echo $urlofwp; ?>">CHECK BOOKING INFO</a></li>
+                                        <li><a href="<?php echo $urlofwp; ?>onlinecheckin/">ONLINE CHECK-IN</a></li>
+                                        <li><a href="<?php echo $urlofwp; ?>popularroutes">POPULAR ROUTES</a></li>
+                                    </ul>
+                                </li>     
+                                <!--diff menu ends -->
                                
+                                <li><a href="<?php echo $urlofwp; ?>aboutus/">ABOUT US</a> </li>
+                                
                                 <li><a href="<?php echo $urlofwp; ?>contacts/">CONTACT US</a></li>
     
     </ul>

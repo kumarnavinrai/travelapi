@@ -81,8 +81,8 @@ $sitelinkforfp = "/user/password";
 if(in_array("flightuser", $user->roles) && !strpos($url, $sitelinkforprofile) && !strpos($url, $sitelinkforfp) )
 { 
     $urltorediect = "Location: ".$_SESSION['urlforform']."mybookingdetails";
-    //header($urltorediect);
-    //die;
+    header($urltorediect);
+    die;
 }
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"

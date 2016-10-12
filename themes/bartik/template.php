@@ -8,7 +8,7 @@ $urlforform = "http://travelpainters.com/travel/";
 function bartik_preprocess_html(&$variables) {
 
   $node = menu_get_object();
-  
+
   if ($node && $node->nid) {
     $variables['theme_hook_suggestions'][] = 'html__' . $node->type;
   }
@@ -29,7 +29,8 @@ function bartik_preprocess_html(&$variables) {
     $variables['classes_array'][] = 'footer-columns';
   }
   
-    global $user;
+  
+  global $user;
 	$role=$user->roles;
 
 	if(isset($node->type) &&$node->type == 'flightbooking' && (in_array('subadmin',$role) || in_array('cce',$role)))
@@ -55,7 +56,7 @@ function bartik_preprocess_user_register_form(&$vars) {
 /**
  * Override or insert variables into the page template for HTML output.
  */
-function bartik_process_html(&$variables) {
+function bartik_process_html(&$variables) { 
   // Hook into color.module.
   if (module_exists('color')) {
     _color_html_alter($variables);
@@ -67,7 +68,7 @@ function bartik_process_html(&$variables) {
 }
 
 
-function bartik_preprocess_page(&$vars, $hook) {
+function bartik_preprocess_page(&$vars, $hook) { 
   if (isset($vars['node'])) {
     // If the node type is "blog_madness" the template suggestion will be "page--blog-madness.tpl.php".
     $vars['theme_hook_suggestions'][] = 'page__'. $vars['node']->type;

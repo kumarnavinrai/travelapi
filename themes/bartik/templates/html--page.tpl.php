@@ -51,12 +51,12 @@ $sitelink = $base_url . $base_path;
 
 
 if(strpos($base_url, "travelpainters.local"))
-{
+{ 
   $urlofwp = "http://travelpainters.local/";  
   $_SESSION['urlforform'] = "http://travelpainters.local/";
   $sitelink = $_SESSION['urlforform'];
-  //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
-$urltoGetFilghts = "http://104.168.102.222:1337/fs/";
+  $urltoGetFilghts = "http://127.0.0.1:1337/fs/";
+//$urltoGetFilghts = "http://104.168.102.222:1337/fs/";
 }
 elseif(strpos($base_url, "travelpainters.com"))
 {
@@ -75,15 +75,7 @@ $url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER
 
 
 
-global $user;
-$sitelinkforprofile = "/user/".$user->uid."/edit";
-$sitelinkforfp = "/user/password";
-if(in_array("flightuser", $user->roles) && !strpos($url, $sitelinkforprofile) && !strpos($url, $sitelinkforfp) )
-{ 
-    $urltorediect = "Location: ".$_SESSION['urlforform']."mybookingdetails";
-    //header($urltorediect);
-    //die;
-}
+
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
@@ -140,7 +132,16 @@ if(in_array("flightuser", $user->roles) && !strpos($url, $sitelinkforprofile) &&
   <?php print $styles; ?>
   <?php print $scripts; */?>
   <script type="text/javascript">
-    var urlforapi = "http://104.168.102.222:1337/fs/";
+    <?php if(strpos($base_url, "travelpainters.com"))
+          { ?>
+      //var urlforapi = "http://127.0.0.1:1337/";
+      var urlforapi = "http://104.168.102.222:1337/";
+    <?php } ?>  
+    <?php if(strpos($base_url, "travelpainters.local"))
+          { ?>
+      var urlforapi = "http://127.0.0.1:1337/";
+      //var urlforapi = "http://104.168.102.222:1337/";
+    <?php } ?>  
   </script>
   <style type="text/css">
     .form-type-password .description a{ display: none; }

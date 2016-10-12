@@ -51,12 +51,12 @@ $sitelink = $base_url . $base_path;
 
 
 if(strpos($base_url, "travelpainters.local"))
-{
+{ 
   $urlofwp = "http://travelpainters.local/";  
   $_SESSION['urlforform'] = "http://travelpainters.local/";
   $sitelink = $_SESSION['urlforform'];
-  //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
-$urltoGetFilghts = "http://104.168.102.222:1337/fs/";
+  $urltoGetFilghts = "http://127.0.0.1:1337/fs/";
+//$urltoGetFilghts = "http://104.168.102.222:1337/fs/";
 }
 elseif(strpos($base_url, "travelpainters.com"))
 {
@@ -75,15 +75,6 @@ $url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER
 
 
 
-global $user;
-$sitelinkforprofile = "/user/".$user->uid."/edit";
-$sitelinkforfp = "/user/password";
-if(in_array("flightuser", $user->roles) && !strpos($url, $sitelinkforprofile) && !strpos($url, $sitelinkforfp) )
-{ 
-    $urltorediect = "Location: ".$_SESSION['urlforform']."mybookingdetails";
-    //header($urltorediect);
-    //die;
-}
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
@@ -139,8 +130,95 @@ if(in_array("flightuser", $user->roles) && !strpos($url, $sitelinkforprofile) &&
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; */?>
+  <script language="javascript">
+    function getRoutes(cityLetter){
+      var divToHide = document.getElementsByClassName("routesAbhi");
+      var index = 0;
+      while (index < divToHide.length) {
+        divToHide[index].className = "routesAbhi hide";
+        index++;
+      }
+      
+      var divToShow = document.getElementById("routesList"+cityLetter);
+      divToShow.className = "routesAbhi";
+    }
+  </script>
+
+
+
+<style>
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, footer, header, menu, nav, section, summary {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+.travelpainter_abhiroute {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 1.5em;
+    clear: both;
+    float: left;
+    margin-bottom: 4em;
+   margin-left: 1em;
+   margin-right:1em;
+    margin-top: 5em;
+    min-height: 100px;
+    padding-bottom: 4em;
+    padding-left: 3em;
+    padding-top: 2em;
+    
+}
+h3.blogTitle {
+    color: #434a54;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    text-decoration: none;
+}
+div.chooseAbhi {
+    color: #717171;
+    font-size: 17px;
+    cursor: pointer;
+    float: left;
+    padding-right: 12px;
+    padding-left: 10px;
+}
+.clear {
+    clear: both;
+}
+div.routesAbhi {
+    background: #ffffff;
+    height: 100%;
+    min-height: 100px;
+    padding: 5px;
+}
+
+.hide {
+    display: none;
+}
+.routesAbhi a {
+    display: block;
+    float: left;
+    width: 220px;
+    text-decoration: none;
+}
+
+</style>
   <script type="text/javascript">
-    var urlforapi = "http://104.168.102.222:1337/fs/";
+    <?php if(strpos($base_url, "travelpainters.com"))
+          { ?>
+      //var urlforapi = "http://127.0.0.1:1337/";
+      var urlforapi = "http://104.168.102.222:1337/";
+    <?php } ?>  
+    <?php if(strpos($base_url, "travelpainters.local"))
+          { ?>
+      var urlforapi = "http://127.0.0.1:1337/";
+      //var urlforapi = "http://104.168.102.222:1337/";
+    <?php } ?>  
   </script>
   <style type="text/css">
     .form-type-password .description a{ display: none; }
