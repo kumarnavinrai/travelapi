@@ -21,10 +21,13 @@ $nodes = node_load_multiple(array(), array('type' => 'page'));
          }
 
       ?>
-      console.log(list);
+      //console.log(list);
       $('a').each(function (index, value){
-        console.log(list[$(this).attr('title')]);
-        $(this).attr('href',"/content/"+list[$(this).attr('title')]);
+         
+        if($(this).attr('title') !== undefined){
+            
+            $(this).attr('href',"/content/"+list[$(this).attr('title')]);
+         }
       });
    });
 </script>
