@@ -116,7 +116,7 @@ $themeurl = file_create_url(path_to_theme());
             <?php 
               $pathoffile = realpath(__DIR__);
               //echo $pathoffile; die;
-              require_once $pathoffile."\/"."searchformdialog.php"
+              require_once $pathoffile."/"."searchformdialog.php";
             ?>
             <?php ?>
             <!-- search form ends -->
