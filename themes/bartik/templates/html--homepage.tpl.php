@@ -45,7 +45,7 @@
 
   $pathoffile = realpath(__DIR__);
   //echo $pathoffile; die;
-  require_once $pathoffile."\/"."serverconfig.php";
+  require_once $pathoffile."/"."serverconfig.php";
 
 //echo $IP = get_client_ip(); 
 //$a = file_get_contents("http://api.ipinfodb.com/v3/ip-city/?key=00d1e4556a00293951daa9b637d7c10d8221ec43f900de0c85ebfc1bbde73734&ip=116.193.161.27&format=json");
@@ -238,7 +238,7 @@ function get_client_ip() {
       <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."\/"."menu.php"
+        require_once $pathoffile."/"."menu.php"
       ?>
    
     </div>
@@ -253,7 +253,7 @@ function get_client_ip() {
   <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."\/"."footer.php"
+        require_once $pathoffile."/"."footer.php"
   ?>
  
 

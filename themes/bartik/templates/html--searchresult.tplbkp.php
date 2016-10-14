@@ -44,7 +44,7 @@
  */
   $pathoffile = realpath(__DIR__);
   //echo $pathoffile; die;
-  require_once $pathoffile."\/"."serverconfig.php";
+  require_once $pathoffile."/"."serverconfig.php";
 
 
 
@@ -172,7 +172,7 @@
       <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."\/"."menu.php"
+        require_once $pathoffile."/"."menu.php"
       ?>
    
     </div>

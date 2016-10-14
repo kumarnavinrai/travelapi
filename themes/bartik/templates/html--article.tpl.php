@@ -44,7 +44,7 @@
  */
   $pathoffile = realpath(__DIR__);
   //echo $pathoffile; die;
-  require_once $pathoffile."\/"."serverconfig.php";
+  require_once $pathoffile."/"."serverconfig.php";
 
 
 
@@ -265,7 +265,7 @@ div.routesAbhi {
       <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."\/"."menu.php"
+        require_once $pathoffile."/"."menu.php"
       ?>
    
     </div>
@@ -280,7 +280,7 @@ div.routesAbhi {
   <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."\/"."footer.php"
+        require_once $pathoffile."/"."footer.php"
   ?>
 
         <script src="<?php echo $themeurl; ?>/js/jquery.js"></script>

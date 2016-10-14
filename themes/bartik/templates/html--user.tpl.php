@@ -45,7 +45,7 @@
 
   $pathoffile = realpath(__DIR__);
   //echo $pathoffile; die;
-  require_once $pathoffile."\/"."serverconfig.php";
+  require_once $pathoffile."/"."serverconfig.php";
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
@@ -178,7 +178,7 @@
       <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."\/"."menu.php"
+        require_once $pathoffile."/"."menu.php"
       ?>
    
     </div>
@@ -193,7 +193,7 @@
   <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."\/"."footer.php"
+        require_once $pathoffile."/"."footer.php"
   ?>
 
         <script src="<?php echo $themeurl; ?>/js/jquery.js"></script>

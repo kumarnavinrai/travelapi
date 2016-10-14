@@ -45,7 +45,7 @@
 
   $pathoffile = realpath(__DIR__);
   //echo $pathoffile; die;
-  require_once $pathoffile."\/"."serverconfig.php";
+  require_once $pathoffile."/"."serverconfig.php";
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
@@ -181,13 +181,13 @@
 <?php 
   $pathoffile = realpath(__DIR__);
   //echo $pathoffile; die;
-  require_once $pathoffile."\/"."menu.php"
+  require_once $pathoffile."/"."menu.php"
 ?>
     <div class="collapse navbar-collapse js-navbar-collapse">
       <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."\/"."menu.php"
+        require_once $pathoffile."/"."menu.php"
       ?>
    
     </div>
@@ -203,7 +203,7 @@
   <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."\/"."footer.php"
+        require_once $pathoffile."/"."footer.php"
   ?>
         <script type="text/javascript">
         var carrayblod;
