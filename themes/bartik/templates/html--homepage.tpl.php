@@ -42,32 +42,63 @@
  *
  * @ingroup themeable
  */
-$themeurl = file_create_url(path_to_theme());
 
-global $base_url;   // Will point to http://www.example.com
-global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
-$sitelink = $base_url . $base_path;
+  $pathoffile = realpath(__DIR__);
+  //echo $pathoffile; die;
+  require_once $pathoffile."\/"."serverconfig.php";
 
-if(strpos($base_url, "travelpainters.local"))
-{
-  $urlofwp = "http://travelpainters.local/";  
-  $_SESSION['urlforform'] = "http://travelpainters.local/";
-  $sitelink = $_SESSION['urlforform'];
+//echo $IP = get_client_ip(); 
+//$a = file_get_contents("http://api.ipinfodb.com/v3/ip-city/?key=00d1e4556a00293951daa9b637d7c10d8221ec43f900de0c85ebfc1bbde73734&ip=116.193.161.27&format=json");
+//echo $a; 
+//die;
+
+// Function to get the client IP address
+function get_client_ip() {
+    $ipaddress = '';
+    if (getenv('HTTP_CLIENT_IP'))
+        $ipaddress = getenv('HTTP_CLIENT_IP');
+    else if(getenv('HTTP_X_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+    else if(getenv('HTTP_X_FORWARDED'))
+        $ipaddress = getenv('HTTP_X_FORWARDED');
+    else if(getenv('HTTP_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+    else if(getenv('HTTP_FORWARDED'))
+       $ipaddress = getenv('HTTP_FORWARDED');
+    else if(getenv('REMOTE_ADDR'))
+        $ipaddress = getenv('REMOTE_ADDR');
+    else
+        $ipaddress = 'UNKNOWN';
+
+
+    if($ipaddress == 'UNKNOWN')
+    {
+      $ipaddress = '';
+    if (isset($_SERVER['HTTP_CLIENT_IP']))
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if(isset($_SERVER['REMOTE_ADDR']))
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+    
+    }  
+    return $ipaddress;
 }
-elseif(strpos($base_url, "travelpainters.com"))
-{
-  $urlofwp = "http://travelpainters.com/";  
-  $_SESSION['urlforform'] = "http://travelpainters.com/";
-  $sitelink = $_SESSION['urlforform'];
-}
 
-
-$noofresultonpage = 50;
+//AIzaSyBGtM0dY8A7JgqvCN9TydLeNIVhWZnJ1K8
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?>>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>"  ng-app="myApp" id="filghtCtrlHomeId" ng-controller="filghtCtrlHome"  version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>" <?php print $rdf_namespaces; ?>>
 
 <head profile="<?php print $grddl_profile; ?>">
   <title>Travel Painters</title>
@@ -123,16 +154,18 @@ $noofresultonpage = 50;
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; */?>
+
   <script type="text/javascript">
-  <?php if(strpos($base_url, "travelpainters.com"))
+  <?php if(strpos($base_url, "45.79.141.212"))
         { ?>
     //var urlforapi = "http://127.0.0.1:1337/";
-    var urlforapi = "http://104.168.102.222:1337/";
+    //var urlforapi = "http://104.168.102.222:1337/";
+    var urlforapi = "http://45.79.141.212:1337/";
   <?php } ?>  
   <?php if(strpos($base_url, "travelpainters.local"))
         { ?>
-    //var urlforapi = "http://127.0.0.1:1337/";
-    var urlforapi = "http://104.168.102.222:1337/";
+    var urlforapi = "http://127.0.0.1:1337/";
+    //var urlforapi = "http://104.168.102.222:1337/";
   <?php } ?>  
     
   </script>
@@ -225,6 +258,7 @@ $noofresultonpage = 50;
  
 
         <script src="<?php echo $themeurl; ?>/js/jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
         <script src="<?php echo $themeurl; ?>/js/bootstrap.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
         <script src="<?php echo $themeurl; ?>/js/slimmenu.js"></script>
@@ -252,9 +286,50 @@ $noofresultonpage = 50;
         <script src="<?php echo $themeurl; ?>/js/switcher.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        
+        <script type="text/javascript" src="http://www.google.com/jsapi?key=AIzaSyBGtM0dY8A7JgqvCN9TydLeNIVhWZnJ1K8"></script>
+        <script type="text/javascript">
+          google.load("maps", "2.x", {callback: initialize});
+
+          var lat = "";
+          var long = "";
+
+          function initialize() {
+            if (google.loader.ClientLocation) {
+                var lat = google.loader.ClientLocation.latitude;
+                var long = google.loader.ClientLocation.longitude;
+                angular.element(document.getElementById('filghtCtrlHomeId')).scope().init(lat,long);
+                //alert ("lat: " + lat + "\nlong: " + long);
+             }
+             else { alert ("not available"); }
+           }
+         </script>
 
         <script>
+          
+          var app = angular.module('myApp', []);
+
+          app.controller('filghtCtrlHome', ['$scope', '$log', '$http','flightServiceNew' , 'getFlightDataService', 'getFlightBmf',  function($scope, $log, $http, flightServiceNew, getFlightDataService, getFlightBmf)  { 
+
+            $scope.init = function (lat,long) {
+              console.log("init");console.log(lat);console.log(long);
+                if(lat !== undefined && long !== undefined && lat != "" && long != "")
+                { 
+
+                    var url  = "<?php echo $base_url; ?>"+"/phpsaber/popularratesforhome.php?lat="+lat+"&long="+long;
+                    //var url  = "<?php echo $base_url; ?>"+"/phpsaber/popularratesforhome.php?lat=46.6734&long=-71.7412";
+                    $http.get(url).then(function(value) {
+                        $scope.example2 = value.status;
+                    });
+
+                }
+
+            }    
+
+
+          }]); //controller ends
+          
+
+
           $(document).ready(function(){
             $("#workflow-form").submit(function(event) { 
               var over = '<div id="overlay">' +
@@ -286,6 +361,6 @@ $noofresultonpage = 50;
           });   
         </script>
     </div>
-
+  <script src="<?php echo $themeurl; ?>/js/controllers.js"></script>  
 </body>
 </html>

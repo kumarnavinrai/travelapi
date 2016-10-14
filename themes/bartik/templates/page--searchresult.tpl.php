@@ -144,7 +144,7 @@ $themeurl = file_create_url(path_to_theme());
             ?>
 
 
-            <h3 class="booking-title"><span class="totalnoofresultsfound" ng-if="totalnoofresultsfound!='NaN'">{{totalnoofresultsfound}}</span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; echo isset($_REQUEST['rfrom'])?$_REQUEST['rfrom']:""; } if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; echo isset($_REQUEST['tfrom'])?$_REQUEST['tfrom']:""; } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] ==""){ echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; } ?><?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] !=""){ echo isset($_REQUEST['adultow'])&&$_REQUEST['adultow']?$_REQUEST['adultow']:0; } ?> Adults , <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; } ?>  Children<small><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a></small></h3>
+            <h3 class="booking-title"><span class="totalnoofresultsfound" ng-if="totalnoofresultsfound!='NaN'">{{totalnoofresultsfound}}</span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; echo isset($_REQUEST['rfrom'])?$_REQUEST['rfrom']:""; } if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; echo isset($_REQUEST['tfrom'])?$_REQUEST['tfrom']:""; } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] ==""){ echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; } ?><?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] !=""){ echo isset($_REQUEST['adultow'])&&$_REQUEST['adultow']?$_REQUEST['adultow']:0; } ?> Adults , <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; } ?>  Children&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Modify Search</a></strong></h3>
 
              <!-- pagination start -->
              <div class="row">
@@ -491,6 +491,71 @@ $themeurl = file_create_url(path_to_theme());
                         </li>
 
                   <!-- new design ends -->
+
+                    <!-- new design temp start -->
+                    <li class="amadeusresulttemp" ng-repeat="xy in dataforamadeustemp" >
+                    <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
+                    <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
+                    <?php } ?>
+                    <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
+                    <span ng-init="xy.adult=<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adult']?$_REQUEST['adultow']:0; ?>"></span>
+                    <?php } ?>
+                    <div class="booking-item-container">
+                      <div class="booking-item">
+                        <span whoami="{{xy.whoami}}" style="display:none;" >{{xy}}</span>
+                        <!-- Repeat this row for showing no of flights from des for no of stops -->
+                        <div class="container-sukh" ng-repeat="x in xy.inoutflightarr" >
+                            <div class="row price_row" ng-if="x.counterfornoofflights==1" >
+                            
+                              <div class="col-md-5 col-sm-12 col-xs-12">
+                                <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
+                              </div>
+                              <div class="col-md-7 col-sm-12 col-xs-12 text-algn-sukh-right">
+                                <h4 style="color:#fff;padding:10px;">
+                                  ${{xy.totalbeforetax}}<small>(Base Price)+ </small>${{xy.totaltax}}<small>(taxes)</small>= ${{xy.totalfare}}<small>(Total)</small>
+                                </h4>
+                              </div>
+                            </div>
+                          
+                              <div class="row">
+                                <div class="col-md-2">
+                                  <div class="booking-item-airline-logo">
+                                    <img  src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoofmarketingairline}}" alt="{{x.marketingairlinefullname}}" title="{{x.marketingairlinefullname}}" />
+                                    <p >{{x.marketingairlinefullname}}</p>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="booking-item-flight-details">
+                                      <div class="booking-item-departure">
+                                        <i class="fa fa-plane"></i>
+                                        <span class="nav_time">{{x.departtime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
+                                        <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                        <p class="booking-item-destination nav_time">{{x.departureairportfullname}}</p>
+                                      </div>
+                                      <div class="booking-item-arrival">
+                                        <i class="fa fa-plane fa-flip-vertical"></i>
+                                        <span class="nav_time">{{x.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
+                                        <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                        <p class="booking-item-destination nav_time">{{x.destinationairportfullname}}</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                     <h5 >Flight No.{{x.flightno}}</h5>
+                                     <p >{{x.stopornonstop}}</p>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <span class="booking-item-price">Class: {{x.travelclass}}</span>
+                                    <p class="booking-item-flight-class" ng-if="x.layovertime!=0" >Waiting Time: {{x.layovertime}}</p>
+                                  </div>
+                                </div>
+                                <hr>
+                                </div><!-- sukh container -->
+                            </div><!-- booking item -->
+                          </div><!-- booking item container -->
+                        </li>
+
+                  <!-- new design temp ends -->
                   <?php /* ?>
                      <li class="amadeusresult" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
                    
