@@ -300,7 +300,7 @@ function get_client_ip() {
                 angular.element(document.getElementById('filghtCtrlHomeId')).scope().init(lat,long);
                 //alert ("lat: " + lat + "\nlong: " + long);
              }
-             else { alert ("not available"); }
+             else { console.log("not available"); }
            }
          </script>
 
