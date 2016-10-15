@@ -321,7 +321,7 @@
                                     <div class="col-md-12 sukh_height">
                                 <div class="col-md-2">
                                    <div class="form-group">
-                                        <label>Traveler <?php echo $i+1; ?></label>
+                                        <label>Traveler <?php echo $i+1; ?><span class="msg_name_nav"></br>(* according to the ID & Passport.)</span></label>
                                         <select>
                                         <option>Adult</option>
                                         <option>Senior</option>
@@ -398,7 +398,7 @@
                                 
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label>Gender</label>
+                                        <label>Gender<span class="msg_name_nav"></br>(* according to the ID & Passport.)</span></label>
                                         <select name="sex<?php echo $i+1; ?>">
                                         <option>Male</option>
                                         <option>Female</option>

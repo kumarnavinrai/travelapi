@@ -41,24 +41,10 @@
  *
  * @ingroup themeable
  */
-$themeurl = file_create_url(path_to_theme());
+  $pathoffile = realpath(__DIR__);
+  //echo $pathoffile; die;
+  require_once $pathoffile."/"."serverconfig.php";
 
-global $base_url;   // Will point to http://www.example.com
-global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
-$sitelink = $base_url . $base_path;
-
-if($base_url == "http://travelpainters.local")
-{
-  $urlofwp = "http://travelpainters.local/";  
-  $_SESSION['urlforform'] = "http://travelpainters.local/";
-  $sitelink = $_SESSION['urlforform'];
-}
-elseif($base_url == "http://travelpainters.com")
-{
-  $urlofwp = "http://travelpainters.com/";  
-  $_SESSION['urlforform'] = "http://travelpainters.com/";
-  $sitelink = $_SESSION['urlforform'];
-}
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
@@ -176,7 +162,7 @@ elseif($base_url == "http://travelpainters.com")
       <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."\/"."menu.php"
+        require_once $pathoffile."/"."menu.php"
       ?>
    
     </div>
@@ -191,7 +177,7 @@ elseif($base_url == "http://travelpainters.com")
   <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."\/"."footer.php"
+        require_once $pathoffile."/"."footer.php"
   ?>
 
         <script src="<?php echo $themeurl; ?>/js/jquery.js"></script>

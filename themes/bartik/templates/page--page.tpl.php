@@ -42,7 +42,7 @@
                <?php 
                   $pathoffile = realpath(__DIR__);
                   //echo $pathoffile; die;
-                  require_once $pathoffile."\/"."searchform.php"
+                  require_once $pathoffile."/"."searchform.php";
                 ?>
                
                <div class="col-md-4 ">

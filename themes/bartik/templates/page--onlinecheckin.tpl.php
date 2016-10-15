@@ -1,271 +1,88 @@
-<?php
+<div style="width:80%; background-color:#DCDCDC;margin:2em auto;padding:15px;border:5px solid black;border-width:15px; border-color:#18b292; border-radius: 20px;">
+  <div>
+    <h1>Online Check-in</h1>
+  </div>
+    <p>Have you booked a flight with travelpainters.com? With most airlines you can check in online and reserve your own seat. You save time when checking in at the airport and you can sit in your own personally selected seat. Checking in online can be available from 48 hours until 1 hour before departure depending on which airline you are flying with.</p>
+<div style="background-color: #18b292; padding:2em 2em; width:auto">
+    <b><h4 style="color:#FFFFFF">Select your airline from the drop down menu below:</h4></b>
 
-/**
- * @file
- * Bartik's theme implementation to display a single Drupal page.
- *
- * The doctype, html, head and body tags are not in this template. Instead they
- * can be found in the html.tpl.php template normally located in the
- * modules/system directory.
- *
- * Available variables:
- *
- * General utility variables:
- * - $base_path: The base URL path of the Drupal installation. At the very
- *   least, this will always default to /.
- * - $directory: The directory the template is located in, e.g. modules/system
- *   or themes/bartik.
- * - $is_front: TRUE if the current page is the front page.
- * - $logged_in: TRUE if the user is registered and signed in.
- * - $is_admin: TRUE if the user has permission to access administration pages.
- *
- * Site identity:
- * - $front_page: The URL of the front page. Use this instead of $base_path,
- *   when linking to the front page. This includes the language domain or
- *   prefix.
- * - $logo: The path to the logo image, as defined in theme configuration.
- * - $site_name: The name of the site, empty when display has been disabled
- *   in theme settings.
- * - $site_slogan: The slogan of the site, empty when display has been disabled
- *   in theme settings.
- * - $hide_site_name: TRUE if the site name has been toggled off on the theme
- *   settings page. If hidden, the "element-invisible" class is added to make
- *   the site name visually hidden, but still accessible.
- * - $hide_site_slogan: TRUE if the site slogan has been toggled off on the
- *   theme settings page. If hidden, the "element-invisible" class is added to
- *   make the site slogan visually hidden, but still accessible.
- *
- * Navigation:
- * - $main_menu (array): An array containing the Main menu links for the
- *   site, if they have been configured.
- * - $secondary_menu (array): An array containing the Secondary menu links for
- *   the site, if they have been configured.
- * - $breadcrumb: The breadcrumb trail for the current page.
- *
- * Page content (in order of occurrence in the default page.tpl.php):
- * - $title_prefix (array): An array containing additional output populated by
- *   modules, intended to be displayed in front of the main title tag that
- *   appears in the template.
- * - $title: The page title, for use in the actual HTML content.
- * - $title_suffix (array): An array containing additional output populated by
- *   modules, intended to be displayed after the main title tag that appears in
- *   the template.
- * - $messages: HTML for status and error messages. Should be displayed
- *   prominently.
- * - $tabs (array): Tabs linking to any sub-pages beneath the current page
- *   (e.g., the view and edit tabs when displaying a node).
- * - $action_links (array): Actions local to the page, such as 'Add menu' on the
- *   menu administration interface.
- * - $feed_icons: A string of all feed icons for the current page.
- * - $node: The node object, if there is an automatically-loaded node
- *   associated with the page, and the node ID is the second argument
- *   in the page's path (e.g. node/12345 and node/12345/revisions, but not
- *   comment/reply/12345).
- *
- * Regions:
- * - $page['header']: Items for the header region.
- * - $page['featured']: Items for the featured region.
- * - $page['highlighted']: Items for the highlighted content region.
- * - $page['help']: Dynamic help text, mostly for admin pages.
- * - $page['content']: The main content of the current page.
- * - $page['sidebar_first']: Items for the first sidebar.
- * - $page['triptych_first']: Items for the first triptych.
- * - $page['triptych_middle']: Items for the middle triptych.
- * - $page['triptych_last']: Items for the last triptych.
- * - $page['footer_firstcolumn']: Items for the first footer column.
- * - $page['footer_secondcolumn']: Items for the second footer column.
- * - $page['footer_thirdcolumn']: Items for the third footer column.
- * - $page['footer_fourthcolumn']: Items for the fourth footer column.
- * - $page['footer']: Items for the footer region.
- *
- * @see template_preprocess()
- * @see template_preprocess_page()
- * @see template_process()
- * @see bartik_process_page()
- * @see html.tpl.php
- */
-?>
-<div id="page-wrapper"><div id="page">
-
-  <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>">
-  <div class="section clearfix">
-
-    <?php /*if ($logo): ?>
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-      </a>
-    <?php endif; */?>
-
-    <?php /*if ($site_name || $site_slogan): ?>
-      <div id="name-and-slogan"<?php if ($hide_site_name && $hide_site_slogan) { print ' class="element-invisible"'; } ?>>
-
-        <?php if ($site_name): ?>
-          <?php if ($title): ?>
-            <div id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
-              <strong>
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-              </strong>
-            </div>
-          <?php else:  Use h1 when the content title is empty  ?>
-            <h1 id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-            </h1>
-          <?php endif; ?>
-        <?php endif; */ ?>
-
-        <?php /*if ($site_slogan): ?>
-          <div id="site-slogan"<?php if ($hide_site_slogan) { print ' class="element-invisible"'; } ?>>
-            <?php print $site_slogan; ?>
-          </div>
-        <?php endif; ?>
-
-      </div> <!-- /#name-and-slogan -->
-    <?php endif; */?>
-
-    <?php //print render($page['header']); ?>
-
-    <?php /*if ($main_menu): ?>
-      <div id="main-menu" class="navigation">
-        <?php print theme('links__system_main_menu', array(
-          'links' => $main_menu,
-          'attributes' => array(
-            'id' => 'main-menu-links',
-            'class' => array('links', 'clearfix'),
-          ),
-          'heading' => array(
-            'text' => t('Main menu'),
-            'level' => 'h2',
-            'class' => array('element-invisible'),
-          ),
-        )); ?>
-      </div> <!-- /#main-menu -->
-    <?php endif; */?>
-
-    <?php /*if ($secondary_menu): ?>
-      <div id="secondary-menu" class="navigation">
-        <?php print theme('links__system_secondary_menu', array(
-          'links' => $secondary_menu,
-          'attributes' => array(
-            'id' => 'secondary-menu-links',
-            'class' => array('links', 'inline', 'clearfix'),
-          ),
-          'heading' => array(
-            'text' => t('Secondary menu'),
-            'level' => 'h2',
-            'class' => array('element-invisible'),
-          ),
-        )); ?>
-      </div> <!-- /#secondary-menu -->
-    <?php endif; */?>
-
-  </div></div> <!-- /.section, /#header -->
-<style>.messages.status { color: #171515 !important; } .nk_cls{ text-align: center; }</style>
-<?php if ($messages): ?>
-    <div id="messages" class="container"><div class="section clearfix">
-    
-      <?php $source = explode("</div>", $messages); 
-            $messageofmailcame = "no";
-            foreach ($source as $key => $value) {
-              $source = str_replace('<p>', '&lt;p&gt;', $value);
-              $source = strip_tags($source);
-              if(strpos($source, "Unable to send e-mail. Contact the site administrator if the problem persists.") !== false)
-              {
-                $messageofmailcame = "yes";
-              }
-            }
-              
-           
-            if($messageofmailcame=='yes')
-            {
-             if(isset($_SESSION['userregisteredmessage']) && $_SESSION['userregisteredmessage'] != "")
-             {  
-                echo '<div class="messages status nk_cls row"><i class="fa fa-check round box-icon-large box-icon-success"></i><h2 class="">Success !!</h2>'.$_SESSION['userregisteredmessage'].'</div>'; $_SESSION['userregisteredmessage'] = ""; 
-             } 
-            }else{
-              echo $messages; 
-            }
-             ?>
-            
-    </div></div> <!-- /.section, /#messages -->
-<?php endif; ?>            
-
-  <?php if ($page['featured']): ?>
-    <div id="featured"><div class="section clearfix">
-      <?php print render($page['featured']); ?>
-    </div></div> <!-- /.section, /#featured -->
-  <?php endif; ?>
-
-  <div  class="clearfix container"><div  class="clearfix row">
-
-    <?php /*if ($breadcrumb): ?>
-      <div id="breadcrumb"><?php print $breadcrumb; ?></div>
-    <?php endif; */?>
-
-    <?php /*if ($page['sidebar_first']): ?>
-      <div id="sidebar-first" class="column sidebar"><div class="section">
-        <?php print render($page['sidebar_first']); ?>
-      </div></div> <!-- /.section, /#sidebar-first -->
-    <?php endif; */ ?>
-
-    <div id="content" class="column"><div class="section">
-      <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
-      <a id="main-content"></a>
-      <?php print render($title_prefix); ?>
-      <?php /*if ($title): ?>
-        <h1 class="title" id="page-title">
-          <?php print $title; ?>
-        </h1>
-      <?php endif; */?>
-      <?php //print render($title_suffix); ?>
-      <?php if ($tabs): ?>
-        <div class="tabs">
-          <?php print render($tabs); ?>
-        </div>
-      <?php endif; ?>
-      <?php print render($page['help']); ?>
-      <?php if ($action_links): ?>
-        <ul class="action-links">
-          <?php print render($action_links); ?>
-        </ul>
-      <?php endif; ?>
-      <?php print render($page['content']); ?>
-      <?php print $feed_icons; ?>
-
-    </div></div> <!-- /.section, /#content -->
-
-    <?php if ($page['sidebar_second']): ?>
-      <div id="sidebar-second" class="column sidebar"><div class="section">
-        <?php print render($page['sidebar_second']); ?>
-      </div></div> <!-- /.section, /#sidebar-second -->
-    <?php endif; ?>
-
-  </div></div> <!-- /#main, /#main-wrapper -->
-
-  <?php if ($page['triptych_first'] || $page['triptych_middle'] || $page['triptych_last']): ?>
-    <div id="triptych-wrapper"><div id="triptych" class="clearfix">
-      <?php print render($page['triptych_first']); ?>
-      <?php print render($page['triptych_middle']); ?>
-      <?php print render($page['triptych_last']); ?>
-    </div></div> <!-- /#triptych, /#triptych-wrapper -->
-  <?php endif; ?>
-
-  <div id="footer-wrapper"><div class="section">
-
-    <?php if ($page['footer_firstcolumn'] || $page['footer_secondcolumn'] || $page['footer_thirdcolumn'] || $page['footer_fourthcolumn']): ?>
-      <div id="footer-columns" class="clearfix">
-        <?php print render($page['footer_firstcolumn']); ?>
-        <?php print render($page['footer_secondcolumn']); ?>
-        <?php print render($page['footer_thirdcolumn']); ?>
-        <?php print render($page['footer_fourthcolumn']); ?>
-      </div> <!-- /#footer-columns -->
-    <?php endif; ?>
-
-    <?php if ($page['footer']): ?>
-      <div id="footer" class="clearfix">
-        <?php print render($page['footer']); ?>
-      </div> <!-- /#footer -->
-    <?php endif; ?>
-
-  </div></div> <!-- /.section, /#footer-wrapper -->
-
-</div></div> <!-- /#page, /#page-wrapper -->
+<select id="ddlViewBy" onChange="opencheckinnewwindow(this)" style="padding-left:10px;">
+  <option value="" disabled selected>Select Airlines</option>
+  <option value="http://www.aerlingus.com/travelinformation/traveladvice/web-check-in/">Aer Lingus</option>
+  <option value="http://en.aegeanair.com/">Aegean Air</option>
+  <option value="http://www.aeroflot.ru/cms/en/online_registration">Aeroflot</option>
+  <option value="http://www.airberlin.com/site/start.php?LANG=eng&amp;MARKT=GB">Air Berlin</option>
+  <option value="http://www.aircanada.com/en/travelinfo/traveller/checkin/index.html">Air Canada</option>
+  <option value="http://www.airchina.com.cn/en/service/check-in/">Air China</option>
+   <option value="http://www.airfrance.co.uk/GB/en/common/guidevoyageur/e_services/e_services_echeckin_airfrance.htm">Air France</option>
+  <option value="http://www.airmalta.com/web-check-in?l=1">Air Malta</option>
+  <option value="http://flyairone.com/en-eu/fly-with-us/checkin-baggage/on-line-checkin.aspx">Air One</option>
+  <option value="http://www.airtransat.co.uk/en/index.aspx">Air Transat</option>
+  <option value="https://check-in.alitalia.com/WebCheckIn/en_en">Alitalia</option>
+  <option value="http://www.alaskaair.com/">Alaska Airlines</option>
+  <option value="https://www.aa.com/aa/reservation/flightCheckInViewReservationsAccess.do?anchorEvent=false">American Airlines</option>
+  <option value="http://www.aua.com/nl/nld/about_flight/checkin/web">Austrian Airlines</option>
+  <option value="http://www.britishairways.com/travel/olcilandingpageauthreq/public/en_gb?link=main_nav">British Airways</option>
+  <option value="http://www.flybmi.com/bmi/en-gb/index.aspx">British Midland</option>
+  <option value="http://www.bmibaby.com/bmibaby/en/webcheckin.aspx">BMI Baby</option>
+  <option value="http://www.cathaypacific.com/cpa/en_INTL/homepage">Cathay Pacific</option>
+  <option value="http://airport.csair.com/cki?locale=en">China Southern</option>
+  <option value="http://www.cityjet.com/check-in/">City Jet</option>
+  <option value="https://www.condor.com/de/flug-vorbereiten/check-in/online-check-in.jsp">Condor Flug</option>
+  <option value="http://checkin.continental.com/travel/checkin/start.aspx?">Continental Airlines</option>
+  <option value="http://www.croatiaairlines.com/nbspnbspplanyourtriponlinenbspnbsp/webcheckin/tabid/2090/Default.aspx">Croatia Airlines</option>
+  <option value="http://www.csa.cz/en/portal/homepage/cz_homepage.htm">CSA Czech Airline</option>
+  <option value="https://webcheckin.sabre.com/cyprusairways/Locate.jsp">Cyprus Airways </option>
+  <option value="http://www.delta.com/content/www/en_US/traveling-with-us/check-in/options.html">Delta Airlines</option>
+  <option value="http://www.easyjet.com/asp/en/book/index.asp?lang=en">Easyjet</option>
+  <option value="http://www.elal.co.il/ELAL/English/States/UK/">El Al Israel Airlines</option>
+  <option value="http://www.emirates.com/nl/english/">Emirates</option>
+  <option value="http://www.evaair.com/en-us/check-in-baggage-and-airports/check-in/at-check-in-counters/">Eva Airways</option>
+  <option value="http://www.finnair.com/finnaircom/wps/portal/travel/en_UK">Finnair</option>
+  <option value="http://www.flybe.com/">Flybe</option>
+  <option value="http://www.iberia.com/onlinecheckin/">Iberia</option>
+  <option value="http://www.icelandair.co.uk">Icelandair</option>
+  <option value="http://www.jetairways.com/GB/">Jetairway Pvt</option>
+  <option value="http://www.klm.com/travel/gb_en/index.htm#tab=db_ici">KLM</option>
+  <option value="http://www.lan.com/en_us/sitio_personas/plan-and-book/checkin/check-in/">LAN Airlines</option>
+  <option value="http://www.flylal.com/en/main/booking/checkin/checkin">Lithuanian Airlines</option>
+  <option value="http://www.lot.com/web/lot/webcheckin">Lot Polish Airlines</option>
+  <option value="http://www.airberlin.com/site/webcheckin.php?LANG=eng">LTU</option>
+  <option value="http://www.lufthansa.com/uk/en/Homepage">Lufthansa</option>
+  <option value="http://www.malaysiaairlines.com/uk/en.html">Malaysia Airlines</option>
+  <option value="http://www.malev.com/onlineservices/online-check-in/new-web-check-in-service">Malev</option>
+  <option value="https://www.meridiana.it/en/beforetheflight/conditions.aspx#check-in">Meridiana</option>
+  <option value="http://www.nwa.com/">Northwest Airlines</option>
+  <option value="https://www.olympicair.com/en/Info/Checkin/WebCheck-In">Olympic Airlines</option>
+  <option value="http://www.qantas.com.au/travel/airlines/home/nl/en">Qantas Airways</option>
+  <option value="http://www.qatarairways.com/global/en/online-checkin.html">Qatar Airways</option>
+  <option value="http://www.flysas.com/en/uk/">SAS Scandinavian Airlines</option>
+  <option value="http://www.singaporeair.com/saa/en_UK/index.jsp">Singapore Airlines</option>
+  <option value="http://www.brusselsairlines.com/en_uk/">SN Brussels Airlines</option>
+  <option value="http://www.flysaa.com/Journeys/home.action">South African Airways</option>
+  <option value="http://www.swiss.com/web/EN/Pages/index.aspx?1297845685468&amp;Country=GB">Swiss Airlines</option>
+  <option value="http://www.tam.com.br/b2c/jsp/viajefacil/webCheckin.jsp?vgnextoid=3c63403be14da210VgnVCM1000009508020aRCRD">TAM Airlines</option>
+  <option value="http://www.flytap.com/section42lang1site2.html">TAP Portugal</option>
+  <option value="http://www.thaiair.com/">Thai International</option>
+  <option value="http://www.transavia.com/hv/main/service?id=incheckenviainternet">Transavia</option>
+  <option value="http://www.turkishairlines.com/en-UK/index.aspx">Turkish Airlines</option>
+  <option value="http://www.flyuia.com/eng/uk.html">Ukraine International</option>
+  <option value="http://www.united.com/travel/checkin/start.aspx">United Airlines</option>
+  <option value="http://www.usairways.com/awa/">US Airways</option>
+  <option value="http://www.virgin-atlantic.com/en/gb/index.jsp">Virgin Atlantic</option>
+  <option value="http://wizzair.com/checkin/?language=EN">Wizzair</option>
+  <option value="https://www.vueling.com/en/vueling-services/check-in-online">Vueling</option>
+</select>
+<script>
+function opencheckinnewwindow(e)
+{
+  //window.location.href=this.value
+  var e = document.getElementById("ddlViewBy");
+  var strUser = e.options[e.selectedIndex].value;
+  console.log(strUser);
+  window.open(strUser, '_blank')
+}
+</script>
+</div>
+<p>Have you booked a flight with travelpainters.com? With most airlines you can check in online and reserve your own seat. You save time when checking in at the airport and you can sit in your own personally selected seat. Checking in online can be available from 48 hours until 1 hour before departure depending on which airline you are flying with.</p>
+</div>
