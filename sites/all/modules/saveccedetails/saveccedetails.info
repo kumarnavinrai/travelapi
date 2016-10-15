@@ -1,0 +1,4 @@
+name = Save CCE Details
+description = This module is for the saving the Customer Care Executives personal data that will be assigned by the subadmin
+core = 7.x
+

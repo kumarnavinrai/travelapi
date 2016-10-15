@@ -1,5 +1,5 @@
 <?php
-
+//die('hello');
 /**
  * @file
  * Bartik's theme implementation to display a single Drupal page.
@@ -85,7 +85,6 @@
  * @see html.tpl.php
  */
  $themeurl = file_create_url(path_to_theme());
- global $base_url;
 ?>
 <style>
 #subadminpanel ul {
@@ -220,7 +219,6 @@ display:none;
   <?php endif; ?>
 
   <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
-
 <!-- Menu for subadmin module and cce module --> 
 <?php
 $path=realpath(__DIR__);

@@ -85,6 +85,9 @@ $requesturi = $_SERVER['REQUEST_URI'];
 
 $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
 
+//echo "<pre>";print_r($node);
+//die();
+
 ?>
 
 <?php if(isset($node) && $node){ ?>
@@ -92,6 +95,20 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
   <div class="row">
     <div class="col-md-6">
     <button class="print_btn" onclick="generatepdf()">Print Reciept</button>
+
+<?php    
+	
+	$editinformation=$base_url."/editpassengerdetails?nid=".$node->nid;
+	
+?>
+	<a href="<?php echo $editinformation; ?>"> EDIT INFORMATION</a>
+	
+	<!--
+	<form action="<?//php echo $base_url; ?>/editpassengerdetails" method="post">
+	<input type="hidden" name="nid" value="<?php //echo $node->nid; ?>"/>
+	<input type="submit" value="Edit Customer Information">
+	</form>
+	-->
       <h2>Booking Information</h2>
     </div>
     <div class="col-md-6">
@@ -180,6 +197,8 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
                                     <?php $fielddatafromflightend = isset($fielddata->flightarray)?end($fielddata->flightarray):array(); ?>
                                     <?php $fielddatatoflight = isset($fielddata->flightarrayoutbound)?reset($fielddata->flightarrayoutbound):array(); ?>
                                     <?php $fielddatatoflightend = isset($fielddata->flightarrayoutbound)?end($fielddata->flightarrayoutbound):array(); ?>
+									
+									
                                     <?php echo "<b>From</b>: ".$fielddatafromflight->originairport; echo " </br><b>To</b>: ".$fielddatafromflightend->destinationairport." </br><b>Depart On</b>: ".date('Y-m-d h:i:s',strtotime($fielddatafromflight->depart)); ?>
                                     <?php if(isset($fielddatatoflight) && $fielddatatoflight){ 
                                       echo '<hr class="my_hr" />';echo "</br>"."  <b>Return From</b>: ".$fielddatatoflight->originairport; echo " </br><b>Return To</b>: ".$fielddatatoflightend->destinationairport." </br><b>Depart On</b>: ".date('Y-m-d h:i:s',strtotime($fielddatatoflight->depart));; 
@@ -481,7 +500,7 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
         html2pdf(html, pdf, function(pdf) {
                 pdf.output('dataurlnewwindow');
         });
-   }     
+   }
 </script>
 <style type="text/css">
     .print_btn {

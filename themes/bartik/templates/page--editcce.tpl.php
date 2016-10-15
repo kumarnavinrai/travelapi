@@ -198,12 +198,14 @@
   <?php endif; ?>
 
   <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
-<div id="subadminpanel">
-<ul>
-  <li><a href="mycce">All CCE Details</a></li>
-  <li><a href="allflights">All Booking Details</a></li>
-</ul>
-</div>
+<!-- Menu for subadmin module and cce module --> 
+<?php
+$path=realpath(__DIR__);
+$filepath=$path."/subadminccenavigation.php";
+require_once $filepath;
+?>
+
+<!-- End here -->
     <?php /*if ($breadcrumb): ?>
       <div id="breadcrumb"><?php print $breadcrumb; ?></div>
     <?php endif; */?>

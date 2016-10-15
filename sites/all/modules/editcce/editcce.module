@@ -20,7 +20,8 @@ function editcce_form($form,&$form_state) {
 	$url=$base_url."/pagenotfound";
 	drupal_goto($url);
 	}
-	
+
+global $base_url;	
 $uid=$_REQUEST['uid'];
 $existingUser = user_load($uid);
 $uname=$existingUser->name;
@@ -28,7 +29,9 @@ $uname=$existingUser->name;
 //echo "<pre>"; print_r($existingUser);
 //die();	
 drupal_set_title($title = "SUB ADMIN Panel ##   Editing:".$uname, $output = CHECK_PLAIN);
+
  $form['#attributes'] = array('class' => 'cceform');
+ //$form['#action'] = $base_url.'/saveccedetails';
  
   $form['empid'] = array(
     '#title' => t('Employee ID'),
@@ -51,17 +54,21 @@ drupal_set_title($title = "SUB ADMIN Panel ##   Editing:".$uname, $output = CHEC
     '#required' => FALSE,
   );
   
+
+  
     $form['password'] = array(
-    '#title' => t('Change Password'),
-    '#type' => 'password',
+    '#title' => t('Re-enter changed password'),
+    '#type' => 'password_confirm',
     '#required' => FALSE,
   );
   
-    $form['verifypassword'] = array(
-    '#title' => t('Re-enter changed password'),
-    '#type' => 'password',
-    '#required' => FALSE,
+     $form['userid'] = array(
+    '#type' => 'hidden',
+    '#required' => TRUE,
+	'#value' => $uid,
   );
+  
+  
   
 //	$form['ccedetails'] = array(
 //  '#type' =>'button', 
@@ -70,7 +77,7 @@ drupal_set_title($title = "SUB ADMIN Panel ##   Editing:".$uname, $output = CHEC
 //  '#attributes' => array('onclick' => 'document.location.href="mycce"; return false;'),
 //);
 
-  
+  	 //$form["#validate"][] = 'editcce_form_validate';
   //Submit will go to the submit function where a new CCE will be created
   $form['submit'] = array(
     '#value' => t('Save CCE Information'),
@@ -79,126 +86,25 @@ drupal_set_title($title = "SUB ADMIN Panel ##   Editing:".$uname, $output = CHEC
     '#limit_validation_errors' => FALSE,
     );
 	
-	//$form['#submit'][]='cce_form_submit';
+
+	//$form['#submit']['#validate'][]='custom_validate';
   return $form;
+
 }
 
 function editcce_form_validate($form, &$form_state) {
-  if (($form_state['values']['password'] != $form_state['values']['verifypassword'] )){
-    form_set_error('password', t('The two passwords should match'));
+global $base_url;	
+  if (($form_state['input']['password']['pass1'] != $form_state['input']['password']['pass2'])){
+  
+    form_set_error('password', t('The two passwords should match..........'));
+
   }
-}
-
-
-function editcce_form_submit($form, &$form_state)
-{
-		//Get form variables
-		$getempid=$form_state['values']['empid'];
-		$getempdept=$form_state['values']['empdept'];
-		$getempextn=$form_state['values']['empextn'];
-		$password=$form_state['values']['password'];
-
-		//Get the current user id
-		$uid=$_REQUEST['uid'];
-		//echo $uid;
-		//echo "<pre>"; print_r($uid);
-
-		// load user object
-		$existingUser = user_load($uid);
-
-		$uname=$existingUser->name;
-
-		
-		//echo $getempid;
-		//echo $getempdept;
-		//echo $getempextn;
-		//echo "<pre>"; print_r($existingUser);
-		//die();
-		
-		//echo "<pre>"; print_r($existingUser->field_employee_extension[und][0][value]);
-		//$pass=$existingUser->pass;
-		
-		//Check if the data has to be inserted or updated
-		if($password == "")
-		{
-			//Get the data from the form and build an array which will be saved
-			$edit = array(
-				//'pass' => $password,
-				'status' => 1,
-				'roles' => array(
-								DRUPAL_AUTHENTICATED_RID => 'authenticated user',
-								6 => 'cce',
-								),
-			  'field_employee_id' => array(
-								'und' => array(
-								0 => array(
-								'value'=> $getempid ,
-								)
-								)
-								),					
-			  'field_employee_department' => array(
-								'und' => array(
-								0 => array(
-								'value'=>$getempdept,
-								)
-								)
-								),					
-			  'field_employee_extension' => array(
-								'und' => array(
-								0 => array(
-								'value'=>$getempextn,
-								)
-								)
-								),				
-			);
-			//echo "<pre>"; print_r($edit);
-
-			// save existing user
-			user_save(user_load($uid),$edit);
-
-			drupal_set_message("\nSuccessfully updated user: ".$uname." settings");
-		}
-		else
-		{
-			//Get the data from the form and build an array which will be saved
-			$edit = array(
-				'pass' => $password,
-				'status' => 1,
-				'roles' => array(
-								DRUPAL_AUTHENTICATED_RID => 'authenticated user',
-								6 => 'cce',
-								),
-			  'field_employee_id' => array(
-								'und' => array(
-								0 => array(
-								'value'=> $getempid ,
-								)
-								)
-								),					
-			  'field_employee_department' => array(
-								'und' => array(
-								0 => array(
-								'value'=>$getempdept,
-								)
-								)
-								),					
-			  'field_employee_extension' => array(
-								'und' => array(
-								0 => array(
-								'value'=>$getempextn,
-								)
-								)
-								),				
-			);
-			//echo "<pre>"; print_r($edit);
-
-			// save existing user
-			user_save(user_load($uid),$edit);
-
-			drupal_set_message("\nSuccessfully updated user: ".$uname." settings");		
-		}
-
-
+  else
+  {
+  $url=http_build_query($form_state['values']);
+  $url=$base_url."/saveccedetails?".$url;
+  drupal_goto($url);
+  }
 }
 
 
@@ -209,6 +115,7 @@ function editcce_permission() {
     )
   );
 }
+
 
 
 

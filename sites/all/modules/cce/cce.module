@@ -63,13 +63,6 @@ function cce_form($form,&$form_state) {
   );
   
 
-	$form['clear'] = array(
-  '#type' =>'button', 
-  '#value' => t('Clear'), 
-  '#weight' => 19,
-  '#attributes' => array('onclick' => 'this.form.reset(); return false;'),
-);
-
 //	$form['ccedetails'] = array(
 //  '#type' =>'button', 
 //  '#value' => t('See All CCE Details'), 

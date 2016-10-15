@@ -1,3 +1,10 @@
+<?php
+$path=realpath(__DIR__);
+$filepath=$path."/denyaccesstocceandsubadmin.php";
+require_once $filepath;
+
+?>
+
 <ul class="nav navbar-nav">
        <!-- <li class="dropdown mega-dropdown">
           <a href="<?php echo $urlofwp; ?>destinations" class="dropdown-toggle" data-toggle="dropdown">DESTINATIONS<i class="fa fa-sort-desc sukh" aria-hidden="true"></i></a>

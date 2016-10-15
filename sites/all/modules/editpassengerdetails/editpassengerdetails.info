@@ -1,0 +1,4 @@
+name = Edit Passenger Information
+description = This module is for the Subadmin and CCE to edit the passenger information 
+core = 7.x
+

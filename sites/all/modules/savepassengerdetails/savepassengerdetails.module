@@ -1,0 +1,173 @@
+<?php
+
+//Custom module developed to create CCE roles by subadmin. Also showing the power of drupal form API using hooks.
+
+//This is the function to provide the URL for the form with additional arguments to set the user permissions. 
+function savepassengerdetails_menu() {
+  $items['savepassengerdetails'] = array(
+    'page callback' => 'savepassengerdetails_custom',
+	'access arguments' => array('access savepassengerdetails content'),
+    'type' => MENU_CALLBACK,
+    );
+	
+	
+  return $items;
+}
+
+
+
+//This the drupal core form API function that renders the form with our custom fields. The implementation is quite straightforward with the usage of arrays
+function savepassengerdetails_custom(){
+
+	//ESSENTIAL condition
+	if(!isset($_REQUEST['nodeid']))
+	{
+	global $base_url;
+	$url=$base_url."/pagenotfound";
+	drupal_goto($url);
+	die();
+	}
+
+//die('reached');
+$nid=$_REQUEST['nodeid'];
+$node = node_load($nid);
+
+	
+		//Get form variables
+		$getPassengerTitle=$_REQUEST['passengerTitle'];
+		
+		$getpassengerOneFirstName=$_REQUEST['passengerOneFirstName'];
+		$getpassengerOneMiddleName=$_REQUEST['passengerOneMiddleName'];
+		$getpassengerOneLastName=$_REQUEST['passengerOneLastName'];
+		$getpassengerOneDOB=$_REQUEST['passengerOneDOB'];
+		$getpassengerOneSex=$_REQUEST['passengerOneSex'];
+
+		$getpassengerTwoFirstName=$_REQUEST['passengerSecondFirstName'];
+		$getpassengerTwoMiddleName=$_REQUEST['passengerSecondMiddleName'];
+		$getpassengerTwoLastName=$_REQUEST['passengerSecondLastName'];
+		$getpassengerTwoDOB=$_REQUEST['passengerSecondDOB'];
+		$getpassengerTwoSex=$_REQUEST['passengerTwoSex'];
+
+		$getpassengerThreeFirstName=$_REQUEST['passengerThirdFirstName'];
+		$getpassengerThreeMiddleName=$_REQUEST['passengerThirdMiddleName'];
+		$getpassengerThreeLastName=$_REQUEST['passengerThirdLastName'];
+		$getpassengerThreeDOB=$_REQUEST['passengerThirdDOB'];
+		$getpassengerThreeSex=$_REQUEST['passengerThreeSex'];		
+
+		$getpassengerFourthFirstName=$_REQUEST['passengerFourthFirstName'];
+		$getpassengerFourthMiddleName=$_REQUEST['passengerFourthMiddleName'];
+		$getpassengerFourthLastName=$_REQUEST['passengerFourthLastName'];
+		$getpassengerFourthDOB=$_REQUEST['passengerFourthDOB'];
+		$getpassengerFourthSex=$_REQUEST['passengerFourthSex'];
+		
+		$getpassengerFifthFirstName=$_REQUEST['passengerFifthFirstName'];
+		$getpassengerFifthMiddleName=$_REQUEST['passengerFifthMiddleName'];
+		$getpassengerFifthLastName=$_REQUEST['passengerFifthLastName'];
+		$getpassengerFifthDOB=$_REQUEST['passengerFifthDOB'];
+		$getpassengerFifthSex=$_REQUEST['passengerFifthSex'];
+		
+		$getpassengerCardType=$_REQUEST['passengerCardType'];
+		$getpassengerCardNumber=$_REQUEST['passengerCardNumber'];
+		$getpassengerCardCCV=$_REQUEST['passengerCardCCV'];
+		$getpassengerCardCCN=$_REQUEST['passengerCardCCN'];
+		$getpassengerCardExpiry=$_REQUEST['passengerCardExpiry'];
+		$getpassengerCardCountry=$_REQUEST['passengerCardCountry'];
+		$getpassengerCardStreet=$_REQUEST['passengerCardStreet'];
+		$getpassengerCardCity=$_REQUEST['passengerCardCity'];
+		$getpassengerCardState=$_REQUEST['passengerCardState'];
+		$getpassengerCardZip=$_REQUEST['passengerCardZip'];
+		$getpassengerBusinessPhone=$_REQUEST['passengerBusinessPhone'];
+		$getpassengerMobilePhone=$_REQUEST['passengerMobilePhone'];
+		$getpassengerEmail=$_REQUEST['passengerEmail'];
+		$getpassengerTotalPrice=$_REQUEST['passengerTotalPrice'];
+		$getpassengerTotalPricePerPerson=$_REQUEST['passengerTotalPricePerPerson'];
+		$getpassengerTotalTax=$_REQUEST['passengerTotalTax'];
+		$getpassengerTotalPassengers=$_REQUEST['passengerTotalPassengers'];
+		$getpassengerTotalPriceOfBooking=$_REQUEST['passengerTotalPriceOfBooking'];
+		$getpassengerPNR=$_REQUEST['passengerPNR'];
+		$getpassengerBookingStatus=$_REQUEST['passengerBookingStatus'];
+
+		//Set the values to be changed for the node
+		$node->nid = $nid;
+		$node->title=$getPassengerTitle;
+		
+		$node->field_first_name_one['und'][0]['value']=$getpassengerOneFirstName;
+		$node->field_middel_name_one['und'][0]['value']=$getpassengerOneMiddleName;
+		$node->field_last_name_one['und'][0]['value']=$getpassengerOneLastName;
+		$node->field_date_of_birth_one['und'][0]['value']=$getpassengerOneDOB;
+		$node->field_sex_one['und'][0]['value']=$getpassengerOneSex;
+		
+		$node->field_first_name_two['und'][0]['value']=$getpassengerTwoFirstName;
+		$node->field_middel_name_two['und'][0]['value']=$getpassengerTwoMiddleName;
+		$node->field_last_name_two['und'][0]['value']=$getpassengerTwoLastName;
+		$node->field_date_of_birth_two['und'][0]['value']=$getpassengerTwoDOB;
+		$node->field_sex_two['und'][0]['value']=$getpassengerTwoSex;
+		
+		$node->field_first_name_three['und'][0]['value']=$getpassengerThreeFirstName;
+		$node->field_middel_name_three['und'][0]['value']=$getpassengerThreeMiddleName;
+		$node->field_last_name_three['und'][0]['value']=$getpassengerThreeLastName;
+		$node->field_date_of_birth_three['und'][0]['value']=$getpassengerThreeDOB;
+		$node->field_sex_three['und'][0]['value']=$getpassengerThreeSex;		
+
+		$node->field_first_name_four['und'][0]['value']=$getpassengerFourthFirstName;
+		$node->field_middle_name_four['und'][0]['value']=$getpassengerFourthMiddleName;
+		$node->field_last_name_four['und'][0]['value']=$getpassengerFourthLastName;
+		$node->field_date_of_birth_four['und'][0]['value']=$getpassengerFourthDOB;
+		$node->field_sex_four['und'][0]['value']=$getpassengerFourthSex;			
+
+		$node->field_first_name_five['und'][0]['value']=$getpassengerFifthFirstName;
+		$node->field_middel_name_five['und'][0]['value']=$getpassengerFifthMiddleName;
+		$node->field_last_name_five['und'][0]['value']=$getpassengerFifthLastName;
+		$node->field_date_of_birth_five['und'][0]['value']=$getpassengerFifthDOB;
+		$node->field_sex_five['und'][0]['value']=$getpassengerFifthSex;			
+		
+		
+		$node->field_type_of_card['und'][0]['value']=$getpassengerCardType;	
+		$node->field_credit_card_no['und'][0]['value']=$getpassengerCardNumber;
+		$node->field_ccv['und'][0]['value']=$getpassengerCardCCV;	
+		$node->field_ccn['und'][0]['value']=$getpassengerCardCCN;	
+		$node->field_ccexpiry['und'][0]['value']=$getpassengerCardExpiry;	
+		$node->field_country['und'][0]['value']=$getpassengerCardCountry;	
+		$node->field_street['und'][0]['value']=$getpassengerCardStreet;	
+		$node->field_city['und'][0]['value']=$getpassengerCardCity;	
+		$node->field_state['und'][0]['value']=$getpassengerCardState;
+		$node->field_zipcode['und'][0]['value']=$getpassengerCardZip;	
+		$node->field_business_phone['und'][0]['value']=$getpassengerBusinessPhone;	
+		$node->field_mobile_phone['und'][0]['value']=$getpassengerMobilePhone;	
+		$node->field_email['und'][0]['value']=$getpassengerEmail;	
+		$node->field_total_price['und'][0]['value']=$getpassengerTotalPrice;			
+		$node->field_price_per_person['und'][0]['value']=$getpassengerTotalPricePerPerson;	
+		$node->field_tax['und'][0]['value']=$getpassengerTotalTax;
+		$node->field_noofpassenger['und'][0]['value']=$getpassengerTotalPassengers;	
+		$node->field_totalpriceofbooking['und'][0]['value']=$getpassengerTotalPriceOfBooking;	
+		$node->field_pnr['und'][0]['value']=$getpassengerPNR;	
+		$node->field_booking_status['und'][0]['value']=$getpassengerBookingStatus;	
+		
+		//node_save($node);
+		
+		try {
+			node_save($node);
+			drupal_set_message("Successfully Edited",'warning');
+			header('Location:node/'.$nid);
+			exit();
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+			die();
+		}
+		
+
+		
+	
+}
+
+
+function savepassengerdetails_permission() {
+  return array(
+    'access savepassengerdetails content' => array(
+      'title' => t('Access content for the Admin Panel module'),
+    )
+  );
+}
+
+
+
