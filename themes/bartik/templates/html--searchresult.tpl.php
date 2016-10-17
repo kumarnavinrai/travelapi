@@ -52,10 +52,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?> ng-app="myApp" id="filghtCtrlId" ng-controller="filghtCtrl" >
 
 <head profile="<?php print $grddl_profile; ?>">
-  <title>Travel Painters</title>
+  <title>Flyoticket</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta name="keywords" content="Travelpainters,Travel Painters,Car,hotel,flight,booking flight" />
-    <meta name="description" content="Travel Painters - A Premium Booking for travel">
+    <meta name="keywords" content="Flyoticket,Car,hotel,flight,booking flight" />
+    <meta name="description" content="Flyoticket - A Premium Booking for travel">
     <meta name="author" content="Tsoy">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
