@@ -101,7 +101,7 @@ function get_client_ip() {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>"  ng-app="myApp" id="filghtCtrlHomeId" ng-controller="filghtCtrlHome"  version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>" <?php print $rdf_namespaces; ?>>
 
 <head profile="<?php print $grddl_profile; ?>">
-  <title>Travel Painters</title>
+  <title>Flyoticket</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta name="keywords" content="Flyoticket,Travel Painters,Car,hotel,flight,booking flight" />
     <meta name="description" content="Flyoticket - A Premium Booking for travel">
