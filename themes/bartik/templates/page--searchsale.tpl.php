@@ -154,9 +154,9 @@
                 $urltosendrequest = $base_url."/phpsaber/validateflight.php";
                 
                 $urltosendrequest = $urltosendrequest.'?'.http_build_query($datatopass, '', '&');
-                $result = file_get_contents($urltosendrequest);
+                //$result = file_get_contents($urltosendrequest);
                 
-                $flightdetailsresponse = json_decode($result);
+                //$flightdetailsresponse = json_decode($result);
 
                 //$urltosendrequest = $base_url."/phpsaber/getflightdetails.php";
                 
