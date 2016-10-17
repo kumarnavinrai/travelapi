@@ -182,7 +182,7 @@ $themeurl = file_create_url(path_to_theme());
             <h5 class="thumb-title">
               <a class="text-darken" href="#">FREE CANCELLATION WITHIN 12 HOURS</a>
             </h5>
-            <p class="thumb-desc">Travel Painters offers Free Cancellation to its entire booking users.</p>
+            <p class="thumb-desc">Flyoticket offers Free Cancellation to its entire booking users.</p>
           </div>
         </div>
       </div>

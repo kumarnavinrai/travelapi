@@ -194,7 +194,7 @@
           {
             ?>
             <h3>Traveler Details</h3>
-            <p>Sign in to your <a href="/user">Travel Painter Account</a> for fast booking.</p>
+            <p>Sign in to your <a href="/user">Flyoticket Account</a> for fast booking.</p>
           <?php  
           }
         ?>
