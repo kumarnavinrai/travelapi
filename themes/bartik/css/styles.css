@@ -11567,6 +11567,7 @@ input, textarea, keygen, select, button {
     text-shadow: none;
     display: inline-block;
     /*text-align: start;*/
+    
     margin: 0em 0em 0em 0em;
     font: 13.3333px Arial;
 }
