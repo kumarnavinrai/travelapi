@@ -345,7 +345,7 @@
                                         <p class="sukh_alert" ng-show="userForm.fn<?php echo $i+1; ?>.$error.maxlength">Firstname is too long.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                        <p class="sukh_alert" ng-messages="userForm.fn<?php echo $i+1; ?>.$error.required" ng-if='userForm.fn<?php echo $i+1; ?>.$dirty'>Your Firstname is required.</p>
+                                        <p class="sukh_alert" ng-if='userForm.fn<?php echo $i+1; ?>.$dirty && userForm.fn<?php echo $i+1; ?>.$error.required'>Your Firstname is required.</p>
                                     </div>
                                 </div>
                                 
@@ -363,7 +363,8 @@
                                         <p class="sukh_alert" ng-show="userForm.mn<?php echo $i+1; ?>.$error.maxlength">Middle name is too long.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                        <p class="sukh_alert" ng-show="userForm.mn<?php echo $i+1; ?>.$error.required">Your Middle name is required.</p>
+                                        <p class="sukh_alert" ng-if='userForm.mn<?php echo $i+1; ?>.$dirty && userForm.mn<?php echo $i+1; ?>.$error.required'>Your Middle name is required.</p>
+
                                     </div>
                                 </div>
                                 
@@ -381,7 +382,9 @@
                                             <p class="sukh_alert" ng-show="userForm.ln<?php echo $i+1; ?>.$error.maxlength">Last name is too long.</p>
 
                                             <!-- show an error if this isn't filled in -->
-                                            <p class="sukh_alert" ng-show="userForm.ln<?php echo $i+1; ?>.$error.required">Your Last name is required.</p>
+                                            <!-- <p class="sukh_alert" ng-show="userForm.ln<?php echo $i+1; ?>.$error.required">Your Last name is required.</p> -->
+                                            <!-- show an error if this isn't filled in -->
+                                            <p class="sukh_alert" ng-if='userForm.ln<?php echo $i+1; ?>.$dirty && userForm.ln<?php echo $i+1; ?>.$error.required'>Your Last name is required.</p>
                                     </div>
                                 </div>
                                 
@@ -391,7 +394,8 @@
                                         <label>Date of Birth<span class="msg_name_nav"></br>(* according to the ID & Passport.)</span></label>
                                         <input ng-model="user.dobx<?php echo $i+1; ?>" class="date-pick-years form-control" name="dob<?php echo $i+1; ?>" type="text" required/>
                                         <!-- show an error if this isn't filled in -->
-                                        <p class="sukh_alert" ng-show="userForm.dob<?php echo $i+1; ?>.$error.required">DOB is required.</p>
+                                        <!-- <p class="sukh_alert" ng-show="userForm.dob<?php echo $i+1; ?>.$error.required">DOB is required.</p> -->
+                                        <p class="sukh_alert" ng-if='userForm.dob<?php echo $i+1; ?>.$dirty && userForm.dob<?php echo $i+1; ?>.$error.required'>DOB is required.</p>
                                        
                                     </div>
                                 </div>
@@ -588,6 +592,7 @@
                                    <p class="sukh_alert" ng-hide="ccvalid=='yes'" ng-show="ccmsg!=undefined">
                                       {{ccmsg}}
                                    </p>
+
                                    
                                     <!-- show an error if username is too short -->
                                     <p class="sukh_alert" ng-show="userFormcc.cc.$error.minlength">16 digit cc no. required.</p>
@@ -596,7 +601,9 @@
                                     <p class="sukh_alert" ng-show="userFormcc.cc.$error.maxlength">16 digit cc no. required.</p>
 
                                     <!-- show an error if this isn't filled in -->
-                                     <p class="sukh_alert" ng-show="userFormcc.cc.$error.required">Please check your 16 digit cc no.</p>
+                                     <!-- <p class="sukh_alert" ng-show="userFormcc.cc.$error.required">Please check your 16 digit cc no.</p> -->
+                                     <p class="sukh_alert" ng-if='userFormcc.cc.$dirty && userFormcc.cc.$error.required'>Please check your 16 digit cc no.</p>
+
                                   <span class="cc-card-icon"></span>
 
                                     </div>
@@ -615,7 +622,10 @@
                                         <p class="sukh_alert" ng-show="userFormcc.ccv.$error.maxlength">3 digit CCV no. required.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p class="sukh_alert" ng-show="userFormcc.ccv.$error.required">Please check CCV no.</p>
+                                         <!-- <p class="sukh_alert" ng-show="userFormcc.ccv.$error.required">Please check CCV no.</p> -->
+
+                                         <p class="sukh_alert" ng-if='userFormcc.ccv.$dirty && userFormcc.ccv.$error.required'>Please check CCV no.</p>
+
                                     </div>
                                     
                     </div>
@@ -633,7 +643,8 @@
                                         <p class="sukh_alert" ng-show="userFormcc.ccn.$error.maxlength">Card holder name max 25 characters.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p class="sukh_alert" ng-show="userFormcc.ccn.$error.required">Card holder name required.</p>
+                                         <!-- <p class="sukh_alert" ng-show="userFormcc.ccn.$error.required">Card holder name required.</p> -->
+                                         <p class="sukh_alert" ng-if='userFormcc.ccn.$dirty && userFormcc.ccn.$error.required'>Card holder name required.</p>
                                     </div>
                                     
                                     <div class="form-group form-group-cc-date col-md-6">
@@ -646,7 +657,9 @@
                                         <p class="sukh_alert" ng-show="userFormcc.ccvth.$error.maxlength">Please check CC Valid Till.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p class="sukh_alert" ng-show="userFormcc.ccvth.$error.required">Enter CC Valid Till in right format.</p>
+                                         <!-- <p class="sukh_alert" ng-show="userFormcc.ccvth.$error.required">Enter CC Valid Till in right format.</p> -->
+                                         <p class="sukh_alert" ng-if='userFormcc.ccvth.$dirty && userFormcc.ccvth.$error.required'>Enter CC Valid Till in right format.</p>
+
                                     </div>
                                 </div>
                                 
@@ -953,7 +966,9 @@
                                         <p class="sukh_alert" ng-show="userFormd.street.$error.maxlength">Street max of 25 characters.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p class="sukh_alert" ng-show="userFormd.street.$error.required">Street is required.</p>
+                                        <!--  <p class="sukh_alert" ng-show="userFormd.street.$error.required">Street is required.</p> -->
+
+                                         <p class="sukh_alert" ng-if='userFormd.street.$dirty && userFormd.street.$error.required'>Street is required.</p>
 
                                     </div>
                                    
@@ -970,7 +985,9 @@
                                         <p class="sukh_alert" ng-show="userFormd.city.$error.maxlength">City max of 25 characters.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p class="sukh_alert" ng-show="userFormd.city.$error.required">City is required.</p>
+                                         <!-- <p class="sukh_alert" ng-show="userFormd.city.$error.required">City is required.</p>
+ -->
+                                         <p class="sukh_alert" ng-if='userFormd.city.$dirty && userFormd.city.$error.required'>City is required.</p>
                                     </div>
                                 </div>
                                 <div class="clearfix col-md-8">
@@ -1043,7 +1060,9 @@
                                         <p class="sukh_alert" ng-show="userFormd.zipcode.$error.maxlength">Zipcode too long.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p class="sukh_alert" ng-show="userFormd.zipcode.$error.required">Zipcode required.</p>
+                                         <!-- <p class="sukh_alert" ng-show="userFormd.zipcode.$error.required">Zipcode required.</p> -->
+
+                                         <p class="sukh_alert" ng-if='userFormd.zipcode.$dirty && userFormd.zipcode.$error.required'>Zipcode required.</p>
                                     </div>
                                 </div>
                               <strong class="sukh_header">Contact Information:</strong>
@@ -1059,7 +1078,10 @@
                                         <p class="sukh_alert" ng-show="userFormd.bp.$error.maxlength">Billing Phone too long.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p class="sukh_alert" ng-show="userFormd.bp.$error.required">Billing Phone required.</p>
+                                         <!-- <p class="sukh_alert" ng-show="userFormd.bp.$error.required">Billing Phone required.</p> -->
+
+                                         <p class="sukh_alert" ng-if='userFormd.bp.$dirty && userFormd.bp.$error.required'>Billing Phone required.</p>
+
                                     </div>
                                 </div>
                                 <div class="clearfix">
@@ -1074,7 +1096,10 @@
                                         <p class="sukh_alert" ng-show="userFormd.mp.$error.maxlength">Mobile Phone too long.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                         <p class="sukh_alert" ng-show="userFormd.mp.$error.required">Mobile Phone required.</p> 
+                                         <!-- <p class="sukh_alert" ng-show="userFormd.mp.$error.required">Mobile Phone required.</p>  -->
+
+                                         <p class="sukh_alert" ng-if='userFormd.mp.$dirty && userFormd.mp.$error.required'>Mobile Phone required.</p>
+
                                     </div>
                                 </div>
                                 <div class="clearfix">
@@ -1083,11 +1108,16 @@
                                         <input class="form-control" type="email" name="email" ng-model="user.email" ng-init="user.email='<?php echo $usermail; ?>'"  required/>    
                                        
                                           <br/>
-                                          <span class="sukh_alert error" ng-show="userFormd.email.$error.required">
-                                            Email Required!</span>
+                                          <!-- <span class="sukh_alert error" ng-show="userFormd.email.$error.required">
+                                            Email Required!</span> -->
+                                          
+                                          <span class="sukh_alert error" ng-if='userFormd.email.$dirty && userFormd.email.$error.required'>Email Required!</span>
+                                            
                                           <span class="sukh_alert error" ng-show="userFormd.email.$error.email">
                                             Check your email entered!</span>
-                                         
+
+                                          <span class="sukh_alert error" ng-show="userFormd.email.$error.email">
+                                            Check your email entered!</span>
                                             
                                 </div>
                                 </div>
@@ -1100,8 +1130,10 @@
                                         <input class="form-control" type="email" name="emailc" ng-model="user.emailc" match="user.email" ng-init="user.emailc='<?php echo $usermail; ?>'"  required/>    
                                        
                                           <br/>
-                                          <span class="sukh_alert error" ng-show="userFormd.emailc.$error.required">
-                                            Confirm Email Required!</span>
+                                          <!-- <span class="sukh_alert error" ng-show="userFormd.emailc.$error.required">
+                                            Confirm Email Required!</span> -->
+                                          <span class="sukh_alert error" ng-if='userFormd.emailc.$dirty && userFormd.emailc.$error.required'>Confirm Email Required!</span>
+
                                           <span class="sukh_alert error" ng-show="userFormd.emailc.$error.email">
                                             Check your email entered!</span> 
                                           <br/>
@@ -1126,9 +1158,9 @@
 Please also confirm that the dates and times of flight departures are accurate. Tickets are non-transferable and name changes on tickets are not permitted. Ticket cost for most airlines is non-refundable (see Fare Rules) and our service fees are non-refundable. All our service fees and taxes are included in the total ticket cost. However, tickets may be refunded if requested within four (4) hours from the time of purchase at no cost, and within twenty-four (24) hours from the time of purchase for a fee . Date and routing changes will be subject to airline penalties and our service fees. Fares are not guaranteed until ticketed.
 
             </p>
-            <p class="double">
+            <!-- <p class="double">
             MACP (Major Airlines Cancelation Policy), is a customer protection program offered by Travel Painters that assures total customer satisfaction with each airfare purchase. You can now cancel your flight booking within 24 hours - 100% free of charge. With LookUpFare you can enjoy the benefits of MACP), and can cancel your ticket with a full refund within 24 hours after booking - no questions asked! For the low price of $14.99, you can rest easy as Travelpainters will refund 100% of the ticket cost. Key Features of MACP Allows you to cancel your booking for any reason within 24 hours without any penalty Cancel & reebok your flights within the same day without any penalty if there is a drop in price Free Seat Assignments for certain Airlines, qualifying rules and regulations apply Name changes are not allowed according to Airlines Policies, but some airlines allow minor corrections, usually involving 2-3 characters free of charge (Specific airline conditions applies) Low cost for high convenience - just $14.99 per person! MACP Terms & Conditions MACP Fees are added per pax and not per ticket This program is available to all Travelpainters customers If you are not interested in the program you can just click the 'NO' button, the extra charge of $14.99 won't be calculated in your total ticket fare If you are cancelling your flight ticket within 24 hours of the booking, 100% of your ticket value is refunded, (excluding $14.99 the MACP Fee) By adding the MACP, you also agree to all of Travelpainters Terms and Conditions: This program is not applicable if your flight is with a low cost carrier (ticketless carrier) like Spirit Airlines or Frontier Airlines and if your travel is scheduled in the next 7 days You can apply for a cancelation and refund with us if the fare rules are applicable Refunds are not applicable if you're a "no show". "No Show" refers to the state where the passenger at the time of boarding does not show up and provides no warning to the airlines. We can accept refund requests only if we are able to secure waivers from the Airline to confirm that the following conditions have been met.
-            </p>
+            </p> -->
             <P align="center">By clicking BOOK, I agree that I have read and accepted Flyoticket.com's Terms and Conditions and Privacy Policy.</P>
             <P align="center">If you do not see Book Flight button check your credit card and its validity.</P>
              <input class="btn btn-primary book_btn" type="submit" ng-show="ccvalid=='yes'" value="Book" />
