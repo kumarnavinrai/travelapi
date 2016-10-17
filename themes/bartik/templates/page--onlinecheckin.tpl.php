@@ -2,7 +2,7 @@
   <div>
     <h1>Online Check-in</h1>
   </div>
-    <p>Have you booked a flight with travelpainters.com? With most airlines you can check in online and reserve your own seat. You save time when checking in at the airport and you can sit in your own personally selected seat. Checking in online can be available from 48 hours until 1 hour before departure depending on which airline you are flying with.</p>
+    <p>Have you booked a flight with flyoticket.com? With most airlines you can check in online and reserve your own seat. You save time when checking in at the airport and you can sit in your own personally selected seat. Checking in online can be available from 48 hours until 1 hour before departure depending on which airline you are flying with.</p>
 <div style="background-color: #18b292; padding:2em 2em; width:auto">
     <b><h4 style="color:#FFFFFF">Select your airline from the drop down menu below:</h4></b>
 
