@@ -140,7 +140,7 @@ $themeurl = file_create_url(path_to_theme());
         <div class="col-md-4">
           <div class="loc-info text-right hidden-xs hidden-sm">
             <h3  style="text-align:center; color:#FFFFFF">
-              <!--<img src="img/flags/32/fr.png" alt="Image Alternative text" title="Image Title" />Paris-->Travel Painters
+              <!--<img src="img/flags/32/fr.png" alt="Image Alternative text" title="Image Title" />Paris-->Flyoticket
             </h3>
             <p style="text-align:center">Traveling - it leaves you speechless, then turns you into a storyteller.Everyone loves stories, and here at Flyoticket, we believe that at the end of the day the experiences you've had, the stories you've shared (and the ones you've yet to share) are some of the most important moments in life.</p>
             <img src="
