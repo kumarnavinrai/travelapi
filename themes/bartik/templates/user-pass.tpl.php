@@ -8,7 +8,7 @@
 <div id="container">
   <div id="container_body">
     <div>
-      <h3 class="form_title">Travel Painters Change Password Form</h3>
+      <h3 class="form_title">Forogt Password</h3>
       <p class="head_para"></p>
     </div>
     <!--Form  start-->

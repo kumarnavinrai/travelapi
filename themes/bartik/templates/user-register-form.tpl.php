@@ -8,13 +8,13 @@
 <div id="container">
   <div id="container_body">
     <div>
-      <h3 class="form_title">Travel Painters Register Account Form</h3>
+      <h3 class="form_title">Register Here</h3>
       <p class="head_para"></p>
     </div>
     <!--Form  start-->
     <div id="form_name">
       <div class="firstnameorlastname">
-       <form name="form"  action="Registeration-step-2.php">
+       <form name="form"  action="#">
        <div id="errorBox"></div>
        
          
