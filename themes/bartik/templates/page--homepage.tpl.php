@@ -142,7 +142,7 @@ $themeurl = file_create_url(path_to_theme());
             <h3  style="text-align:center; color:#FFFFFF">
               <!--<img src="img/flags/32/fr.png" alt="Image Alternative text" title="Image Title" />Paris-->Travel Painters
             </h3>
-            <p style="text-align:center">Traveling - it leaves you speechless, then turns you into a storyteller.Everyone loves stories, and here at Flightoticket, we believe that at the end of the day the experiences you've had, the stories you've shared (and the ones you've yet to share) are some of the most important moments in life.</p>
+            <p style="text-align:center">Traveling - it leaves you speechless, then turns you into a storyteller.Everyone loves stories, and here at Flyoticket, we believe that at the end of the day the experiences you've had, the stories you've shared (and the ones you've yet to share) are some of the most important moments in life.</p>
             <img src="
               <?php echo $themeurl; ?>/img/united-states-flag.png" />
               <br />
