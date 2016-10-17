@@ -385,7 +385,15 @@ $themeurl = file_create_url(path_to_theme());
                       <!-- pagination ends -->
                            
                     <div class="nav-drop booking-sort">
-                        <h5 class="booking-sort-title"><a href="#">Sort by Price, Stops, Waiting Time <i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>
+                        <!--<h5 class="booking-sort-title"></h5>-->
+                            <ul class = "list-group">
+                                <li class = "list-group-item" style="text-align: center;padding:0 20px;margin-top: 10px;">
+                                    <strong>
+                                        <a href="#">Sort by Price, Stops, Waiting Time <i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
+                                    </strong>
+                                </li>
+                            </ul> 
+
                         <ul class="nav-drop-menu">
                             <li><a class="high-to-low-price sortingcls" href="#">Price (high to low)</a>
                             </li>

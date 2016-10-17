@@ -345,7 +345,7 @@
                                         <p class="sukh_alert" ng-show="userForm.fn<?php echo $i+1; ?>.$error.maxlength">Firstname is too long.</p>
 
                                         <!-- show an error if this isn't filled in -->
-                                        <p class="sukh_alert" ng-show="userForm.fn<?php echo $i+1; ?>.$error.required">Your Firstname is required.</p>
+                                        <p class="sukh_alert" ng-messages="userForm.fn<?php echo $i+1; ?>.$error.required" ng-if='userForm.fn<?php echo $i+1; ?>.$dirty'>Your Firstname is required.</p>
                                     </div>
                                 </div>
                                 
