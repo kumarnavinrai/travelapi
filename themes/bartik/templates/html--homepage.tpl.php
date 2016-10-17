@@ -103,8 +103,8 @@ function get_client_ip() {
 <head profile="<?php print $grddl_profile; ?>">
   <title>Travel Painters</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta name="keywords" content="Travelpainters,Travel Painters,Car,hotel,flight,booking flight" />
-    <meta name="description" content="Travel Painters - A Premium Booking for travel">
+    <meta name="keywords" content="Flightoticket,Travel Painters,Car,hotel,flight,booking flight" />
+    <meta name="description" content="Flightoticket - A Premium Booking for travel">
     <meta name="author" content="Tsoy">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
