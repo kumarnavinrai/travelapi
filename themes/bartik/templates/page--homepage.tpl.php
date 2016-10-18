@@ -137,7 +137,7 @@ $themeurl = file_create_url(path_to_theme());
           ?>
         <?php  ?>
         <!-- search form ends -->
-        <div class="col-md-4">
+        <div class="col-md-6">
           <div class="loc-info text-right hidden-xs hidden-sm">
             <h3  style="text-align:center; color:#FFFFFF">
               <!--<img src="img/flags/32/fr.png" alt="Image Alternative text" title="Image Title" />Paris-->Flyoticket
@@ -151,6 +151,11 @@ $themeurl = file_create_url(path_to_theme());
                 <?php echo $themeurl; ?>/img/travel-painters_logo_lastt-.png" />
               </div>
             </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="gap">
+            
           </div>
         </div>
       </div>

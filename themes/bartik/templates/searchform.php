@@ -1,18 +1,18 @@
-<div class="col-md-8">
+<div class="col-md-6">
             <div class="search-tabs search-tabs-bg mt50">
-              <h1>Find Your Perfect Trip</h1>
+              <h2>Find Your Perfect Trip</h2>
               <div class="tabbable">
                 <ul class="nav nav-tabs" id="myTab">
                   <li class="active">
                     <a href="#tab-2" data-toggle="tab">
                       <i class="fa fa-plane"></i>
-                      <span >Flights</span>
+                      <span class="text-tab-sukh" >Flights</span>
                     </a>
                   </li>
                   <li>
                     <a href="#tab-1" data-toggle="tab">
                       <i class="fa fa-building-o"></i>
-                      <span >Hotels</span>
+                      <span  class="text-tab-sukh" >Hotels</span>
                     </a>
                   </li>
                   <!--<li>
@@ -24,19 +24,19 @@
                   <li>
                     <a href="#tab-4" data-toggle="tab">
                       <i class="fa fa-car"></i>
-                      <span >Cars</span>
+                      <span class="text-tab-sukh">Cars</span>
                     </a>
                   </li>
                   <li>
                     <a href="#tab-5" data-toggle="tab">
                       <i class="fa fa-bolt"></i>
-                      <span >Vacations</span>
+                      <span  class="text-tab-sukh" >Vacations</span>
                     </a>
                   </li>
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane fade in active" id="tab-2">
-                    <h2>Search for Cheap Flights</h2>
+                    <h3 class="margin-btm-sukh">Search for Cheap Flights</h3>
                     <form method="POST" action="<?php echo isset($_SESSION['urlforform'])?$_SESSION['urlforform']:""; ?>searchresult">		
                       <div class="tabbable">
 					  
@@ -90,51 +90,69 @@
                               <div class="row">
                                 <div class="col-md-3">
                                   <div class="form-group form-group-lg form-group-icon-left">
-                                    <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                                    <i class="fa fa-calendar input-icon input-icon-highlight icon-setting-sukh"></i>
                                     <label>Departing</label>
-                                    <input id="from_datepicker" class="form-control" class="clsstart" placeholder="yyyy-mm-dd" name="start" type="text" />
+                                    <input id="from_datepicker" class="form-control date-setting-sukh " class="clsstart" placeholder="yyyy-mm-dd" name="start" type="text" />
                                   </div>
                                 </div>
                                 <div class="col-md-3">
                                   <div class="form-group form-group-lg form-group-icon-left">
-                                    <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                                    <i class="fa fa-calendar input-icon input-icon-highlight icon-setting-sukh"></i>
                                     <label>Returning</label>
-                                    <input id="to_datepicker" class="form-control" class="clsend" placeholder="yyyy-mm-dd" name="end" type="text" />
+                                    <input id="to_datepicker" class="form-control date-setting-sukh" class="clsend" placeholder="yyyy-mm-dd" name="end" type="text" />
                                   </div>
                                 </div>
-                                <div class="col-md-2">
-                                  <div class="form-group form-group-lg">
-                                    <label>Adults</label>
-                                    <select name="adult" class="form-control" >
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="col-md-2">
-                                  <div class="form-group form-group-lg form-group-select-plus">
-                                    <label>Child(0-11)</label>
-                                    <select name="children" class="form-control" >
-                                      <option value="0">0</option>
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                    </select>
-                                  </div>
+                                <div class="col-md-6">    
+                                    <div class="col-md-4">
+                                      <div class="form-group form-group-lg">
+                                        <label class="lbl-text-sukh">Adults</label>
+                                        <select name="adult" class="form-control box-setting-sukh" >
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                          <option value="6">6</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group form-group-lg form-group-select-plus form-btm-sukh">
+                                        <label class="lbl-text-sukh">Child</label>
+                                        <select name="children" class="form-control box-setting-sukh" >
+                                          <option value="0">0</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                          <option value="6">6</option>
+                                        </select>
+                                         <label class="text-year-sukh">(2-11 Years)</label>
+                                      </div>
+                                    </div>
+                                     <div class="col-md-4">
+                                      <div class="form-group form-group-lg form-group-select-plus form-btm-sukh">
+                                        <label class="lbl-text-sukh">Infant</label>
+                                        <select name="infant" class="form-control box-setting-sukh" >
+                                          <option value="0">0</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                          <option value="6">6</option>
+                                        </select>
+                                        <label class="text-year-sukh">(0-2 Years)</label>
+                                      </div>
+                                    </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div class="row">
-                            <div class="col-md-12">
-                              <script type="text/javascript"> 
+                            <!-- <div class="col-md-12">
+                             <script type="text/javascript"> 
                                  $(document).ready(function() {
                                      $('#attach_box').click(function(e) {
                                          e.preventDefault();   
@@ -147,14 +165,28 @@
                                         $('#attach_box').hide();
                                      });        
                                  });
-                              </script>
+                              </script> 
                               <a href="#" id="attach_box">Advance Search
                                 <i class="fa fa-sort-desc sukh" aria-hidden="true"></i>
                               </a>
                               <br />
                               <br />
-                            </div>
-                            <div id="sukh_buton" class="col-md-4" style="display:none;">
+                            </div> -->
+                             <script type="text/javascript"> 
+                                 $(document).ready(function() {
+                                     $('#attach_box').click(function(e) {
+                                         e.preventDefault();   
+                                         $('#sukh_buton').toggle();
+                                     });
+                                     $('.rtripandowselectorrt').on('click',function(){
+                                        $('#sukh_buton').show();
+                                     }); 
+                                     $('.rtripandowselectorow').on('click',function(){
+                                        $('#sukh_buton').hide();
+                                     });        
+                                 });
+                              </script> 
+                            <div id="sukh_buton" class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left ">
                                 <i class="fa fa-plane input-icon input-icon-highlight"></i>
                                 <label>Class</label>
@@ -166,6 +198,7 @@
                                 </select>
                             </div>
                           </div>
+                          <div class="col-md-8"></div>
                         </div>
                         <div class="tab-pane fade" id="flight-search-2">
                           <div class="row">
@@ -192,12 +225,53 @@
                           <div class="row">
                             <div class="col-md-3">
                               <div class="form-group form-group-lg form-group-icon-left">
-                                <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                                <i class="fa fa-calendar input-icon input-icon-highlight icon-setting-sukh"></i>
                                 <label>Departing</label>
-                                <input id="ow_date" class="date-pick form-control" name="departing" placeholder="yyyy-mm-dd" data-date-format="M d, D" type="text" />
+                                <input id="ow_date" class="date-pick form-control date-setting-sukh" name="departing" placeholder="yyyy-mm-dd" data-date-format="M d, D" type="text" />
                               </div>
                             </div>
                             <div class="col-md-3">
+                                <div class="form-group form-group-lg">
+                                  <div class="widthofowsel">  
+                                    <label>Adults</label>
+                                    <select name="adultow" class="form-control">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                    </select>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="widthofowsel col-md-3">  
+                                <label>Child(2-11)</label>
+                                  <select name="childrenow" class="form-control widthofowsel">
+                                      <option value="0">0</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                  </select>
+                            </div>  
+                            <div class="widthofowsel col-md-3">  
+                                <label>Infant(0-2)</label>
+                                  <select name="infantnow" class="form-control widthofowsel">
+                                      <option value="0">0</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                  </select>
+                            </div>  
+                          </div><!--row  end-->
+                          <div class="row">
+                            <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left">
                                 <i class="fa fa-plane input-icon input-icon-highlight"></i>
                                 <label>Class</label>
@@ -209,36 +283,7 @@
                                 </select>
                               </div>
                             </div>
-                            
-                            <div class="col-md-6">
-                                <div class="form-group form-group-lg">
-                                  <div class="widthofowsel col-md-6">  
-                                    <label>Adults</label>
-                                    <select name="adultow" class="form-control">
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                    </select>
-                                  </div>
-                                  <div class="widthofowsel col-md-6">  
-                                    <label>Child(0-11)</label>
-                                    <select name="childrenow" class="form-control widthofowsel">
-                                      <option value="0">0</option>
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                    </select>
-                                  </div>  
-
-                                  </div>
-                              </div>
-                            
+                            <div class="col-md-8"></div>
                           </div>
                         </div>
                       </div>
@@ -446,3 +491,4 @@
             </div>
           </div>
         </div>
+        
