@@ -172,91 +172,79 @@
        //{
         //echo "<h1>Please try another flight as this flight is fully booked. !!!</h1>"; die;
        //}    
-
-        
-
-      
    ?>
     <div class="gap"></div>
     <div class="container">
-
-    <div class="row">
-        <div class="col-md-10">
-        <?php
-           global $user;
-
-          if ( $user->uid ) 
-          { ?>
-            <h3>Traveler Details</h3>
-           <?php
-          }
-          elseif(!$user->uid) 
-          {
-            ?>
-            <h3>Traveler Details</h3>
-            <p>Sign in to your <a href="/user">Flyoticket Account</a> for fast booking.</p>
-          <?php  
-          }
-        ?>
-        
-        
-    </div>
-    
-    <div class="row">
-    
+        <div class="row row-sukh">
             <div class="col-md-10">
-                    <div class="booking-item-payment">
-                        <header class="clearfix">
-                            <h4 class="mb0"><strong><?php echo $nameofmktairline; ?></strong></h4>
-                        </header>
-                                                
-                        <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <?php if(isset($flightarray) && $flightarray){ ?>
-                                    <?php foreach ($flightarray as $key => $value) { //echo "<pre>"; echo $key; print_r($value); die; ?>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                
-                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/<?php echo $value['logoofairline']; ?>" alt="Image Alternative text" title="Image Title">
-                                                <p><?php echo $value['nameofairline']; ?></p>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5><?php echo date('h:i A',strtotime($value['depart'])) ?></h5>
-                                                    <p class="booking-item-date"><?php echo date('l, F d ',strtotime($value['depart'])) ?></p>
+                <?php
+                   global $user;
+
+                  if ( $user->uid ) 
+                  { ?>
+                    <h3>Traveler Details</h3>
+                   <?php
+                  }
+                  elseif(!$user->uid) 
+                  {
+                    ?>
+                    <h3>Traveler Details</h3>
+                    <p>Sign in to your <a href="/user">Flyoticket Account</a> for fast booking.</p>
+                  <?php  
+                  }
+                ?>
+            </div>
+        </div>
+    <div class="row row-sukh">
+        <div class="col-md-7"><!--start main-->
+            <div class="booking-item-payment"><!--start submain-->
+                <header class="clearfix">
+                    <h4 class="mb0"><strong><?php echo $nameofmktairline; ?></strong></h4>
+                </header>
+            <div class="booking-item-container"><!--start suvbsubmain-->
+                <div class="booking-item padding-from-up-sukh"><!--start subsubbsubmain-->
+                    <?php if(isset($flightarray) && $flightarray){ ?>
+                    <?php foreach ($flightarray as $key => $value) { //echo "<pre>"; echo $key; print_r($value); die; ?>
+                        <div class="row row-sukh">
+                            <div class="col-md-2">
+                                <div class="booking-item-airline-logo">
+                                    <img src="<?php echo $themeurl; ?>/img/airlineslogo/<?php echo $value['logoofairline']; ?>" alt="Image Alternative text" title="Image Title">
+                                        <p><?php echo $value['nameofairline']; ?></p>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="booking-item-flight-details">
+                                    <div class="booking-item-departure"><i class="fa fa-plane"></i>
+                                        <h5><?php echo date('h:i A',strtotime($value['depart'])) ?></h5>
+                                        <p class="booking-item-date"><?php echo date('l, F d ',strtotime($value['depart'])) ?></p>
                                                     <p class="booking-item-destination"><?php echo $value['originairport']; ?></p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
+                                    </div>
+                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
                                                     <h5><?php echo date('h:i A',strtotime($value['arrives'])) ?></h5>
                                                     <p class="booking-item-date"><?php echo date('l, F d ',strtotime($value['arrives'])) ?></p>
                                                     <p class="booking-item-destination"><?php echo $value['destinationairport']; ?></p>
-                                                </div>
-                                            </div>
-                                        </div>
+                            </div>
+                        </div>
+                </div>
                                         <div class="col-md-2">
                                             <h5>Flight No.<?php echo $value['flightno']; ?></h5>
                                             <p><?php echo $value['stops']; ?></p>
                                         </div>
                                         
-                                        <div class="col-md-3"><span class="booking-item-price" <?php if($key == 0){ ?>ng-init="faretopass='<?php echo $value['fare']; ?>'"<?php } ?> ><?php if($key == 0){ ?>$<?php echo $value['fare']; ?><?php } ?></span>
+                                        <div class="col-md-3"><span class="booking-item-price price-text-sukh" <?php if($key == 0){ ?>ng-init="faretopass='<?php echo $value['fare']; ?>'"<?php } ?> ><?php if($key == 0){ ?>$<?php echo $value['fare']; ?><?php } ?></span>
 
                                         <span></span><br>
                                         <span><?php if($value['layovertime']!=0){ ?>Layover: <?php echo $value['layovertime']; ?><?php } ?></span><br>
                                             <p class="booking-item-flight-class">Class: <?php echo $value['travelclass']; ?></p>
                                         </div>
                                         
-                                    </div>
+        </div>
                                     <?php } ?>
                                     <?php } //flight array ?>
                                     <?php if(isset($flightarrayoutbound) && $flightarrayoutbound){ ?>
                                     <?php foreach ($flightarrayoutbound as $key => $value) { ?>
                                     
-                                    <div class="row">
+                                    <div class="row row-sukh">
                                         <div class="col-md-2">
                                             <div class="booking-item-airline-logo">
                                                 <?php if($key == 0){ ?>
@@ -295,14 +283,53 @@
                             </div>
                      </div>
                 </div>
+                <div class="col-md-5">
+                    <div class="booking-item-payment">
+                        <header class="clearfix">
+                        <h4 class="mb0"><strong>Price Details (USD)</strong></h4>
+                        </header>
+                  <div class="col-md-12">
+                    <div class="clearfix col-md-6">
+                        <h5> Total Traveler</h5>
+                        <h5>Best Price</h5>
+                        <h5>Taxes & Fees:</h5>
+                    </div>
+                                            <div class="clearfix col-md-6">
+                                                <h5><?php echo isset($adult)?$adult:""; ?> Adult<?php if(isset($children)){ ?>, <?php echo isset($children)?$children:""; ?> Children<?php } ?></h5>
+                                                
+                                                <h5>$<?php echo number_format((float)$totalprice-$priceperadulttax, 2, '.', ''); ?></h5>
+                                                <h5>$<?php echo number_format((float)$priceperadulttax, 2, '.', ''); ?></h5>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                <div class="row row-sukh sukh-color">    
+                                     <div class="col-md-10 col-sm-8">
+                                        
+                                        <h5 class="sukh-clr">Final Total Price:</h5>
+                                     </div>
+                                        
+                                        <div class="col-md-2 col-sm-4">
+                                        <h5 class="sukh-clr">$<?php echo ($totalprice*$adult); ?></h5>
+                                        </div>
+                                        
+                                        <div class="row row-sukh">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-10">Please note: All fares are quoted in USD. Some airlines may charge baggage fees.</div>
+                                            <div class="col-md-1"></div>
+                                        </div>
+                        
+                                        
+                    </div> 
+                </div>
             </div>
             <!---flight detail end--->
     
             <!---Passengers detail-->
            
             <div class="gap gap-small"></div>
-    <div class="row">
-        <div class="col-md-10">
+    <div class="row row-sukh">
+        <div class="col-md-12">
             <div class="booking-item-payment">
                     <header class="clearfix">
                     <h4 class="mb0"><strong>Passengers</strong></h4>
@@ -318,7 +345,7 @@
 
                     <?php for ($i=0; $i < $totalpassenger ; $i++) {  ?>
                     <li>
-                            <div class="row">
+                            <div class="row row-sukh">
                                     <div class="col-md-12 sukh_height">
                                 <div class="col-md-2">
                                    <div class="form-group">
@@ -422,7 +449,7 @@
                         
 
                     <!--<li>
-                            <div class="row">
+                            <div class="row row-sukh">
                                     <div class="col-md-12">
                                 <div class="col-md-2">
                                    <div class="form-group">
@@ -496,8 +523,8 @@
         
         <!---Price detail-->
         
-            <div class="row">
-                 <div class="col-md-10">
+            <!-- <div class="row row-sukh">
+                 <div class="col-md-12">
                         <div class="booking-item-payment">
                                     <header class="clearfix">
                                     <h4 class="mb0"><strong>Price Details (USD)</strong></h4>
@@ -519,7 +546,7 @@
                                             </div>
                                         </div>
                                         
-                                <div class="row sukh-color">    
+                                <div class="row row-sukh sukh-color">    
                                      <div class="col-md-10 col-sm-8">
                                         
                                         <h5 class="sukh-clr">Final Total Price:</h5>
@@ -529,7 +556,7 @@
                                         <h5 class="sukh-clr">$<?php echo ($totalprice*$adult); ?></h5>
                                         </div>
                                         
-                                        <div class="row">
+                                        <div class="row row-sukh">
                                             <div class="col-md-1"></div>
                                             <div class="col-md-10">Please note: All fares are quoted in USD. Some airlines may charge baggage fees.</div>
                                             <div class="col-md-1"></div>
@@ -542,12 +569,12 @@
             
             <!---Price detail end-->
             
-                    <div class="gap gap-small"></div>
+                    <!-- <div class="gap gap-small"></div> --> 
             
             <!---Payment Info detail-->
             
-            <div class="row row_abhi">
-                <div class="col-md-10">
+            <div class="row row-sukh row row-sukh_abhi">
+                <div class="col-md-12">
                         <div class="booking-item-payment">
                             <header class="clearfix">
                             <h4 class="mb0"><strong>Payment Info (Secure SSL Encrypted Transaction)</strong></h4>
@@ -684,8 +711,8 @@
 
 
     <!---Payment Info detail end--> 
-<div class="row row_abhi">
-        <div class="col-md-10">
+<div class="row row-sukh row row-sukh_abhi">
+        <div class="col-md-12">
             <div class="booking-item-payment">
                     <header class="clearfix">
                     <h4 class="mb0"><strong >Billing & Contact Information</strong></h4></header>

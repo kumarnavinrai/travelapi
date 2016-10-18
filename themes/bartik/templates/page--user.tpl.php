@@ -159,9 +159,12 @@
     <?php endif; */?>
 
   </div></div> <!-- /.section, /#header -->
-<style>.messages.status { color: #171515 !important; } .nk_cls{ text-align: center; }</style>
+<style>.messages.status { color: #171515 !important; } .nk_cls{ /*text-align: center;*/ }</style>
 <?php if ($messages): ?>
-    <div id="messages" class="container"><div class="section clearfix">
+    <div id="messages" class="container">
+      <div class="row section clearfix">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 error-sukh">
     
       <?php $source = explode("</div>", $messages); 
             $messageofmailcame = "no";
@@ -185,7 +188,8 @@
               echo $messages; 
             }
              ?>
-            
+            </div>
+            <div class="col-md-3"></div>
     </div></div> <!-- /.section, /#messages -->
 <?php endif; ?>            
 

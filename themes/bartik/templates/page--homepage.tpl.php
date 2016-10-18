@@ -138,9 +138,10 @@ $themeurl = file_create_url(path_to_theme());
         <?php  ?>
         <!-- search form ends -->
         <div class="col-md-6">
-          <div class="loc-info text-right hidden-xs hidden-sm">
+          <div class="loc-info text-right text-right-sukh hidden-xs hidden-sm">
             <h3  style="text-align:center; color:#FFFFFF">
-              <!--<img src="img/flags/32/fr.png" alt="Image Alternative text" title="Image Title" />Paris-->Flyoticket
+              <!--<img src="img/flags/32/fr.png" alt="Image Alternative text" title="Image Title" />Paris--> <img src="
+                <?php echo $themeurl; ?>/img/travel-painters_logo_lastt-.png" />
             </h3>
             <p style="text-align:center">Traveling - it leaves you speechless, then turns you into a storyteller.Everyone loves stories, and here at Flyoticket, we believe that at the end of the day the experiences you've had, the stories you've shared (and the ones you've yet to share) are some of the most important moments in life.</p>
             <img src="
@@ -185,9 +186,9 @@ $themeurl = file_create_url(path_to_theme());
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="#">FREE CANCELLATION WITHIN 12 HOURS</a>
+              <a class="text-darken" href="#">CANCELLATION POLICY</a>
             </h5>
-            <p class="thumb-desc">Flyoticket offers Free Cancellation to its entire booking users.</p>
+            <p class="thumb-desc">Flyoticket offers Cancellation to its entire booking users.</p>
           </div>
         </div>
       </div>
@@ -223,37 +224,85 @@ $themeurl = file_create_url(path_to_theme());
   <div class="bg-holder">
     <div class="bg-mask"></div>
     <div class="bg-parallax" style="background-image:url(
-      <?php echo $themeurl; ?>/img/hotel_the_cliff_bay_spa_suite_2048x1310.jpg);">
+      <?php echo $themeurl; ?>/img/world-map.jpg);">
     </div>
     <div class="bg-content">
       <div class="container">
         <div class="gap gap-big text-center text-white">
-          <h2 class="text-uc mb20">DURING TRAVEL HOTELS</h2>
-          <ul class="icon-list list-inline-block mb0 last-minute-rating">
-            <li>
-              <i class="fa fa-star"></i>
-            </li>
-            <li>
-              <i class="fa fa-star"></i>
-            </li>
-            <li>
-              <i class="fa fa-star"></i>
-            </li>
-            <li>
-              <i class="fa fa-star"></i>
-            </li>
-            <li>
-              <i class="fa fa-star"></i>
-            </li>
-          </ul>
-          <h5 class="last-minute-title">The Peninsula - New York</h5>
-          <p class="last-minute-date">Fri 14 Sep - Sun 16 sep</p>
-          <p class="mb20">
-            <b>$120</b> / person
-          </p>
-          <a class="btn btn-lg btn-white btn-ghost" href="#">Book Now 
-            <i class="fa fa-angle-right"></i>
-          </a>
+                <div class="col-md-12">
+                  <div class="loc-info text-right hidden-xs hidden-sm">
+                   <h3 style="text-align:center; color:#FFFFFF">Recent Airfare Searches</h3>
+                      <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                        <th bgcolor="#18b292">Origin</th>
+                        <th bgcolor="#18b292">RT total from</th>
+                        
+                        </tr>
+                      </thead>
+                      <tbody style="background:#333;opacity: 0.8;">
+                        <tr class="colr-text-sukh">
+                        <td><span class="txt-skh">New York -&gt; Aruba </span></td>
+                        <td>$ 305*</td>
+                        
+                        </tr>
+                        <tr class="colr-text-sukh">
+                        <td><span class="txt-skh">New York -&gt; Panama City </span></td>
+                        <td>$ 289*</td>
+                        
+                        </tr>
+                        <tr class="colr-text-sukh">
+                        <td><span class="txt-skh">New York -&gt; Aruba</span> </td>
+                        <td>$ 305*</td>
+                        
+                        </tr>
+                        <tr class="colr-text-sukh">
+                        <td><span class="txt-skh">New York -&gt; Melbourne</span></td>
+                        <td>$ 901*</td>
+                        
+                        </tr>
+                        <tr class="colr-text-sukh">
+                        <td><span class="txt-skh">New York -&gt; Panama City </span></td>
+                        <td>$ 289*</td>
+                        
+                        </tr>
+                        <tr class="colr-text-sukh">
+                        <td><span class="txt-skh">New York -&gt; Aruba </span></td>
+                        <td>$ 305*</td>
+                        
+                        </tr>
+                        <tr class="colr-text-sukh">
+                        <td><span class="txt-skh">New York -&gt; Melbourne</span></td>
+                        <td>$ 901*</td>
+                        
+                        </tr>
+                        <tr class="colr-text-sukh">
+                        <td><span class="txt-skh">New York -&gt; Panama City </span></td>
+                        <td>$ 289*</td>
+                        
+                        </tr>
+                        <tr class="colr-text-sukh">
+                        <td><span class="txt-skh">New York -&gt; Aruba </span></td>
+                        <td>$ 305*</td>
+                        
+                        </tr>
+                        <tr class="colr-text-sukh">
+                        <td><span class="txt-skh">New York -&gt; Melbourne</span></td>
+                        <td>$ 901*</td>
+                        
+                        </tr>
+                     <!--   
+                      <tr>
+                        <td colspan="2"><p style="color:#fff">*Prices above are past searches found by real customers in the last 24 hours</p></td>
+                      </tr>
+                       <tr>
+                        <td colspan="2"> <button class="btn btn-primary btn-lg" type="submit">View More &gt; </button></td>
+                      </tr> -->
+                      </tbody>
+                      </table>
+                                            
+             </div>
+           </div>
         </div>
       </div>
     </div>

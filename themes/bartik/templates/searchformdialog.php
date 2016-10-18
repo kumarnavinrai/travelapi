@@ -1,5 +1,5 @@
 <div class="mfp-with-anim mfp-hide mfp-dialog mfp-search-dialog" id="search-dialog">
-                <h3>Search for Flight</h3>
+                <h3 class="margin-btm-sukh">Search for Flight</h3>
                 <form method="POST" action="<?php echo $_SESSION['urlforform']; ?>searchresult">
                     <div class="tabbable">
                         <ul class="nav nav-pills nav-sm nav-no-br mb10" id="flightChooseTab">
@@ -64,8 +64,22 @@
                                 </div>
                                 <div class="col-md-2">
                                   <div class="form-group form-group-lg form-group-select-plus">
-                                    <label>Child(0-17)</label>
+                                    <label>Child(2-11)</label>
                                     <select name="children" class="form-control" >
+                                      <option value="0">0</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="3">4</option>
+                                      <option value="3">5</option>
+                                      <option value="3">6</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="form-group form-group-lg form-group-select-plus">
+                                    <label>Infant(0-2)</label>
+                                    <select name="infantnow" class="form-control" >
                                       <option value="0">0</option>
                                       <option value="1">1</option>
                                       <option value="2">2</option>
@@ -80,7 +94,7 @@
                             </div>
                           </div>
               <div class="row">
-               <div class="col-md-12">
+               <!-- <div class="col-md-12">
                  <script type="text/javascript"> 
                                  $(document).ready(function() {
                                      $('#attach_box').click(function(e) {
@@ -94,11 +108,26 @@
                                         $('#attach_box').hide();
                                      });        
                                  });
-                              </script>
+                             
               </script>       
-              <a href="#" id="attach_box">Advance Search<i class="fa fa-sort-desc sukh" aria-hidden="true"></i></a><br /><br />
-              <div id="sukh_buton" class="col-md-4" style="display:none;">
-                            <div class="form-group form-group-lg form-group-icon-left "><i class="fa fa-plane input-icon input-icon-highlight"></i>
+              <a href="#" id="attach_box">Advance Search<i class="fa fa-sort-desc sukh" aria-hidden="true"></i></a><br /><br /> -->
+                <script type="text/javascript"> 
+                                 $(document).ready(function() {
+                                     $('#attach_box').click(function(e) {
+                                         e.preventDefault();   
+                                         $('#sukh_buton').toggle();
+                                     });
+                                     $('.rtripandowselectorrt').on('click',function(){
+                                        $('#sukh_buton').show();
+                                     }); 
+                                     $('.rtripandowselectorow').on('click',function(){
+                                        $('#sukh_buton').hide();
+                                     });        
+                                 });
+                             
+              </script>  
+              <div id="sukh_buton" class="col-md-4">
+                <div class="form-group form-group-lg form-group-icon-left "><i class="fa fa-plane input-icon input-icon-highlight"></i>
                             <label>Class</label>
                                 <select name="rclass" class="form-control" >
                                   <option value="economy" class="su_option">Economy</option>
@@ -106,11 +135,13 @@
                                   <option value="business">Business</option>
                                   <option value="first">First</option>
                                 </select>
-                            </div>
-                            </div>        
-              </div>
+                </div>
+              </div> 
+              <div id="sukh_buton" class="col-md-8">
+              </div>        
               
               </div>
+            <!--   </div> -->
                             <div class="tab-pane fade" id="flight-search-2">
                                    <div class="row">
                                     <div class="col-md-5">
@@ -133,7 +164,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                <div class="row">
+                                  <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
                                             <i class="fa fa-calendar input-icon input-icon-highlight"></i>
@@ -142,10 +173,8 @@
                                         </div>
                                     </div>
                                    <div class="col-md-2">
-                                                                            <div class="form-group form-group-lg">
-                                                                                
-                                                                                
-                                         <label>Adults</label>
+                                      <div class="form-group form-group-lg">
+                                        <label>Adults</label>
                                         <select name="adultow" class="form-control">
                                           <option value="1">1</option>
                                           <option value="2">2</option>
@@ -154,11 +183,11 @@
                                           <option value="5">5</option>
                                           <option value="6">6</option>
                                         </select>
-                                                                                </div>
-                                                                        </div>
-                                                                        <div class="col-md-2">
-                                                                            <div class="form-group form-group-lg form-group-select-plus">
-                                                <label>Child(0-11)</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                    <div class="form-group form-group-lg form-group-select-plus">
+                                                <label>Child(2-11)</label>
                                                 <select name="childrenow" class="form-control widthofowsel">
                                                   <option value="0">0</option>
                                                   <option value="1">1</option>
@@ -168,13 +197,37 @@
                                                   <option value="5">5</option>
                                                   <option value="6">6</option>
                                                 </select>
-                                      </div>
-                                     
                                     </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <div class="form-group form-group-lg form-group-select-plus">
+                                                <label>Infant(0-2)</label>
+                                                <select name="infantnow" class="form-control widthofowsel">
+                                                  <option value="0">0</option>
+                                                  <option value="1">1</option>
+                                                  <option value="2">2</option>
+                                                  <option value="3">3</option>
+                                                  <option value="4">4</option>
+                                                  <option value="5">5</option>
+                                                  <option value="6">6</option>
+                                                </select>
+                                    </div>
+                                  </div>
+                              <div class="col-md-3">  
+                                <div class="form-group form-group-lg form-group-icon-left "><i class="fa fa-plane input-icon input-icon-highlight"></i>
+                                  <label>Class</label>
+                                  <select name="rclass" class="form-control" >
+                                  <option value="economy" class="su_option">Economy</option>
+                                  <option value="premiumeco">Premium Economy</option>
+                                  <option value="business">Business</option>
+                                  <option value="first">First</option>
+                                  </select>
+                                </div> 
+                              </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary btn-lg bt-change-search" type="submit">Search for Flights</button>
+                    <button class="btn btn-primary btn-lg bt-change-search nav_search_for_flights" type="submit">Search for Flights</button>
                 </form>
             </div>

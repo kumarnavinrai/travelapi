@@ -5,9 +5,9 @@
 <div id="emptyDiv"></div>
 <div id="description"></div>
 <!--container start-->
-<div id="container">
-  <div id="container_body">
-    <div>
+<div id="container" class="container">
+  <div class="row" id="container_body">
+    <div class="col-md-12">
       <h3 class="form_title">Register Here</h3>
       <p class="head_para"></p>
     </div>
@@ -20,8 +20,7 @@
          
       </div>
       <div id="email_form">
-		
-		
+
 		<?php 
 	
 			//$form['name'] = array
@@ -45,7 +44,7 @@
 		print drupal_render($form['form_id']);
 		print drupal_render($form['actions']);
 		?>
-<p class="social-text">Or Register Using:</p>
+<p class="social-text">Or Register With:</p>
 			<ul class="list list-horizontal list-space">
 				<li>
 					<a href="/hybridauth/window/Facebook?destination=user/register&amp;destination_error=user/register" title="Facebook" class="hybridauth-widget-provider hybridauth-onclick-current" rel="nofollow" data-hybridauth-provider="Facebook" data-hybridauth-url="/hybridauth/window/Facebook?destination=user/register&amp;destination_error=user/register" data-ajax="false" data-hybridauth-width="800" data-hybridauth-height="500"><span class="hybridauth-icon facebook hybridauth-icon-hybridauth-32 hybridauth-facebook hybridauth-facebook-hybridauth-32" title="Facebook"></span></a>

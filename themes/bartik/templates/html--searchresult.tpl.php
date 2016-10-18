@@ -197,7 +197,7 @@
             </div>
         </header>
         <button style="display:none;" onclick="maskedfuncoff()">Click Me</button>
-  <div id="bloadify" style="display:none;"> <a href="#" id="bload">Bload</a> </div>      
+  <div id="bloadify" style="display:none;"> <a href="#" id="bload">Bload</a></div>      
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
@@ -214,11 +214,12 @@
                             maskOpacity: .6, // Opacity of the mask. 
                             imagePath: "<?php echo $themeurl; ?>/img/plane_loading.gif", // Path to the a difference loading image.
                             imagePadding: 16, // Padding around the loading image.
-                            imageDims: {w:300,h:300}, // Width and Height of the image.
+                            imageDims: {w:200,h:200}, // Width and Height of the image.
                             fullScreen: true, // Enables full screen mode. 
                             overlay : { 
                             show: true, // Show an overlay over the entire area to mask.
                             color: '#000', // Color of the overlay. 
+                            /*'background-color' : 'rgba(0, 0, 0, 0)',*/
                             opacity: .2 // Opacity of the overlay
                             }
                         
