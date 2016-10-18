@@ -165,6 +165,7 @@ $themeurl = file_create_url(path_to_theme());
                       <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
                     </div>
               </div>      
+              
               <!-- pagination ends -->
             <div class="row">
                 <div class="col-md-3">
