@@ -15,7 +15,7 @@ if(strpos($base_url, "travelpainters.local"))
   $urlofwp = "http://travelpainters.local/"; 
   $_SESSION['urlforform'] = "http://travelpainters.local/";
   $sitelink = $_SESSION['urlforform'];
-  $urltoGetFilghts = "http://travelpainters.local/phpsaber/start_rest_workflow.php";
+  $urltoGetFilghts = "http://flyoticket.com/phpsaber/start_rest_workflow.php";
   //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
   //$urltoGetFilghts = "http://104.168.102.222:1337/fs/";
 }

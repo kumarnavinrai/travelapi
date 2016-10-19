@@ -1,5 +1,5 @@
 <?php
-//die('hello');
+
 /**
  * @file
  * Bartik's theme implementation to display a single Drupal page.
@@ -110,65 +110,7 @@
 #subadminpanel li a:hover {
     background-color: #111;
 }
-
-
-.field-name-body
-{
-display:none;
-}
-.field-name-field-allflightdata
-{
-display:none;
-}
-
-.field-name-field-flightdata
-{
-display:none;
-}
-
-.field-name-field-passengers
-{
-display:none;
-}
-#customeridtextbox{
-display:none;
-}
 </style>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-<script>
-jQuery( function() {
-    
-	//alert('reached');
- 
-    jQuery( "#customeractextbox" ).autocomplete({
-      source: function( request, response ) {
-        jQuery.ajax( {
-          url: "/subadminautocomplete",
-          dataType: "json",
-          data: {
-            term: request.term
-          },
-          success: function( data ) {
-            response( data );
-          }
-        } );
-      },
-      minLength: 2,
-      select: function( event, ui ) {
-       console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
-		jQuery('#customeractextbox').val(ui.item.value);
-		jQuery('#customeridtextbox').val(ui.item.id);
-		
-      }
-    } );
-  } );
-  </script>
-
-
-</script>
 <div id="page-wrapper"><div id="page">
 
   <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>"><div class="section clearfix">
@@ -254,6 +196,7 @@ jQuery( function() {
       <?php print render($page['featured']); ?>
     </div></div> <!-- /.section, /#featured -->
   <?php endif; ?>
+
 
   <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
 <!-- Menu for subadmin module and cce module --> 

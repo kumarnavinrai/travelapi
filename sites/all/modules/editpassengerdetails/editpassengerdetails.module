@@ -18,9 +18,7 @@ global $base_url;
 //echo "<pre>"; print_r($_REQUEST);
 $nid=$_REQUEST['nid'];
 //echo $_POST['vid'];
-//print "<pre>";print_r($node);
-//die();
-	
+
 	if(!isset($_REQUEST['nid']))
 	{
 	global $base_url;
@@ -39,365 +37,991 @@ drupal_set_title($title = "Editing Passenger: ".$userTitle, $output = CHECK_PLAI
 
  $form['#attributes'] = array('class' => 'cceform');
  $form['#action'] = $base_url.'/savepassengerdetails';
- 
 
+//Get the user roles to display the form as per their level of access
+global $user;
 
-     $form['passengerBookingStatus'] = array(
-    '#title' => t('Booking Status'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_booking_status['und'])?$node->field_booking_status['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-      
- //Main Title of the Passenger Information
-  $form['passengerTitle'] = array(
-    '#title' => t('Passenger Booking Title'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->title)?$node->title:null,
-    '#required' => FALSE,
-	'#attributes' => array(
-	'readonly' => 'readonly'
-	),
-  );
-  
+//echo "<pre>"; print_r($node);
+//die();	
 
-  //First Passenger
-  $form['passengerOneFirstName'] = array(
-    '#title' => t('Passenger 1 First Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_first_name_one['und'])?$node->field_first_name_one['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-    $form['passengerOneMiddleName'] = array(
-    '#title' => t('Passenger 1 Middle Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_middel_name_one['und'])?$node->field_middel_name_one['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-    $form['passengerOneLastName'] = array(
-    '#title' => t('Passenger 1 Last Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_last_name_one['und'])?$node->field_last_name_one['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-    $form['passengerOneDOB'] = array(
-    '#title' => t('Passenger 1 Date of Birth'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_date_of_birth_one['und'])?$node->field_date_of_birth_one['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-    $form['passengerOneSex'] = array(
-    '#title' => t('Passenger 1 Gender'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_sex_one['und'])?$node->field_sex_one['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  //Second Passenger
-  $form['passengerSecondFirstName'] = array(
-    '#title' => t('Passenger 2 First Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_first_name_two['und'])?$node->field_first_name_two['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-    $form['passengerSecondMiddleName'] = array(
-    '#title' => t('Passenger 2 Middle Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_middel_name_two['und'])?$node->field_middel_name_two['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-    $form['passengerSecondLastName'] = array(
-    '#title' => t('Passenger 2 Last Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_last_name_two['und'])?$node->field_last_name_two['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-      $form['passengerSecondDOB'] = array(
-    '#title' => t('Passenger 2 Date of Birth'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_date_of_birth_two['und'])?$node->field_date_of_birth_two['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-      $form['passengerTwoSex'] = array(
-    '#title' => t('Passenger 2 Gender'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_sex_two['und'])?$node->field_sex_two['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    //Third Passenger
-  $form['passengerThirdFirstName'] = array(
-    '#title' => t('Passenger 3 First Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_first_name_three['und'])?$node->field_first_name_three['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-    $form['passengerThirdMiddleName'] = array(
-    '#title' => t('Passenger 3 Middle Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_middel_name_three['und'])?$node->field_middel_name_three['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-    $form['passengerThirdLastName'] = array(
-    '#title' => t('Passenger 3 Last Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_last_name_three['und'])?$node->field_last_name_three['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-      $form['passengerThirdDOB'] = array(
-    '#title' => t('Passenger 3 Date of Birth'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_date_of_birth_three['und'])?$node->field_date_of_birth_three['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-        $form['passengerThreeSex'] = array(
-    '#title' => t('Passenger 3 Gender'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_sex_three['und'])?$node->field_sex_three['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-      //Fourth Passenger
-  $form['passengerFourthFirstName'] = array(
-    '#title' => t('Passenger 4 First Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_first_name_four['und'])?$node->field_first_name_four['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-    $form['passengerFourthMiddleName'] = array(
-    '#title' => t('Passenger 4 Middle Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_middle_name_four['und'])?$node->field_middle_name_four['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-    $form['passengerFourthLastName'] = array(
-    '#title' => t('Passenger 4 Last Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_last_name_four['und'])?$node->field_last_name_four['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-      $form['passengerFourthDOB'] = array(
-    '#title' => t('Passenger 4 Date of Birth'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_date_of_birth_four['und'])?$node->field_date_of_birth_four['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-      $form['passengerFourthSex'] = array(
-    '#title' => t('Passenger 4 Gender'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_sex_four['und'])?$node->field_sex_four['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-        //Fifth Passenger
-  $form['passengerFifthFirstName'] = array(
-    '#title' => t('Passenger 5 First Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_first_name_five['und'])?$node->field_first_name_five['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-    $form['passengerFifthMiddleName'] = array(
-    '#title' => t('Passenger 5 Middle Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_middel_name_five['und'])?$node->field_middel_name_five['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-    $form['passengerFifthLastName'] = array(
-    '#title' => t('Passenger 5 Last Name'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_last_name_five['und'])?$node->field_last_name_five['und'][0]['value']:null,
-    '#required' => FALSE,
-  );
-  
-      $form['passengerFifthDOB'] = array(
-    '#title' => t('Passenger 5 Date of Birth'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_date_of_birth_five['und'])?$node->field_date_of_birth_five['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerFifthSex'] = array(
-    '#title' => t('Passenger 5 Gender'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_sex_five['und'])?$node->field_sex_five['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-  //End passenger details
-  
-  //Start card details and trip details
-  
-    $form['passengerCardType'] = array(
-    '#title' => t('Type of Card'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_type_of_card['und'])?$node->field_type_of_card['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerCardNumber'] = array(
-    '#title' => t('Credit Card Number'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_credit_card_no['und'])?$node->field_credit_card_no['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerCardCCV'] = array(
-    '#title' => t('CCV'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_ccv['und'])?$node->field_ccv['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerCardCCN'] = array(
-    '#title' => t('CCN'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_ccn['und'])?$node->field_ccn['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerCardExpiry'] = array(
-    '#title' => t('Credit Card Expiry'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_ccexpiry['und'])?$node->field_ccexpiry['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerCardCountry'] = array(
-    '#title' => t('Country'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_country['und'])?$node->field_country['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerCardStreet'] = array(
-    '#title' => t('Street'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_street['und'])?$node->field_street['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerCardCity'] = array(
-    '#title' => t('City'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_city['und'])?$node->field_city['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerCardState'] = array(
-    '#title' => t('State'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_state['und'])?$node->field_state['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerCardZip'] = array(
-    '#title' => t('Zip Code'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_zipcode['und'])?$node->field_zipcode['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerBusinessPhone'] = array(
-    '#title' => t('Business Phone'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_business_phone['und'])?$node->field_business_phone['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerMobilePhone'] = array(
-    '#title' => t('Mobile Phone'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_mobile_phone['und'])?$node->field_mobile_phone['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerEmail'] = array(
-    '#title' => t('Email Address'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_email['und'])?$node->field_email['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerTotalPrice'] = array(
-    '#title' => t('Total Price'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_total_price['und'])?$node->field_total_price['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
- 
-    $form['passengerTotalPricePerPerson'] = array(
-    '#title' => t('Total Price Per Person'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_price_per_person['und'])?$node->field_price_per_person['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
- 
-    $form['passengerTotalTax'] = array(
-    '#title' => t('Total Tax'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_tax['und'])?$node->field_tax['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-
-    $form['passengerTotalPassengers'] = array(
-    '#title' => t('Total Passengers'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_noofpassenger['und'])?$node->field_noofpassenger['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-               
-    $form['passengerTotalPriceOfBooking'] = array(
-    '#title' => t('Total Price of Booking'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_totalpriceofbooking['und'])?$node->field_totalpriceofbooking['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-  
-    $form['passengerPNR'] = array(
-    '#title' => t('PNR Number'),
-    '#type' => 'textfield',
-	'#default_value' => isset($node->field_pnr['und'])?$node->field_pnr['und'][0]['value']:null,
-    '#required' => FALSE,
-  ); 
-         
-
-  //End Card and Trip Details
-       
-
-     $form['nodeid'] = array(
-    '#type' => 'hidden',
-    '#required' => TRUE,
-	'#value' => $nid,
-  );
-  
-  
-  //Submit will go to the submit function where a new CCE will be created
-  $form['submit'] = array(
-    '#value' => t('Update Passenger Information'),
-    '#type' => 'submit',
-	'#executes_submit_callback' => TRUE,
-    '#limit_validation_errors' => FALSE,
-    );
+$roles=$user->roles;
+if(in_array('subadmin',$roles))
+	{ 
+		
+		//Get all CCE users
+		
+		//$query = "SELECT u.uid,u.mail
+		//		  FROM {users} u INNER JOIN {users_roles} ur ON u.uid = ur.uid
+		//		  WHERE rid = '6';";
 	
-	//$form['#submit'][]='cce_form_submit';
-  return $form;
+		//Use Database API to retrieve current posts.
+
+			$role_id = 6;
+			$result = db_query('SELECT u.uid, u.mail
+			FROM {users} u INNER JOIN {users_roles} ur ON u.uid = ur.uid WHERE ur.rid = :role_id', array(':role_id' => $role_id));
+			// Result is returned as a iterable object that returns a stdClass object on each iteration
+			//$emailarray[0]=isset($node->field_assignedcce['und'])?$node->field_assignedcce['und'][0]['value']:null;
+			$emailarray[0]="All CCE";
+			$emailarray[63]="SUB ADMIN";
+			foreach ($result as $record) 
+				{
+					$emailarray[$record->uid]=$record->mail;
+
+				}
+		$getCurrentAssignmentID=intval(isset($node->field_assignedcce['und'])?$node->field_assignedcce['und'][0]['value']:0);
+		
+				$form['cceassignment'] = array(
+						'#title' => t('Assign to CCE'),
+						'#type' => 'select',
+						'#value'=> $getCurrentAssignmentID,
+					   '#options' => array(
+						'Select CCE'=> $emailarray
+						 //'confirmed' => t('confirmed'),
+					   ),
+					   
+						'#required' => FALSE,
+					  ); 	
+
+		//echo $result;
+	// Get assigned cce
+		
+
+		 //$form['cuurentassignedcce'] = array(
+			//'#title' => t('Currently Assigned To:'),
+			//'#type' => 'textfield',
+			//'#default_value' => $emailarray[$getCurrentAssignmentID],
+			//'#attributes' => array(
+			//'readonly' => 'readonly'
+			//),
+		 // ); 
+
+		 $form['passengerBookingStatus'] = array(
+		'#title' => t('Booking Status'),
+		'#type' => 'select',
+		'#options' => array(
+        'pending' => t('pending'),
+        'confirmed' => t('confirmed'),
+		),
+		'#default_value' => isset($node->field_booking_status['und'])?$node->field_booking_status['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		//Display currently assigned to
+	  	$form['currentlyAssignedTo'] = array(
+		'#title' => t('Booking Currently Assigned To:'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_email['und'])?$node->field_email['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+		//Assign to passenger
+		 $form['assigntopassenger'] = array(
+			'#type' => 'textfield',
+			'#id' => 'customeractextbox',
+			'#title' => 'Assign to Customer',
+			'#maxlength' => 128,
+			'#autocomplete_path' => '/subadminautocomplete',
+			//'#default_value' => isset($node->field_email['und'])?$node->field_email['und'][0]['value']:null,
+		  );
+		 //Get the passenger id from the email
+ 
+		 $form['passengerid'] = array(
+		'#type' => 'textfield',
+		'#id' => 'customeridtextbox',
+		//'#default_value' => "",
+	  );
+	  
+	  
+	 //Main Title of the Passenger Information
+	  $form['passengerTitle'] = array(
+		'#title' => t('Passenger Booking Title'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->title)?$node->title:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+
+	  //First Passenger
+	  $form['passengerOneFirstName'] = array(
+		'#title' => t('Passenger 1 First Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_first_name_one['und'])?$node->field_first_name_one['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		$form['passengerOneMiddleName'] = array(
+		'#title' => t('Passenger 1 Middle Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_middel_name_one['und'])?$node->field_middel_name_one['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		$form['passengerOneLastName'] = array(
+		'#title' => t('Passenger 1 Last Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_last_name_one['und'])?$node->field_last_name_one['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		$form['passengerOneDOB'] = array(
+		'#title' => t('Passenger 1 Date of Birth'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_date_of_birth_one['und'])?$node->field_date_of_birth_one['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		$form['passengerOneSex'] = array(
+		'#title' => t('Passenger 1 Gender'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_sex_one['und'])?$node->field_sex_one['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  //Second Passenger
+	  $form['passengerSecondFirstName'] = array(
+		'#title' => t('Passenger 2 First Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_first_name_two['und'])?$node->field_first_name_two['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		$form['passengerSecondMiddleName'] = array(
+		'#title' => t('Passenger 2 Middle Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_middel_name_two['und'])?$node->field_middel_name_two['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		$form['passengerSecondLastName'] = array(
+		'#title' => t('Passenger 2 Last Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_last_name_two['und'])?$node->field_last_name_two['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		  $form['passengerSecondDOB'] = array(
+		'#title' => t('Passenger 2 Date of Birth'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_date_of_birth_two['und'])?$node->field_date_of_birth_two['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		  $form['passengerTwoSex'] = array(
+		'#title' => t('Passenger 2 Gender'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_sex_two['und'])?$node->field_sex_two['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		//Third Passenger
+	  $form['passengerThirdFirstName'] = array(
+		'#title' => t('Passenger 3 First Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_first_name_three['und'])?$node->field_first_name_three['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		$form['passengerThirdMiddleName'] = array(
+		'#title' => t('Passenger 3 Middle Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_middel_name_three['und'])?$node->field_middel_name_three['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		$form['passengerThirdLastName'] = array(
+		'#title' => t('Passenger 3 Last Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_last_name_three['und'])?$node->field_last_name_three['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		  $form['passengerThirdDOB'] = array(
+		'#title' => t('Passenger 3 Date of Birth'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_date_of_birth_three['und'])?$node->field_date_of_birth_three['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+			$form['passengerThreeSex'] = array(
+		'#title' => t('Passenger 3 Gender'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_sex_three['und'])?$node->field_sex_three['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		  //Fourth Passenger
+	  $form['passengerFourthFirstName'] = array(
+		'#title' => t('Passenger 4 First Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_first_name_four['und'])?$node->field_first_name_four['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		$form['passengerFourthMiddleName'] = array(
+		'#title' => t('Passenger 4 Middle Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_middle_name_four['und'])?$node->field_middle_name_four['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		$form['passengerFourthLastName'] = array(
+		'#title' => t('Passenger 4 Last Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_last_name_four['und'])?$node->field_last_name_four['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		  $form['passengerFourthDOB'] = array(
+		'#title' => t('Passenger 4 Date of Birth'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_date_of_birth_four['und'])?$node->field_date_of_birth_four['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		  $form['passengerFourthSex'] = array(
+		'#title' => t('Passenger 4 Gender'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_sex_four['und'])?$node->field_sex_four['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+			//Fifth Passenger
+	  $form['passengerFifthFirstName'] = array(
+		'#title' => t('Passenger 5 First Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_first_name_five['und'])?$node->field_first_name_five['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		$form['passengerFifthMiddleName'] = array(
+		'#title' => t('Passenger 5 Middle Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_middel_name_five['und'])?$node->field_middel_name_five['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		$form['passengerFifthLastName'] = array(
+		'#title' => t('Passenger 5 Last Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_last_name_five['und'])?$node->field_last_name_five['und'][0]['value']:null,
+		'#required' => FALSE,
+	  );
+	  
+		  $form['passengerFifthDOB'] = array(
+		'#title' => t('Passenger 5 Date of Birth'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_date_of_birth_five['und'])?$node->field_date_of_birth_five['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerFifthSex'] = array(
+		'#title' => t('Passenger 5 Gender'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_sex_five['und'])?$node->field_sex_five['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+	  //End passenger details
+	  
+	  //Start card details and trip details
+	  
+		$form['passengerCardType'] = array(
+		'#title' => t('Type of Card'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_type_of_card['und'])?$node->field_type_of_card['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerCardNumber'] = array(
+		'#title' => t('Credit Card Number'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_credit_card_no['und'])?$node->field_credit_card_no['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerCardCCV'] = array(
+		'#title' => t('CCV'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_ccv['und'])?$node->field_ccv['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerCardCCN'] = array(
+		'#title' => t('CCN'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_ccn['und'])?$node->field_ccn['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerCardExpiry'] = array(
+		'#title' => t('Credit Card Expiry'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_ccexpiry['und'])?$node->field_ccexpiry['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerCardCountry'] = array(
+		'#title' => t('Country'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_country['und'])?$node->field_country['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerCardStreet'] = array(
+		'#title' => t('Street'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_street['und'])?$node->field_street['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerCardCity'] = array(
+		'#title' => t('City'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_city['und'])?$node->field_city['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerCardState'] = array(
+		'#title' => t('State'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_state['und'])?$node->field_state['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerCardZip'] = array(
+		'#title' => t('Zip Code'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_zipcode['und'])?$node->field_zipcode['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerBusinessPhone'] = array(
+		'#title' => t('Business Phone'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_business_phone['und'])?$node->field_business_phone['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerMobilePhone'] = array(
+		'#title' => t('Mobile Phone'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_mobile_phone['und'])?$node->field_mobile_phone['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerEmail'] = array(
+		'#title' => t('Email Address'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_email['und'])?$node->field_email['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerTotalPrice'] = array(
+		'#title' => t('Total Price'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_total_price['und'])?$node->field_total_price['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	 
+		$form['passengerTotalPricePerPerson'] = array(
+		'#title' => t('Total Price Per Person'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_price_per_person['und'])?$node->field_price_per_person['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	 
+		$form['passengerTotalTax'] = array(
+		'#title' => t('Total Tax'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_tax['und'])?$node->field_tax['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+
+		$form['passengerTotalPassengers'] = array(
+		'#title' => t('Total Passengers'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_noofpassenger['und'])?$node->field_noofpassenger['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+				   
+		$form['passengerTotalPriceOfBooking'] = array(
+		'#title' => t('Total Price of Booking'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_totalpriceofbooking['und'])?$node->field_totalpriceofbooking['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+	  
+		$form['passengerPNR'] = array(
+		'#title' => t('PNR Number'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_pnr['und'])?$node->field_pnr['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+			 
+
+	  //End Card and Trip Details
+		   
+
+		 $form['nodeid'] = array(
+		'#type' => 'hidden',
+		'#required' => TRUE,
+		'#value' => $nid,
+	  );
+	  
+	  
+	  //Submit will go to the submit function where a new CCE will be created
+	  $form['submit'] = array(
+		'#value' => t('Update Passenger Information'),
+		'#type' => 'submit',
+		'#executes_submit_callback' => TRUE,
+		'#limit_validation_errors' => FALSE,
+		);
+		
+	   $form['seepassengerdetails'] = array(
+	  '#type' =>'button', 
+	  '#value' => t('Go Back'), 
+	  '#weight' => 19,
+	  '#attributes' => array('onclick' => 'document.location.href="node/'.$nid.'"; return false;'),
+		);
+		
+		//$form['#submit'][]='cce_form_submit';
+	  return $form;
+	}
+	else
+	{
+		//Make everything but the status field readonly. This is for the CCE's
+		 $form['passengerBookingStatus'] = array(
+		'#title' => t('Booking Status'),
+		'#type' => 'select',
+       '#options' => array(
+        'pending' => t('pending'),
+         'confirmed' => t('confirmed'),
+       ),
+		'#default_value' => isset($node->field_booking_status['und'])?$node->field_booking_status['und'][0]['value']:null,
+		'#required' => FALSE,
+	  ); 
+		  		//Display currently assigned to
+	  	$form['currentlyAssignedTo'] = array(
+		'#title' => t('Booking Currently Assigned To:'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_email['und'])?$node->field_email['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+		//Assign to passenger
+		 $form['assigntopassenger'] = array(
+			'#type' => 'textfield',
+			'#id' => 'customeractextbox',
+			'#title' => 'Assign to Customer',
+			'#maxlength' => 128,
+			'#autocomplete_path' => '/subadminautocomplete',
+			//'#default_value' => isset($node->field_email['und'])?$node->field_email['und'][0]['value']:null,
+		  );
+		 //Get the passenger id from the email
+ 
+		 $form['passengerid'] = array(
+		'#type' => 'textfield',
+		'#id' => 'customeridtextbox',
+		//'#default_value' => "",
+	  );
+	  
+		  
+	 //Main Title of the Passenger Information
+	  $form['passengerTitle'] = array(
+		'#title' => t('Passenger Booking Title'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->title)?$node->title:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+
+	  //First Passenger
+	  $form['passengerOneFirstName'] = array(
+		'#title' => t('Passenger 1 First Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_first_name_one['und'])?$node->field_first_name_one['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),		
+	  );
+	  
+		$form['passengerOneMiddleName'] = array(
+		'#title' => t('Passenger 1 Middle Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_middel_name_one['und'])?$node->field_middel_name_one['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		$form['passengerOneLastName'] = array(
+		'#title' => t('Passenger 1 Last Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_last_name_one['und'])?$node->field_last_name_one['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		$form['passengerOneDOB'] = array(
+		'#title' => t('Passenger 1 Date of Birth'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_date_of_birth_one['und'])?$node->field_date_of_birth_one['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		$form['passengerOneSex'] = array(
+		'#title' => t('Passenger 1 Gender'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_sex_one['und'])?$node->field_sex_one['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  //Second Passenger
+	  $form['passengerSecondFirstName'] = array(
+		'#title' => t('Passenger 2 First Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_first_name_two['und'])?$node->field_first_name_two['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		$form['passengerSecondMiddleName'] = array(
+		'#title' => t('Passenger 2 Middle Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_middel_name_two['und'])?$node->field_middel_name_two['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		$form['passengerSecondLastName'] = array(
+		'#title' => t('Passenger 2 Last Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_last_name_two['und'])?$node->field_last_name_two['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		  $form['passengerSecondDOB'] = array(
+		'#title' => t('Passenger 2 Date of Birth'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_date_of_birth_two['und'])?$node->field_date_of_birth_two['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		  $form['passengerTwoSex'] = array(
+		'#title' => t('Passenger 2 Gender'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_sex_two['und'])?$node->field_sex_two['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		//Third Passenger
+	  $form['passengerThirdFirstName'] = array(
+		'#title' => t('Passenger 3 First Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_first_name_three['und'])?$node->field_first_name_three['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		$form['passengerThirdMiddleName'] = array(
+		'#title' => t('Passenger 3 Middle Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_middel_name_three['und'])?$node->field_middel_name_three['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		$form['passengerThirdLastName'] = array(
+		'#title' => t('Passenger 3 Last Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_last_name_three['und'])?$node->field_last_name_three['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		  $form['passengerThirdDOB'] = array(
+		'#title' => t('Passenger 3 Date of Birth'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_date_of_birth_three['und'])?$node->field_date_of_birth_three['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+			$form['passengerThreeSex'] = array(
+		'#title' => t('Passenger 3 Gender'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_sex_three['und'])?$node->field_sex_three['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		  //Fourth Passenger
+	  $form['passengerFourthFirstName'] = array(
+		'#title' => t('Passenger 4 First Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_first_name_four['und'])?$node->field_first_name_four['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		$form['passengerFourthMiddleName'] = array(
+		'#title' => t('Passenger 4 Middle Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_middle_name_four['und'])?$node->field_middle_name_four['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		$form['passengerFourthLastName'] = array(
+		'#title' => t('Passenger 4 Last Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_last_name_four['und'])?$node->field_last_name_four['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		  $form['passengerFourthDOB'] = array(
+		'#title' => t('Passenger 4 Date of Birth'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_date_of_birth_four['und'])?$node->field_date_of_birth_four['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		  $form['passengerFourthSex'] = array(
+		'#title' => t('Passenger 4 Gender'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_sex_four['und'])?$node->field_sex_four['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+			//Fifth Passenger
+	  $form['passengerFifthFirstName'] = array(
+		'#title' => t('Passenger 5 First Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_first_name_five['und'])?$node->field_first_name_five['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		$form['passengerFifthMiddleName'] = array(
+		'#title' => t('Passenger 5 Middle Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_middel_name_five['und'])?$node->field_middel_name_five['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		$form['passengerFifthLastName'] = array(
+		'#title' => t('Passenger 5 Last Name'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_last_name_five['und'])?$node->field_last_name_five['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  );
+	  
+		  $form['passengerFifthDOB'] = array(
+		'#title' => t('Passenger 5 Date of Birth'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_date_of_birth_five['und'])?$node->field_date_of_birth_five['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerFifthSex'] = array(
+		'#title' => t('Passenger 5 Gender'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_sex_five['und'])?$node->field_sex_five['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+	  //End passenger details
+	  
+	  //Start card details and trip details
+	  
+		$form['passengerCardType'] = array(
+		'#title' => t('Type of Card'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_type_of_card['und'])?$node->field_type_of_card['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerCardNumber'] = array(
+		'#title' => t('Credit Card Number'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_credit_card_no['und'])?$node->field_credit_card_no['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerCardCCV'] = array(
+		'#title' => t('CCV'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_ccv['und'])?$node->field_ccv['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerCardCCN'] = array(
+		'#title' => t('CCN'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_ccn['und'])?$node->field_ccn['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerCardExpiry'] = array(
+		'#title' => t('Credit Card Expiry'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_ccexpiry['und'])?$node->field_ccexpiry['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerCardCountry'] = array(
+		'#title' => t('Country'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_country['und'])?$node->field_country['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerCardStreet'] = array(
+		'#title' => t('Street'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_street['und'])?$node->field_street['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerCardCity'] = array(
+		'#title' => t('City'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_city['und'])?$node->field_city['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerCardState'] = array(
+		'#title' => t('State'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_state['und'])?$node->field_state['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerCardZip'] = array(
+		'#title' => t('Zip Code'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_zipcode['und'])?$node->field_zipcode['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerBusinessPhone'] = array(
+		'#title' => t('Business Phone'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_business_phone['und'])?$node->field_business_phone['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerMobilePhone'] = array(
+		'#title' => t('Mobile Phone'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_mobile_phone['und'])?$node->field_mobile_phone['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerEmail'] = array(
+		'#title' => t('Email Address'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_email['und'])?$node->field_email['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerTotalPrice'] = array(
+		'#title' => t('Total Price'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_total_price['und'])?$node->field_total_price['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	 
+		$form['passengerTotalPricePerPerson'] = array(
+		'#title' => t('Total Price Per Person'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_price_per_person['und'])?$node->field_price_per_person['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	 
+		$form['passengerTotalTax'] = array(
+		'#title' => t('Total Tax'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_tax['und'])?$node->field_tax['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+
+		$form['passengerTotalPassengers'] = array(
+		'#title' => t('Total Passengers'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_noofpassenger['und'])?$node->field_noofpassenger['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+				   
+		$form['passengerTotalPriceOfBooking'] = array(
+		'#title' => t('Total Price of Booking'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_totalpriceofbooking['und'])?$node->field_totalpriceofbooking['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+	  
+		$form['passengerPNR'] = array(
+		'#title' => t('PNR Number'),
+		'#type' => 'textfield',
+		'#default_value' => isset($node->field_pnr['und'])?$node->field_pnr['und'][0]['value']:null,
+		'#required' => FALSE,
+		'#attributes' => array(
+		'readonly' => 'readonly'
+		),
+	  ); 
+			 
+
+	  //End Card and Trip Details
+		   
+
+		 $form['nodeid'] = array(
+		'#type' => 'hidden',
+		'#required' => TRUE,
+		'#value' => $nid,
+	  );
+	  
+	  
+	  //Submit will go to the submit function where a new CCE will be created
+	  $form['submit'] = array(
+		'#value' => t('Update Passenger Information'),
+		'#type' => 'submit',
+		'#executes_submit_callback' => TRUE,
+		'#limit_validation_errors' => FALSE,
+		);
+		
+	   $form['seepassengerdetails'] = array(
+	  '#type' =>'button', 
+	  '#value' => t('Go Back'), 
+	  '#weight' => 19,
+	  '#attributes' => array('onclick' => 'document.location.href="node/'.$nid.'"; return false;'),
+		);
+		
+		//$form['#submit'][]='cce_form_submit';
+	  return $form;
+		
+	}  
 }
 
 

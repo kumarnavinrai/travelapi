@@ -1,0 +1,45 @@
+<?php
+
+//Custom module developed to create CCE roles by subadmin. Also showing the power of drupal form API using hooks.
+
+//This is the function to provide the URL for the form with additional arguments to set the user permissions. 
+function subadminautocomplete_menu() {
+  $items['subadminautocomplete'] = array(
+    'page callback' => '_cities_autocomplete',
+	'access arguments' => array('access subadminautocomplete content'),
+    //'access callback' => TRUE,
+    );
+	
+	
+  return $items;
+}
+
+function _cities_autocomplete($string) {
+  
+  $getString=$_REQUEST['term'];
+  $role_id = 4;
+  $matches = array();
+  $result =  db_query("SELECT u.uid, u.mail
+			FROM {users} u INNER JOIN {users_roles} ur ON u.uid = ur.uid WHERE ur.rid = :role_id AND u.mail LIKE '%".$getString."%'" , array(':role_id' => $role_id));
+
+  // save the query to matches
+  foreach ($result as $row) {
+    $matches[] = array('id'=>$row->uid,'value'=>check_plain($row->mail));
+  }
+  // Return the result to the form in json
+  drupal_json_output($matches);
+}
+
+
+function subadminautocomplete_permission() {
+  return array(
+    'access subadminautocomplete content' => array(
+      'title' => t('Access content for the Admin Panel module'),
+    )
+  );
+}
+
+
+
+
+

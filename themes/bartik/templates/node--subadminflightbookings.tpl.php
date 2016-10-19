@@ -89,19 +89,31 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
 //die();
 
 ?>
-
+<style>
+.editbutton {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 4px 12px 4px 12px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+</style>
 <?php if(isset($node) && $node){ ?>
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-    <button class="print_btn" onclick="generatepdf()">Print Reciept</button>
+    <!-- <button class="print_btn" onclick="generatepdf()">Print Reciept</button> -->
 
 <?php    
 	
 	$editinformation=$base_url."/editpassengerdetails?nid=".$node->nid;
 	
 ?>
-	<a href="<?php echo $editinformation; ?>"> EDIT INFORMATION</a>
+	<a class="editbutton" href="<?php echo $editinformation; ?>"> EDIT INFORMATION</a>
 	
 	<!--
 	<form action="<?//php echo $base_url; ?>/editpassengerdetails" method="post">

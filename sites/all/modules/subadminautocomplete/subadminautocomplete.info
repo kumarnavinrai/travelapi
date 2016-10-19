@@ -1,0 +1,4 @@
+name = Subadmin Autocomplete Feature
+description = This module will fill out the details of the customer from the database and the subadmin can assign according to the output data
+core = 7.x
+

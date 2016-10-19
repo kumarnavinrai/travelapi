@@ -28,14 +28,33 @@ function savepassengerdetails_custom(){
 	die();
 	}
 
-//die('reached');
+
+
 $nid=$_REQUEST['nodeid'];
 $node = node_load($nid);
 
+//echo "<pre>";print_r($_REQUEST);
+//die('reached');
+		
+	//echo "<pre>";print_r($node);
+	//die('reached');
 	
 		//Get form variables
 		$getPassengerTitle=$_REQUEST['passengerTitle'];
 		
+		//$getAssignToPassenger=$_REQUEST['assigntopassenger'];
+		
+		if(isset($_REQUEST['passengerid']))
+		{
+		$getAssignToPassenger=$_REQUEST['passengerid'];
+		}
+		
+		if(isset($_REQUEST['assigntopassenger']))
+		{
+		$getAssignToPassengerEmail=$_REQUEST['assigntopassenger'];
+		}
+	
+	
 		$getpassengerOneFirstName=$_REQUEST['passengerOneFirstName'];
 		$getpassengerOneMiddleName=$_REQUEST['passengerOneMiddleName'];
 		$getpassengerOneLastName=$_REQUEST['passengerOneLastName'];
@@ -87,9 +106,16 @@ $node = node_load($nid);
 		$getpassengerPNR=$_REQUEST['passengerPNR'];
 		$getpassengerBookingStatus=$_REQUEST['passengerBookingStatus'];
 
+	
+		if(isset($_REQUEST['cceassignment']))
+		{
+		$getCCEID=$_REQUEST['cceassignment'];
+		}
+		
 		//Set the values to be changed for the node
 		$node->nid = $nid;
 		$node->title=$getPassengerTitle;
+		//$node->uid=$getAssignToPassenger;
 		
 		$node->field_first_name_one['und'][0]['value']=$getpassengerOneFirstName;
 		$node->field_middel_name_one['und'][0]['value']=$getpassengerOneMiddleName;
@@ -143,7 +169,22 @@ $node = node_load($nid);
 		$node->field_pnr['und'][0]['value']=$getpassengerPNR;	
 		$node->field_booking_status['und'][0]['value']=$getpassengerBookingStatus;	
 		
-		//node_save($node);
+		if(isset($getCCEID))
+		{
+		$node->field_assignedcce['und'][0]['value']=$getCCEID;
+		}
+		
+		if(isset($getAssignToPassenger) && $getAssignToPassenger=="")
+		{
+		//die('IF-->Change Here');
+		}
+		else
+		{
+		$node->uid=$getAssignToPassenger;
+		$node->field_email['und'][0]['value']=$getAssignToPassengerEmail;
+		}
+		
+		
 		
 		try {
 			node_save($node);

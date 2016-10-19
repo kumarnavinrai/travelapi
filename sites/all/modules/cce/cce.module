@@ -183,7 +183,7 @@ $username="cce";
 					  //sendEmailSendGrid($to,$from,$subject,$body);
 						
 					  //YIPEEEEE
-					  drupal_set_message("Successfully Created a CCE user with the USERNAME: ".$username." and PASSWORD: ".$password);
+					  drupal_set_message("Successfully Created a CCE user with the USERNAME: ".$email." and PASSWORD: ".$password);
 			}
 			
 			elseif($olduser)
