@@ -863,17 +863,17 @@
               $scope.adult = "<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>";
               $scope.children = "<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>";
               $scope.infant = "<?php echo isset($_REQUEST['infant'])&&$_REQUEST['infant']?$_REQUEST['infant']:0; ?>";
+              $scope.pclass = "<?php echo isset($_REQUEST['pclass'])&&$_REQUEST['pclass']?$_REQUEST['pclass']:0; ?>";
               <?php } ?>
               <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
               $scope.adult = "<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adultow']?$_REQUEST['adultow']:0; ?>";
               $scope.children = "<?php echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; ?>";
               $scope.infant = "<?php echo isset($_REQUEST['infantow'])&&$_REQUEST['infantow']?$_REQUEST['infantow']:0; ?>";
+              $scope.pclass = "<?php echo isset($_REQUEST['rclass'])&&$_REQUEST['rclass']?$_REQUEST['rclass']:0; ?>";
               <?php } ?>
               
-
-              $scope.infant = "<?php echo isset($_REQUEST['infant'])&&$_REQUEST['infant']?$_REQUEST['infant']:0; ?>";
               
-
+              
               $scope.origin = "<?php echo $fromairportcode; ?>";
               $scope.origin = "<?php echo $fromairportcode; ?>";
               $scope.destination = "<?php echo $toairportcode ?>";
@@ -958,7 +958,7 @@
                 // and fire search in case its value is not empty
                 var urltogetFlights = '<?php echo $urltoGetFilghts; ?>';
                 var postData;
-                 postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,returndate:$scope.returnDate,lengthofstay:$scope.lengthofstay,limit:$scope.limit,outboundflightstops:$scope.outboundflightstops,outbounddeparturewindow:$scope.outbounddeparturewindow,includedcarriers:$scope.includedcarriers,inboundstopduration:$scope.inboundstopduration,adult:$scope.adult,children:$scope.children,infant:$scope.infant,sortbyval:$scope.sortbyval}; 
+                 postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,returndate:$scope.returnDate,lengthofstay:$scope.lengthofstay,limit:$scope.limit,outboundflightstops:$scope.outboundflightstops,outbounddeparturewindow:$scope.outbounddeparturewindow,includedcarriers:$scope.includedcarriers,inboundstopduration:$scope.inboundstopduration,adult:$scope.adult,children:$scope.children,infant:$scope.infant,pclass:$scope.pclass,sortbyval:$scope.sortbyval}; 
 //return;
                 console.log(postData);
 

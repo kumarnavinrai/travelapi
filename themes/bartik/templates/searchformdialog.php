@@ -79,7 +79,7 @@
                                 <div class="col-md-2">
                                   <div class="form-group form-group-lg form-group-select-plus">
                                     <label>Infant(0-2)</label>
-                                    <select name="infantnow" class="form-control" >
+                                    <select name="infant" class="form-control" >
                                       <option value="0">0</option>
                                       <option value="1">1</option>
                                       <option value="2">2</option>
@@ -129,11 +129,11 @@
               <div id="sukh_buton" class="col-md-4">
                 <div class="form-group form-group-lg form-group-icon-left "><i class="fa fa-plane input-icon input-icon-highlight"></i>
                             <label>Class</label>
-                                <select name="rclass" class="form-control" >
-                                  <option value="economy" class="su_option">Economy</option>
-                                  <option value="premiumeco">Premium Economy</option>
-                                  <option value="business">Business</option>
-                                  <option value="first">First</option>
+                                <select name="pclass" class="form-control" >
+                                  <option value="ECONOMY" class="su_option">Economy</option>
+                                  <option value="PREMIUM_ECONOMY">Premium Economy</option>
+                                  <option value="BUSINESS">Business</option>
+                                  <option value="FIRST">First</option>
                                 </select>
                 </div>
               </div> 
@@ -217,10 +217,10 @@
                                 <div class="form-group form-group-lg form-group-icon-left "><i class="fa fa-plane input-icon input-icon-highlight"></i>
                                   <label>Class</label>
                                   <select name="rclass" class="form-control" >
-                                  <option value="economy" class="su_option">Economy</option>
-                                  <option value="premiumeco">Premium Economy</option>
-                                  <option value="business">Business</option>
-                                  <option value="first">First</option>
+                                    <option value="ECONOMY" class="su_option">Economy</option>
+                                    <option value="PREMIUM_ECONOMY">Premium Economy</option>
+                                    <option value="BUSINESS">Business</option>
+                                    <option value="FIRST">First</option>
                                   </select>
                                 </div> 
                               </div>

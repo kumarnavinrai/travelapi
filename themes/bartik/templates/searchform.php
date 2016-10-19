@@ -191,10 +191,10 @@
                                 <i class="fa fa-plane input-icon input-icon-highlight"></i>
                                 <label>Class</label>
                                 <select name="pclass" class="form-control" >
-                                <option value="economy" class="su_option">Economy</option>
-                                <option value="premiumeco">Premium Economy</option>
-                                <option value="business">Business</option>
-                                <option value="first">First</option>
+                                  <option value="ECONOMY" class="su_option">Economy</option>
+                                  <option value="PREMIUM_ECONOMY">Premium Economy</option>
+                                  <option value="BUSINESS">Business</option>
+                                  <option value="FIRST">First</option>
                                 </select>
                             </div>
                           </div>
@@ -276,10 +276,16 @@
                                 <i class="fa fa-plane input-icon input-icon-highlight"></i>
                                 <label>Class</label>
                                 <select name="rclass" class="form-control" >
-                                  <option value="economy" class="su_option">Economy</option>
-                                <option value="premiumeco">Premium Economy</option>
-                                <option value="business">Business</option>
-                                <option value="first">First</option>
+                                  <!-- <option value="economy" class="su_option">Economy</option>
+                                  <option value="premiumeco">Premium Economy</option>
+                                  <option value="business">Business</option>
+                                  <option value="first">First</option> -->
+
+                                  <option value="ECONOMY" class="su_option">Economy</option>
+                                  <option value="PREMIUM_ECONOMY">Premium Economy</option>
+                                  <option value="BUSINESS">Business</option>
+                                  <option value="FIRST">First</option>
+
                                 </select>
                               </div>
                             </div>

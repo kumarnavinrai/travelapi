@@ -85,7 +85,7 @@
  * @see html.tpl.php
  */
 $themeurl = file_create_url(path_to_theme());
-
+//echo "<pre>"; print_r($_REQUEST); die;
 ?>
 <script type="text/javascript">
   $(document).ready(function(){
@@ -144,7 +144,7 @@ $themeurl = file_create_url(path_to_theme());
             ?>
 
 
-            <h3 class="booking-title"><span class="totalnoofresultsfound" ng-if="totalnoofresultsfound!='NaN'">{{totalnoofresultsfound}}</span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; echo isset($_REQUEST['rfrom'])?$_REQUEST['rfrom']:""; } if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; echo isset($_REQUEST['tfrom'])?$_REQUEST['tfrom']:""; } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] ==""){ echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; } ?><?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] !=""){ echo isset($_REQUEST['adultow'])&&$_REQUEST['adultow']?$_REQUEST['adultow']:0; } ?> Adults , <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; } ?>  Children</h3>
+            <h3 class="booking-title"><span class="totalnoofresultsfound" ng-if="totalnoofresultsfound!='NaN'">{{totalnoofresultsfound}}</span> Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; echo isset($_REQUEST['rfrom'])?$_REQUEST['rfrom']:""; } if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; echo isset($_REQUEST['tfrom'])?$_REQUEST['tfrom']:""; } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] ==""){ echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; } ?><?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] !=""){ echo isset($_REQUEST['adultow'])&&$_REQUEST['adultow']?$_REQUEST['adultow']:0; } ?> Adults, <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; } ?>  Children, <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['infant'])&&$_REQUEST['infant']?$_REQUEST['infant']:0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['infantnow'])&&$_REQUEST['infantnow']?$_REQUEST['infantnow']:0; } ?>  Infant, <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['pclass'])&&$_REQUEST['pclass']?str_replace("_", " ", $_REQUEST['pclass']):0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['rclass'])&&$_REQUEST['rclass']?str_replace("_", " ", $_REQUEST['rclass']):0; } ?>  Class </h3>
 
              <!-- pagination start -->
              <div class="row">

@@ -94,7 +94,7 @@ app.service('flightServiceNew', function($http, $q) {
                   method: 'POST', 
                   url: url,
                   cache: false, 
-                  data: "origin="+data.origin+"&destination="+data.destination+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&lengthofstay="+data.lengthofstay+"&limit="+data.limit+"&outboundflightstops="+data.outboundflightstops+"&outbounddeparturewindow="+data.outbounddeparturewindow+"&includedcarriers="+data.includedcarriers+"&inboundstopduration="+data.inboundstopduration+"&passengercount="+data.adult+"&sortbyval="+data.sortbyval+"&adult="+data.adult+"&children="+data.children, 
+                  data: "origin="+data.origin+"&destination="+data.destination+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&lengthofstay="+data.lengthofstay+"&limit="+data.limit+"&outboundflightstops="+data.outboundflightstops+"&outbounddeparturewindow="+data.outbounddeparturewindow+"&includedcarriers="+data.includedcarriers+"&inboundstopduration="+data.inboundstopduration+"&passengercount="+data.adult+"&sortbyval="+data.sortbyval+"&adult="+data.adult+"&children="+data.children+"&infant="+data.infant+"&travel_class="+data.pclass, 
                   headers: headers 
               }) 
               .success(function(data) { 
@@ -238,7 +238,7 @@ app.service('getFlightBmf', function($http, $q) {
                   method: 'POST', 
                   url: url,
                   cache: false, 
-                  data: "origin="+data.origin+"&destination="+data.destination+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&lengthofstay="+data.lengthofstay+"&limit="+data.limit+"&outboundflightstops="+data.outboundflightstops+"&outbounddeparturewindow="+data.outbounddeparturewindow+"&includedcarriers="+data.includedcarriers+"&inboundstopduration="+data.inboundstopduration+"&passengercount="+data.adult+"&sortbyval="+data.sortbyval+"&adult="+data.adult+"&children="+data.children, 
+                  data: "origin="+data.origin+"&destination="+data.destination+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&lengthofstay="+data.lengthofstay+"&limit="+data.limit+"&outboundflightstops="+data.outboundflightstops+"&outbounddeparturewindow="+data.outbounddeparturewindow+"&includedcarriers="+data.includedcarriers+"&inboundstopduration="+data.inboundstopduration+"&passengercount="+data.adult+"&sortbyval="+data.sortbyval+"&adult="+data.adult+"&children="+data.children+"&infant="+data.infant+"&travel_class="+data.pclass, 
                   headers: headers 
               }) 
               .success(function(data) { 

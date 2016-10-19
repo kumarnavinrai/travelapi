@@ -11983,4 +11983,10 @@ tr.colr-text-sukh {
     width: 50%;
     margin-left: 12em;
 }
+.col-md-6.right-sukh-print {
+    text-align: right;
+}
+button.btn.btn-primary.btn-sukh-print {
+    margin-right: 3px;
+}
  /*----------------------------------ABHI CUSTOM CSS ENDS-----------------------------*/}

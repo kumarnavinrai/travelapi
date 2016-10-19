@@ -20,7 +20,7 @@
     
       <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/ab-style.css" />
      <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/menu-style.css" />
-	 <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/removal.css" />
+	 <!-- <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/removal.css" /> -->
 	 <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/hybridauth.css" />
 	 <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/hybridauth.modal.css" />
 	 <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/hybridauth_32.css" />

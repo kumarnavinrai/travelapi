@@ -89,11 +89,11 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-    <button class="print_btn" onclick="generatepdf()">Print Reciept</button>
       <h2>Flight Information</h2>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 right-sukh-print">
     <div class="sukh_gap"></div>
+    <button class="btn btn-primary btn-sukh-print" onclick="generatepdf()">Print Reciept</button>
     <a href="<?php echo $base_url; ?>/<?php echo "mybookingdetails"; ?>"><button class="btn btn-primary right">Back</button></a>
     </div>
   </div>
