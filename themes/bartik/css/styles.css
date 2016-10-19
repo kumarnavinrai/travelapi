@@ -11989,4 +11989,29 @@ tr.colr-text-sukh {
 button.btn.btn-primary.btn-sukh-print {
     margin-right: 3px;
 }
+.nav-text-center{
+ 
+  margin-top: 3em;
+}
+.nav-text-center .user-login-links{
+  text-align: center;
+  margin-top: 3em;
+}
+.nav-text-center div ul {
+  list-style-type: none;
+}
+
+.nav-text-center .element-invisible{ display: none; }
+
+.nav-text-center div ul.tabs.primary{
+  display: none;
+}
+.social-text{
+  color: #fff;
+}
+
+
+
  /*----------------------------------ABHI CUSTOM CSS ENDS-----------------------------*/}
+
+

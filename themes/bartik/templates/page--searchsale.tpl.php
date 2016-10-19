@@ -143,9 +143,9 @@
                 $destinationlocationtopass = substr($firstflightdetails["destinationairport"],strpos($firstflightdetails["destinationairport"], "(")+1,3);
 
                 //$pathoffile = realpath("./");
-                //$pathoffile = $pathoffile."\/"."phpsaber"."\/";
-                //require_once $pathoffile.'workflow\/Workflow.php';
-                //require_once $pathoffile.'soap_activities\/VerifyFlightDetailsSoapActivity.php';
+                //$pathoffile = $pathoffile."/"."phpsaber"."/";
+                //require_once $pathoffile.'workflow/Workflow.php';
+                //require_once $pathoffile.'soap_activities/VerifyFlightDetailsSoapActivity.php';
 
                 $datatopass = array("departuretime"=>$departuretimetopass,"flightno"=>$flightnotopass,"destinationlocation"=>$destinationlocationtopass,"originlocation"=>$originalocationtopass,"marketingairline"=>$mktairlinepass);
                 
@@ -607,7 +607,7 @@
                                 
                     <div ng-init="baseurlofd = '<?php echo $base_url; ?>'" class="clearfix col-md-8">
                     
-                                <div ng-init="ccvalid='no'" class="form-group form-group-cc-number col-md-6">
+                                <div ng-init="ccvalid='yes'" class="form-group form-group-cc-number col-md-6">
                                   <label ng-init="ccairline='<?php echo $mktairlinepass; ?>'">Credit or Debit Card Number</label>
                                   <input type="text" class="form-control donotshowthis" name="userFormccfv" ng-model="userFormcc.$invalid" value="{{userFormcc.$invalid}}" />
                                   <input class="form-control" placeholder="xxxx xxxx xxxx xxxx" name="cc" type="text"   ng-model="user.cc" ng-minlength="19" ng-maxlength="19" validate-cc-remotely required />
