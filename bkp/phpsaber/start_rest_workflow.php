@@ -45,7 +45,7 @@ include_once 'data/listwithcode.php';
 		      $children = 0;
 		      $nonstop = 'false';	
 
-		      $paramsforamadeus['apikey'] = 'SelcXiNfNOcQx9S2GJitUhF9xb81ZoBt';
+		      $paramsforamadeus['apikey'] = '';
           
 		      $paramsforamadeus['nonstop'] = $nonstop;
 		      if($outboundflightstops != "" && $outboundflightstops == 0)
