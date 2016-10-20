@@ -241,8 +241,7 @@ function custom_callback () {
 
             curl_setopt($ch, CURLOPT_URL,$urltosendrequest);
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS,
-                        "btb=".$bodycontent);
+            curl_setopt($ch, CURLOPT_POSTFIELDS,"btb=".$bodycontent);
 
             // in real life you should use something like:
             // curl_setopt($ch, CURLOPT_POSTFIELDS, 
@@ -256,7 +255,7 @@ function custom_callback () {
             curl_close ($ch);
           }  
           
-          
+         
           // further processing ....
           if ($server_output) 
           {  
@@ -331,10 +330,10 @@ function custom_callback () {
               $useridofcurrentuser = $uid->uid;
 
               $to = strtolower($email);
-              $from = strtolower("navinrai@travelpainters.com");
-              $subject = "Thanks for booking flight with travelpainters.com";
+              $from = strtolower("navinrai@flyoticket.com");
+              $subject = "Thanks for booking flight with flyoticket.com";
               
-              $msg = "Thanks for booking flight with Travelpainters. Your Username: ".$to." Password: ".$password." . Please login and check your booking status.     --Travelpainters Team";
+              $msg = "Thanks for booking flight with Flyoticket. Your Username: ".$to." Password: ".$password." . Please login and check your booking status.     --Flyoticket Team";
               //echo $to = strtolower("navinkumar@geekexperthelp.com");
               //echo $from = strtolower("navinrai@travelpainters.com");
               //echo $subject = strtolower("I am working");
@@ -348,10 +347,10 @@ function custom_callback () {
               $useridofcurrentuser = $olduser->uid;
 
               $to = strtolower($email);
-              $from = strtolower("navinrai@travelpainters.com");
-              $subject = "Thanks for booking flight with travelpainters.com";
+              $from = strtolower("navinrai@flyoticket.com");
+              $subject = "Thanks for booking flight with flyoticket.com";
               
-              $msg = "Thanks for booking flight with Travelpainters. Your Username: ".$to." . Please login and check your booking status. If you you do not know your password please user forgotpassword link on Travelpainters.     --Travelpainters Team";
+              $msg = "Thanks for booking flight with Flyoticket. Your Username: ".$to." . Please login and check your booking status. If you you do not know your password please user forgotpassword link on Flyoticket.     --Flyoticket Team";
            
               $body = $msg;
               sendEmailSendGrid($to,$from,$subject,$body);

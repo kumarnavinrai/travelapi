@@ -173,18 +173,22 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
                                 <th class="booking-history-title">Flight Information</th>
                                 <td>
                                   <?php
-                                     $fielddata = json_decode($node->field_flightdata['und'][0]['value']); //echo "<pre>"; print_r($fielddata); ?>
-                                    <?php $fielddatafromflight = isset($fielddata->flightarray)?reset($fielddata->flightarray):array(); ?>
-                                    <?php $fielddatafromflightend = isset($fielddata->flightarray)?end($fielddata->flightarray):array(); ?>
-                                    <?php $fielddatatoflight = isset($fielddata->flightarrayoutbound)?reset($fielddata->flightarrayoutbound):array(); ?>
-                                    <?php $fielddatatoflightend = isset($fielddata->flightarrayoutbound)?end($fielddata->flightarrayoutbound):array(); ?>
-                                    <?php echo "<b>From</b>: ".$fielddatafromflight->originairport; echo " </br><b>To</b>: ".$fielddatafromflightend->destinationairport." </br><b>Depart On</b>: ".date('Y-m-d h:i:s',strtotime($fielddatafromflight->depart)); ?>
-                                    <?php if(isset($fielddatatoflight) && $fielddatatoflight){ 
-                                      echo '<hr class="my_hr" />';echo "</br>"."  <b>Return From</b>: ".$fielddatatoflight->originairport; echo " </br><b>Return To</b>: ".$fielddatatoflightend->destinationairport." </br><b>Depart On</b>: ".date('Y-m-d h:i:s',strtotime($fielddatatoflight->depart));; 
-                                    }
+                                     $fielddata = json_decode($node->field_flightdata['und'][0]['value']); //echo "<pre>"; print_r($fielddata); die; ?>
+                                    <?php $fielddatafromflightloop = isset($fielddata->flightarray)?$fielddata->flightarray:array(); ?>
+                                  <?php foreach ($fielddatafromflightloop as $key => $fielddatafromflight) {  ?>
+                                    
+                                    <?php 
+                                        echo "<b>From</b>: ".$fielddatafromflight->originairport; 
+                                        echo " </br><b>To</b>: ".$fielddatafromflight->destinationairport;
+                                        echo " </br><b>Depart On</b>: ".date('Y-m-d h:i:s',strtotime($fielddatafromflight->depart));
+                                        echo " </br><b>Arrives On</b>: ".date('Y-m-d h:i:s',strtotime($fielddatafromflight->arrives));
+                                        echo " </br><b>Airline</b>: ".$fielddatafromflight->nameofairline;
+                                        echo " </br><b>Flight No</b>: ".$fielddatafromflight->flightno;
+                                        echo " </br><b>Class</b>: ".$fielddatafromflight->travelclass."</br>";
 
+                                        ?>
 
-                                  ?>
+                                  <?php } ?> 
 
                                 </td>
                            </tr>
