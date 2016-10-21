@@ -12039,6 +12039,9 @@ body.html.not-front.logged-in.one-sidebar.sidebar-first.page-user.page-user-.pag
 form#user-profile-form #edit-mail {
     display: none;
 }
+form#user-profile-form .form-item-mail{
+  display: none;
+}
 body.html.not-front.not-logged-in.one-sidebar.sidebar-first.page-hybridauth.page-hybridauth-window.page-hybridauth-window-twitter #header{
   display:none;
 }
