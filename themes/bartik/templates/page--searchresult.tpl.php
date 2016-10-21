@@ -447,9 +447,17 @@ $themeurl = file_create_url(path_to_theme());
                     <li class="amadeusresult" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
                     <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
                     <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
+                    <span ng-init="xy.children=<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>">
+                    </span>
+                    <span ng-init="xy.infant=<?php echo isset($_REQUEST['infant'])&&$_REQUEST['infant']?$_REQUEST['infant']:0; ?>">   
+                    </span>
                     <?php } ?>
                     <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
                     <span ng-init="xy.adult=<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adult']?$_REQUEST['adultow']:0; ?>"></span>
+                    <span ng-init="xy.children=<?php echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; ?>">
+                    </span>
+                    <span ng-init="xy.infant=<?php echo isset($_REQUEST['infantnow'])&&$_REQUEST['infantnow']?$_REQUEST['infantnow']:0; ?>">
+                    </span>
                     <?php } ?>
                     <div class="booking-item-container">
                       <div class="booking-item">
@@ -458,13 +466,17 @@ $themeurl = file_create_url(path_to_theme());
                         <div class="container-sukh" ng-repeat="x in xy.inoutflightarr" >
                             <div class="row price_row" ng-if="x.counterfornoofflights==1" >
                             
-                              <div class="col-md-5 col-sm-12 col-xs-12">
+                              <div class="col-md-4 col-sm-12 col-xs-12">
                                 <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
                               </div>
-                              <div class="col-md-7 col-sm-12 col-xs-12 text-algn-sukh-right">
-                                <h4 style="color:#fff;padding:10px;">
+                              <div class="col-md-8 col-sm-12 col-xs-12 text-algn-sukh-right">
+                                <span class="itienaryprice" style="">
                                   ${{xy.totalbeforetax}}<small>(Base Price)+ </small>${{xy.totaltax}}<small>(taxes)</small>= ${{xy.totalfare}}<small>(Total)</small>
-                                </h4>
+                                </span>
+                                </br>
+                                <span class="itienarypricechild" ng-if="xy.childfare != undefined" class="right">Child Fare : ${{xy.childfare.fare-xy.childfare.tax  | number:2}}<small>(Base Fare)</small>+${{xy.childfare.tax}}<small>(Taxes)</small>= ${{xy.childfare.fare}}<small>(Total)</small></span>
+                                </br>
+                                <span class="itienarypricechild" ng-if="xy.infantfare != undefined" class="right">Infant Fare : ${{xy.infantfare.fare-xy.infantfare.tax | number:2}}<small>(Base Fare)</small>+${{xy.infantfare.tax}}<small>(Taxes)</small>= ${{xy.infantfare.fare}}<small>(Total)</small></span>
                               </div>
                             </div>
                           

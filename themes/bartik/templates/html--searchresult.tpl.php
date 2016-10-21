@@ -778,6 +778,7 @@
             }
 
             function bookme(ele){
+                //console.log($(ele).closest('li.amadeusresult').children('div').children('div').children('span').html());
                 $('.saledata').val($(ele).closest('li.amadeusresult').children('div').children('div').children('span').html());
                 $("#idformforselect").submit();
             }

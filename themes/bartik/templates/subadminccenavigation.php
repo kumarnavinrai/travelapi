@@ -1,4 +1,4 @@
-<script>
+<style>
 	.cceform
 	{
 	position: relative;
@@ -7,7 +7,7 @@
 	left: 40%;
 	margin: 100px 0 0 -75px;
 	}
-</script>
+</style>
 <div id="subadminpanel">
 <ul>
 <?php
