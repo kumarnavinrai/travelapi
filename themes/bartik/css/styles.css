@@ -12009,9 +12009,30 @@ button.btn.btn-primary.btn-sukh-print {
 .social-text{
   color: #fff;
 }
+span.itienaryprice {
+    color: #fff;
+    padding: 0px;
+    font-size: 25px;
+    letter-spacing: 0.02em;
+}
 
+span.itienarypricechild {
+    font-size: 11px;
+    padding-right: 5px;
+}
 
-
- /*----------------------------------ABHI CUSTOM CSS ENDS-----------------------------*/}
+h5.price-firstline {
+    height: 3em;
+}
+ /*----------------------------------ABHI CUSTOM CSS ENDS-----------------------------*/
+/*----------Sukh css 21-10-2016 start---------------------------- */
+ body.html.not-front.logged-in.one-sidebar.sidebar-first.page-user.page-user-.page-user-85.page-user-edit img {
+    width: 14%;
+}
+body.html.not-front.logged-in.one-sidebar.sidebar-first.page-user.page-user-.page-user-85.page-user-edit input#edit-submit {
+    width: 20%;
+    margin-bottom: 8px;
+}
+/*----------Sukh css 21-10-2016 end---------------------------- */
 
 
