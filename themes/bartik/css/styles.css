@@ -12036,6 +12036,27 @@ body.html.not-front.logged-in.one-sidebar.sidebar-first.page-user.page-user-.pag
 .user-picture {
     width: 10em;
 }
+form#user-profile-form #edit-mail {
+    display: none;
+}
+body.html.not-front.not-logged-in.one-sidebar.sidebar-first.page-hybridauth.page-hybridauth-window.page-hybridauth-window-twitter #header{
+  display:none;
+}
+body.html.not-front.not-logged-in.one-sidebar.sidebar-first.page-hybridauth.page-hybridauth-window.page-hybridauth-window-twitter #block-user-login{
+  display: none;
+}
+
+body.html.not-front.not-logged-in.one-sidebar.sidebar-first.page-hybridauth.page-hybridauth-window.page-hybridauth-window-twitter #breadcrumb{
+  display: none;
+}
+body.html.not-front.not-logged-in.one-sidebar.sidebar-first.page-hybridauth.page-hybridauth-window.page-hybridauth-window-twitter #edit-submit{
+  width: 33.5%;
+}
+
+body.html.not-front.not-logged-in.one-sidebar.sidebar-first.page-hybridauth.page-hybridauth-window.page-hybridauth-window-twitter .content{
+  text-align: center;
+}
+
 /*----------Sukh css 21-10-2016 end---------------------------- */
 
 
