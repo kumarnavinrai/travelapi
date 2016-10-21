@@ -12057,6 +12057,10 @@ body.html.not-front.not-logged-in.one-sidebar.sidebar-first.page-hybridauth.page
   text-align: center;
 }
 
+body.html.not-front.not-logged-in.one-sidebar.sidebar-first.page-hybridauth.page-hybridauth-window.page-hybridauth-window-twitter #edit-email{
+  padding: 9px 0px;
+}
+
 /*----------Sukh css 21-10-2016 end---------------------------- */
 
 
