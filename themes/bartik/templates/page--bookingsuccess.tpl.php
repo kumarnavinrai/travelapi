@@ -122,7 +122,7 @@ $themeurl = file_create_url(path_to_theme());
                                                  
                             html = html + '<tr style="background: #18b292;">';
                                 html = html + '<td class="leftColumnContent" style="font-size:15px"><strong>Total</strong></td>';
-                            html = html + '<td style="font-size:15px"><?php echo "$".$node->field_total_price['und'][0]['value']; ?></td>';
+                            html = html + '<td style="font-size:15px"><?php echo "$".$node->field_totalpriceofbooking['und'][0]['value']; ?></td>';
                         html = html + '</tr>';
                     html = html + '</table>';
                 html = html + '</td>';
