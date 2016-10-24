@@ -39,17 +39,17 @@ trk=nav_responsive_tab_profile"></a>
                             <li>
                                 <a href="<?php echo $urlofwp; ?>destinations" >Destinations</a>
                             </li>
-                            <li><a href="about.php">About US</a>
+                            <li><a href="<?php echo $urlofwp; ?>content/aboutus">About US</a>
                             </li>
-                            <li><a href="#">Privacy Policy</a>
+                            <li><a href="<?php echo $urlofwp; ?>content/privacypolicy">Privacy Policy</a>
                             </li>
-                            <li><a href="#">Terms of Use</a>
+                            <li><a href="<?php echo $urlofwp; ?>content/termsofuse">Terms of Use</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-4">
                         <h4>Have Questions?</h4>
-                        <h4 class="text-color">1-888-417-0446</h4>
+                        <h4 class="text-color">1-844-522-1317</h4>
                         <h4><a href="#" class="text-color">support@flyoticket.com</a></h4>
                         <p>24/7 Dedicated Customer Support</p>
                     </div>

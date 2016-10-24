@@ -85,7 +85,7 @@
  * @see html.tpl.php
  */
 $themeurl = file_create_url(path_to_theme());
-
+global $base_url;
 ?>
 
 
@@ -186,7 +186,7 @@ $themeurl = file_create_url(path_to_theme());
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="#">CANCELLATION POLICY</a>
+              <a class="text-darken" href="<?php echo $base_url; ?>/content/cancellationpolicy">CANCELLATION POLICY</a>
             </h5>
             <p class="thumb-desc">Flyoticket offers Cancellation to its entire booking users.</p>
           </div>

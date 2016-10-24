@@ -311,7 +311,7 @@ function custom_callback () {
             $oldusername = user_load_by_name($username);
             if($oldusername && $oldusername->mail != $email)
             {
-              $username = $username.rand(10,100);
+              $username = $username.rand(10,100000);
             }
 
               $new_user = array(
