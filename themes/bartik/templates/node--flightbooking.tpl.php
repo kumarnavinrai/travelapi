@@ -300,6 +300,73 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
                                   ?>
                                 </td>
                            </tr>
+
+
+
+                            <tr>
+                                <th class="booking-history-title">Adults</th>
+                                <td><?php echo $node->field_totaladults['und'][0]['value']; ?></td>
+                           </tr>
+
+                             
+
+                             <tr>
+                                <th class="booking-history-title">Adult Fare Before tax</th>
+                                <td>$<?php echo $node->field_adultbtfare['und'][0]['value']; ?></td>
+                           </tr>
+
+                            <tr>
+                                <th class="booking-history-title">Adult Fare tax</th>
+                                <td>$<?php echo $node->field_adulttax['und'][0]['value']; ?></td>
+                           </tr>
+
+                            <tr>
+                                <th class="booking-history-title">Adult Total Fare</th>
+                                <td>$<?php echo $node->field_adultbtfare['und'][0]['value']+$node->field_adulttax['und'][0]['value']; ?></td>
+                           </tr>
+                            <tr>
+                                <th class="booking-history-title">Children</th>
+                                <td><?php echo $node->field_totalchildren['und'][0]['value']; ?></td>
+                           </tr>
+
+                            <tr>
+                                <th class="booking-history-title">Children Fare Before tax</th>
+                                <td>$<?php echo $node->field_childbtfare['und'][0]['value']; ?></td>
+                           </tr>
+
+                            <tr>
+                                <th class="booking-history-title">Children Fare tax</th>
+                                <td>$<?php echo $node->field_childtax['und'][0]['value']; ?></td>
+                           </tr>
+
+                            <tr>
+                                <th class="booking-history-title">Children Total Fare</th>
+                                <td>$<?php echo $node->field_childbtfare['und'][0]['value']+$node->field_childtax['und'][0]['value']; ?></td>
+                           </tr>
+
+                              <tr>
+                                <th class="booking-history-title">Infant</th>
+                                <td><?php echo $node->field_totalinfant['und'][0]['value']; ?></td>
+                           </tr>
+
+                            <tr>
+                                <th class="booking-history-title">Infant Fare Before tax</th>
+                                <td>$<?php echo $node->field_infantbtfare['und'][0]['value']; ?></td>
+                           </tr>
+
+                            <tr>
+                                <th class="booking-history-title">Infant Fare tax</th>
+                                <td>$<?php echo $node->field_infanttax['und'][0]['value']; ?></td>
+                           </tr>
+
+                            <tr>
+                                <th class="booking-history-title">Infant Total Fare</th>
+                                <td>$<?php echo $node->field_infantbtfare['und'][0]['value']+$node->field_infanttax['und'][0]['value']; ?></td>
+                           </tr>
+
+                     
+
+                           <?php /* ?>
                 <tr>
                                 <th class="booking-history-title">Tax</th>
                                 <td>$<?php
@@ -317,6 +384,8 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
                                 <th class="booking-history-title">Total Per Person</th>
                                 <td>$<?php echo $node->field_total_price['und'][0]['value']; ?></td>
                            </tr>
+                           <?php */ ?>
+
                            <tr>
                                 <th class="booking-history-title">No of Passengers</th>
                                 <td><?php echo $node->field_noofpassenger['und'][0]['value']; ?></td>
@@ -501,7 +570,7 @@ $passengerarray = array(1=>"one",2=>"two",3=>"three",4=>"four",5=>"five");
                                                  
                             html = html + '<tr style="background: #18b292;">';
                                 html = html + '<td class="leftColumnContent" style="font-size:15px"><strong>Total</strong></td>';
-                            html = html + '<td style="font-size:15px"><?php echo "$".$node->field_total_price['und'][0]['value']; ?></td>';
+                            html = html + '<td style="font-size:15px"><?php echo "$".$node->field_totalpriceofbooking['und'][0]['value']; ?></td>';
                         html = html + '</tr>';
                     html = html + '</table>';
                 html = html + '</td>';

@@ -108,7 +108,7 @@ visibility: hidden;
 
 #edit-submit 
 {
-    width: 87.5%;
+    width: 40%;
     background-color: #18b292;
     border: none;
     padding: 9px;
@@ -187,3 +187,20 @@ input.form-control.sukh {
 {
 display:none;
 }
+/* navin changes 24-10-2016 */
+.list-horizontal.list-border > li .teleimg{
+
+    border-radius: 50px;
+    width: 50%;
+    margin-top: -6px;
+}
+.list-horizontal.list-border > li.teleli{
+   padding: 0px;
+   margin: 0px 2px 0px 0px;
+   font-size: 20px;
+}
+.list-horizontal.list-border > li.teleli:after {
+   content: none;
+
+}
+/* navin changes 24-10-2016 */

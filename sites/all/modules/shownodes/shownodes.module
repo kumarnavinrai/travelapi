@@ -311,7 +311,7 @@ function custom_callback () {
             $oldusername = user_load_by_name($username);
             if($oldusername && $oldusername->mail != $email)
             {
-              $username = $username.rand(10,100);
+              $username = $username.rand(10,100000);
             }
 
               $new_user = array(
@@ -365,6 +365,24 @@ function custom_callback () {
             && $customerinfo['email'] != ''  
           )
         {
+
+          //total price of booking
+          //$noofpassengersandallflightdata
+          $totalfareofpassengers = isset($noofpassengersandallflightdata['totalfareofpassengers'])?$noofpassengersandallflightdata['totalfareofpassengers']:0;
+          $totalnoofpassergers = isset($noofpassengersandallflightdata['totalnoofpassergers'])?$noofpassengersandallflightdata['totalnoofpassergers']:0;
+          $totaladults = isset($noofpassengersandallflightdata['totaladults'])?$noofpassengersandallflightdata['totaladults']:0;
+          $totalchildern = isset($noofpassengersandallflightdata['totalchildern'])?$noofpassengersandallflightdata['totalchildern']:0;
+          $totalinfant = isset($noofpassengersandallflightdata['totalinfant'])?$noofpassengersandallflightdata['totalinfant']:0;
+
+          $adultbtfare = isset($noofpassengersandallflightdata['adultbtfare'])?$noofpassengersandallflightdata['adultbtfare']:0;
+          $adulttax = isset($noofpassengersandallflightdata['adulttax'])?$noofpassengersandallflightdata['adulttax']:0;
+          $childbtfare = isset($noofpassengersandallflightdata['childbtfare'])?$noofpassengersandallflightdata['childbtfare']:0;
+          $childtax = isset($noofpassengersandallflightdata['childtax'])?$noofpassengersandallflightdata['childtax']:0;
+          $infantbtfare = isset($noofpassengersandallflightdata['infantbtfare'])?$noofpassengersandallflightdata['infantbtfare']:0;
+          $infanttax = isset($noofpassengersandallflightdata['infanttax'])?$noofpassengersandallflightdata['infanttax']:0;
+
+
+
           $node = new stdClass();
           $node->title = $username."-".$email."-".date("Y-m-d h:i:s");
           $node->type = "flightbooking";
@@ -411,6 +429,38 @@ function custom_callback () {
           $node->field_date_of_birth_five[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['dob5'])?date('Y-m-d',strtotime($noofpassengersandallflightdata['dob5'])):"none";
           $node->field_sex_five[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['sex5'])?$noofpassengersandallflightdata['sex5']:"none";
 
+          /* ------------------------------------------------ */
+          //pessenger six
+          $node->field_first_name_six[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['fn6'])?$noofpassengersandallflightdata['fn6']:"none";
+          $node->field_middel_name_six[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['mn6'])?$noofpassengersandallflightdata['mn6']:"none";
+          $node->field_last_name_six[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['ln6'])?$noofpassengersandallflightdata['ln6']:"none";
+          $node->field_date_of_birth_six[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['dob6'])?date('Y-m-d',strtotime($noofpassengersandallflightdata['dob6'])):"none";
+          $node->field_sex_six[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['sex6'])?$noofpassengersandallflightdata['sex6']:"none";
+
+          //pessenger seven
+          $node->field_first_name_seven[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['fn7'])?$noofpassengersandallflightdata['fn7']:"none";
+          $node->field_middel_name_seven[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['mn7'])?$noofpassengersandallflightdata['mn7']:"none";
+          $node->field_last_name_seven[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['ln7'])?$noofpassengersandallflightdata['ln7']:"none";
+          $node->field_date_of_birth_seven[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['dob7'])?date('Y-m-d',strtotime($noofpassengersandallflightdata['dob7'])):"none";
+          $node->field_sex_seven[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['sex7'])?$noofpassengersandallflightdata['sex7']:"none";
+
+          //pessenger eight
+          $node->field_first_name_eight[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['fn8'])?$noofpassengersandallflightdata['fn8']:"none";
+          $node->field_middel_name_eight[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['mn8'])?$noofpassengersandallflightdata['mn8']:"none";
+          $node->field_last_name_eight[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['ln8'])?$noofpassengersandallflightdata['ln8']:"none";
+          $node->field_date_of_birth_eight[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['dob8'])?date('Y-m-d',strtotime($noofpassengersandallflightdata['dob8'])):"none";
+          $node->field_sex_eight[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['sex8'])?$noofpassengersandallflightdata['sex8']:"none";
+
+          //pessenger nine
+          $node->field_first_name_nine[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['fn9'])?$noofpassengersandallflightdata['fn9']:"none";
+          $node->field_middel_name_nine[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['mn9'])?$noofpassengersandallflightdata['mn9']:"none";
+          $node->field_last_name_nine[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['ln9'])?$noofpassengersandallflightdata['ln9']:"none";
+          $node->field_date_of_birth_nine[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['dob9'])?date('Y-m-d',strtotime($noofpassengersandallflightdata['dob9'])):"none";
+          $node->field_sex_nine[LANGUAGE_NONE][0]['value'] = isset($noofpassengersandallflightdata['sex9'])?$noofpassengersandallflightdata['sex9']:"none";
+
+
+          /* ------------------------------------------------ */
+
           //allflightdata field_allflightdata[und][0][value]
           $node->field_allflightdata[LANGUAGE_NONE][0]['value'] = $allflightdatatosave;
 
@@ -453,17 +503,35 @@ function custom_callback () {
           //field_email[und][0][value] email
           $node->field_email[LANGUAGE_NONE][0]['value'] = $customerinfo['email'];
 
-          //field_total_price[und][0][value] $totalprice
-          $node->field_total_price[LANGUAGE_NONE][0]['value'] = $totalprice;
 
           //field_total_price[und][0][value] $totalprice
-          $node->field_total_price[LANGUAGE_NONE][0]['value'] = $totalprice;
+          $node->field_total_price[LANGUAGE_NONE][0]['value'] = $adultbtfare+$adulttax;
+
+          //field_total_price[und][0][value] $totalprice
+          $node->field_total_price[LANGUAGE_NONE][0]['value'] = $adultbtfare+$adulttax;
 
           //field_price_per_person[und][0][value]  $priceperadulttotalfare
-          $node->field_price_per_person[LANGUAGE_NONE][0]['value'] = $priceperadulttotalfare;   
+          $node->field_price_per_person[LANGUAGE_NONE][0]['value'] = $adultbtfare; 
+
+          /* ------------------- */
+          //field_price_per_person[und][0][value]  $priceperadulttotalfare
+          $node->field_totalnoofpassergers[LANGUAGE_NONE][0]['value'] = $totalnoofpassergers;
+
+          $node->field_totaladults[LANGUAGE_NONE][0]['value'] = $totaladults;
+          $node->field_totalchildren[LANGUAGE_NONE][0]['value'] = $totalchildern;
+          $node->field_totalinfant[LANGUAGE_NONE][0]['value'] = $totalinfant;
+          $node->field_adultbtfare[LANGUAGE_NONE][0]['value'] = $adultbtfare;
+          $node->field_adulttax[LANGUAGE_NONE][0]['value'] = $adulttax;
+          $node->field_childbtfare[LANGUAGE_NONE][0]['value'] = $childbtfare;
+          $node->field_childtax[LANGUAGE_NONE][0]['value'] = $childtax;
+          $node->field_infantbtfare[LANGUAGE_NONE][0]['value'] = $infantbtfare; 
+          $node->field_infanttax[LANGUAGE_NONE][0]['value'] = $infanttax; 
+
+
+          /* ------------------- */
           
           //field_tax[und][0][value]  $priceperadulttax
-          $node->field_tax[LANGUAGE_NONE][0]['value'] = $priceperadulttax;         
+          $node->field_tax[LANGUAGE_NONE][0]['value'] = $adulttax;         
 
           $flightdata = json_encode(array('flightarray'=>$flightarray,'flightarrayoutbound'=>$flightarrayoutbound));
           
@@ -471,10 +539,10 @@ function custom_callback () {
           $node->field_flightdata[LANGUAGE_NONE][0]['value'] = $flightdata;
 
           //noofpassenger
-          $node->field_noofpassenger[LANGUAGE_NONE][0]['value'] = $bookingdata->adult;
+          $node->field_noofpassenger[LANGUAGE_NONE][0]['value'] = $totalnoofpassergers;
 
           //totalpriceofbooking
-          $node->field_totalpriceofbooking[LANGUAGE_NONE][0]['value'] = ($totalprice * $bookingdata->adult);
+          $node->field_totalpriceofbooking[LANGUAGE_NONE][0]['value'] = $totalfareofpassengers;
 
           //pnr
           $node->field_pnr[LANGUAGE_NONE][0]['value'] = $pnr;

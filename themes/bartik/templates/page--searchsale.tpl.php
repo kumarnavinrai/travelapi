@@ -8,7 +8,9 @@
         $bookingdata = json_decode($_REQUEST['saledata']); 
         $adult = isset($bookingdata->adult)?$bookingdata->adult:0;
         $children = isset($bookingdata->children)?$bookingdata->children:0;
-        
+        $infant = isset($bookingdata->infant)?$bookingdata->infant:0;
+
+        //echo "<pre>"; print_r($bookingdata); die;
         $nameofmktairline = "";
         $flightarray = array();
         $flightarrayoutbound = array();
@@ -290,27 +292,111 @@
                         </header>
                   <div class="col-md-12">
                     <div class="clearfix col-md-6">
-                        <h5> Total Traveler</h5>
-                        <h5>Best Price</h5>
-                        <h5>Taxes & Fees:</h5>
+                        <h5 class="price-firstline"> Total Traveler</h5>
+                        <?php
+
+                        //if adt 1 no adfare make adfare
+                        if($adult != 0 && !isset($bookingdata->adultfare))
+                        {
+                            $adultfare = array('fare'=>number_format((float)$totalprice-$priceperadulttax, 2, '.', ''),'tax'=>number_format((float)$priceperadulttax, 2, '.', ''));
+
+                            $bookingdata->adultfare = (object)$adultfare;
+                        }                 
+                        //if child 1 no child fare make child fare
+                        if($children != 0 && !isset($bookingdata->childfare))
+                        {
+                         $bookingdata->childfare = $bookingdata->adultfare; 
+                        }
+
+                        //if infant 1 no infantfare make infant fare
+                        if($infant != 0 && !isset($bookingdata->infantfare))
+                        {
+                            $infantfare = array('fare'=>0,'tax'=>0);
+                            $bookingdata->infantfare = (object)$infantfare;
+                        }
+
+                        ?>
+                     
+                        <?php if(isset($bookingdata->adultfare)){ ?>    
+                        <h5>Adult Fare</h5>
+                        <h5>Adult Tax</h5>
+                        <?php } ?>
+                         <?php if(isset($bookingdata->childfare)){ ?>    
+                        <h5>Child Fare</h5>
+                        <h5>Child Tax</h5>
+                        <?php } ?>
+                        <?php if(isset($bookingdata->infantfare)){ ?>    
+                        <h5>Infant Fare</h5>
+                        <h5>Infant Tax</h5>
+                        <?php } ?>
                     </div>
                                             <div class="clearfix col-md-6">
-                                                <h5><?php echo isset($adult)?$adult:""; ?> Adult<?php if(isset($children)){ ?>, <?php echo isset($children)?$children:""; ?> Children<?php } ?></h5>
-                                                
+                                                <h5 class="price-firstline"><?php echo isset($adult)?$adult:""; ?> Adult<?php if(isset($children)){ ?>, <?php echo isset($children)?$children:""; ?> Children<?php } ?><?php if(isset($infant)){ ?>, <?php echo isset($infant)?$infant:""; ?> Infant<?php } ?></h5>
+                                                <?php if($children == 0 && $infant == 0){ ?>
                                                 <h5>$<?php echo number_format((float)$totalprice-$priceperadulttax, 2, '.', ''); ?></h5>
                                                 <h5>$<?php echo number_format((float)$priceperadulttax, 2, '.', ''); ?></h5>
+                                                <?php } ?>
+                                                <?php  
+                                                    
+                                                    if(isset($bookingdata->adultfare)){
+                                                        $adultfare = isset($bookingdata->adultfare)?$bookingdata->adultfare->fare:0;
+                                                        $adulttax = isset($bookingdata->adultfare)?$bookingdata->adultfare->tax:0;
+                                                        $adultbtfare = isset($bookingdata->adultfare)?number_format((float)$adultfare-$adulttax, 2, '.', ''):0;
+                                                    }
+                                                    if(isset($bookingdata->childfare)){
+                                                        $childfare = isset($bookingdata->childfare)?$bookingdata->childfare->fare:0;
+                                                        $childtax = isset($bookingdata->childfare)?$bookingdata->childfare->tax:0;
+                                                        $childbtfare = isset($bookingdata->childfare)?number_format((float)$childfare-$childtax, 2, '.', ''):0;
+                                                    }
+
+                                                    if(isset($bookingdata->infantfare)){
+                                                        $infantfare = isset($bookingdata->infantfare)?$bookingdata->infantfare->fare:0;
+                                                        $infanttax = isset($bookingdata->infantfare)?$bookingdata->infantfare->tax:0;
+                                                        $infantbtfare = isset($bookingdata->infantfare)?number_format((float)$infantfare-$infanttax, 2, '.', ''):0;
+                                                    }
+
+                                                    ?>
+                                            
+                                                <?php if(isset($bookingdata->adultfare)){ ?>    
+                                                <h5>$<?php echo number_format((float)$adultbtfare, 2, '.', ''); ?></h5>
+                                                <h5>$<?php echo number_format((float)$adulttax, 2, '.', ''); ?></h5>
+                                                <?php } ?>
+                                              
+                                                <?php if(isset($bookingdata->childfare)){ ?>    
+                                                <h5>$<?php echo number_format((float)$childbtfare, 2, '.', ''); ?></h5>
+                                                <h5>$<?php echo number_format((float)$childtax, 2, '.', ''); ?></h5>
+                                                <?php } ?>
+                                                <?php if(isset($bookingdata->infantfare)){ ?>    
+                                                <h5>$<?php echo number_format((float)$infantbtfare, 2, '.', ''); ?></h5>
+                                                <h5>$<?php echo number_format((float)$infanttax, 2, '.', ''); ?></h5>
+                                                <?php } ?>
+                                                
+                                                
                                                 
                                             </div>
                                         </div>
                                         
-                                <div class="row row-sukh sukh-color">    
-                                     <div class="col-md-10 col-sm-8">
+                                <div class="row row-sukh ">    
+                                     <div class="col-md-9 col-sm-8">
                                         
-                                        <h5 class="sukh-clr">Final Total Price:</h5>
+                                        <h5 class="sukh-clr">Total Price:</h5>
                                      </div>
                                         
-                                        <div class="col-md-2 col-sm-4">
-                                        <h5 class="sukh-clr">$<?php echo ($totalprice*$adult); ?></h5>
+                                        <div class="col-md-3 col-sm-4">
+                                        <?php if(!isset($bookingdata->childfare)){ ?>    
+                                        <h5 class="sukh-clr">$<?php echo $totalfarenow =($totalprice*$adult); ?></h5>
+                                        <?php } ?>
+
+                                        <?php if(isset($bookingdata->childfare)){ 
+                                        
+                                        $infantfare = isset($infantfare)?$infantfare:0;
+                                        $childfare = isset($childfare)?$childfare:0;
+
+                                        $totalfarenow = ($adultfare*$adult) + ($childfare*$children) + ($infantfare*$infant);
+                                        ?>    
+                                        <h5 class="sukh-clr">$<?php echo ($totalfarenow); ?></h5>
+                                        <?php } ?>
+                                        
                                         </div>
                                         
                                         <div class="row row-sukh">
@@ -335,26 +421,59 @@
                     <h4 class="mb0"><strong>Passengers</strong></h4>
                     </header>
                     <form name="userForm" class="userFormcls">
+                    <?php $totalpassenger = $adult+$children+$infant;?>
                      <input type="text" class="form-control donotshowthis userFormValid" name="v<?php echo 1; ?>" ng-model="userForm.$invalid" value="{{userForm.$invalid}}" />
+                     <input name="totalfareofpassengers" style="display:none;" value="<?php echo $totalfarenow; ?>" />
+                     <input name="totalnoofpassergers" style="display:none;" value="<?php echo $totalpassenger; ?>" />
+                     <input name="totaladults" style="display:none;" value="<?php echo $adult; ?>" />
+                     <input name="totalchildern" style="display:none;" value="<?php echo $children; ?>" />
+                     <input name="totalinfant" style="display:none;" value="<?php echo $infant; ?>" />
+                    <?php if(isset($bookingdata->adultfare)){ ?>    
+                        <input name="adultbtfare" style="display:none;" value="<?php echo number_format((float)$adultbtfare, 2, '.', ''); ?>" />
+                        <input name="adulttax" style="display:none;" value="<?php echo number_format((float)$adulttax, 2, '.', ''); ?>" />
+                    <?php } ?>
+                      
+                    <?php if(isset($bookingdata->childfare)){ ?>
+                        <input name="childbtfare" style="display:none;" value="<?php echo number_format((float)$childbtfare, 2, '.', ''); ?>" />
+                        <input name="childtax" style="display:none;" value="<?php echo number_format((float)$childtax, 2, '.', ''); ?>" />    
+                    <?php } ?>
+                    <?php if(isset($bookingdata->infantfare)){ ?> 
+                        <input name="infantbtfare" style="display:none;" value="<?php echo number_format((float)$infantbtfare, 2, '.', ''); ?>" />
+                        <input name="infanttax" style="display:none;" value="<?php echo number_format((float)$infanttax, 2, '.', ''); ?>" />    
+                    <?php } ?>
                     <ul class="list booking-item-passengers">
                       
                     <style> .donotshowthis { display: none; } </style>       
                     <input class="donotshowthis" name="allflightdata" value="<?php echo isset($_REQUEST["saledata"])?str_replace('"', "'", $_REQUEST["saledata"]):""; ?>" type="text" />
 
-                    <?php $totalpassenger = $adult+$children;?>
+                    
 
-                    <?php for ($i=0; $i < $totalpassenger ; $i++) {  ?>
+                    <?php 
+                        $adultcount = $adult;
+                        $childrencount = $children;
+                        $infantcount = $infant;
+
+                        for ($i=0; $i < $totalpassenger ; $i++) {
+                            $adultselected = "";  
+                            $childrenselected = "";  
+                            $infantselected = "";  
+                           
+                            if($adultcount !=0){$adultselected='selected="selected"';
+                            }elseif($adultcount ==0 && $childrencount!=0){$childrenselected='selected="selected"';
+                            }elseif($adultcount ==0 && $childrencount==0 && $infantcount!=0){
+                                $infantselected='selected="selected"';
+                            }
+                        ?>
                     <li>
                             <div class="row row-sukh">
                                     <div class="col-md-12 sukh_height">
                                 <div class="col-md-2">
                                    <div class="form-group">
                                         <label>Traveler <?php echo $i+1; ?><span class="msg_name_nav"></br>(* according to the ID & Passport.)</span></label>
-                                        <select>
-                                        <option>Adult</option>
-                                        <option>Senior</option>
-                                        <option>Child</option>
-                                        <option>Seat Infant</option>
+                                        <select name="passengertype<?php echo $i+1; ?>" class="aci_cls_nav" >
+                                            <option <?php echo $adultselected; ?> >Adult</option>
+                                            <option <?php echo $childrenselected; ?> >Child</option>
+                                            <option <?php echo $infantselected; ?> >Infant</option>
                                         </select>
                                     </div>
                                 </div>
@@ -445,7 +564,13 @@
                             </div>
                         </div>
            </li>
-           <?php } ?>
+           <?php 
+                    if($adultcount !=0){$adultcount--;
+                    }elseif($adultcount ==0 && $childrencount!=0){
+                    $childrencount--;}elseif($adultcount ==0 && $childrencount==0 && $infantcount!=0){
+                    $infantcount--;}
+                } 
+            ?>
                         
 
                     <!--<li>

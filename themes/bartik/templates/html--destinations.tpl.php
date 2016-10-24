@@ -85,23 +85,14 @@
                                 <img src="<?php echo $themeurl; ?>/img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
                             </a>
                         </div>
-                        <div class="col-md-3 col-md-offset-2">
-                           
-                        </div>
-                        <div class="col-md-4">
-                            <div class="top-user-area clearfix">
-                                <ul class="top-user-area-list list list-horizontal list-border">
-                                   
-                                    <li><a href="<?php echo $sitelink; ?>user/register">Register</a>
-                                    </li>
-                                    <li><a href="<?php echo $sitelink; ?>user">Sign in</a>
-                                    </li>
-                                    
-                                        </ul>
-                                    
-                                               
-                            </div>
-                        </div>
+                         <!-- user menu and phone number in common -->
+                        <?php 
+                          $pathoffile = realpath(__DIR__);
+                          //echo $pathoffile; die;
+                          require_once $pathoffile."/common/"."menuandphone.php"
+                        ?>
+                        
+                        <!-- user menu and number in common -->
                     </div>
                 </div>
             </div>
