@@ -1,6 +1,6 @@
 <div class="col-md-6">
             <div class="search-tabs search-tabs-bg mt50">
-              <h2>Find Your Perfect Trip</h2>
+              <!-- <h2>Find Your Perfect Trip</h2> -->
               <div class="tabbable">
                 <ul class="nav nav-tabs" id="myTab">
                   <li class="active">

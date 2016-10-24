@@ -391,7 +391,7 @@ h6 .small,
 .h6 .small {
   font-weight: normal;
   line-height: 1;
-  color: #999999;
+  color: #555555;
 }
 h1,
 .h1,
@@ -400,7 +400,7 @@ h2,
 h3,
 .h3 {
   margin-top: 20px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 h1 small,
 .h1 small,
@@ -497,7 +497,7 @@ cite {
   text-align: justify;
 }
 .text-muted {
-  color: #999999;
+  color: #555555;
 }
 .text-primary {
   color: #428bca;
@@ -1696,7 +1696,7 @@ output {
   color: #555555;
   background-color: #ffffff;
   background-image: none;
-  border: 1px solid #cccccc;
+  border: 1px solid #444444;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1710,14 +1710,14 @@ output {
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
 .form-control::-moz-placeholder {
-  color: #999999;
+  color: #555555;
   opacity: 1;
 }
 .form-control:-ms-input-placeholder {
-  color: #999999;
+  color: #555555;
 }
 .form-control::-webkit-input-placeholder {
-  color: #999999;
+  color: #555555;
 }
 .form-control[disabled],
 .form-control[readonly],
@@ -2078,7 +2078,7 @@ fieldset[disabled] .btn-default.active {
   background-color: #333333;
 }
 .btn-primary {
-  color: #ffffff;
+  color: #000;
   background-color: #428bca;
   border-color: #357ebd;
 }
@@ -2844,7 +2844,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
+  background-color: #fff7e2;
 }
 .nav > li.disabled > a {
   color: #999999;
@@ -2952,7 +2952,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  color: #ffffff;
+  color: #000;
   background-color: #428bca;
 }
 .nav-stacked > li {
@@ -3333,7 +3333,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777777;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777777;
+  color: #222222;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
@@ -3664,7 +3664,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   top: -1px;
 }
 .label-default {
-  background-color: #999999;
+  background-color: #555555;
 }
 .label-default[href]:hover,
 .label-default[href]:focus {
@@ -4499,7 +4499,7 @@ button.close {
 .modal-content {
   position: relative;
   background-color: #ffffff;
-  border: 1px solid #999999;
+  border: 1px solid #555555;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);

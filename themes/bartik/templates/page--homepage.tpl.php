@@ -139,17 +139,17 @@ $themeurl = file_create_url(path_to_theme());
         <!-- search form ends -->
         <div class="col-md-6">
           <div class="loc-info text-right text-right-sukh hidden-xs hidden-sm">
-            <h3  style="text-align:center; color:#FFFFFF">
-              <!--<img src="img/flags/32/fr.png" alt="Image Alternative text" title="Image Title" />Paris--> <img src="
-                <?php echo $themeurl; ?>/img/travel-painters_logo_lastt-.png" />
+            <h3  style="padding: 20px; background-color: rgba(0, 0, 0, 0.6); text-align:center; color:#FFFFFF">
+              <!--<img src="img/flags/32/fr.png" alt="Image Alternative text" title="Image Title" />Paris--><!-- <img src="
+                <?php // echo $themeurl; ?>/img/travel-painters_logo_lastt-.png" /> -->FIND YOUR PERFECT TRIP
             </h3>
-            <p style="text-align:center">Traveling - it leaves you speechless, then turns you into a storyteller.Everyone loves stories, and here at Flyoticket, we believe that at the end of the day the experiences you've had, the stories you've shared (and the ones you've yet to share) are some of the most important moments in life.</p>
-            <img src="
-              <?php echo $themeurl; ?>/img/united-states-flag.png" />
+            <p style="padding: 0px 20px 35px 20px; margin: 0 !important; background-color: rgba(0, 0, 0, 0.6); text-align:center">Traveling - it leaves you speechless, then turns you into a storyteller.Everyone loves stories, and here at Flyoticket, we believe that at the end of the day the experiences you've had, the stories you've shared (and the ones you've yet to share) are some of the most important moments in life.</p>
+             <img style="padding: 0px 20px 35px 20px; background-color: rgba(0, 0, 0, 0.6);" src="
+              <?php echo $themeurl; ?> /img/united-states-flag.png" />
               <br />
               <br />
-              <img src="
-                <?php echo $themeurl; ?>/img/travel-painters_logo_lastt-.png" />
+             <!--  <img src="
+                <?php // echo $themeurl; ?>/img/travel-painters_logo_lastt-.png" /> -->
               </div>
             </div>
           </div>
@@ -224,7 +224,7 @@ $themeurl = file_create_url(path_to_theme());
   <div class="bg-holder">
     <div class="bg-mask"></div>
     <div class="bg-parallax" style="background-image:url(
-      <?php echo $themeurl; ?>/img/world-map.jpg);">
+      <?php echo $themeurl; ?>/img/hotel_the_cliff_bay_spa_suite_2048x1310.jpg);">
     </div>
     <div class="bg-content">
       <div class="container">
@@ -235,8 +235,8 @@ $themeurl = file_create_url(path_to_theme());
                       <table class="table table-bordered">
                       <thead>
                         <tr>
-                        <th bgcolor="#18b292">Origin</th>
-                        <th bgcolor="#18b292">RT total from</th>
+                        <th color="#000" bgcolor="#FFBB06">Origin</th>
+                        <th color="#000" bgcolor="#FFBB06">RT total from</th>
                         
                         </tr>
                       </thead>
