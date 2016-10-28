@@ -1,0 +1,52 @@
+<?php
+/**
+ * @filefvg 
+ * This is the main module file.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function displaypnr_help($path, $arg) 
+{
+
+  if ($path == 'admin/help#displaypnr') 
+  {
+    $output = '<h3>' . t('About') . '</h3>';
+    $output .= '<p>' . t('The displaypnr module allows you to displaypnr pnr through api.') . '</p>';
+    return $output;
+  }
+}
+
+/**
+* Implementation of hook_menu().
+*/
+
+function displaypnr_menu() 
+{
+  $items['displaypnr'] = array(
+   'page callback' => 'displaypnr_func',
+ //'type' => MENU_CALLBACK,
+    //'page arguments' => array('displaypnr_func'),
+  'access arguments' => array('access displaypnr content'),
+    );
+  return $items;
+}
+
+function displaypnr_func() 
+{
+
+ //die('navin');
+ 
+  return 'success';
+
+}
+
+function displaypnr_permission() {
+  return array(
+    'access displaypnr content' => array(
+      'title' => t('Access content for the displaypnr module'),
+    )
+  );
+}
+

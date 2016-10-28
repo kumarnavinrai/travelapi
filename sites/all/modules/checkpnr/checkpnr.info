@@ -1,0 +1,3 @@
+name = Checkpnr
+description = A module for checking pnr!
+core = 7.x

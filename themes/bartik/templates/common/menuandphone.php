@@ -4,6 +4,7 @@
 <div class="col-md-6">
                             <div class="top-user-area clearfix">
                                 <ul class="top-user-area-list list list-horizontal list-border">
+                                    <li><a href="<?php echo $sitelink; ?>checkpnr">Check PNR</a>
                                     <?php
                                        global $user;
 
