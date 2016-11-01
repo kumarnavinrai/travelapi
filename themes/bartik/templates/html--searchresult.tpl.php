@@ -176,7 +176,8 @@
   <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."/"."footer.php"
+        require_once $pathoffile."/"."footer.php";
+        
   ?>
         <script type="text/javascript">
         var carrayblod;

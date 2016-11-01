@@ -331,7 +331,7 @@
                              <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                 <label>Departing</label>
-                                <input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="start" type="text">
+                                <input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="startx" type="text">
                               </div>
                             </div>
                           </div>
@@ -352,7 +352,7 @@
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                 <label>Departing</label>
                                 <!-- <input class="date-pick form-control" data-date-format="M d, D" type="text" /> -->
-                                <input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="start" type="text">
+                                <input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="startx" type="text">
                                
                               </div>
                             </div>
@@ -458,7 +458,7 @@
                           <div class="form-group form-group-lg form-group-icon-left">
                             <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                             <label>Check-in</label>
-                            <input class="form-control" name="start" type="text" />
+                            <input class="form-control" name="startx" type="text" />
                           </div>
                         </div>
                         <div class="col-md-3">
@@ -580,7 +580,7 @@
                           <div class="form-group form-group-lg form-group-icon-left">
                             <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                             <label>Pick-up Date</label>
-                            <input class="form-control" name="start" type="text" />
+                            <input class="form-control" name="startx" type="text" />
                           </div>
                         </div>
                         <div class="col-md-3">
@@ -625,7 +625,7 @@
                           <div class="form-group form-group-lg form-group-icon-left">
                             <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                             <label>From</label>
-                            <input class="form-control" name="start" type="text" />
+                            <input class="form-control" name="startx" type="text" />
                           </div>
                         </div>
                         <div class="col-md-3">
@@ -655,7 +655,7 @@
                 e.preventDefault();
                 if(x < max_fields){ //max input box allowed
                     x++; //text box increment
-                    $(wrapper).append('<div class="row"><div class="col-md-12"><div class="col-md-4"><div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i><label>From</label><input name="text[]" class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text"/></div></div><div class="col-md-4"><div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i><label>To</label><input name="text[]" class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text"/></div></div><div class="col-md-4"><div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i><label>Departing</label><input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="start" type="text"></div></div><a href="#" class="remove_field">Remove</a></div></div>'); //add input box
+                    $(wrapper).append('<div class="row"><div class="col-md-12"><div class="col-md-4"><div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i><label>From</label><input name="text[]" class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text"/></div></div><div class="col-md-4"><div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i><label>To</label><input name="text[]" class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text"/></div></div><div class="col-md-4"><div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i><label>Departing</label><input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="startx" type="text"></div></div><a href="#" class="remove_field">Remove</a></div></div>'); //add input box
                 }
             });
             $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
