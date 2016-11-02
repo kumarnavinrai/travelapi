@@ -1201,10 +1201,10 @@ ul.slimmenu.slimmenu-collapsed li .slimmenu-sub-collapser > i {
   text-transform: uppercase;
 }
 .search-tabs-bg > .tabbable >.tab-content > .tab-pane {
-  background: #fff;
+  background: rgba(0, 0, 0, 0.6);
   padding: 25px;
   -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
-  box-shadow: 0 2px 1px rgba(0,0,0,0.15);
+  
 }
 .search-tabs-bg > .tabbable >.tab-content > .tab-pane .form-control {
   background: rgba(255,255,255,0.5);
@@ -1214,7 +1214,8 @@ ul.slimmenu.slimmenu-collapsed li .slimmenu-sub-collapser > i {
 }
 .search-tabs-bg > .tabbable > .nav-tabs > li {
   margin-bottom: 0;
-  margin-right: 5px;
+  /* margin-right: 5px; 
+  margin-right: 0; */
 }
 .search-tabs-bg > .tabbable > .nav-tabs > li > a {
   background: rgba(0,0,0,0.4);
@@ -1239,7 +1240,7 @@ ul.slimmenu.slimmenu-collapsed li .slimmenu-sub-collapser > i {
   width: 30px;
   height: 30px;
   line-height: 30px;
-  margin-right: 2px;
+ /* margin-right: 2px; */
   background: rgba(0,0,0,0.3);
   -webkit-border-radius: 50%;
   border-radius: 50%;
@@ -2070,7 +2071,7 @@ body {
   opacity: 1;
   -ms-filter: none;
   filter: none;
-  padding-top: 72px;
+  padding-top: 103px;
   color: #fff;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -2131,6 +2132,7 @@ body {
 .round {
   -webkit-border-radius: 50%;
   border-radius: 50%;
+      margin: 0 auto;
 }
 .round img {
   -webkit-border-radius: 50%;
@@ -4124,8 +4126,8 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   font-size: 56px;
 }
 .box-icon-black {
-  background: #333;
-  color:#FFBB06;
+  color: #333;
+  background:#FFBB06;
 }
 .box-icon-black:hover {
   background: #000;
@@ -11930,6 +11932,7 @@ span.text-tab-sukh{font-size: 15px;
 h3.margin-btm-sukh {
   margin-bottom: 0;
   text-transform: uppercase;
+  color:#fff !important;
 }
 label.text-year-sukh {
     font-size: 9px !important;
@@ -12071,5 +12074,34 @@ body.html.not-front.not-logged-in.one-sidebar.sidebar-first.page-hybridauth.page
 }
 
 /*----------Sukh css 21-10-2016 end---------------------------- */
+/*----Sukh new code after kuldeep sir Start------ */
+.clr-wht {
+    color: #fff !important;
+}
+.sukh-row-bckr-opcty{
+    background: rgba(41, 43, 43, 0.73);
+    padding: 2em 0em;
+}
+/*----Sukh new code after kuldeep sir End------ */
+/* kuldeep*/
+.form-group label {
+    color: #fff !important;
+}
+ul#flightChooseTab li a {
+    color: #fff !important;
+}
+.top-user-area-list li a {
+    color: #FFBB06 !important;
+}
+.thumb {
+    text-align: center !important;
+}
+.tab-pane h2 {
+    font-size: 32.758000000000003px!important;
+    font-family: fantasy!important;
+    color:#fff!important;
+}
 
 
+
+/* kuldeep*/

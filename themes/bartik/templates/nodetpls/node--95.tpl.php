@@ -24,7 +24,7 @@ $themeurl = file_create_url(path_to_theme());
 				    <div><img class="img-responsive" src="<?php echo $themeurl; ?>/img/destination/flights_icon.jpg" alt="img05"></div>
 					<figcaption>
                         
-                        <span>Get Domestic and Internatinal flights at Best Price.</span>
+                        <span>Get Domestic and International flights at Best Price.</span>
                     </figcaption>
 					</figure></li>
             </div>

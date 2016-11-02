@@ -1,0 +1,98 @@
+<?php
+/**
+ * @filefvg 
+ * This is the main module file.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function addroute_help($path, $arg) 
+{
+
+  if ($path == 'admin/help#addroute') 
+  {
+    $output = '<h3>' . t('About') . '</h3>';
+    $output .= '<p>' . t('The addroute module allows the user to add various popular routes on your Drupal site.') . '</p>';
+    return $output;
+  }
+}
+
+/**
+* Implementation of hook_menu().
+*/
+function addroute_menu()
+{
+    // path location (<a href="http://www.url.com/foo/bar" title="http://www.url.com/foo/bar">http://www.url.com/foo/bar</a> )
+    $items['mymod'] = array(
+        // page title
+        'title' => 'All Popular Routes',
+        // describe the page for the menu system.  site visitors will not see this
+        'description' => 'It is for filling popular route data.',
+        // function that is called when visiting the new path
+        'page callback' => 'make_nodes',
+        // permissions required to view page
+        'access arguments' => array('access content'),
+    );  
+    return $items;
+}
+
+function make_nodes()
+{
+
+	$result = db_query("SELECT * FROM routes");
+	//$i=0;
+	foreach ($result as $record) 
+	{
+		
+		$node = new stdClass();
+	    $node->type = 'page';
+	    //node_object_prepare($node); 
+	    $node->language = LANGUAGE_NONE;
+	   
+	    $node ->title= $record->title;
+	    $node->body[LANGUAGE_NONE][0]['value']= $record->body; 
+	    $node->field_top[LANGUAGE_NONE][0]['value'] = "<h3>".$record->link."</h3>".$record->top;
+	    //print_r($node->field_top);
+	    //die;
+	    $node->field_from[LANGUAGE_NONE][0]['value'] = $record->from;
+	    $node->field_to[LANGUAGE_NONE][0]['value']= $record->to;
+	    $node->field_link[LANGUAGE_NONE][0]['value'] = $record->link;
+	    $node->field_bd[LANGUAGE_NONE][0]['value'] = $record->bd;
+
+	    
+	    $exists = db_query('SELECT nid FROM {node} WHERE title = :mytitle', array(':mytitle' => $node->title))->fetchField();
+	    //$nodecheck = node_load(array('title' => $node ->title, 'type' => 'page'));
+
+	    //$data = db_query('SELECT nid FROM {node} WHERE title = :title AND type = :type', array(':title' => $node->title, ':type' => $node_type))->fetchCol();
+  		if (empty($exists)) {
+
+	   	//if ($exists == FALSE){
+ 		//if(!$nodecheck) {
+    	//safe to continue
+ 		
+	    //$node = node_submit($node);
+	
+		node_save($node);
+		
+		} 
+		else 
+		{
+    	echo "that node is already present";
+    	
+ 		}
+ 		$resultdel = db_query('DELETE FROM {routes} WHERE title = :titledel', array(':titledel' => $record->title));
+ 		
+ 		//$i++;
+		//if($i==100) break;
+
+		//die;
+	}
+   
+	
+}
+
+
+
+
+

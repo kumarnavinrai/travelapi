@@ -143,7 +143,7 @@ global $base_url;
               <!--<img src="img/flags/32/fr.png" alt="Image Alternative text" title="Image Title" />Paris--><!-- <img src="
                 <?php // echo $themeurl; ?>/img/travel-painters_logo_lastt-.png" /> -->FIND YOUR PERFECT TRIP
             </h3>
-            <p style="padding: 0px 20px 35px 20px; margin: 0 !important; background-color: rgba(0, 0, 0, 0.6); text-align:center">Traveling - it leaves you speechless, then turns you into a storyteller.Everyone loves stories, and here at Flyoticket, we believe that at the end of the day the experiences you've had, the stories you've shared (and the ones you've yet to share) are some of the most important moments in life.</p>
+            <p style="padding: 0px 20px 9px 20px; margin: 0 !important; background-color: rgba(0, 0, 0, 0.6); text-align:center">Traveling - it leaves you speechless, then turns you into a storyteller.Everyone loves stories, and here at Flyoticket, we believe that at the end of the day the experiences you've had, the stories you've shared (and the ones you've yet to share) are some of the most important moments in life.</p>
              <img style="padding: 0px 20px 35px 20px; background-color: rgba(0, 0, 0, 0.6);" src="
               <?php echo $themeurl; ?> /img/united-states-flag.png" />
               <br />
@@ -154,6 +154,62 @@ global $base_url;
             </div>
           </div>
         </div>
+        <div class="row row-wrap sukh-row-bckr-opcty" data-gutter="60">
+      <div class="col-md-3">
+        <div class="thumb">
+          <header class="thumb-header">
+            <i class="fa fa-dollar box-icon-md round box-icon-black animate-icon-top-to-bottom"></i>
+          </header>
+          <div class="thumb-caption">
+            <h5 class="thumb-title">
+              <a class="text-darken clr-wht" href="#">BEST SELECTION</a>
+            </h5>
+            <p class="thumb-desc clr-wht">Find our lowest price to destinations worldwide, guaranteed</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="thumb">
+          <header class="thumb-header">
+            <i class="fa fa-lock box-icon-md round box-icon-black animate-icon-top-to-bottom"></i>
+          </header>
+          <div class="thumb-caption">
+            <h5 class="thumb-title">
+              <a class="text-darken clr-wht" href="<?php echo $base_url; ?>/content/cancellationpolicy">CANCELLATION POLICY</a>
+            </h5>
+            <p class="thumb-desc clr-wht">Flyoticket offers Cancellation to its entire booking users.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="thumb">
+          <header class="thumb-header">
+            <i class="fa fa-thumbs-o-up box-icon-md round box-icon-black animate-icon-top-to-bottom"></i>
+          </header>
+          <div class="thumb-caption">
+            <h5 class="thumb-title">
+              <a class="text-darken clr-wht" href="#">24/7 SUPPORT</a>
+            </h5>
+            <p class="thumb-desc clr-wht">Get award-winning service and special deals by calling 1-888-417-0446</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="thumb">
+          <header class="thumb-header">
+            <i class="fa fa-calendar box-icon-md round box-icon-black animate-icon-top-to-bottom"></i>
+          </header>
+          <div class="thumb-caption">
+            <h5 class="thumb-title">
+              <a class="text-darken clr-wht" href="#">EASY BOOKING</a>
+            </h5>
+            <p class="thumb-desc clr-wht">Search, select and save - the fastest way to book your trip</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gap gap-small"></div>
+  </div>
         <div class="col-md-12">
           <div class="gap">
             
@@ -163,8 +219,8 @@ global $base_url;
     </div>
   </div>
   <!-- END TOP AREA  -->
-  <div class="gap"></div>
-  <div class="container">
+  <!-- <div class="gap"></div> -->
+   <!--<div class="container">
     <div class="row row-wrap" data-gutter="60">
       <div class="col-md-3">
         <div class="thumb">
@@ -220,7 +276,7 @@ global $base_url;
       </div>
     </div>
     <div class="gap gap-small"></div>
-  </div>
+  </div> -->
   <div class="bg-holder">
     <div class="bg-mask"></div>
     <div class="bg-parallax" style="background-image:url(
