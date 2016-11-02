@@ -32,17 +32,25 @@ function checkpnr_menu()
   return $items;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 245979ba428df96a1a466c0b1e4fcd39904206ad
 function checkpnr_form($form,&$form_state) 
 {
 
  drupal_set_title($title = "Retrieve PNR Details", $output = CHECK_PLAIN);
 
+
  $form['#attributes'] = array('class' => 'checkpnr');
+
+ $form['#method'] = 'post';
+ $form['#action'] = '/displaypnr';
  
   $form['pnrid'] = array(
     '#title' => t('Please enter valid PNR :'),
     '#type' => 'textfield',
- 	'#default_value' => "",
+ 	  '#default_value' => "",
     '#required' => TRUE,
   );
   
@@ -57,10 +65,13 @@ return $form;
 
 }
 
-function checkpnr_form_submit($form, &$form_state) 
+
+/*function checkpnr_form_submit($form, &$form_state) 
 {
-global $user;
-}
+  //return "Navin";
+  echo "<pre>"; print_r($_REQUEST); die;
+}*/
+
 
 function checkpnr_permission() {
   return array(

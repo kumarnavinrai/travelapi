@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/PRETRQ_11_3_1A" xmlns="http://xml.amadeus.com/PRETRQ_11_3_1A" elementFormDefault="qualified">
+  <xs:element name="PNR_RetrieveByRecLoc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="sbrRecLoc">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="reservation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="controlNumber">
+                      <xs:simpleType>
+                        <xs:annotation>
+                          <xs:documentation xml:lang="en">Format limitations: an..20</xs:documentation>
+                        </xs:annotation>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1" />
+                          <xs:maxLength value="20" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+<!-- SchemaRules="2009/09"-->
+<!--Created with SchemaBuilder 5.0.0 by Amadeus S.A.S.-->
+<!--Build Key:
+1F8B08000000000000009593C16EDB300C86EF7A8ADC761812DB6D81AD0174701B279726CD1CF736C0506426112A4B9E2867358ABEFB28DBD9DAD3B68B4DD2F24FF223B5CA36599E16D9A27CDCF0AB38B999C657D3E47A529C5A8795E826F1ED3CF93ABF8E27AB75F1398EE771CCD275EABB0670A934185103677B81B0210B1B21819FBC6FE651F452EB99A845052DCEA4AD23B66F4DA561A11C8F10BC57E68851A524327902F9BCA3672DB8772D30692BA023C88D35C1AB6B30E41D84C6DE6D84E9423E6E5AAD29D0744E1D4F7E702B388856FB956B0AAAB21A142BDBEE35ECE0470B46C25678791AE5C0DCFD53F560FE9C790DFDBF95AF6770A8AC21CB810692214B1C2943F7C60E44276F35D56803A8DEEF69F53F07EB2F02DA4AA1C716B53D56819B83DA7A88EA9FD1192A7510D247D9F02EACD5186545B950E885F1F74489E011B6682DDC3304DCC319EC41E3F7077B245D73EC8BEA21D5E08E3062E9EDA5025DE1CE3A4F1C2F7144AA30C500F7636C015E283D0ECDFC17ACC62AE337E087C1F4C5386BFD3B56BD1F7667C68606025BA4958D6FA3F8768CE1D2BA542BD2C64104C19D95045C28E929B770DDC0136BE17CD07D324A2ADF8D8D78270C6A118E121D4ED47FE32AD275F45A8156D486A0557A9BD15716CAABC6CD1D24686FEE3FEE2B457A563D9617D4FEB1F54DEB975657E0780830369DAE07869F70A2CCC1BABA2F623A6503219EA4EC5D729E6ED372BBC9CBE4EA663FFD42DB5D0B65F8EE2E67F0D2D0B84A81E5225BF1227FCA2EE3990807822737179F6FF3ACC8BFB1866E86C2D3E5A68CC3E1D7649D5598184F0630A267C843DE1CBC537086BB2E07F96025BBCC896F8D1B3F0A3DF6C4C6C9F3F82BFB05551B493870040000
+-->
+
