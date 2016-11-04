@@ -92,7 +92,8 @@ global $base_url;
 <div class="top-area show-onload">
   <div class="bg-holder full">
     <div class="bg-mask"></div>
-    <div class="bg-img" style="background-image:url(<?php echo $themeurl; ?>/img/196_365_2048x1365.jpg);"></div>
+    <div class="bg-img" style="background:#000;"></div>
+    <!-- <div class="bg-img" style="background-image:url(<?php echo $themeurl; ?>/img/196_365_2048x1365.jpg);"></div> -->
     <video class="bg-video hidden-sm hidden-xs" preload="auto" autoplay="true" loop="loop" muted="muted" poster="img/video-bg.jpg">
     <source src="<?php echo $themeurl; ?>/media/travelpainters-header-vid.mp4" type="video/mp4" />
     </video>
@@ -139,33 +140,23 @@ global $base_url;
         <!-- search form ends -->
         <div class="col-md-6">
           <div class="loc-info text-right text-right-sukh hidden-xs hidden-sm">
-            <h3  style="text-align:center; color:#FFFFFF">
-              <!--<img src="img/flags/32/fr.png" alt="Image Alternative text" title="Image Title" />Paris--> <img src="
-                <?php echo $themeurl; ?>/img/travel-painters_logo_lastt-.png" />
+            <h3  style="padding: 20px; background-color: rgba(0, 0, 0, 0.6); text-align:center; color:#FFFFFF">
+              <!--<img src="img/flags/32/fr.png" alt="Image Alternative text" title="Image Title" />Paris--><!-- <img src="
+                <?php // echo $themeurl; ?>/img/travel-painters_logo_lastt-.png" /> -->FIND YOUR PERFECT TRIP
             </h3>
-            <p style="text-align:center">Traveling - it leaves you speechless, then turns you into a storyteller.Everyone loves stories, and here at Flyoticket, we believe that at the end of the day the experiences you've had, the stories you've shared (and the ones you've yet to share) are some of the most important moments in life.</p>
-            <img src="
-              <?php echo $themeurl; ?>/img/united-states-flag.png" />
+            <p style="padding: 0px 20px 9px 20px; margin: 0 !important; background-color: rgba(0, 0, 0, 0.6); text-align:center">Traveling - it leaves you speechless, then turns you into a storyteller. Everyone loves stories, and here at Flyoticket, we believe that at the end of the day the experiences you've had, the stories you've shared (and the ones you've yet to share) are some of the most important moments in life.</p>
+             <img style="padding: 0px 20px 35px 20px; background-color: rgba(0, 0, 0, 0.6);" src="
+              <?php echo $themeurl; ?> /img/united-states-flag.png" />
               <br />
               <br />
-              <img src="
-                <?php echo $themeurl; ?>/img/travel-painters_logo_lastt-.png" />
+             <!--  <img src="
+                <?php // echo $themeurl; ?>/img/travel-painters_logo_lastt-.png" /> -->
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-12">
-          <div class="gap">
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- END TOP AREA  -->
-  <div class="gap"></div>
-  <div class="container">
-    <div class="row row-wrap" data-gutter="60">
+        <div class="gap"></div>
+        <div class="row row-wrap sukh-row-bckr-opcty" data-gutter="60">
       <div class="col-md-3">
         <div class="thumb">
           <header class="thumb-header">
@@ -173,9 +164,9 @@ global $base_url;
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="#">BEST SELECTION</a>
+              <a class="text-darken clr-wht" href="#">BEST SELECTION</a>
             </h5>
-            <p class="thumb-desc">Find our lowest price to destinations worldwide, guaranteed</p>
+            <p class="thumb-desc sukh-desc clr-wht">Find our lowest price to destinations worldwide, guaranteed</p>
           </div>
         </div>
       </div>
@@ -186,9 +177,9 @@ global $base_url;
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="<?php echo $base_url; ?>/content/cancellationpolicy">CANCELLATION POLICY</a>
+              <a class="text-darken clr-wht" href="<?php echo $base_url; ?>/content/cancellationpolicy">CANCELLATION POLICY</a>
             </h5>
-            <p class="thumb-desc">Flyoticket offers Cancellation to its entire booking users.</p>
+            <p class="thumb-desc sukh-desc clr-wht">Flyoticket offers Cancellation to its entire booking users.</p>
           </div>
         </div>
       </div>
@@ -199,9 +190,9 @@ global $base_url;
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="#">24/7 SUPPORT</a>
+              <a class="text-darken clr-wht" href="#">24/7 SUPPORT</a>
             </h5>
-            <p class="thumb-desc">Get award-winning service and special deals by calling 1-888-417-0446</p>
+            <p class="thumb-desc sukh-desc clr-wht">Get award-winning service and special deals by calling <br>1-888-417-0446</p>
           </div>
         </div>
       </div>
@@ -212,104 +203,122 @@ global $base_url;
           </header>
           <div class="thumb-caption">
             <h5 class="thumb-title">
-              <a class="text-darken" href="#">EASY BOOKING</a>
+              <a class="text-darken clr-wht" href="#">EASY BOOKING</a>
             </h5>
-            <p class="thumb-desc">Search, select and save - the fastest way to book your trip</p>
+            <p class="thumb-desc sukh-desc clr-wht">Search, select and save - the fastest way to book your trip</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="gap gap-small"></div>
+    <!-- <div class="gap gap-small"></div>  -->
   </div>
+        <!-- <div class="col-md-12">
+          <div class="gap"></div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- END TOP AREA  -->
+  <h3 class="text-center sukh-hdr-top">Recent Flight Detail</h3>
   <div class="bg-holder">
     <div class="bg-mask"></div>
-    <div class="bg-parallax" style="background-image:url(
-      <?php echo $themeurl; ?>/img/world-map.jpg);">
-    </div>
+    <!-- <div class="bg-parallax" style="background:#fff;"> </div> -->
+    <div class="bg-parallax" style="background-image:url(<?php echo $themeurl; ?>/img/flgt-bck.jpg);"> </div> 
     <div class="bg-content">
-      <div class="container">
-        <div class="gap gap-big text-center text-white">
-                <div class="col-md-12">
-                  <div class="loc-info text-right hidden-xs hidden-sm">
-                   <h3 style="text-align:center; color:#FFFFFF">Recent Airfare Searches</h3>
-                      <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                        <th bgcolor="#18b292">Origin</th>
-                        <th bgcolor="#18b292">RT total from</th>
-                        
-                        </tr>
-                      </thead>
-                      <tbody style="background:#333;opacity: 0.8;">
-                        <tr class="colr-text-sukh">
-                        <td><span class="txt-skh">New York -&gt; Aruba </span></td>
-                        <td>$ 305*</td>
-                        
-                        </tr>
-                        <tr class="colr-text-sukh">
-                        <td><span class="txt-skh">New York -&gt; Panama City </span></td>
-                        <td>$ 289*</td>
-                        
-                        </tr>
-                        <tr class="colr-text-sukh">
-                        <td><span class="txt-skh">New York -&gt; Aruba</span> </td>
-                        <td>$ 305*</td>
-                        
-                        </tr>
-                        <tr class="colr-text-sukh">
-                        <td><span class="txt-skh">New York -&gt; Melbourne</span></td>
-                        <td>$ 901*</td>
-                        
-                        </tr>
-                        <tr class="colr-text-sukh">
-                        <td><span class="txt-skh">New York -&gt; Panama City </span></td>
-                        <td>$ 289*</td>
-                        
-                        </tr>
-                        <tr class="colr-text-sukh">
-                        <td><span class="txt-skh">New York -&gt; Aruba </span></td>
-                        <td>$ 305*</td>
-                        
-                        </tr>
-                        <tr class="colr-text-sukh">
-                        <td><span class="txt-skh">New York -&gt; Melbourne</span></td>
-                        <td>$ 901*</td>
-                        
-                        </tr>
-                        <tr class="colr-text-sukh">
-                        <td><span class="txt-skh">New York -&gt; Panama City </span></td>
-                        <td>$ 289*</td>
-                        
-                        </tr>
-                        <tr class="colr-text-sukh">
-                        <td><span class="txt-skh">New York -&gt; Aruba </span></td>
-                        <td>$ 305*</td>
-                        
-                        </tr>
-                        <tr class="colr-text-sukh">
-                        <td><span class="txt-skh">New York -&gt; Melbourne</span></td>
-                        <td>$ 901*</td>
-                        
-                        </tr>
-                     <!--   
-                      <tr>
-                        <td colspan="2"><p style="color:#fff">*Prices above are past searches found by real customers in the last 24 hours</p></td>
-                      </tr>
-                       <tr>
-                        <td colspan="2"> <button class="btn btn-primary btn-lg" type="submit">View More &gt; </button></td>
-                      </tr> -->
-                      </tbody>
-                      </table>
-                                            
-             </div>
-           </div>
+    <div class="container">
+      <div class="gap gap-big text-center text-white">
+        <div class="col-md-4">
+          <div class="loc-info text-right sukh-bckgrd-img" style="background-image:url(<?php echo $themeurl; ?>/img/flight-offer2.jpg);">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="hedr-text" colspan="2" bgcolor="#FFBB06">Today's Flight Deals*</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="colr-text-sukh">
+                  <td><span class="txt-skh">New York &rarr; Aruba </span></td>
+                  <td>$ 305*</td>
+                </tr>
+                <tr  class="colr-text-sukh">
+                  <td><span class="txt-skh">New York &rarr; Panama City </span></td>
+                  <td>$ 289*</td>
+                </tr>
+                <tr class="colr-text-sukh">
+                  <td><span class="txt-skh">New York &rarr; Aruba</span> </td>
+                  <td>$ 305*</td>
+                </tr>
+                <tr  class="colr-text-sukh">
+                  <td><span class="txt-skh">New York &rarr; Melbourne</span></td>
+                  <td>$ 901*</td>
+                </tr>
+                <tr  class="colr-text-sukh">
+                  <td><span class="txt-skh">New York &rarr; Panama City </span></td>
+                  <td>$ 289*</td>
+                </tr>
+                <tr class="colr-text-sukh">
+                  <td><span class="txt-skh">New York &rarr; Aruba </span></td>
+                  <td>$ 305*</td>
+                </tr>
+                <tr  class="colr-text-sukh">
+                  <td><span class="txt-skh">New York &rarr; Melbourne</span></td>
+                  <td>$ 901*</td>
+                </tr>
+                <tr  class="colr-text-sukh">
+                  <td><span class="txt-skh">New York &rarr; Panama City </span></td>
+                  <td>$ 289*</td>
+                </tr>
+                <tr class="colr-text-sukh">
+                  <td><span class="txt-skh">New York &rarr; Aruba </span></td>
+                  <td>$ 305*</td>
+                </tr>
+                <tr  class="colr-text-sukh">
+                  <td><span class="txt-skh">New York &rarr; Melbourne</span></td>
+                  <td>$ 901*</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="loc-info text-right sukh-bckgrd-img" style="background-image:url(<?php echo $themeurl; ?>/img/flight-offer1.jpg); height:431px;">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="hedr-text" colspan="2" bgcolor="#FFBB06" >Featured Offers*</th>
+                </tr>
+              </thead>
+              <tr>
+                <td colspan="2" style="padding: 12em 6em;"><button class="btn btn-primary center">Plan your Trip</button></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <table class="table table-bordered" style="width: 100%;margin-bottom: 1px;margin-top: 47px;">
+            <thead>
+              <tr>
+                <th class="hedr-text" colspan="2" bgcolor="#FFBB06">Today's Flight Deals*</th>
+              </tr>
+            </thead>
+          </table>
+          <figure style="display: block; background-image: url(<?php echo $themeurl;?>/img/last-minute-img.jpg);" class="deals-block__featured-img lazy" > </figure>
+          <ul>
+            <li class="deals-block__single-deal"> <a href="#"> <b class="sukh-b">Last Minute Flights </b><em class="icon arrow"></em> </a> </li>
+            <li class="deals-block__single-deal"> <a href="#"> <b class="sukh-b">Domestic Flights</b><em class="icon ic-arw-r"></em> </a> </li>
+            <li class="deals-block__single-deal"> <a href="#"> <b class="sukh-b">Round Trip Flights</b><em class="icon icons8-Arrow"></em> </a> </li>
+            <li class="deals-block__single-deal"> <a href="#"> <b class="sukh-b">Flights Under $199</b><em class="icon ic-arw-r"></em> </a> </li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
+
+    
+  </div>
   <div class="container">
     <div class="gap"></div>
-    <h2 class="text-center">Top Destinations</h2>
+    <h3 class="text-center">Top Destinations</h3>
     <div class="gap">
       <div class="row row-wrap">
         <div class="col-md-3">
@@ -556,6 +565,8 @@ global $base_url;
 					$('.startdate').hide();
 					$('.enddate').hide();
 				});
+
+ 
 			
 					
     $('.nav_search_for_flights').on('click',function(e){

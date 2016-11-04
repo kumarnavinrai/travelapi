@@ -1,6 +1,6 @@
 <div class="col-md-6">
             <div class="search-tabs search-tabs-bg mt50">
-              <h2>Find Your Perfect Trip</h2>
+              <!-- <h2>Find Your Perfect Trip</h2> -->
               <div class="tabbable">
                 <ul class="nav nav-tabs" id="myTab">
                   <li class="active">
@@ -63,7 +63,7 @@
                             <a href="#flight-search-2" class="rtripandowselectorow" data-toggle="tab">One Way</a>
                           </li>
                           <li>
-                            <a href="#flight-search-3" data-toggle="tab">Multicity</a>
+                            <a href="#flight-search-3" class="rtripandowselectorowmulti" data-toggle="tab">Multicity</a>
                           </li>
                         </ul>
                         <div class="tab-content">
@@ -163,27 +163,7 @@
                             </div>
                           </div>
                           <div class="row">
-                            <!-- <div class="col-md-12">
-                             <script type="text/javascript"> 
-                                 $(document).ready(function() {
-                                     $('#attach_box').click(function(e) {
-                                         e.preventDefault();   
-                                         $('#sukh_buton').toggle();
-                                     });
-                                     $('.rtripandowselectorrt').on('click',function(){
-                                        $('#attach_box').show();
-                                     }); 
-                                     $('.rtripandowselectorow').on('click',function(){
-                                        $('#attach_box').hide();
-                                     });        
-                                 });
-                              </script> 
-                              <a href="#" id="attach_box">Advance Search
-                                <i class="fa fa-sort-desc sukh" aria-hidden="true"></i>
-                              </a>
-                              <br />
-                              <br />
-                            </div> -->
+                            <!-- <div class="col-md-12"> -->
                              <script type="text/javascript"> 
                                  $(document).ready(function() {
                                      $('#attach_box').click(function(e) {
@@ -195,9 +175,19 @@
                                      }); 
                                      $('.rtripandowselectorow').on('click',function(){
                                         $('#sukh_buton').hide();
-                                     });        
+                                     });  
+                                    $('.rtripandowselectorowmulti').on('click',function(){
+                                        $('#sukh_buton').hide();
+                                     });      
                                  });
                               </script> 
+                             <!-- <a href="#" id="attach_box">Advance Search
+                                <i class="fa fa-sort-desc sukh" aria-hidden="true"></i>
+                              </a>
+                              <br />
+                              <br />
+                            </div> -->
+
                             <div id="sukh_buton" class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left ">
                                 <i class="fa fa-plane input-icon input-icon-highlight"></i>
@@ -319,13 +309,13 @@
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>From</label>
-                                <input class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text" />
+                                <input class="typeahead form-control" placeholder="City, Airport" type="text" />
                               </div>
                             </div>
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>To</label>
-                                <input class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text" />
+                                <input class="typeahead form-control" placeholder="City, Airport" type="text" />
                               </div>
                             </div>
                              <div class="col-md-4">
@@ -339,13 +329,13 @@
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>From</label>
-                                <input class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text" />
+                                <input class="typeahead form-control" placeholder="City, Airport" type="text" />
                               </div>
                             </div>
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>To</label>
-                                <input class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text" />
+                                <input class="typeahead form-control" placeholder="City, Airport" type="text" />
                               </div>
                             </div>
                              <div class="col-md-4">
@@ -646,7 +636,7 @@
         </div>
         <script type="text/javascript">
           $(document).ready(function() {
-            var max_fields      = 10; //maximum input boxes allowed
+            var max_fields      = 4; //maximum input boxes allowed
             var wrapper         = $(".input_fields_wrap"); //Fields wrapper
             var add_button      = $(".add_field_button"); //Add button ID
             

@@ -6,7 +6,7 @@
                             <img src="<?php echo $themeurl; ?>/img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
                         </a>
                         <p class="mb20">Booking, reviews and advices on hotels, resorts, flights, vacation rentals, travel packages, and lots more!</p>
-                        <ul class="list list-horizontal list-space">
+                        <ul class="list list-horizontal list-space text-center">
                             <li>
                                 <a class="fa fa-facebook box-icon-normal round animate-icon-bottom-to-top" href="https://www.facebook.com/Travelpainters/"></a>
                             </li>
@@ -48,10 +48,10 @@ trk=nav_responsive_tab_profile"></a>
                         </ul>
                     </div>
                     <div class="col-md-4">
-                        <h4>Have Questions?</h4>
-                        <h4 class="text-color">1-844-522-1317</h4>
-                        <h4><a href="#" class="text-color">support@flyoticket.com</a></h4>
-                        <p>24/7 Dedicated Customer Support</p>
+                        <h3>Have Questions?</h3>
+                        <h3 class="text-color">1-844-522-1317</h3>
+                        <h3><a href="#" class="text-color">support@flyoticket.com</a></h3>
+                        <p style="font-size:18px">24/7 Dedicated Customer Support</p>
                     </div>
 
                 </div>

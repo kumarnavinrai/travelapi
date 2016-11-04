@@ -373,6 +373,7 @@
 }
 .fa-map-marker:before {
   content: "\f041";
+  color:#555;
 }
 .fa-adjust:before {
   content: "\f042";
@@ -514,9 +515,14 @@
 }
 .fa-plane:before {
   content: "\f072";
+  color: #555;
 }
 .fa-calendar:before {
   content: "\f073";
+}
+.form-group.form-group-lg .fa-calendar:before {
+  content: "\f073";
+  color: #555;
 }
 .fa-random:before {
   content: "\f074";
@@ -626,9 +632,11 @@
 }
 .fa-twitter:before {
   content: "\f099";
+  color:#000;
 }
 .fa-facebook:before {
   content: "\f09a";
+      color: #000;
 }
 .fa-github:before {
   content: "\f09b";
@@ -765,6 +773,7 @@
 }
 .fa-google-plus:before {
   content: "\f0d5";
+  color:#000;
 }
 .fa-money:before {
   content: "\f0d6";
@@ -801,6 +810,7 @@
 }
 .fa-linkedin:before {
   content: "\f0e1";
+  color:#000;
 }
 .fa-rotate-left:before,
 .fa-undo:before {

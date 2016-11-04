@@ -52,6 +52,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?>>
 
 <head profile="<?php print $grddl_profile; ?>">
+  <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/dest.min.css">
+  <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/component.css">
+  <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/default.css">
+  
   <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
@@ -154,6 +158,8 @@
         <script src="<?php echo $themeurl; ?>/js/switcher.js"></script>
         <script src="<?php echo $themeurl; ?>/js/moment.min.js"></script>
         <script src="<?php echo $themeurl; ?>/js/angular-moment.min.js"></script>
+        <script src="<?php echo $themeurl; ?>/js/modernizr.custom.js"></script>
+
 
                 <!-- Include Date Range Picker -->
         <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
