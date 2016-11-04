@@ -196,7 +196,7 @@ require_once $filepath;
                                 <li><a href="<?php echo $urlofwp; ?>">CARS</a></li>
                                 <!-- diff menu start -->
                                 <li class="dropdown mega-dropdown">
-                                  <a href="<?php echo $urlofwp; ?>destinations" class="dropdown-toggle" data-toggle="dropdown">TRAVEL INFO<i class="fa fa-sort-desc sukh" aria-hidden="true"></i></a>
+                                  <a href="<?php echo $urlofwp; ?>destinations" class="dropdown-toggle" data-toggle="dropdown">TRAVEL INFO &nbsp<i class="fa fa-sort-desc sukh" aria-hidden="true"></i></a>
                                     <ul class="dropdown-menu mega-dropdown-menu row">
                                         <li><a href="<?php echo $urlofwp; ?>content/checkbookinginfo">CHECK BOOKING INFO</a></li>
                                         <li><a href="<?php echo $urlofwp; ?>onlinecheckin/">ONLINE CHECK-IN</a></li>

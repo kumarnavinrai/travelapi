@@ -1207,7 +1207,7 @@ ul.slimmenu.slimmenu-collapsed li .slimmenu-sub-collapser > i {
   
 }
 .search-tabs-bg > .tabbable >.tab-content > .tab-pane .form-control {
-  background: rgba(255,255,255,0.5);
+  /*background: rgba(255,255,255,0.5);*/
 }
 .search-tabs-bg > .tabbable > .nav-tabs {
   border: none;
@@ -1664,8 +1664,8 @@ ul.slimmenu.slimmenu-collapsed li .slimmenu-sub-collapser > i {
   line-height: 1em;
 }
 h5.thumb-title {
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 600;
 }
 .thumb-desc {
   margin-bottom: 0;
@@ -2445,13 +2445,33 @@ footer#main-footer .form-control:focus {
   border-color: #FFBB06;
 }
 .list-footer > li {
-  margin-bottom: 5px;
+  margin-bottom: 5px; 
+  transform: scale(1.1,1.1);
+    transition: 1s;
 }
+.list-footer {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 2em;
+    text-transform: uppercase;
+
+}
+
 .list-footer > li > a:hover {
   text-decoration: underline;
+
 }
 header#main-header {
   /* border-bottom: 2px solid #FFBB06; */
+    background-color: rgb(34, 34, 34);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    padding: 0;
+    margin: 0;
 }
 .main-header-search {
   top: 4px;
@@ -12078,10 +12098,216 @@ body.html.not-front.not-logged-in.one-sidebar.sidebar-first.page-hybridauth.page
 /*----Sukh new code after kuldeep sir Start------ */
 .clr-wht {
     color: #fff !important;
+    font-family: calibri !important;
+    
 }
 .sukh-row-bckr-opcty{
     background: rgba(41, 43, 43, 0.73);
     padding: 2em 0em;
+}
+.sukh-desc {
+  margin-bottom: 0;
+  margin-top: 6px;
+  font-size: 18px;
+  line-height: 1.4em;
+}
+/*--- recent flights style--*/
+
+.sukh-bckgrd-img{padding: 0px;    margin: 3em 0em 5em 0em;}
+tr.sukh-height {height: 28em;}
+.deals-block__featured-img {
+    position: relative;
+    height: 5.2em;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-size: cover;
+}
+.deals-block__single-deal {
+    background: #fff;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #ccc;
+    margin-top: -1px;
+    padding: 20px 6%;
+    min-height: 78px;
+    position: relative;
+    color: #5b6270;
+    font-size: 12px;
+  list-style: none;
+}
+.deals-block.is--best-price .deals-block__single-deal a {
+    color: #5b6270;
+    margin-top: 13px;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+.deals-block .deals-block__single-deal:hover {
+    cursor: pointer;
+    background: #e6e6e6;}
+b.sukh-b{
+    color: #000;
+    float: left;}
+.icon {
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    text-decoration: none;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+li.deals-block__single-deal:hover {
+    background: #ccc;
+}
+th.hedr-text {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    color: #000;
+}
+img.img-sukh-20x20 {
+    width: 64%;
+    margin: 2em 6em;
+}
+/*.sukh-hdr-top {
+    margin-top: 1em;
+     margin-bottom: 1em;
+}*/
+li.deals-block__single-deal {
+    background-color: rgba(238, 238, 238, 0.47);
+}
+/*--- recent flights style--*/
+.dropdown-toggle {
+    position: relative;
+    display: inline-block;
+}
+
+/*----List destination style start------*/
+.sukh-list-style {
+    margin: 30px;
+}
+.sukh-list-style > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sukh-list-style li {
+    font: 200 18px/1.5 Helvetica, Verdana, sans-serif;
+    border-bottom: 1px solid #ccc;
+}
+.sukh-list-style li:last-child {
+    border: none;
+}
+.sukh-list-style li a {
+    text-decoration: none;
+    color: #222;
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+  display: block;
+  width: 200px;
+}
+.sukh-list-style li a:hover {
+    font-size: 22px;
+    background: #f6f6f6;
+}
+.sukh-list-style li .dropdown-header {
+    font-size: 20px;
+    background: #ffbb06;
+}
+/*----List destination style ends------*/
+
+div#routesListA a {
+    color: #333;
+}
+div#routesListB a {
+    color: #333;
+}
+div#routesListC a {
+    color: #333;
+}
+div#routesListD a {
+    color: #333;
+}
+div#routesListE a {
+    color: #333;
+}
+div#routesListF a {
+    color: #333;
+}
+div#routesListG a {
+    color: #333;
+}
+div#routesListH a {
+    color: #333;
+}
+div#routesListI a {
+    color: #333;
+}
+div#routesListJ a {
+    color: #333;
+}
+div#routesListK a {
+    color: #333;
+}
+div#routesListL a {
+    color: #333;
+}
+div#routesListM a {
+    color: #333;
+}
+div#routesListN a {
+    color: #333;
+}
+div#routesListO a {
+    color: #333;
+}
+div#routesListP a {
+    color: #333;
+}
+div#routesListQ a {
+    color: #333;
+}
+div#routesListR a {
+    color: #333;
+}
+div#routesListS a {
+    color: #333;
+}
+div#routesListT a {
+    color: #333;
+}
+div#routesListU a {
+    color: #333;
+}
+div#routesListV a {
+    color: #333;
+}
+div#routesListW a {
+    color: #333;
+}
+div#routesListX a {
+    color: #333;
+}
+div#routesListY a {
+    color: #333;
+}
+div#routesListZ a {
+    color: #333;
+}
+
+
+
+
+h3.blogTitle {
+    font-size: 32px;
+    font-family: inherit;
 }
 /*----Sukh new code after kuldeep sir End------ */
 /* kuldeep*/
