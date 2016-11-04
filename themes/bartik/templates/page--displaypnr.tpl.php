@@ -20,10 +20,34 @@
         $ItineraryInfo = (array)$datatodisplay->$key->$keyitinery;
         $ItineraryInfo = objectToArray($ItineraryInfo);
 
-        $out = array2table($customerinfo, true, '&nbsp;');
+        //echo "<pre>"; print_r($customerinfo); print_r($ItineraryInfo); die;
+        /*$out = array2table($customerinfo, true, '&nbsp;');
         $custinfo = str_replace("tir38:", "", $out);
         $out = array2table($ItineraryInfo, true, '&nbsp;');
+        
+        $custinfo = str_replace("tir38:", "", $custinfo);
+        while(strpos($custinfo, "@value") != false )
+        {
+          $custinfo = str_replace("@value", "", $custinfo); 
+        }
+
+        while(strpos($custinfo, "@attributes") != false )
+        {
+          $custinfo = str_replace("@attributes", "", $custinfo);
+        }
+
         $ItineraryInfo = str_replace("tir38:", "", $out);
+        while(strpos($ItineraryInfo, "@value") != false )
+        {
+          $ItineraryInfo = str_replace("@value", "", $ItineraryInfo); 
+        }
+
+        while(strpos($ItineraryInfo, "@attributes") != false )
+        {
+          $ItineraryInfo = str_replace("@attributes", "", $ItineraryInfo);
+        }*/
+        
+        
     
         //getData($url, $params=array()) 
       }
@@ -117,16 +141,27 @@ function objectToArray($d)
          
          <div id="abhiFlightDetails">
             <?php 
-                 if(isset($custinfo))
+                 if(isset($customerinfo))
                  { 
-                    echo $custinfo;
+                    echo "<pre>"; print_r($customerinfo); die;
+                    //contactnumbers
+                    $contactnumbers = $customerinfo["tir38:ContactNumbers"];
+                    foreach ($contactnumbers["tir38:ContactNumber"] as $key => $value) {
+                      echo $value["@attributes"]["Phone"]."</br>";
+                    }
+
+                    //payment info
+                    $paymentinfo = $customerinfo["tir38:PaymentInfo"]["tir38:Payment"]["tir38:Form"]["tir38:Text"];
+                    
+                    //person name
+
                  }
             ?> 
 
             <?php 
                  if(isset($ItineraryInfo))
                  { 
-                    echo $ItineraryInfo;
+                    //echo $ItineraryInfo;
                  }
             ?> 
             <?php //print render($page['content']); ?>
