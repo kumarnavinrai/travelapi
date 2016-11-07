@@ -109,23 +109,23 @@ visibility: hidden;
 #edit-submit 
 {
     width: 40%;
-    background-color: #18b292;
+    background-color: #ffbb06;
     border: none;
     padding: 9px;
     font-size: 21px;
     margin-top: 10px;
-    color: #ffffff;
+    color: #000;
 }
 
 #edit-submit--2
 {
     width: 87.5%;
-    background-color: #18b292;
+    background-color: #ffbb06;
     border: none;
     padding: 9px;
     font-size: 21px;
     margin-top: 10px;
-    color: #ffffff;
+    color: #000;
 }
 
 
@@ -167,7 +167,7 @@ select{
  }
 input.ab-signup {
     width: 87.5%;
-    background-color: #18b292;
+    background-color: #ffbb06;
     border: none;
     padding: 9px;
     font-size: 21px;
