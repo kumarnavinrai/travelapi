@@ -391,7 +391,7 @@
                             <div class="widthofowsel col-md-2">  
                                 <div class="form-group form-group-lg form-group-select-plus form-btm-sukh">
                                         <label class="lbl-text-sukh">Infant</label>
-                                        <select name="infant" class="form-control box-setting-sukh" >
+                                        <select name="infantml" class="form-control box-setting-sukh" >
                                           <option value="0">0</option>
                                           <option value="1">1</option>
                                           <option value="2">2</option>
