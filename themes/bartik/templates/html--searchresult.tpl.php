@@ -187,7 +187,7 @@
                             maskOpacity: .6, // Opacity of the mask. 
                             imagePath: "<?php echo $themeurl; ?>/img/plane_loading.gif", // Path to the a difference loading image.
                             imagePadding: 16, // Padding around the loading image.
-                            imageDims: {w:180,h:180}, // Width and Height of the image.
+                            imageDims: {w:160,h:20}, // Width and Height of the image.
                             fullScreen: true, // Enables full screen mode. 
                             overlay : { 
                             show: true, // Show an overlay over the entire area to mask.
