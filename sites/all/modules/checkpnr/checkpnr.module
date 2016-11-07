@@ -32,10 +32,7 @@ function checkpnr_menu()
   return $items;
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 245979ba428df96a1a466c0b1e4fcd39904206ad
 function checkpnr_form($form,&$form_state) 
 {
 
