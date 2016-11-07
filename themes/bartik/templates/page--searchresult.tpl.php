@@ -150,9 +150,9 @@ $themeurl = file_create_url(path_to_theme());
              <div class="row">
                     <div  class="col-xs-12 col-md-12 col-lg-12 text-center">
                     <ul class = "list-group custwidth">
-                            <li class = "list-group-item" style="text-align: center;background: #18b292;">
+                            <li class = "list-group-item" style="text-align: center; color:#000;background: #FFBB06;">
                                 <strong>
-                                    <a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Modify Search</a>
+                                    <a class="popup-text" href="#search-dialog" style="color:#000;" data-effect="mfp-zoom-out">Modify Search</a>
                                 </strong>
                             </li>
                         </ul> 
