@@ -145,8 +145,7 @@ global $base_url;
                 <?php // echo $themeurl; ?>/img/travel-painters_logo_lastt-.png" /> -->FIND YOUR PERFECT TRIP
             </h3>
             <p style="padding: 0px 20px 9px 20px; margin: 0 !important; background-color: rgba(0, 0, 0, 0.6); text-align:center">Traveling - it leaves you speechless, then turns you into a storyteller. Everyone loves stories, and here at Flyoticket, we believe that at the end of the day the experiences you've had, the stories you've shared (and the ones you've yet to share) are some of the most important moments in life.</p>
-             <img style="padding: 0px 20px 35px 20px; background-color: rgba(0, 0, 0, 0.6);" src="
-              <?php echo $themeurl; ?> /img/united-states-flag.png" />
+             <img style="padding: 0px 20px 35px 20px; background-color: rgba(0, 0, 0, 0.6);" src="<?php echo $themeurl; ?>/img/united-states-flag.png" />
               <br />
               <br />
              <!--  <img src="
