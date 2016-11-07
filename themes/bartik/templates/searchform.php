@@ -357,7 +357,7 @@
                               <div class="col-md-2">
                                 <div class="form-group form-group-lg">
                                         <label class="lbl-text-sukh">Adults</label>
-                                        <select name="adult" class="form-control box-setting-sukh" >
+                                        <select name="adultml" class="form-control box-setting-sukh" >
                                           <option value="1">1</option>
                                           <option value="2">2</option>
                                           <option value="3">3</option>
@@ -373,7 +373,7 @@
                             <div class="widthofowsel col-md-2">  
                                 <div class="form-group form-group-lg form-group-select-plus form-btm-sukh">
                                         <label class="lbl-text-sukh">Child</label>
-                                        <select name="children" class="form-control box-setting-sukh" >
+                                        <select name="childrenml" class="form-control box-setting-sukh" >
                                           <option value="0">0</option>
                                           <option value="1">1</option>
                                           <option value="2">2</option>
@@ -410,7 +410,7 @@
                               <div class="form-group form-group-lg form-group-icon-left">
                                 <i class="fa fa-plane input-icon input-icon-highlight"></i>
                                 <label>Class</label>
-                                <select name="rclass" class="form-control" >
+                                <select name="rclassml" class="form-control" >
                                   <!-- <option value="economy" class="su_option">Economy</option>
                                   <option value="premiumeco">Premium Economy</option>
                                   <option value="business">Business</option>
