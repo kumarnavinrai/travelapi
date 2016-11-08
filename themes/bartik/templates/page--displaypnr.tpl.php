@@ -14,12 +14,15 @@
         $keycust = 'tir38:CustomerInfo';
         $keyitinery = 'tir38:ItineraryInfo';
 
-        $customerinfo = (array)$datatodisplay->$key->$keycust;
-        $customerinfo = objectToArray($customerinfo);
+        if(isset($datatodisplay->$key) && isset($datatodisplay->$key->$keycust) && isset($datatodisplay->$key->$keyitinery))
+        {  
+          $customerinfo = (array)$datatodisplay->$key->$keycust;
+          $customerinfo = objectToArray($customerinfo);
 
-        $ItineraryInfo = (array)$datatodisplay->$key->$keyitinery;
-        $ItineraryInfo = objectToArray($ItineraryInfo);
-
+          $ItineraryInfo = (array)$datatodisplay->$key->$keyitinery;
+          $ItineraryInfo = objectToArray($ItineraryInfo);
+        }  
+          
         if(isset($ItineraryInfo["tir38:ItineraryPricing"]))
         {
           if(isset($ItineraryInfo["tir38:ItineraryPricing"]["tir38:PriceQuote"]))
