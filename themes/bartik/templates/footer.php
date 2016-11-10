@@ -29,7 +29,7 @@ trk=nav_responsive_tab_profile"></a>
                         <form>
                             <label>Enter your E-mail Address</label>
                             <input type="text" class="form-control">
-                            <p class="mt5"><small>*We Never Send Spam</small>
+                            <p class="mt5"><small>*Subscribe for promotional and season offers</small>
                             </p>
                             <input type="submit" class="btn btn-primary" value="Subscribe">
                         </form>
@@ -49,9 +49,9 @@ trk=nav_responsive_tab_profile"></a>
                     </div>
                     <div class="col-md-4">
                         <h3>Have Questions?</h3>
-                        <h3 class="text-color">1-844-522-1317</h3>
+                        <h3 class="text-color">1-888-417-0446</h3>
                         <h3><a href="#" class="text-color">support@flyoticket.com</a></h3>
-                        <p style="font-size:18px">24/7 Dedicated Customer Support</p>
+                        <p style="font-size:18px">24/7 Dedicated Customer Service</p>
                     </div>
 
                 </div>
