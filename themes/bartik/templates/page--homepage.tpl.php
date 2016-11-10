@@ -316,73 +316,115 @@ global $base_url;
     
   </div>
   <div class="container">
-    <div class="gap"></div>
-    <h3 class="text-center">Top Destinations</h3>
-    <div class="gap">
-      <div class="row row-wrap">
-        <div class="col-md-3">
-          <div class="thumb">
-            <header class="thumb-header">
-              <a class="hover-img curved" href="#">
-                <img src="
-                  <?php echo $themeurl; ?>/img/cuba_havana.jpg" alt="Image Alternative text" title="the journey home" />
-                  <i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
-                </a>
-              </header>
-              <div class="thumb-caption">
-                <h4 class="thumb-title">Cuba</h4>
-                <p class="thumb-desc">Want to book a holiday to Cuba? Whether you're off for a romantic holiday, family trip, or an all-inclusive holiday, Cuba holiday packages on We make planning your trip simple and affordable.</p>
-              </div>
-            </div>
+<!--sukh new content -->
+<div class="gap"></div>
+	<div class="row">
+	<h3 align="center">Overview</h3>
+		<div class="col-md-12">
+		<p>The world is a book and those who don’t travel are only on the first page. Our customers enjoy the levy of cheap travel and ticket bookings. Get the best hotel deals and vivid offers on all kinds of ticket bookings.</p>
+
+<p>You can book a ticket with us for you and your family enjoying a vacation at a luxurious place in a luxurious hotel with the best budget. We help you create memories out there and make your own compelling stories; we take pride in our company and believe that it's our duty to help you make one.</p>
+
+<p>Various destinations within the US and abroad … you name a place, we share our experience with that place. (You can go to our page to check out the events we have managed). It will be a pleasure for us if you document a journey with us and that’s the real gift we receive. Every consumer has different needs and we provide them just what they need.
+</p>
+		</div>
+	</div>
+
+	 <div class="row">
+		<div class="col-md-12">
+			<h3>Hotel booking</h3>
+			<p align="justify">When you mark a stay somewhere, why not mark it at a signature hotel or a resort while you can also receive benefits which are valuable? You can ask for breakfast for two, resort - spa credits, complimentary games, airport transfers and much more. We offer VIP services and make you feel worth the money you have spent.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Taxi Booking</h3>
+			<p align="justify">We help you handle your journey by picking you up from your house and dropping you to your destination with the help of a taxi booking. You don’t have to wait or halt for another taxi at the airport when you reach your holiday destination; we book it for you as soon as you reach the airport. The taxi would drop you at the hotel that we help you book as well.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Air tickets booking</h3>
+			<p align="justify">Why would you pay the full price when you can take advantage of cheap flights? You can get unbelievable offers on flights all over the world and also for domestic travels. Whatever you are looking for, may it be a once in a lifetime trip or a weekend getaway, we can get you either of them at a cheaper price. We keep you updated and you can avail new offers at any moment. We also help you book last minute flights and our team is transparent and always ready to help you out. Make sure to save money by travelling with us whenever you want to fly next!</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Insurance</h3>
+			<p align="justify">Travelling becomes a regular and an important event in everyone’s life whether it's for work or leisure. Some just want to spend family time together while others are out for adventures. You create memories by travelling together which all of us cherish throughout our lives. For us, travelling should be carefree which should be far away from our daily and hectic lives. In any case, we should not undermine the risks involved. It has its own risks and undesirable situations and distress. You can safeguard yourself against some unforeseen troubles.</p>
+		</div>
+	</div> 
+	<!--sukh new content end -->
+  <div class="gap">
+    <p>Situations  like theft of baggage, passport or any other important documents or a medical  emergency might occur; you can secure yourself by taking a travel insurance and  travel anywhere around the globe without worrying much about it. There are  usual claims of lost passports or theft of bags, sometimes a trip delayed or a flight  cancelled, such mishaps can drill down a perfect plan instantly so do not let  such events ruin your getaway.<br>
+      You  can cover enough compensation to return home and even untimely expenses if they  occur so you can still enjoy your trip. There are different types of insurance  available with us and you can choose the one which would suffice your needs and  let you become carefree about the trip according to the plan.</p>
+    <p><strong>Some frequently asked questions</strong></p>
+    <p><strong>What details should I provide to confirm my tour?</strong><br>
+  </p><ul>
+  <li>Your  full name (the way it is in your passport)</li>
+  <li>Passport  number and expiry date</li>
+  <li>Date  of birth</li>
+  <li>Nationality</li>
+  <li>Full  mailing address</li>
+  <li>Occupation</li>
+  <li>Emergency  phone number and contact</li>
+  <li>Any  details or demands regarding your medical or dietary requirements.</li>
+  </ul>
+    <p><strong>What should I carry with myself?</strong><br>
+      It  is recommended that you carry your own luggage; you can save some weight by  avoiding carrying food. Travel with a backpack which you use on a daily basis  such as your clothes, accessories and whatever you fancy carrying. It can also  include sunglasses. </p>
+    <p><strong>What currency should I use?</strong><br>
+      You  can convert currency at any currency agency and it depends on different  locations. It is recommended that you carry some hard cash for the required  destination to keep yourself covered.</p>
+    <p><strong>What about Visa?</strong><br>
+      We  can assist you with the application of a visa but unfortunately, we cannot help  you get one.<br>
+      You  can do this through an embassy.</p>
+    <p><strong>Why us?</strong><br>
+      We  provide quality service and we add our personal touch to everything. Our staff  is friendly and has knowledge and experience and we have our local expertise  with us. We help you save your time and effort and do the hard work for you. The  part left for you is to enjoy your journey and a tailor-made holiday. You know  that you are in good hands and don’t have to worry about legitimacy and  authenticity of the services when you are with us!</p>
+    <p>There  must be a lot more questions and queries out there and our team will gladly get  back to you if you reach out to us.</p>
+    <p>Also,  don’t forget to check out our places to visit for the following season!</p>
+  </div>
+  <h3 class="text-center">Top Destinations</h3>
+  <div class="gap">
+    <div class="row row-wrap">
+      <div class="col-md-3">
+        <div class="thumb">
+          <header class="thumb-header"> <a class="hover-img curved" href="#"> <img src="<?php echo $themeurl; ?>/img/cuba_havana.jpg" alt="Image Alternative text" title="the journey home" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i> </a> </header>
+          <div class="thumb-caption">
+            <h4 class="thumb-title">Cuba</h4>
+            <p class="thumb-desc">Want to book a holiday to Cuba? Whether you're off for a romantic holiday, family trip, or an all-inclusive holiday, Cuba holiday packages on We make planning your trip simple and affordable.</p>
           </div>
-          <div class="col-md-3">
-            <div class="thumb">
-              <header class="thumb-header">
-                <a class="hover-img curved" href="#">
-                  <img src="
-                    <?php echo $themeurl; ?>/img/London_img.jpg" alt="Image Alternative text" title="Upper Lake in New York Central Park" />
-                    <i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
-                  </a>
-                </header>
-                <div class="thumb-caption">
-                  <h4 class="thumb-title">Europe</h4>
-                  <p class="thumb-desc">London is expensive and not as much a convenience culture as America (most black cabs do not take cards). Plan ahead to get the best deals, and book restaurants and theater tickets well in advance.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="thumb">
-                <header class="thumb-header">
-                  <a class="hover-img curved" href="#">
-                    <img src="
-                      <?php echo $themeurl; ?>/img/Dubai-img.jpg" alt="Image Alternative text" title="people on the beach" />
-                      <i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
-                    </a>
-                  </header>
-                  <div class="thumb-caption">
-                    <h4 class="thumb-title">Dubai</h4>
-                    <p class="thumb-desc">Your adventure begins with an exciting journey to the mysterious and magical desert, leaving behind the hustle bustle of the city.Once reached the desert.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="thumb">
-                  <header class="thumb-header">
-                    <a class="hover-img curved" href="#">
-                      <img src="
-                        <?php echo $themeurl; ?>/img/rometravel_img.jpg" alt="Image Alternative text" title="lack of blue depresses me" />
-                        <i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
-                      </a>
-                    </header>
-                    <div class="thumb-caption">
-                      <h4 class="thumb-title">Rome</h4>
-                      <p class="thumb-desc">It was once considered the centre of the universe, when all roads lead there. Now the Italian capital is a living museum, with all the trimmings of a cosmopolitan city.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="thumb">
+          <header class="thumb-header"> <a class="hover-img curved" href="#"> <img src="<?php echo $themeurl; ?>/img/London_img.jpg" alt="Image Alternative text" title="Upper Lake in New York Central Park"><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i> </a> </header>
+          <div class="thumb-caption">
+            <h4 class="thumb-title">Europe</h4>
+            <p class="thumb-desc">London is expensive and not as much a convenience culture as America (most black cabs do not take cards). Plan ahead to get the best deals, and book restaurants and theater tickets well in advance.</p>
           </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="thumb">
+          <header class="thumb-header"> <a class="hover-img curved" href="#"> <img src="<?php echo $themeurl; ?>/img/Dubai-img.jpg" alt="Image Alternative text" title="people on the beach"><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i> </a> </header>
+          <div class="thumb-caption">
+            <h4 class="thumb-title">Dubai</h4>
+            <p class="thumb-desc">Your adventure begins with an exciting journey to the mysterious and magical desert, leaving behind the hustle bustle of the city.Once reached the desert.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="thumb">
+          <header class="thumb-header"> <a class="hover-img curved" href="#"> <img src="<?php echo $themeurl; ?>/img/rometravel_img.jpg" alt="Image Alternative text" title="lack of blue depresses me"><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i> </a> </header>
+          <div class="thumb-caption">
+            <h4 class="thumb-title">Rome</h4>
+            <p class="thumb-desc">It was once considered the centre of the universe, when all roads lead there. Now the Italian capital is a living museum, with all the trimmings of a cosmopolitan city.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <?php /* ?>
 <div id="page-wrapper"><div id="page">
 
