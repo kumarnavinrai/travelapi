@@ -6,7 +6,7 @@
                             <img src="<?php echo $themeurl; ?>/img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
                         </a>
                         <p class="mb20">Booking, reviews and advices on hotels, resorts, flights, vacation rentals, travel packages, and lots more!</p>
-                        <ul class="list list-horizontal list-space text-center">
+                        <!-- <ul class="list list-horizontal list-space text-center">
                             <li>
                                 <a class="fa fa-facebook box-icon-normal round animate-icon-bottom-to-top" href="https://www.facebook.com/Travelpainters/"></a>
                             </li>
@@ -21,7 +21,7 @@
 trk=nav_responsive_tab_profile"></a>
                             </li>
                             
-                        </ul>
+                        </ul> -->
                     </div>
 
                     <div class="col-md-3">
