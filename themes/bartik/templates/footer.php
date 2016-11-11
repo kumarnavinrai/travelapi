@@ -43,6 +43,8 @@ trk=nav_responsive_tab_profile"></a>
                             </li>
                             <li><a href="<?php echo $urlofwp; ?>content/privacypolicy">Privacy Policy</a>
                             </li>
+                             <li><a href="<?php echo $urlofwp; ?>content/desclaimer">Disclaimer</a>
+                            </li>
                             <li><a href="<?php echo $urlofwp; ?>content/termsofuse">Terms of Use</a>
                             </li>
                         </ul>
