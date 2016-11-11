@@ -37,10 +37,35 @@ function mailcontactus_menu()
 function mailcontactus_func() 
 {
 
- //die('navin');
- echo "<pre>"; print_r($_REQUEST); die;
-  return 'success';
+   //die('navin');
+   //echo "<pre>"; print_r($_REQUEST); die;
+   if(isset($_REQUEST['email']) && $_REQUEST['email']!="")
+   {
+      $to = strtolower("navinkumar@geekexperthelp.com");
+      $from = strtolower("support@flyoticket.com");
+      $subject = $_REQUEST['subject'];
 
+      $msg = "Name of customer : ".$_REQUEST['cname']."</br>";
+      $msg .= "Email of customer : ".$_REQUEST['email']."</br>";
+      $msg .= "Message from customer : ".$_REQUEST['message'];
+      //echo $to = strtolower("navinkumar@geekexperthelp.com");
+      //echo $from = strtolower("navinrai@travelpainters.com");
+      //echo $subject = strtolower("I am working");
+      $body = $msg;
+
+      sendEmailSendGrid($to,$from,$subject,$body);
+
+      global $base_url;
+      $burl = $base_url."/";
+      $message = "Thanks for contacting flyoticket. We will surely get in touch with within 24 Hours.";
+      drupal_set_message($message, $type = 'success');
+      drupal_goto($burl, array('query'=>array('cmsg'=>1));
+      die();  
+
+    
+   }
+
+  return 'Contact Admin';
 }
 
 
