@@ -191,9 +191,9 @@ require_once $filepath;
     </script>
                                 
                                 <li ><a href="<?php echo $urlofwp; ?>">FLIGHTS</a> </li>
-                                <li><a href="<?php echo $urlofwp; ?>">HOTELS</a> </li>
+                                <!-- <li><a href="<?php echo $urlofwp; ?>">HOTELS</a> </li> -->
                                 <!--<li><a href="<?php echo $urlofwp; ?>insurance/">INSURANCE</a></li>-->
-                                <li><a href="<?php echo $urlofwp; ?>">CARS</a></li>
+                                <!-- <li><a href="<?php echo $urlofwp; ?>">CARS</a></li> -->
                                 <!-- diff menu start -->
                                 <li class="dropdown mega-dropdown">
                                   <a href="<?php echo $urlofwp; ?>destinations" class="dropdown-toggle" data-toggle="dropdown">TRAVEL INFO &nbsp<i class="fa fa-sort-desc sukh" aria-hidden="true"></i></a>
@@ -205,7 +205,7 @@ require_once $filepath;
                                 </li>     
                                 <!--diff menu ends -->
                                
-                                <li><a href="<?php echo $urlofwp; ?>content/aboutus">ABOUT US</a> </li>
+                                <!-- <li><a href="<?php echo $urlofwp; ?>content/aboutus">ABOUT US</a> </li> -->
                                 
                                 <li><a href="<?php echo $urlofwp; ?>content/contacts/">CONTACT US</a></li>
     
