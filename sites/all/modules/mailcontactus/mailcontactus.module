@@ -39,7 +39,7 @@ function mailcontactus_func()
 
    //die('navin');
    //echo "<pre>"; print_r($_REQUEST); die;
-   if(isset($_REQUEST['email']) && $_REQUEST['email']!="")
+   /*if(isset($_REQUEST['email']) && $_REQUEST['email']!="")
    {
       $to = strtolower("navinkumar@geekexperthelp.com");
       $from = strtolower("support@flyoticket.com");
@@ -48,9 +48,7 @@ function mailcontactus_func()
       $msg = "Name of customer : ".$_REQUEST['cname']."</br>";
       $msg .= "Email of customer : ".$_REQUEST['email']."</br>";
       $msg .= "Message from customer : ".$_REQUEST['message'];
-      //echo $to = strtolower("navinkumar@geekexperthelp.com");
-      //echo $from = strtolower("navinrai@travelpainters.com");
-      //echo $subject = strtolower("I am working");
+      
       $body = $msg;
 
       sendEmailSendGrid($to,$from,$subject,$body);
@@ -63,7 +61,7 @@ function mailcontactus_func()
       die();  
 
     
-   }
+   }*/
 
   return 'Contact Admin';
 }
