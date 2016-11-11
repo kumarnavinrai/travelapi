@@ -1,0 +1,3 @@
+name = Mailcontactus
+description = A module for Mail send contact us!
+core = 7.x

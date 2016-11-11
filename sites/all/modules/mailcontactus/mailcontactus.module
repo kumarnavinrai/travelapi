@@ -1,0 +1,61 @@
+<?php
+/**
+ * @filefvg 
+ * This is the main module file.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function mailcontactus_help($path, $arg) 
+{
+
+  if ($path == 'admin/help#mailcontactus') 
+  {
+    $output = '<h3>' . t('Mailcontactus') . '</h3>';
+    $output .= '<p>' . t('The mailcontactus module allows you to send mail through api.') . '</p>';
+    return $output;
+  }
+}
+
+/**
+* Implementation of hook_menu().
+*/
+
+function mailcontactus_menu() 
+{
+  $items['mailcontactus'] = array(
+   'page callback' => 'mailcontactus_func',
+ //'type' => MENU_CALLBACK,
+    //'page arguments' => array('displaypnr_func'),
+  'access arguments' => array('access mailcontactus content'),
+    );
+  return $items;
+}
+
+
+function mailcontactus_func() 
+{
+
+ //die('navin');
+ 
+  return 'success';
+
+}
+
+
+/*function checkpnr_form_submit($form, &$form_state) 
+{
+  //return "Navin";
+  echo "<pre>"; print_r($_REQUEST); die;
+}*/
+
+
+function mailcontactus_permission() {
+  return array(
+    'access mailcontactus content' => array(
+      'title' => t('Access content for the mailcontactus module'),
+    )
+  );
+}
+
