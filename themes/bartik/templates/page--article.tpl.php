@@ -22,13 +22,13 @@ $nodes = node_load_multiple(array(), array('type' => 'page'));
 
       ?>
       //console.log(list);
-      $('a').each(function (index, value){
+      /*$('a').each(function (index, value){
          
         if($(this).attr('title') !== undefined){
             
             $(this).attr('href',"/content/"+list[$(this).attr('title')]);
          }
-      });
+      });*/
    });
 </script>
 <div class="travelpainter_abhiroute">
