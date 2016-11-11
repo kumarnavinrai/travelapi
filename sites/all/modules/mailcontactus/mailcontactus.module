@@ -38,7 +38,7 @@ function mailcontactus_func()
 {
 
  //die('navin');
- 
+ echo "<pre>"; print_r($_REQUEST); die;
   return 'success';
 
 }
