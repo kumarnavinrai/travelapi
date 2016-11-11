@@ -55,7 +55,13 @@
  <?php 
         $pathoffile = realpath(__DIR__);
         //echo $pathoffile; die;
-        require_once $pathoffile."/common/"."titleandcssincludes.php"
+        require_once $pathoffile."/common/"."titleandcssincludes.php";
+         global $base_url;
+      $burl = $base_url."/";
+      $message = "Oops Your requested page not found !!!!";
+      drupal_set_message($message, $type = 'error');
+      drupal_goto($burl, array('query'=>array('cmsg'=>1)));
+      die();  
    ?>
   
   <?php /* print $head; ?>

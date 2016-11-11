@@ -9,30 +9,30 @@
                       <span class="text-tab-sukh" >Flights</span>
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="#tab-1" data-toggle="tab">
                       <i class="fa fa-building-o"></i>
                       <span  class="text-tab-sukh" >Hotels</span>
                     </a>
-                  </li>
+                  </li> -->
                   <!--<li>
                     <a href="#tab-3" data-toggle="tab">
                       <i class="fa fa-home"></i>
                       <span >Rails</span>
                     </a>
                   </li>-->
-                  <li>
+                  <!-- <li>
                     <a href="#tab-4" data-toggle="tab">
                       <i class="fa fa-car"></i>
                       <span class="text-tab-sukh">Cars</span>
                     </a>
-                  </li>
-                  <li>
+                  </li> -->
+                  <!-- <li>
                     <a href="#tab-5" data-toggle="tab">
                       <i class="fa fa-bolt"></i>
                       <span  class="text-tab-sukh" >Vacations</span>
                     </a>
-                  </li>
+                  </li> -->
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane fade in active" id="tab-2">

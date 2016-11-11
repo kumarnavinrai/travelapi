@@ -1,4 +1,13 @@
-<?php $themeurl = file_create_url(path_to_theme()); ?>
+<?php $themeurl = file_create_url(path_to_theme()); 
+
+   global $base_url;
+      $burl = $base_url."/";
+      $message = "Oops Your requested page not found !!!!";
+      drupal_set_message($message, $type = 'error');
+      header("Location: ".$burl);
+      die();  
+
+?>
  <!-- GOOGLE FONTS -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600' rel='stylesheet' type='text/css'>
