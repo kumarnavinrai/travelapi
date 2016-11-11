@@ -51,13 +51,13 @@ function mailcontactus_func()
       
       $body = $msg;
 
-      //sendEmailSendGrid($to,$from,$subject,$body);
+      sendEmailSendGrid($to,$from,$subject,$body);
 
       global $base_url;
       $burl = $base_url."/";
       $message = "Thanks for contacting flyoticket. We will surely get in touch with within 24 Hours.";
       drupal_set_message($message, $type = 'success');
-      drupal_goto($burl, array('query'=>array('cmsg'=>1));
+      drupal_goto($burl, array('query'=>array('cmsg'=>1)));
       die();  
 
     
