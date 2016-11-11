@@ -39,7 +39,7 @@ function mailcontactus_func()
 
    //die('navin');
    //echo "<pre>"; print_r($_REQUEST); die;
-   /*if(isset($_REQUEST['email']) && $_REQUEST['email']!="")
+   if(isset($_REQUEST['email']) && $_REQUEST['email']!="")
    {
       $to = strtolower("navinkumar@geekexperthelp.com");
       $from = strtolower("support@flyoticket.com");
@@ -51,7 +51,7 @@ function mailcontactus_func()
       
       $body = $msg;
 
-      sendEmailSendGrid($to,$from,$subject,$body);
+      //sendEmailSendGrid($to,$from,$subject,$body);
 
       global $base_url;
       $burl = $base_url."/";
@@ -61,7 +61,7 @@ function mailcontactus_func()
       die();  
 
     
-   }*/
+   }
 
   return 'Contact Admin';
 }
