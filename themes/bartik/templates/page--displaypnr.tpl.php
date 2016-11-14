@@ -428,7 +428,12 @@ function objectToArray($d)
                  if(isset($ItineraryInfo))
                  { 
                     //echo "<pre>sss"; print_r($ItineraryInfo); die;
-                    $Itinerary = $ItineraryInfo["tir38:ReservationItems"]["tir38:Item"];
+                  if(isset($ItineraryInfo["tir38:ReservationItems"]) && isset($ItineraryInfo["tir38:ReservationItems"]["tir38:Item"]))
+                  {
+                      $Itinerary = $ItineraryInfo["tir38:ReservationItems"]["tir38:Item"];
+                  }
+
+
                     if(isset($Itinerary[0]))
                     {
                       foreach ($Itinerary as $key => $value) {
