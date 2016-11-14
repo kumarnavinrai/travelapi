@@ -23,18 +23,18 @@ if(strpos($base_url, "travelpainters.local"))
 elseif(strpos($base_url, "flyoticket.com"))
 {
   //$urlofwp = "http://travelpainters.com/";  
-  $urlofwp = "http://flyoticket.com/";  
+  $urlofwp = "https://flyoticket.com/";  
   //$_SESSION['urlforform'] = "http://travelpainters.com/";
-  $_SESSION['urlforform'] = "http://flyoticket.com/";
+  $_SESSION['urlforform'] = "https://flyoticket.com/";
 
   $sitelink = $_SESSION['urlforform'];
   //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
   //$urltoGetFilghts = "http://travelpainters.com/phpsaber/start_rest_workflow.php";
-  $urltoGetFilghts = "http://flyoticket.com/phpsaber/start_rest_workflow.php";
+  $urltoGetFilghts = "https://flyoticket.com/phpsaber/start_rest_workflow.php";
   
 }
 
 
-$noofresultonpage = 200;
+$noofresultonpage = 100;
 
 ?>
