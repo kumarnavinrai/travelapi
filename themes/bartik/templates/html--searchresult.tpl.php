@@ -104,19 +104,20 @@ header('Access-Control-Allow-Origin: *');
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; */?>
-  <script type="text/javascript">
+ <script type="text/javascript">
   <?php if(strpos($base_url, "flyoticket.com"))
         { ?>
     //var urlforapi = "http://127.0.0.1:1337/";
     //var urlforapi = "http://104.168.102.222:1337/";
-    var urlforapi = "http://flyoticket.com:1337/";
+    var urlforapi = "https://flyoticket.com/phpsaber/autoc.php";
   <?php } ?>  
   <?php if(strpos($base_url, "travelpainters.local"))
         { ?>
-    var urlforapi = "http://127.0.0.1:1337/";
-    //var urlforapi = "http://104.168.102.222:1337/";
+    //var urlforapi = "http://127.0.0.1:1337/";
+    var urlforapi = "http://travelpainters.local/phpsaber/autoc.php";
+    //var urlforapi = "http://flyoticket.com:1337/";
   <?php } ?>  
-    
+     
   </script>
 </head>
 <body data-ng-init="init()"  class="<?php print $classes; ?>" <?php print $attributes;?>>
