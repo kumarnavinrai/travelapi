@@ -58,7 +58,8 @@ $('.typeahead').typeahead({
         return $.ajax({
             dataType: 'json',
             type: 'post',
-            url: urlforapi+'AutoCompleteCity?&q=' + q,
+            //url: 'http://travelpainters.local:1337/AutoCompleteCity?&q=' + q,
+            url: urlforapi+'?&q=' + q,
             chache: false,
             success: function(data) {
                 var result = [];
@@ -68,18 +69,12 @@ $('.typeahead').typeahead({
                 console.log(data);
                 $.each(data, function(index, val) {
                     statedata = "";
-                    countrydata = val.countryName;
-                    datatopush = "";
-                    if(val.state !== undefined){
-                        statedata = val.state+",";
-                    }
-                    if(val.country == "US"){
-                        countrydata = val.country;
-                    }
+                    //console.log(val);
+                    
 
                     
                    
-                    datatopush = val.id + " - " +  val.name + ", " + val.city + ", " + statedata + " " + countrydata ;
+                    datatopush = val;
                     result.push({
                         value: datatopush
                     });

@@ -162,12 +162,12 @@ function get_client_ip() {
         { ?>
     //var urlforapi = "http://127.0.0.1:1337/";
     //var urlforapi = "http://104.168.102.222:1337/";
-    var urlforapi = "flyoticket.com:1337/";
+    var urlforapi = "https://flyoticket.com/phpsaber/autoc.php";
   <?php } ?>  
   <?php if(strpos($base_url, "travelpainters.local"))
         { ?>
     //var urlforapi = "http://127.0.0.1:1337/";
-    var urlforapi = "http://travelpainters.local:1337/";
+    var urlforapi = "http://travelpainters.local/phpsaber/autoc.php";
     //var urlforapi = "http://flyoticket.com:1337/";
   <?php } ?>  
     
