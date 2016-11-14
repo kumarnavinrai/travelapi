@@ -11999,8 +11999,12 @@ span.booking-item-price.price-text-sukh {
 
 .row-sukh {
     margin-left: 0px;
-    color:#000;
+    /*color:#000;*/
 }
+.row.row-sukh label {
+    color: #000 !important;
+}
+
 .sukh-color {
     height: 14.5em;
 }
