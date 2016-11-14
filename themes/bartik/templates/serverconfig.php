@@ -25,7 +25,7 @@ elseif(strpos($base_url, "flyoticket.com"))
   //$urlofwp = "http://travelpainters.com/";  
   $urlofwp = "http://flyoticket.com/";  
   //$_SESSION['urlforform'] = "http://travelpainters.com/";
-  $_SESSION['urlforform'] = "http://flyoticket.com/";
+  $_SESSION['urlforform'] = $base_url."/";
 
   $sitelink = $_SESSION['urlforform'];
   //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
