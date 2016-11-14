@@ -564,7 +564,7 @@ function objectToArray($d)
                       }
                     }else
                     {
-                      $value = $Itinerary;
+                      $value = isset($Itinerary)?$Itinerary:array();
                       if(isset($value["tir38:FlightSegment"]))
                           {
                             echo '<tr>';
