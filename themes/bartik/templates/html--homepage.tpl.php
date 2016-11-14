@@ -111,8 +111,8 @@ function get_client_ip() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- GOOGLE FONTS -->
-    <link href='//fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600' rel='stylesheet' type='text/css'>
     <!-- /GOOGLE FONTS -->
     <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/font-awesome.css">
@@ -162,7 +162,7 @@ function get_client_ip() {
         { ?>
     //var urlforapi = "http://127.0.0.1:1337/";
     //var urlforapi = "http://104.168.102.222:1337/";
-    var urlforapi = "//flyoticket.com:1337/";
+    var urlforapi = "flyoticket.com:1337/";
   <?php } ?>  
   <?php if(strpos($base_url, "travelpainters.local"))
         { ?>
