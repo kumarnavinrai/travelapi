@@ -10056,6 +10056,7 @@ span.count {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.15);
 }
 .mfp-container:before {
   content: '';
@@ -10728,7 +10729,8 @@ img.mfp-img {
   filter: alpha(opacity=0);
 }
 .mfp-dialog {
-  background: #fff;
+  /*background: #fff;*/
+  background: rgba(0,0,0,0.2);
   padding: 20px 30px;
   text-align: left;
   max-width: 400px;
@@ -11997,6 +11999,7 @@ span.booking-item-price.price-text-sukh {
 
 .row-sukh {
     margin-left: 0px;
+    color:#000;
 }
 .sukh-color {
     height: 14.5em;
