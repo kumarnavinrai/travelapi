@@ -316,7 +316,7 @@
                         }
 
                         ?>
-                     
+                       
                         <?php if(isset($bookingdata->adultfare)){ ?>    
                         <h5>Adult Fare</h5>
                         <h5>Adult Tax</h5>
@@ -332,7 +332,7 @@
                     </div>
                                             <div class="clearfix col-md-6">
                                                 <h5 class="price-firstline"><?php echo isset($adult)?$adult:""; ?> Adult<?php if(isset($children)){ ?>, <?php echo isset($children)?$children:""; ?> Children<?php } ?><?php if(isset($infant)){ ?>, <?php echo isset($infant)?$infant:""; ?> Infant<?php } ?></h5>
-                                                <?php if($children == 0 && $infant == 0){ ?>
+                                                <?php if($children == 0 && $infant == 0){  ?>
                                                 <h5>$<?php echo number_format((float)$totalprice-$priceperadulttax, 2, '.', ''); ?></h5>
                                                 <h5>$<?php echo number_format((float)$priceperadulttax, 2, '.', ''); ?></h5>
                                                 <?php } ?>
@@ -343,13 +343,13 @@
                                                         $adulttax = isset($bookingdata->adultfare)?$bookingdata->adultfare->tax:0;
                                                         $adultbtfare = isset($bookingdata->adultfare)?number_format((float)$adultfare-$adulttax, 2, '.', ''):0;
                                                     }
-                                                    if(isset($bookingdata->childfare)){
+                                                    if(isset($bookingdata->childfare)){ 
                                                         $childfare = isset($bookingdata->childfare)?$bookingdata->childfare->fare:0;
                                                         $childtax = isset($bookingdata->childfare)?$bookingdata->childfare->tax:0;
                                                         $childbtfare = isset($bookingdata->childfare)?number_format((float)$childfare-$childtax, 2, '.', ''):0;
                                                     }
 
-                                                    if(isset($bookingdata->infantfare)){
+                                                    if(isset($bookingdata->infantfare)){ 
                                                         $infantfare = isset($bookingdata->infantfare)?$bookingdata->infantfare->fare:0;
                                                         $infanttax = isset($bookingdata->infantfare)?$bookingdata->infantfare->tax:0;
                                                         $infantbtfare = isset($bookingdata->infantfare)?number_format((float)$infantfare-$infanttax, 2, '.', ''):0;
@@ -357,16 +357,16 @@
 
                                                     ?>
                                             
-                                                <?php if(isset($bookingdata->adultfare)){ ?>    
+                                                <?php if(isset($bookingdata->adultfare) && $children != 0 && $infant != 0){ ?>    
                                                 <h5>$<?php echo number_format((float)$adultbtfare, 2, '.', ''); ?></h5>
                                                 <h5>$<?php echo number_format((float)$adulttax, 2, '.', ''); ?></h5>
                                                 <?php } ?>
                                               
-                                                <?php if(isset($bookingdata->childfare)){ ?>    
+                                                <?php if(isset($bookingdata->childfare)){  ?>    
                                                 <h5>$<?php echo number_format((float)$childbtfare, 2, '.', ''); ?></h5>
                                                 <h5>$<?php echo number_format((float)$childtax, 2, '.', ''); ?></h5>
                                                 <?php } ?>
-                                                <?php if(isset($bookingdata->infantfare)){ ?>    
+                                                <?php if(isset($bookingdata->infantfare)){  ?>    
                                                 <h5>$<?php echo number_format((float)$infantbtfare, 2, '.', ''); ?></h5>
                                                 <h5>$<?php echo number_format((float)$infanttax, 2, '.', ''); ?></h5>
                                                 <?php } ?>
