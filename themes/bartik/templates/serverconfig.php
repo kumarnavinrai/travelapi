@@ -23,7 +23,7 @@ if(strpos($base_url, "travelpainters.local"))
 elseif(strpos($base_url, "flyoticket.com"))
 {
   //$urlofwp = "http://travelpainters.com/";  
-  $urlofwp = "http://flyoticket.com/";  
+  $urlofwp = "https://flyoticket.com/";  
   //$_SESSION['urlforform'] = "http://travelpainters.com/";
   $_SESSION['urlforform'] = $base_url."/";
 
