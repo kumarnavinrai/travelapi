@@ -30,7 +30,7 @@ elseif(strpos($base_url, "flyoticket.com"))
   $sitelink = $_SESSION['urlforform'];
   //$urltoGetFilghts = "http://127.0.0.1:1337/fs/";
   //$urltoGetFilghts = "http://travelpainters.com/phpsaber/start_rest_workflow.php";
-  $urltoGetFilghts = "http://flyoticket.com/phpsaber/start_rest_workflow.php";
+  $urltoGetFilghts = "https://flyoticket.com/phpsaber/start_rest_workflow.php";
   
 }
 
