@@ -2,8 +2,8 @@
 
 
 
-$themeurl = file_create_url(path_to_theme());
-
+echo $themeurl = file_create_url(path_to_theme());
+die;
 global $base_url;   // Will point to http://www.example.com
 global $base_path;  // Will point to at least "/" or the subdirectory where the drupal in installed.
 $sitelink = $base_url . $base_path;
