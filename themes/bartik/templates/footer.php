@@ -47,6 +47,10 @@ trk=nav_responsive_tab_profile"></a>
                             </li>
                             <li><a href="<?php echo $urlofwp; ?>content/termsofuse">Terms of Use</a>
                             </li>
+                            <li><a href="<?php echo $urlofwp; ?>overview">Overview</a>
+                            </li>
+                            <li><a href="<?php echo $urlofwp; ?>routespopular">Popular Routes</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-md-4">

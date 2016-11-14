@@ -43,6 +43,8 @@
  * @ingroup themeable
  */
 
+header('Access-Control-Allow-Origin: *');
+
   $pathoffile = realpath(__DIR__);
   //echo $pathoffile; die;
   require_once $pathoffile."/"."serverconfig.php";
