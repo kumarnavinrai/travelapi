@@ -111,8 +111,8 @@ function get_client_ip() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- GOOGLE FONTS -->
-    <link href='//www.fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
-    <link href='//www.fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600' rel='stylesheet' type='text/css'>
     <!-- /GOOGLE FONTS -->
     <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/font-awesome.css">
@@ -162,7 +162,7 @@ function get_client_ip() {
         { ?>
     //var urlforapi = "http://127.0.0.1:1337/";
     //var urlforapi = "http://104.168.102.222:1337/";
-    var urlforapi = "//www.flyoticket.com:1337/";
+    var urlforapi = "//flyoticket.com:1337/";
   <?php } ?>  
   <?php if(strpos($base_url, "travelpainters.local"))
         { ?>
@@ -262,7 +262,7 @@ function get_client_ip() {
         <script src="<?php echo $themeurl; ?>/js/switcher.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="//www.google.com/jsapi?key=AIzaSyBGtM0dY8A7JgqvCN9TydLeNIVhWZnJ1K8"></script>
+        <script type="text/javascript" src="//google.com/jsapi?key=AIzaSyBGtM0dY8A7JgqvCN9TydLeNIVhWZnJ1K8"></script>
         <script type="text/javascript">
           google.load("maps", "2.x", {callback: initialize});
 
@@ -309,7 +309,7 @@ function get_client_ip() {
           $(document).ready(function(){
             $("#workflow-form").submit(function(event) { 
               var over = '<div id="overlay">' +
-                      '<img id="loading" src="//www.swellalerts.com/img/plane_loading.gif"/>' +
+                      '<img id="loading" src="//swellalerts.com/img/plane_loading.gif"/>' +
                       '</div>';
                   $(over).appendTo('body');
                   return false;
