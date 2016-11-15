@@ -309,19 +309,19 @@
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>From</label>
-                                <input class="typeahead form-control" placeholder="City, Airport" type="text" />
+                                <input class="typeahead form-control" name="from1" placeholder="City, Airport" type="text" />
                               </div>
                             </div>
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>To</label>
-                                <input class="typeahead form-control" placeholder="City, Airport" type="text" />
+                                <input class="typeahead form-control" name="to1" placeholder="City, Airport" type="text" />
                               </div>
                             </div>
                              <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                 <label>Departing</label>
-                                <input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="startx" type="text">
+                                <input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="startml1" type="text">
                               </div>
                             </div>
                           </div>
@@ -329,20 +329,20 @@
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>From</label>
-                                <input class="typeahead form-control" placeholder="City, Airport" type="text" />
+                                <input class="typeahead form-control" name="from2" placeholder="City, Airport" type="text" />
                               </div>
                             </div>
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>To</label>
-                                <input class="typeahead form-control" placeholder="City, Airport" type="text" />
+                                <input class="typeahead form-control" name="to2" placeholder="City, Airport" type="text" />
                               </div>
                             </div>
                              <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                 <label>Departing</label>
                                 <!-- <input class="date-pick form-control" data-date-format="M d, D" type="text" /> -->
-                                <input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="startx" type="text">
+                                <input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="startml2" type="text">
                                
                               </div>
                             </div>

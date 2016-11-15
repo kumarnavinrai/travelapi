@@ -63,16 +63,9 @@ $('.typeahead').typeahead({
             chache: false,
             success: function(data) {
                 var result = [];
-                var datatopush;
-                var statedata;
-                var countrydata;
+        
                 console.log(data);
                 $.each(data, function(index, val) {
-                    statedata = "";
-                    //console.log(val);
-                    
-
-                    
                    
                     datatopush = val;
                     result.push({
