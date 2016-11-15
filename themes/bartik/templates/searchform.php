@@ -770,6 +770,7 @@
               numberOfMonths: 2,
               onClose: function(selectedDate) {
                 $('#datepickercust2').datepicker("option", "minDate", selectedDate);
+                $('#datepickercust2').val("");
                 //$('#datepickercust2').datepicker("show");
               }
             });   
@@ -781,6 +782,7 @@
                 numberOfMonths: 2,
                 onClose: function(selectedDate) {
                   $('#datepickercust3').datepicker("option", "minDate", selectedDate);
+                  $('#datepickercust3').val("");
                   //$('#datepickercust3').datepicker("show");
               }
             });
@@ -792,6 +794,7 @@
                 numberOfMonths: 2,
                 onClose: function(selectedDate) {
                   $('#datepickercust4').datepicker("option", "minDate", selectedDate);
+                  $('#datepickercust4').val("");
                   //$('#datepickercust4').datepicker("show");
               }
             });
@@ -803,6 +806,7 @@
                 numberOfMonths: 2,
                 onClose: function(selectedDate) {
                   $('#datepickercust5').datepicker("option", "minDate", selectedDate);
+                  $('#datepickercust5').val("");
                   //$('#datepickercust5').datepicker("show");
               }
             });
