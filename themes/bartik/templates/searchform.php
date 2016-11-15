@@ -305,6 +305,7 @@
                         </div>
                         <!-- flight search starts -->
                         <div class="tab-pane fade" id="flight-search-3">
+                        <!-- Muticity row 1 -->
                           <div class="row">
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
@@ -321,10 +322,12 @@
                              <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                 <label>Departing</label>
-                                <input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="startml1" type="text">
+                                <input id="datepickercust1" class="form-control date-setting-sukh-multi" placeholder="yyyy-mm-dd" name="startml1" type="text">
+
                               </div>
                             </div>
                           </div>
+                          <!-- Muticity row 2 -->
                           <div class="row">
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
@@ -342,9 +345,82 @@
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                 <label>Departing</label>
                                 <!-- <input class="date-pick form-control" data-date-format="M d, D" type="text" /> -->
-                                <input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="startml2" type="text">
+                                <input id="datepickercust2" class="form-control date-setting-sukh-multi" placeholder="yyyy-mm-dd" name="startml2" type="text">
                                
                               </div>
+                            </div>
+                          </div>
+                          <!-- Muticity row 3 -->
+                          <div class="row mul3 mulhide">
+                            <div class="col-md-4">
+                              <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
+                                <label>From</label>
+                                <input class="typeahead form-control" name="from3" placeholder="City, Airport" type="text" />
+                              </div>
+                              <a href="#" data="mul3" class="remove_field">Remove</a>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
+                                <label>To</label>
+                                <input class="typeahead form-control" name="to3" placeholder="City, Airport" type="text" />
+                              </div>
+                            </div>
+                             <div class="col-md-4">
+                              <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                                <label>Departing</label>
+                                <!-- <input class="date-pick form-control" data-date-format="M d, D" type="text" /> -->
+                                <input id="datepickercust3" class="form-control date-setting-sukh-multi" placeholder="yyyy-mm-dd" name="startml3" type="text">
+                               
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Muticity row 4 -->
+                          <div class="row mul4 mulhide">
+                            <div class="col-md-4">
+                              <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
+                                <label>From</label>
+                                <input class="typeahead form-control" name="from4" placeholder="City, Airport" type="text" />
+                              </div>
+                              <a href="#" data="mul4" class="remove_field">Remove</a>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
+                                <label>To</label>
+                                <input class="typeahead form-control" name="to4" placeholder="City, Airport" type="text" />
+                              </div>
+                            </div>
+                             <div class="col-md-4">
+                              <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                                <label>Departing</label>
+                                <!-- <input class="date-pick form-control" data-date-format="M d, D" type="text" /> -->
+                                <input id="datepickercust4" class="form-control date-setting-sukh-multi" placeholder="yyyy-mm-dd" name="startml4" type="text">
+                               
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Muticity row 5 -->
+                          <div class="row mul5 mulhide">
+                            <div class="col-md-4">
+                              <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
+                                <label>From</label>
+                                <input class="typeahead form-control" name="from5" placeholder="City, Airport" type="text" />
+                              </div>
+                              <a href="#" data="mul5" class="remove_field">Remove</a>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
+                                <label>To</label>
+                                <input class="typeahead form-control" name="to5" placeholder="City, Airport" type="text" />
+                              </div>
+                            </div>
+                             <div class="col-md-4">
+                              <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                                <label>Departing</label>
+                                <!-- <input class="date-pick form-control" data-date-format="M d, D" type="text" /> -->
+                                <input id="datepickercust5" class="form-control date-setting-sukh-multi" placeholder="yyyy-mm-dd" name="startml5" type="text">
+                               
+                              </div>
+
                             </div>
                           </div>
                           <div class="row">
@@ -634,22 +710,110 @@
             </div>
           </div>
         </div>
+        <style>
+        .mulhide{display: none;}
+        </style>
         <script type="text/javascript">
           $(document).ready(function() {
-            var max_fields      = 4; //maximum input boxes allowed
+            var max_fields      = 5; //maximum input boxes allowed
             var wrapper         = $(".input_fields_wrap"); //Fields wrapper
             var add_button      = $(".add_field_button"); //Add button ID
             
-            var x = 1; //initlal text box count
+            var x = 2; //initlal text box count
             $(add_button).click(function(e){ //on add input button click
                 e.preventDefault();
                 if(x < max_fields){ //max input box allowed
                     x++; //text box increment
-                    $(wrapper).append('<div class="row"><div class="col-md-12"><div class="col-md-4"><div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i><label>From</label><input name="text[]" class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text"/></div></div><div class="col-md-4"><div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i><label>To</label><input name="text[]" class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text"/></div></div><div class="col-md-4"><div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i><label>Departing</label><input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="startx" type="text"></div></div><a href="#" class="remove_field">Remove</a></div></div>'); //add input box
+                    console.log(x);
+                    var clstoshow = ".mul"+x;
+                    $(clstoshow).show();
+                    /*$(wrapper).append('<div class="row"><div class="col-md-12"><div class="col-md-4"><div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i><label>From</label><input name="text[]" class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text"/></div></div><div class="col-md-4"><div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i><label>To</label><input name="text[]" class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text"/></div></div><div class="col-md-4"><div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i><label>Departing</label><input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="startx" type="text"></div></div><a href="#" class="remove_field">Remove</a></div></div>');*/ //add input box
                 }
             });
             $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-              e.preventDefault(); $(this).parent('div').remove(); x--;
+              e.preventDefault(); /*$(this).parent('div').remove();*/ x--;
+              console.log(x);
             })
+
+            $(".remove_field").on("click", function(e){ //user click on remove text
+              e.preventDefault(); 
+              //console.log($(this).attr('data'));
+              var clstormv = "."+$(this).attr('data');
+              $(clstormv).hide();
+              x--;
+              //console.log(x);
+            })
+
+            /* mldatepicker */
+            /*$('#from_datepicker1').datepicker();    
+            alert("abc");*/
+            /*{
+              minDate: 'D',
+              dateFormat: "yyyy-mm-dd",
+              defaultDate: "+1w",
+              numberOfMonths: 2
+            }*/
+
         });
         </script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+        $( function() {
+          var dateFormat = 'yy-mm-dd';  
+          $('#datepickercust1').datepicker({
+              minDate: 'D',
+              dateFormat: dateFormat,
+              defaultDate: "+1w",
+              numberOfMonths: 2,
+              onClose: function(selectedDate) {
+                $('#datepickercust2').datepicker("option", "minDate", selectedDate);
+                $('#datepickercust2').datepicker("show");
+              }
+            });   
+
+             $('#datepickercust2').datepicker({
+                minDate: '+1D',
+                dateFormat: dateFormat,
+                defaultDate: "+1w",
+                numberOfMonths: 2,
+                onClose: function(selectedDate) {
+                  $('#datepickercust3').datepicker("option", "minDate", selectedDate);
+                  $('#datepickercust3').datepicker("show");
+              }
+            });
+
+             $('#datepickercust3').datepicker({
+                minDate: '+1D',
+                dateFormat: dateFormat,
+                defaultDate: "+1w",
+                numberOfMonths: 2,
+                onClose: function(selectedDate) {
+                  $('#datepickercust4').datepicker("option", "minDate", selectedDate);
+                  $('#datepickercust4').datepicker("show");
+              }
+            });
+
+             $('#datepickercust4').datepicker({
+                minDate: '+1D',
+                dateFormat: dateFormat,
+                defaultDate: "+1w",
+                numberOfMonths: 2,
+                onClose: function(selectedDate) {
+                  $('#datepickercust5').datepicker("option", "minDate", selectedDate);
+                  $('#datepickercust5').datepicker("show");
+              }
+            });
+
+             $('#datepickercust5').datepicker({
+                minDate: '+1D',
+                dateFormat: dateFormat,
+                defaultDate: "+1w",
+                numberOfMonths: 2
+            });
+        
+        } );
+        </script>
+     

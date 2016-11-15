@@ -1,7 +1,7 @@
 <?php
 
 header('Access-Control-Allow-Origin: *');
-echo "<pre>"; print_r($_REQUEST); die;
+//echo "<pre>"; print_r($_REQUEST); die;
 /**
  * @file
  * Default theme implementation to display the basic html structure of a single
