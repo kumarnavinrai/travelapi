@@ -2,6 +2,24 @@
 
 $urlforform = "http://travelpainters.com/travel/";
 
+global $base_url;   // Will point to http://www.example.com
+
+if(strpos($base_url, "travelpainters.local"))
+{
+  
+}
+elseif(strpos($base_url, "flyoticket.com"))
+{
+ if (!isset($_SERVER['HTTPS']) or $_SERVER['HTTPS'] == 'off' ) {
+    $serverhost = str_replace("www.", "", $_SERVER['HTTP_HOST']);
+    $redirect_url = "https://" . $serverhost . $_SERVER['REQUEST_URI'];
+    header("Location: $redirect_url");
+    exit();
+}
+
+  
+}
+
 /**
  * Add body classes if certain regions have content.
  */

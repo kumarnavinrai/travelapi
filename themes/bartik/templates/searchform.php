@@ -306,7 +306,7 @@
                         <!-- flight search starts -->
                         <div class="tab-pane fade" id="flight-search-3">
                         <!-- Muticity row 1 -->
-                          <div class="row">
+                          <div class="row mlrow">
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>From</label>
@@ -328,7 +328,7 @@
                             </div>
                           </div>
                           <!-- Muticity row 2 -->
-                          <div class="row">
+                          <div class="row mlrow">
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>From</label>
@@ -351,7 +351,8 @@
                             </div>
                           </div>
                           <!-- Muticity row 3 -->
-                          <div class="row mul3 mulhide">
+                          <div class="row mul3 mulhide mlrow">
+                            
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>From</label>
@@ -375,7 +376,7 @@
                             </div>
                           </div>
                           <!-- Muticity row 4 -->
-                          <div class="row mul4 mulhide">
+                          <div class="row mul4 mulhide mlrow">
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>From</label>
@@ -399,7 +400,7 @@
                             </div>
                           </div>
                           <!-- Muticity row 5 -->
-                          <div class="row mul5 mulhide">
+                          <div class="row mul5 mulhide mlrow">
                             <div class="col-md-4">
                               <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                 <label>From</label>
@@ -712,6 +713,11 @@
         </div>
         <style>
         .mulhide{display: none;}
+        .isa_error {
+            color: #D8000C;
+            background-color: #FFBABA;
+        }
+
         </style>
         <script type="text/javascript">
           $(document).ready(function() {

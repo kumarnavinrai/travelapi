@@ -552,7 +552,7 @@ global $base_url;
 			
 					
     $('.nav_search_for_flights').on('click',function(e){
-      if ($('#flight-search-1').hasClass('active')){
+     if ($('#flight-search-1').hasClass('active')){
 	
 		/* Added to handle and display the form so that user inputs all the required information to process successfully */
   
@@ -745,7 +745,7 @@ global $base_url;
       }    
 
 		
-      if ($('#flight-search-2').hasClass('active')){
+    if ($('#flight-search-2').hasClass('active')){
 	  
 	  		/* Added to handle and display the form so that user inputs all the required information to process successfully */
   
@@ -835,7 +835,54 @@ global $base_url;
 
         $("input[name=from]").val("");
         $("input[name=to]").val("");
-      }    
+      }
+
+       if ($('#flight-search-3').hasClass('active')){  
+        e.preventDefault();  
+        console.log("this is working");
+        var anytextboxempty = 'no';
+        $('.mlrow').each(function (index, value) { 
+          
+          
+          if($(this).is(":visible")===true)
+          {
+            
+            //console.log('div' + index + ':' + $(this).attr('class')); 
+            $(this).find('input:text').each(function() {
+                //console.log($(this).attr('name'));
+                if($(this).attr('name') !== undefined && $(this).val()==="")
+                {
+                  console.log('empty');
+                  anytextboxempty = 'yes';
+                  return false;
+                }
+            });
+
+          }
+
+        });
+        if(anytextboxempty == 'yes')
+        {
+           //console.log(anytextboxempty);
+           $('.mlrow').each(function (index, value) { 
+              if($(this).is(":visible")===true)
+              {
+                var divthis = $(this);
+                $(this).find('input:text').each(function() {
+                    if($(this).attr('name') !== undefined && $(this).val()==="")
+                    {
+                      divthis.find('.isa_error').remove();
+                      var phtml = '<div class="isa_error"><i class="fa fa-times-circle"></i>Please fill From, To, and Departing .</div>';
+                      divthis.prepend(phtml);
+                      return false;
+                    }
+                });
+              }
+            });
+            
+        }
+        
+       }
         
     });
   });
