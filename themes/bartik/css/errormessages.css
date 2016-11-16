@@ -1,7 +1,8 @@
 #messages {
     margin-left: 0px;
     margin-right: 0px;
-    background-color: rgba(24, 178, 146, 0.09);
+   /* background-color: rgba(24, 178, 146, 0.09);*/
+   background-color: rgba(153, 153, 153, 0.75);
     border-radius: 1px;
     list-style-type: none;
     border: 0px solid;

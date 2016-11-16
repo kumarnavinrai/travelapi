@@ -872,7 +872,7 @@ global $base_url;
                     if($(this).attr('name') !== undefined && $(this).val()==="")
                     {
                       divthis.find('.isa_error').remove();
-                      var phtml = '<div class="isa_error"><i class="fa fa-times-circle"></i>Please fill From, To, and Departing .</div>';
+                      var phtml = '<div class="isa_error"> <i class="fa fa-times-circle"></i> Please fill From, To, and Departing .</div>';
                       divthis.prepend(phtml);
                       return false;
                     }

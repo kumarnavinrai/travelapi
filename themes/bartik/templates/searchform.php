@@ -715,8 +715,9 @@
         .mulhide{display: none;}
         .isa_error {
             color: #D8000C;
-            background-color: #FFBABA;
-        }
+            background-color: rgba(255, 186, 186, 0.87);
+            padding: 0em 1em;
+          }
 
         </style>
         <script type="text/javascript">

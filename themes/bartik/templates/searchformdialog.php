@@ -497,8 +497,22 @@
         .mulhide{display: none;}
         .isa_error {
             color: #D8000C;
-            background-color: #FFBABA;
-        }
+            background-color: rgba(255, 186, 186, 0.87);
+            padding: 0em 1em;
+          }
+          #messages {
+              margin-left: 0px;
+              margin-right: 0px;
+             /* background-color: rgba(24, 178, 146, 0.09);*/
+             background-color: rgba(153, 153, 153, 0.75);
+              border-radius: 1px;
+              list-style-type: none;
+              border: 0px solid;
+              font-family: Arial;
+              font-size: 15px;
+              color: #bd362f;
+              text-align: center;
+          }
 
         </style>
         <script type="text/javascript">
@@ -952,7 +966,7 @@
                     if($(this).attr('name') !== undefined && $(this).val()==="")
                     {
                       divthis.find('.isa_error').remove();
-                      var phtml = '<div class="isa_error"><i class="fa fa-times-circle"></i>Please fill From, To, and Departing .</div>';
+                      var phtml = '<div class="isa_error"><i class="fa fa-times-circle"></i> Please fill From, To, and Departing .</div>';
                       divthis.prepend(phtml);
                       return false;
                     }
