@@ -932,7 +932,7 @@
       }
 
        if ($('#flight-search-3').hasClass('active')){  
-        e.preventDefault();  
+       
         console.log("this is working");
         var anytextboxempty = 'no';
         $('.mlrow').each(function (index, value) { 
@@ -968,6 +968,7 @@
                       divthis.find('.isa_error').remove();
                       var phtml = '<div class="isa_error"><i class="fa fa-times-circle"></i> Please fill From, To, and Departing .</div>';
                       divthis.prepend(phtml);
+                      e.preventDefault(); 
                       return false;
                     }
                 });
