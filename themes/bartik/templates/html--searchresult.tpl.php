@@ -865,6 +865,26 @@ header('Access-Control-Allow-Origin: *');
               $scope.inboundstopduration = "<?php echo isset($_REQUEST['inboundstopduration'])?$_REQUEST['inboundstopduration']:""; ?>";
               $scope.sortbyval = "<?php echo isset($_REQUEST['sortbyval'])?$_REQUEST['sortbyval']:""; ?>";
 
+              /* code for multi city start */
+              $scope.origin1 = "<?php echo isset($_REQUEST['from1'])?$_REQUEST['from1']:""; ?>";
+              $scope.origin2 = "<?php echo isset($_REQUEST['from2'])?$_REQUEST['from2']:""; ?>";
+              $scope.origin3 = "<?php echo isset($_REQUEST['from3'])?$_REQUEST['from3']:""; ?>";
+              $scope.origin4 = "<?php echo isset($_REQUEST['from4'])?$_REQUEST['from4']:""; ?>";
+              $scope.origin5 = "<?php echo isset($_REQUEST['from5'])?$_REQUEST['from5']:""; ?>";
+
+              $scope.destination1 = "<?php echo isset($_REQUEST['to1'])?$_REQUEST['to1']:""; ?>";
+              $scope.destination2 = "<?php echo isset($_REQUEST['to2'])?$_REQUEST['to2']:""; ?>";
+              $scope.destination3 = "<?php echo isset($_REQUEST['to3'])?$_REQUEST['to3']:""; ?>";
+              $scope.destination4 = "<?php echo isset($_REQUEST['to4'])?$_REQUEST['to4']:""; ?>";
+              $scope.destination5 = "<?php echo isset($_REQUEST['to5'])?$_REQUEST['to5']:""; ?>";
+
+              $scope.startml1 = "<?php echo isset($_REQUEST['startml1'])?$_REQUEST['startml1']:""; ?>";
+              $scope.startml2 = "<?php echo isset($_REQUEST['startml2'])?$_REQUEST['startml2']:""; ?>";
+              $scope.startml3 = "<?php echo isset($_REQUEST['startml3'])?$_REQUEST['startml3']:""; ?>";
+              $scope.startml4 = "<?php echo isset($_REQUEST['startml4'])?$_REQUEST['startml4']:""; ?>";
+              $scope.startml5 = "<?php echo isset($_REQUEST['startml5'])?$_REQUEST['startml5']:""; ?>";
+              /* code for multi city ends */
+
               //sortbyval
               //limit
               <?php //print_r($_POST); die; ?>
@@ -935,7 +955,7 @@ header('Access-Control-Allow-Origin: *');
                 // and fire search in case its value is not empty
                 var urltogetFlights = '<?php echo $urltoGetFilghts; ?>';
                 var postData;
-                 postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,returndate:$scope.returnDate,lengthofstay:$scope.lengthofstay,limit:$scope.limit,outboundflightstops:$scope.outboundflightstops,outbounddeparturewindow:$scope.outbounddeparturewindow,includedcarriers:$scope.includedcarriers,inboundstopduration:$scope.inboundstopduration,adult:$scope.adult,children:$scope.children,infant:$scope.infant,pclass:$scope.pclass,sortbyval:$scope.sortbyval}; 
+                 postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,returndate:$scope.returnDate,lengthofstay:$scope.lengthofstay,limit:$scope.limit,outboundflightstops:$scope.outboundflightstops,outbounddeparturewindow:$scope.outbounddeparturewindow,includedcarriers:$scope.includedcarriers,inboundstopduration:$scope.inboundstopduration,adult:$scope.adult,children:$scope.children,infant:$scope.infant,pclass:$scope.pclass,sortbyval:$scope.sortbyval,origin1:$scope.origin1,destination1:$scope.destination1,departureDate1:$scope.startml1,origin2:$scope.origin2,destination2:$scope.destination2,departureDate2:$scope.startml2,origin3:$scope.origin3,destination3:$scope.destination3,departureDate3:$scope.startml3,origin4:$scope.origin4,destination4:$scope.destination4,departureDate4:$scope.startml4,origin5:$scope.origin5,destination5:$scope.destination5,departureDate5:$scope.startml5}; 
 //return;
                 console.log(postData);
 
