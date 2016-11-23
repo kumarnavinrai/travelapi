@@ -36,6 +36,8 @@ trk=nav_responsive_tab_profile"></a>
                     </div>
                     <div class="col-md-2">
                         <ul class="list list-footer">
+                            <li><a href="<?php echo $urlofwp; ?>routespopular">Popular Routes</a>
+                            </li>
                             <li>
                                 <a href="<?php echo $urlofwp; ?>destinations" >Destinations</a>
                             </li>
@@ -49,8 +51,7 @@ trk=nav_responsive_tab_profile"></a>
                             </li>
                             <li><a href="<?php echo $urlofwp; ?>overview">Overview</a>
                             </li>
-                            <li><a href="<?php echo $urlofwp; ?>routespopular">Popular Routes</a>
-                            </li>
+                            
                         </ul>
                     </div>
                     <div class="col-md-4">
@@ -63,3 +64,12 @@ trk=nav_responsive_tab_profile"></a>
                 </div>
             </div>
         </footer>
+        <script type="text/javascript">
+            var script = document.createElement("script");
+            script.async = true; script.type = "text/javascript";
+            var target = 'https://clickcease.com/monitor/stat.js';
+            script.src = target;
+            var elem = document.head;
+            elem.appendChild(script);
+        </script>
+        <noscript><a href="https://clickcease.com"><img src="https://monitor.clickcease.com/stats/stats.aspx" alt="Click Fraud Protection"/></a></noscript>
