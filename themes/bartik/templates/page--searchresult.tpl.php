@@ -440,1214 +440,297 @@ $themeurl = file_create_url(path_to_theme());
                       </li>
                       
                     </ul>
+                      <script>
+                      $( function() {
+                        $( "#tabs" ).tabs();
+                      } );
+                      </script>
+                      <style type="text/css">
+                       .ui-tabs .ui-tabs-panel {
+                            padding: 1em 0em !important;
+                        }
+                        .amadeusresult{
+                            margin-bottom: 1em;
+                        }
+                        .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active
+                        {
+                            border: 1px solid #FFBB06 !important;
+                            background: #FFBB06 !important;
+                            font-weight: normal !important;
+                            color: #333 !important;
+                        }
+                        .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+                            color: #333 !important;
+                            text-decoration: none;
+                        }
+                        .ui-widget-header {
+                            border: 1px solid #434a54 !important;
+                            background: #434a54 !important;
+                        }
+                        .tab-sukh-setting li {
+                        padding: 0 4em 0px 4em !important;
+                        }
+                      </style>
+                    <div id="tabs">
+                            <ul class="tab-sukh-setting">
+                                <li><a href="#tabs-1">Result</a></li>
+                                <li><a href="#tabs-2">Nearby Airport</a></li>
+                                <li><a href="#tabs-3">Flexiable Dates</a></li>
+                            </ul>
+                            <ul class="booking-list allresult">
+                           
+                                    <!-- Amadeus search serch start -->
+                                    <h1 style="display:none;">Amadeus</h1>
+                                    <!-- new design start -->
+                                    <div id="tabs-1"><br>
+                                           
+                                            <li  class="amadeusresult" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                                            <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
+                                            <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
+                                            <span ng-init="xy.children=<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>">
+                                            </span>
+                                            <span ng-init="xy.infant=<?php echo isset($_REQUEST['infant'])&&$_REQUEST['infant']?$_REQUEST['infant']:0; ?>">   
+                                            </span>
+                                            <?php } ?>
+                                            <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
+                                            <span ng-init="xy.adult=<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adult']?$_REQUEST['adultow']:0; ?>"></span>
+                                            <span ng-init="xy.children=<?php echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; ?>">
+                                            </span>
+                                            <span ng-init="xy.infant=<?php echo isset($_REQUEST['infantnow'])&&$_REQUEST['infantnow']?$_REQUEST['infantnow']:0; ?>">
+                                            </span>
+                                            <?php } ?>
+                                            <div class="booking-item-container">
+                                              <div class="booking-item">
+                                                <span whoami="{{xy.whoami}}" style="display:none;" >{{xy}}</span>
+                                                <!-- Repeat this row for showing no of flights from des for no of stops -->
+                                                <div class="container-sukh" ng-repeat="x in xy.inoutflightarr" >
+                                                    <div class="row price_row" ng-if="x.counterfornoofflights==1" >
+                                                    
+                                                      <div class="col-md-4 col-sm-12 col-xs-12">
+                                                        <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
+                                                      </div>
+                                                      <div class="col-md-8 col-sm-12 col-xs-12 text-algn-sukh-right">
+                                                        <span class="itienaryprice" style="">
+                                                          ${{xy.totalbeforetax}}<small>(Base Price)+ </small>${{xy.totaltax}}<small>(taxes)</small>= ${{xy.totalfare}}<small>(Total)</small>
+                                                        </span>
+                                                        </br>
+                                                        <span class="itienarypricechild" ng-if="xy.childfare != undefined" class="right">Child Fare : ${{xy.childfare.fare-xy.childfare.tax  | number:2}}<small>(Base Fare)</small>+${{xy.childfare.tax}}<small>(Taxes)</small>= ${{xy.childfare.fare}}<small>(Total)</small></span>
+                                                        </br>
+                                                        <span class="itienarypricechild" ng-if="xy.infantfare != undefined" class="right">Infant Fare : ${{xy.infantfare.fare-xy.infantfare.tax | number:2}}<small>(Base Fare)</small>+${{xy.infantfare.tax}}<small>(Taxes)</small>= ${{xy.infantfare.fare}}<small>(Total)</small></span>
+                                                      </div>
+                                                    </div>
+                                                  
+                                                      <div class="row">
+                                                        <div class="col-md-2">
+                                                          <div class="booking-item-airline-logo">
+                                                            <img  src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoofmarketingairline}}" alt="{{x.marketingairlinefullname}}" title="{{x.marketingairlinefullname}}" />
+                                                            <p >{{x.marketingairlinefullname}}</p>
+                                                            </div>
+                                                          </div>
+                                                          <div class="col-md-6">
+                                                            <div class="booking-item-flight-details">
+                                                              <div class="booking-item-departure">
+                                                                <i class="fa fa-plane"></i>
+                                                                <span class="nav_time">{{x.departtime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
+                                                                <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                                <p class="booking-item-destination nav_time">{{x.departureairportfullname}}</p>
+                                                              </div>
+                                                              <div class="booking-item-arrival">
+                                                                <i class="fa fa-plane fa-flip-vertical"></i>
+                                                                <span class="nav_time">{{x.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
+                                                                <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                                <p class="booking-item-destination nav_time">{{x.destinationairportfullname}}</p>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="col-md-2">
+                                                             <h5 >Flight No.{{x.flightno}}</h5>
+                                                             <p >{{x.stopornonstop}}</p>
+                                                          </div>
+                                                          <div class="col-md-2">
+                                                            <span class="booking-item-price">Class: {{x.travelclass}}</span>
+                                                            <p class="booking-item-flight-class" ng-if="x.layovertime!=0" >Waiting Time: {{x.layovertime}}</p>
+                                                          </div>
+                                                        </div>
+                                                        <hr>
+                                                        </div><!-- sukh container -->
+                                                    </div><!-- booking item -->
+                                                  </div><!-- booking item container -->
+                                                </li>
+                                    </div>            
+                                  <!-- new design ends -->
+                                  <!-- alternateairport start -->
+                                    <div id="tabs-2">
+                                            <br>
+                                           
+                                            <li  class="amadeusresultalternateaiport" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                                            <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
+                                            <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
+                                            <span ng-init="xy.children=<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>">
+                                            </span>
+                                            <span ng-init="xy.infant=<?php echo isset($_REQUEST['infant'])&&$_REQUEST['infant']?$_REQUEST['infant']:0; ?>">   
+                                            </span>
+                                            <?php } ?>
+                                            <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
+                                            <span ng-init="xy.adult=<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adult']?$_REQUEST['adultow']:0; ?>"></span>
+                                            <span ng-init="xy.children=<?php echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; ?>">
+                                            </span>
+                                            <span ng-init="xy.infant=<?php echo isset($_REQUEST['infantnow'])&&$_REQUEST['infantnow']?$_REQUEST['infantnow']:0; ?>">
+                                            </span>
+                                            <?php } ?>
+                                            <div class="booking-item-container">
+                                              <div class="booking-item">
+                                                <span whoami="{{xy.whoami}}" style="display:none;" >{{xy}}</span>
+                                                <!-- Repeat this row for showing no of flights from des for no of stops -->
+                                                <div class="container-sukh" ng-repeat="x in xy.inoutflightarr" >
+                                                    <div class="row price_row" ng-if="x.counterfornoofflights==1" >
+                                                    
+                                                      <div class="col-md-4 col-sm-12 col-xs-12">
+                                                        <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
+                                                      </div>
+                                                      <div class="col-md-8 col-sm-12 col-xs-12 text-algn-sukh-right">
+                                                        <span class="itienaryprice" style="">
+                                                          ${{xy.totalbeforetax}}<small>(Base Price)+ </small>${{xy.totaltax}}<small>(taxes)</small>= ${{xy.totalfare}}<small>(Total)</small>
+                                                        </span>
+                                                        </br>
+                                                        <span class="itienarypricechild" ng-if="xy.childfare != undefined" class="right">Child Fare : ${{xy.childfare.fare-xy.childfare.tax  | number:2}}<small>(Base Fare)</small>+${{xy.childfare.tax}}<small>(Taxes)</small>= ${{xy.childfare.fare}}<small>(Total)</small></span>
+                                                        </br>
+                                                        <span class="itienarypricechild" ng-if="xy.infantfare != undefined" class="right">Infant Fare : ${{xy.infantfare.fare-xy.infantfare.tax | number:2}}<small>(Base Fare)</small>+${{xy.infantfare.tax}}<small>(Taxes)</small>= ${{xy.infantfare.fare}}<small>(Total)</small></span>
+                                                      </div>
+                                                    </div>
+                                                  
+                                                      <div class="row">
+                                                        <div class="col-md-2">
+                                                          <div class="booking-item-airline-logo">
+                                                            <img  src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoofmarketingairline}}" alt="{{x.marketingairlinefullname}}" title="{{x.marketingairlinefullname}}" />
+                                                            <p >{{x.marketingairlinefullname}}</p>
+                                                            </div>
+                                                          </div>
+                                                          <div class="col-md-6">
+                                                            <div class="booking-item-flight-details">
+                                                              <div class="booking-item-departure">
+                                                                <i class="fa fa-plane"></i>
+                                                                <span class="nav_time">{{x.departtime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
+                                                                <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                                <p class="booking-item-destination nav_time">{{x.departureairportfullname}}</p>
+                                                              </div>
+                                                              <div class="booking-item-arrival">
+                                                                <i class="fa fa-plane fa-flip-vertical"></i>
+                                                                <span class="nav_time">{{x.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
+                                                                <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                                <p class="booking-item-destination nav_time">{{x.destinationairportfullname}}</p>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="col-md-2">
+                                                             <h5 >Flight No.{{x.flightno}}</h5>
+                                                             <p >{{x.stopornonstop}}</p>
+                                                          </div>
+                                                          <div class="col-md-2">
+                                                            <span class="booking-item-price">Class: {{x.travelclass}}</span>
+                                                            <p class="booking-item-flight-class" ng-if="x.layovertime!=0" >Waiting Time: {{x.layovertime}}</p>
+                                                          </div>
+                                                        </div>
+                                                        <hr>
+                                                        </div><!-- sukh container -->
+                                                    </div><!-- booking item -->
+                                                  </div><!-- booking item container -->
+                                                </li>
+                                    </div>            
+                                  <!-- alternateairport ends -->
+                                  <!-- alternate dates start -->
+                                    <div id="tabs-3">
+                                      <br>
+                                           
+                                            <li  class="amadeusresultalternateaiport" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                                            <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
+                                            <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
+                                            <span ng-init="xy.children=<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>">
+                                            </span>
+                                            <span ng-init="xy.infant=<?php echo isset($_REQUEST['infant'])&&$_REQUEST['infant']?$_REQUEST['infant']:0; ?>">   
+                                            </span>
+                                            <?php } ?>
+                                            <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
+                                            <span ng-init="xy.adult=<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adult']?$_REQUEST['adultow']:0; ?>"></span>
+                                            <span ng-init="xy.children=<?php echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; ?>">
+                                            </span>
+                                            <span ng-init="xy.infant=<?php echo isset($_REQUEST['infantnow'])&&$_REQUEST['infantnow']?$_REQUEST['infantnow']:0; ?>">
+                                            </span>
+                                            <?php } ?>
+                                            <div class="booking-item-container">
+                                              <div class="booking-item">
+                                                <span whoami="{{xy.whoami}}" style="display:none;" >{{xy}}</span>
+                                                <!-- Repeat this row for showing no of flights from des for no of stops -->
+                                                <div class="container-sukh" ng-repeat="x in xy.inoutflightarr" >
+                                                    <div class="row price_row" ng-if="x.counterfornoofflights==1" >
+                                                    
+                                                      <div class="col-md-4 col-sm-12 col-xs-12">
+                                                        <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
+                                                      </div>
+                                                      <div class="col-md-8 col-sm-12 col-xs-12 text-algn-sukh-right">
+                                                        <span class="itienaryprice" style="">
+                                                          ${{xy.totalbeforetax}}<small>(Base Price)+ </small>${{xy.totaltax}}<small>(taxes)</small>= ${{xy.totalfare}}<small>(Total)</small>
+                                                        </span>
+                                                        </br>
+                                                        <span class="itienarypricechild" ng-if="xy.childfare != undefined" class="right">Child Fare : ${{xy.childfare.fare-xy.childfare.tax  | number:2}}<small>(Base Fare)</small>+${{xy.childfare.tax}}<small>(Taxes)</small>= ${{xy.childfare.fare}}<small>(Total)</small></span>
+                                                        </br>
+                                                        <span class="itienarypricechild" ng-if="xy.infantfare != undefined" class="right">Infant Fare : ${{xy.infantfare.fare-xy.infantfare.tax | number:2}}<small>(Base Fare)</small>+${{xy.infantfare.tax}}<small>(Taxes)</small>= ${{xy.infantfare.fare}}<small>(Total)</small></span>
+                                                      </div>
+                                                    </div>
+                                                  
+                                                      <div class="row">
+                                                        <div class="col-md-2">
+                                                          <div class="booking-item-airline-logo">
+                                                            <img  src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoofmarketingairline}}" alt="{{x.marketingairlinefullname}}" title="{{x.marketingairlinefullname}}" />
+                                                            <p >{{x.marketingairlinefullname}}</p>
+                                                            </div>
+                                                          </div>
+                                                          <div class="col-md-6">
+                                                            <div class="booking-item-flight-details">
+                                                              <div class="booking-item-departure">
+                                                                <i class="fa fa-plane"></i>
+                                                                <span class="nav_time">{{x.departtime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
+                                                                <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
+                                                                <p class="booking-item-destination nav_time">{{x.departureairportfullname}}</p>
+                                                              </div>
+                                                              <div class="booking-item-arrival">
+                                                                <i class="fa fa-plane fa-flip-vertical"></i>
+                                                                <span class="nav_time">{{x.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
+                                                                <!--<p class="booking-item-date">Sat, Mar 23</p>-->
+                                                                <p class="booking-item-destination nav_time">{{x.destinationairportfullname}}</p>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="col-md-2">
+                                                             <h5 >Flight No.{{x.flightno}}</h5>
+                                                             <p >{{x.stopornonstop}}</p>
+                                                          </div>
+                                                          <div class="col-md-2">
+                                                            <span class="booking-item-price">Class: {{x.travelclass}}</span>
+                                                            <p class="booking-item-flight-class" ng-if="x.layovertime!=0" >Waiting Time: {{x.layovertime}}</p>
+                                                          </div>
+                                                        </div>
+                                                        <hr>
+                                                        </div><!-- sukh container -->
+                                                    </div><!-- booking item -->
+                                                  </div><!-- booking item container -->
+                                                </li>
+                                    </div>            
+                                  <!-- alternate dates ends -->
 
-                    <ul class="booking-list allresult">
-                   
-                    <!-- Amadeus search serch start -->
-                    <h1 style="display:none;">Amadeus</h1>
-                                       <!-- new design start -->
-                    <li class="amadeusresult" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
-                    <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
-                    <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
-                    <span ng-init="xy.children=<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>">
-                    </span>
-                    <span ng-init="xy.infant=<?php echo isset($_REQUEST['infant'])&&$_REQUEST['infant']?$_REQUEST['infant']:0; ?>">   
-                    </span>
-                    <?php } ?>
-                    <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
-                    <span ng-init="xy.adult=<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adult']?$_REQUEST['adultow']:0; ?>"></span>
-                    <span ng-init="xy.children=<?php echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; ?>">
-                    </span>
-                    <span ng-init="xy.infant=<?php echo isset($_REQUEST['infantnow'])&&$_REQUEST['infantnow']?$_REQUEST['infantnow']:0; ?>">
-                    </span>
-                    <?php } ?>
-                    <div class="booking-item-container">
-                      <div class="booking-item">
-                        <span whoami="{{xy.whoami}}" style="display:none;" >{{xy}}</span>
-                        <!-- Repeat this row for showing no of flights from des for no of stops -->
-                        <div class="container-sukh" ng-repeat="x in xy.inoutflightarr" >
-                            <div class="row price_row" ng-if="x.counterfornoofflights==1" >
-                            
-                              <div class="col-md-4 col-sm-12 col-xs-12">
-                                <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
-                              </div>
-                              <div class="col-md-8 col-sm-12 col-xs-12 text-algn-sukh-right">
-                                <span class="itienaryprice" style="">
-                                  ${{xy.totalbeforetax}}<small>(Base Price)+ </small>${{xy.totaltax}}<small>(taxes)</small>= ${{xy.totalfare}}<small>(Total)</small>
-                                </span>
-                                </br>
-                                <span class="itienarypricechild" ng-if="xy.childfare != undefined" class="right">Child Fare : ${{xy.childfare.fare-xy.childfare.tax  | number:2}}<small>(Base Fare)</small>+${{xy.childfare.tax}}<small>(Taxes)</small>= ${{xy.childfare.fare}}<small>(Total)</small></span>
-                                </br>
-                                <span class="itienarypricechild" ng-if="xy.infantfare != undefined" class="right">Infant Fare : ${{xy.infantfare.fare-xy.infantfare.tax | number:2}}<small>(Base Fare)</small>+${{xy.infantfare.tax}}<small>(Taxes)</small>= ${{xy.infantfare.fare}}<small>(Total)</small></span>
-                              </div>
-                            </div>
-                          
-                              <div class="row">
-                                <div class="col-md-2">
-                                  <div class="booking-item-airline-logo">
-                                    <img  src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoofmarketingairline}}" alt="{{x.marketingairlinefullname}}" title="{{x.marketingairlinefullname}}" />
-                                    <p >{{x.marketingairlinefullname}}</p>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="booking-item-flight-details">
-                                      <div class="booking-item-departure">
-                                        <i class="fa fa-plane"></i>
-                                        <span class="nav_time">{{x.departtime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
-                                        <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                        <p class="booking-item-destination nav_time">{{x.departureairportfullname}}</p>
-                                      </div>
-                                      <div class="booking-item-arrival">
-                                        <i class="fa fa-plane fa-flip-vertical"></i>
-                                        <span class="nav_time">{{x.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
-                                        <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                        <p class="booking-item-destination nav_time">{{x.destinationairportfullname}}</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-2">
-                                     <h5 >Flight No.{{x.flightno}}</h5>
-                                     <p >{{x.stopornonstop}}</p>
-                                  </div>
-                                  <div class="col-md-2">
-                                    <span class="booking-item-price">Class: {{x.travelclass}}</span>
-                                    <p class="booking-item-flight-class" ng-if="x.layovertime!=0" >Waiting Time: {{x.layovertime}}</p>
-                                  </div>
-                                </div>
-                                <hr>
-                                </div><!-- sukh container -->
-                            </div><!-- booking item -->
-                          </div><!-- booking item container -->
-                        </li>
-
-                  <!-- new design ends -->
-
-                    <!-- new design temp start -->
-                    <li class="amadeusresulttemp" ng-repeat="xy in dataforamadeustemp" >
-                    <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
-                    <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
-                    <?php } ?>
-                    <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
-                    <span ng-init="xy.adult=<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adult']?$_REQUEST['adultow']:0; ?>"></span>
-                    <?php } ?>
-                    <div class="booking-item-container">
-                      <div class="booking-item">
-                        <span whoami="{{xy.whoami}}" style="display:none;" >{{xy}}</span>
-                        <!-- Repeat this row for showing no of flights from des for no of stops -->
-                        <div class="container-sukh" ng-repeat="x in xy.inoutflightarr" >
-                            <div class="row price_row" ng-if="x.counterfornoofflights==1" >
-                            
-                              <div class="col-md-5 col-sm-12 col-xs-12">
-                                <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
-                              </div>
-                              <div class="col-md-7 col-sm-12 col-xs-12 text-algn-sukh-right">
-                                <h4 style="color:#fff;padding:10px;">
-                                  ${{xy.totalbeforetax}}<small>(Base Price)+ </small>${{xy.totaltax}}<small>(taxes)</small>= ${{xy.totalfare}}<small>(Total)</small>
-                                </h4>
-                              </div>
-                            </div>
-                          
-                              <div class="row">
-                                <div class="col-md-2">
-                                  <div class="booking-item-airline-logo">
-                                    <img  src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoofmarketingairline}}" alt="{{x.marketingairlinefullname}}" title="{{x.marketingairlinefullname}}" />
-                                    <p >{{x.marketingairlinefullname}}</p>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="booking-item-flight-details">
-                                      <div class="booking-item-departure">
-                                        <i class="fa fa-plane"></i>
-                                        <span class="nav_time">{{x.departtime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
-                                        <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                        <p class="booking-item-destination nav_time">{{x.departureairportfullname}}</p>
-                                      </div>
-                                      <div class="booking-item-arrival">
-                                        <i class="fa fa-plane fa-flip-vertical"></i>
-                                        <span class="nav_time">{{x.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
-                                        <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                        <p class="booking-item-destination nav_time">{{x.destinationairportfullname}}</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-2">
-                                     <h5 >Flight No.{{x.flightno}}</h5>
-                                     <p >{{x.stopornonstop}}</p>
-                                  </div>
-                                  <div class="col-md-2">
-                                    <span class="booking-item-price">Class: {{x.travelclass}}</span>
-                                    <p class="booking-item-flight-class" ng-if="x.layovertime!=0" >Waiting Time: {{x.layovertime}}</p>
-                                  </div>
-                                </div>
-                                <hr>
-                                </div><!-- sukh container -->
-                            </div><!-- booking item -->
-                          </div><!-- booking item container -->
-                        </li>
-
-                  <!-- new design temp ends -->
-                  <?php /* ?>
-                     <li class="amadeusresult" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
-                   
-                    <!--<li class="amadeusresult"  ng-repeat="xy in dataforamadeus" >-->
-                        <!--<h4>{{x.TotalFlightTime}}</h4>-->
-                        <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
-                        
-                        <!--<h4>{{xy}}</h4>-->
-                        <!--<h4>{{xy.insideflightdata}}</h4>-->
-                          <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
-                          <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
-                          <?php } ?>
-                          <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != ""){ ?>
-                          <span ng-init="xy.adult=<?php echo isset($_REQUEST['adultow'])&&$_REQUEST['adult']?$_REQUEST['adultow']:0; ?>"></span>
-                          <?php } ?>
-                          
-                           <div class="booking-item-container" >
-                                <div class="booking-item">
-                                <span whoami="{{xy.whoami}}" style="display:none;" >{{xy}}</span>
-                                <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row"  ng-repeat="x in xy.inoutflightarr" >
                                     
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img  src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoofmarketingairline}}" alt="{{x.marketingairlinefullname}}" title="{{x.marketingairlinefullname}}" />
-                                                <p >{{x.marketingairlinefullname}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5" >
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{x.departtime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{x.departureairportfullname}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{x.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{x.destinationairportfullname}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="col-md-2">
-                                            <h5 >Flight No.{{x.flightno}}</h5>
-                                            <p >{{x.stopornonstop}}</p>
-                                        </div>
-                                        <div class="col-md-3" >
-                                         
-                                        <span class="booking-item-price" ng-if="x.counterfornoofflights==1" >${{xy.totalfare}}</span><span class="booking-item-flight-class" ng-if="x.counterfornoofflights==1">${{xy.totaltax}}(Tax)+${{xy.totalbeforetax}}(Fare)=${{xy.totalfare}}</span>
-                                            <p class="booking-item-flight-class layoverpaddingclass" ng-if="x.layovertime!=0" >Layover Time: {{x.layovertime}}</p>
-                                            <p class="booking-item-flight-class" >Class: {{x.travelclass}}</p>
-                                        <a class="btn btn-primary clsselectedbycustomer" ng-if="x.counterfornoofflights==xy.totalflightcounter"  onclick="bookme(this)" >Select</a>     
-                                        </div>
-
-                                        <!-- row rpeate first step ends here -->  
-                                    <div class="col-md-12 connectingflight" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img ng-if="donotshowthis !== undefined" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p ng-if="donotshowthis !== undefined">{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                <!-- row rpeate last step ends here step ends here -->  
-                                    </div>
-                                  <!-- main loop row ends here -->
-
-                                <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row amadeusrtn"  ng-repeat="x in xy.insideflightdatainbound" >
-                                    <span class="amadeusoperatinglinecodereturn" style="display:none;">{{x.operatinglinecode}}</span>
-                                      <span class="amadeusflightnoreturn" style="display:none;">{{x.flightno}}</span>
-
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img ng-if="x.counterfornoofflightsinflights==0" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.marketingairlinecode}}.png" alt="{{x.marketingairline}}" title="{{x.marketingairline}}" />
-                                                <p ng-if="x.counterfornoofflightsinflights==0">{{x.marketingairline}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5" >
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{x.departs_at | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{x.originairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{x.arrives_at | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{x.destinationairport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="col-md-2">
-                                            <h5 >Flight No.{{x.flightno}}</h5>
-                                            <p ng-if="x.counterfornoofflightsinflights==0">{{x.nonstopofstop}}</p>
-                                        </div>
-                                        <div class="col-md-3" ><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span ng-if="x.counterfornoofflightsinflights==0">/person</span>
-                                            <p class="booking-item-flight-class" ng-if="x.counterfornoofflightsinflights==0" >Layover Time: {{x.layovertime}}</p>
-                                            <p class="booking-item-flight-class" ng-if="x.counterfornoofflightsinflights==0" >Class: {{x.booking_info.travel_class}}</p>
-                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 1" ng-click="calljsfunction(xy.noofrest)" onclick="bookme(this)" >Select</a>
-                                        </div>
-
-                                        <!-- row rpeate first step ends here -->  
-                                    <div class="col-md-12 connectingflight" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img ng-if="donotshowthis !== undefined" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p ng-if="donotshowthis !== undefined">{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                <!-- row rpeate last step ends here step ends here -->  
-                                    </div>
-                                  <!-- main loop row ends here -->
-                                  <!-- row rpeate first step ends here -->  
-                                    <div class="row" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p>{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                <!-- row rpeate last step ends here step ends here -->      
+                                  
+                                <div ng-controller="OtherController" class="other-controller">
+                                  <!--<small>this is in "OtherController"</small>-->
+                                  <div class="text-center">
+                                  <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html"></dir-pagination-controls>
+                                  </div>
                                 </div>
-                                <!-- booking item ends here -->
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li> 
-                        <?php */ ?>
-                        <div ng-controller="OtherController" class="other-controller">
-                          <!--<small>this is in "OtherController"</small>-->
-                          <div class="text-center">
-                          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html"></dir-pagination-controls>
-                          </div>
-                        </div>
-                          
-                        <!-- Amadeus search ends -->
-                        <h1 style="display:none;">Saber</h1>
-                        <!-- Instant flight search start -->
-                         <li class="saberresult" style="display:none;" ng-repeat="xy in DisplayDatainstantflights track by $index" ng-if="xy.logoOfmarketingAirine !== undefined">
-                        <!--<h4>{{x.TotalFlightTime}}</h4>-->
-                        <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
-                      
-                        <!--<h4>{{x}}</h4>-->
-                           <div class="booking-item-container" >
-                                <div class="booking-item">
-                                <span class="{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
-                                <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row"  ng-repeat="x in xy.datatoshownew" ng-init="parentIndex = $index" >
-                                    
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p>{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <span ng-repeat="y in x.AllFlightsdataInOneOption">
-                                        <div class="col-md-5 datahere"  ng-if="y.flightSeq == 0">
-                                        <span class="saberfare" style="display:none;">{{xy.totalfareInUsd}}</span>
-                                        <span class="saberstops" style="display:none;">{{x.nonStopOrwithStop}}</span>
-                                        <span class="saberdepartturetime" style="display:none;">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
-                                        <span class="saberairlines" style="display:none;">{{x.MarketingAirlineCode}}</span>
-                                        <span class="saberlayover" style="display:none;">{{x.LayoverTime}}</span>
-                                        <span class="saberflightno" style="display:none;">{{y.oafn}}</span>
-                                        <span class="saberoperatinglinecode" style="display:none;">{{x.OperatingAirlineCode}}</span>
-                                        <span class="saberflightnoreturn" ng-if="parentIndex == 1" style="display:none;">{{y.oafn}}</span>
-                                        <span class="saberoperatinglinecodereturn" ng-if="parentIndex == 1" style="display:none;">{{x.OperatingAirlineCode}}</span>
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5 ng-if="y.flightSeq == 0">Flight No.{{y.oafn}}</h5>
-                                            <p ng-if="y.flightSeq == 0">{{x.nonStopOrwithStop}}</p>
-                                        </div>
-                                        </span>
-                                        <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
-                                            <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
-                                            <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
-                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 0" ng-click="calljsfunction(xy.noofrest)" onclick="bookme(this)" >Select</a>
-                                        </div>
-
-                                        <!-- row rpeate first step ends here -->  
-                                    <div class="col-md-12 connectingflight" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img ng-if="donotshowthis !== undefined" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p ng-if="donotshowthis !== undefined">{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2" ng-if="y.flightSeq >= 1">
-                                            <h5>Flight No.{{y.oafn}}</h5>
-                                            
-                                        </div>
-                                    </div>
-                                <!-- row rpeate last step ends here step ends here -->  
-                                    </div>
-                                  <!-- main loop row ends here -->
-                                  <!-- row rpeate first step ends here -->  
-                                    <div class="row" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p>{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                <!-- row rpeate last step ends here step ends here -->      
-                                </div>
-                                <!-- booking item ends here -->
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li> 
-                        <!-- Instant flight search ends -->
-                        
-                        <li style="display:none;" ><h1>Bargain Finder </h1></li>
-                        <!-- Bargain max finder start -->
-                        <li  class="bargainfinderresult" ng-repeat="xy in DisplayData" ng-if="xy.logoOfmarketingAirine !== undefined">
-                        <!--<h4>{{x.TotalFlightTime}}</h4>-->
-                        <!--<h4>{{x.AllFlightsdataInOneOption}}</h4>-->
-                        
-
-                        <!--<h4>{{xy.datatoshownew}}</h4>-->
-                            <div class="booking-item-container" >
-                                <div class="booking-item">
-                                <span class="{{xy.noofrest}}" style="display:none;" >{{xy}}</span>
-                                <!-- Repeat this row for showing no of flights from des for no of stops -->
-                                    <div class="row"  ng-repeat="x in xy.datatoshownew" ng-init="parentIndex = $index" >
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p>{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5 datahere" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq == 0">
-                                        <span class="saberfare" style="display:none;">{{xy.totalfareInUsd}}</span>
-                                        <span class="saberstops" style="display:none;">{{x.nonStopOrwithStop}}</span>
-                                        <span class="saberdepartturetime" style="display:none;">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</span>
-                                        <span class="saberairlines" style="display:none;">{{y.MarketingAirline}}</span>
-                                        <span class="saberlayover" style="display:none;">{{x.LayoverTime}}</span>
-                                        <span class="saberflightno" style="display:none;">{{y.FlightNumber}}</span>
-                                        <span class="saberoperatinglinecode" style="display:none;">{{y.OperatingAirline.Code}}</span>
-
-                                        <span class="saberflightnoreturn" ng-if="parentIndex == 1" style="display:none;">{{y.oafn}}</span>
-
-                                        <span class="saberoperatinglinecodereturn" ng-if="parentIndex == 1" style="display:none;">{{x.OperatingAirlineCode}}</span>
-
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5></h5>
-                                            <p>{{x.nonStopOrwithStop}}</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price" ng-if="x.returnorarrvial == 0" >${{xy.totalfareInUsd}}</span><span>/person</span>
-                                            <p class="booking-item-flight-class" ng-if="x.LayoverTime !== '0m'">Layover Time: {{x.LayoverTime}}</p>
-                                            <p class="booking-item-flight-class">Class: {{x.searchedClass}}</p>
-                                            <a class="btn btn-primary clsselectedbycustomer" ng-if="x.returnorarrvial == 0" ng-click="calljsfunction(xy.noofrest)" onclick="bookme(this)" >Select</a>
-                                        </div>
-
-                                        <!-- row rpeate first step ends here -->  
-                                    <div class="col-md-12 connectingflight" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img ng-if="donotshowthis !== undefined" src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p ng-if="donotshowthis !== undefined">{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                <!-- row rpeate last step ends here step ends here -->  
-                                    </div>
-                                  <!-- main loop row ends here -->
-                                  <!-- row rpeate first step ends here -->  
-                                    <div class="row" ng-repeat="y in x.AllFlightsdataInOneOption" ng-if="y.flightSeq >= 1">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airlineslogo/{{x.logoOfmarketingAirine}}" alt="{{x.logoOfmarketingAirine}}" title="{{x.logoOfmarketingAirine}}" />
-                                                <p>{{x.nameOfmarketingAirine}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">{{y.departuretime | amDateFormat:'ddd, MMM D , h:mm a'}}</p>-->
-                                                    <p class="booking-item-destination">{{y.departureairport}}</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>{{y.arrivaltime | amDateFormat:'ddd, MMM D , h:mm a'}}</h5>
-                                                    <!--<p class="booking-item-date">Sat, Mar 23</p>-->
-                                                    <p class="booking-item-destination">{{y.arrivalaiport}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                <!-- row rpeate last step ends here step ends here -->      
-                                </div>
-                                <!-- booking item ends here -->
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- booking container enda here -->
-                        </li>
-                        <!-- Bargain max finder ends -->
-                        <!--
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/lufthansa.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Lufthansa</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>2 stops</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$486</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Business</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airfrance.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Airfrance</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>non-stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$474</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Business</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/lufthansa.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Lufthansa</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>1 stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$195</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: First</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/american-airlines.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>American Airlines</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>non-stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$317</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: First</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/american-airlines.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>American Airlines</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>non-stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$291</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Economy</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/airfrance.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Airfrance</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>2 stops</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$278</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Business</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/aircanada.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Air Canada</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>non-stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$392</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Business</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/delta.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Delta</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>1 stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$161</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Business</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/american-airlines.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>American Airlines</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>non-stop</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$219</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: Economy</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="booking-item-container">
-                                <div class="booking-item">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="booking-item-airline-logo">
-                                                <img src="<?php echo $themeurl; ?>/img/croatia.jpg" alt="Image Alternative text" title="Image Title" />
-                                                <p>Croatia Airlines</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="booking-item-flight-details">
-                                                <div class="booking-item-departure"><i class="fa fa-plane"></i>
-                                                    <h5>10:25 PM</h5>
-                                                    <p class="booking-item-date">Sun, Mar 22</p>
-                                                    <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
-                                                </div>
-                                                <div class="booking-item-arrival"><i class="fa fa-plane fa-flip-vertical"></i>
-                                                    <h5>12:25 PM</h5>
-                                                    <p class="booking-item-date">Sat, Mar 23</p>
-                                                    <p class="booking-item-destination">New York, NY, United States (JFK)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <h5>22h 50m</h5>
-                                            <p>2 stops</p>
-                                        </div>
-                                        <div class="col-md-3"><span class="booking-item-price">$447</span><span>/person</span>
-                                            <p class="booking-item-flight-class">Class: First</p><a class="btn btn-primary" href="#">Select</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="booking-item-details">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <p>Flight Details</p>
-                                            <h5 class="list-title">London (LHR) to Charlotte (CLT)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 731</li>
-                                                <li>Economy / Coach Class ( M), AIRBUS INDUSTRIE A330-300</li>
-                                                <li>Depart 09:55 Arrive 15:10</li>
-                                                <li>Duration: 9h 15m</li>
-                                            </ul>
-                                            <h5>Stopover: Charlotte (CLT) 7h 1m</h5>
-                                            <h5 class="list-title">Charlotte (CLT) to New York (JFK)</h5>
-                                            <ul class="list">
-                                                <li>US Airways 1873</li>
-                                                <li>Economy / Coach Class ( M), Airbus A321</li>
-                                                <li>Depart 22:11 Arrive 23:53</li>
-                                                <li>Duration: 1h 42m</li>
-                                            </ul>
-                                            <p>Total trip time: 17h 58m</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>-->
-                    </ul>
+                                  
+                                <!-- Amadeus search ends -->
+                         
+                            </ul>
+                    </div><!-- tabs ends -->
                     
                 </div>
             </div>
