@@ -986,7 +986,7 @@ header('Access-Control-Allow-Origin: *');
                 });
                 /* alter flight search for dates ends */
 
-                urltogetFlights = urltogetFlights.replace("start_rest_workflow","start_rest_workflow_d")
+                /*urltogetFlights = urltogetFlights.replace("start_rest_workflow","start_rest_workflow_d")
 
            
                 getFlightBmf.loadDataFromUrls(urltogetFlights,postData).then(function (datanew) {
@@ -998,7 +998,7 @@ header('Access-Control-Allow-Origin: *');
                       console.log($scope.dataforamadeus);
                     }
 
-                });
+                });*/
 
                 
                   
