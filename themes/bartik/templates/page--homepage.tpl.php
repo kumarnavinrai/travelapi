@@ -315,7 +315,7 @@ global $base_url;
 
     
   </div>
-  <div class="container">
+<div class="container">
 <!--sukh new content -->
 <div class="gap"></div>
 
