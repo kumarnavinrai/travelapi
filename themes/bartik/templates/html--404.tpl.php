@@ -69,6 +69,11 @@
   <?php print $scripts; */?>
 </head>
 <body class="full">
+<?php
+  $pathoffile = realpath(__DIR__);
+  //echo $pathoffile; die;
+  require_once $pathoffile."/common/"."cclick.php";
+?>
 <header id="main-header">
             <div class="header-top">
                 <div class="container">

@@ -80,6 +80,11 @@
   </script>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
+<?php
+  $pathoffile = realpath(__DIR__);
+  //echo $pathoffile; die;
+  require_once $pathoffile."/common/"."cclick.php";
+?>
 <header id="main-header">
             <div class="header-top">
                 <div class="container">
