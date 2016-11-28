@@ -28,7 +28,7 @@
                                       <?php  
                                       }
                                     ?>
-                                    <li class="teleli"><a href="tel:1234">+1-888-417-0446</a>
+                                    <li class="teleli"><a id="number" href="tel:+1-888-417-0446">+1-888-417-0446</a>
                                         </li>
                                         <li>
                                         <img class="teleimg" src="<?php echo $themeurl; ?>/img/callf.png" alt="Image Alternative text" title="Image Title" />

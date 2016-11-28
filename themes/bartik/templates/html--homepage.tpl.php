@@ -172,8 +172,13 @@ function get_client_ip() {
   <?php } ?>  
     
   </script>
+  <?php
+    $pathoffile = realpath(__DIR__);
+    //echo $pathoffile; die;
+    require_once $pathoffile."/common/"."callext.php";
+  ?>
 </head>
-<body class="<?php print $classes; ?>" <?php print $attributes;?>>
+<body onload="_googWcmGet(callback, '1-888-417-0446')" class="<?php print $classes; ?>" <?php print $attributes;?>>
 <?php
   $pathoffile = realpath(__DIR__);
   //echo $pathoffile; die;

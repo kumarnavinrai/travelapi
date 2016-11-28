@@ -34,6 +34,11 @@ function bartik_preprocess_html(&$variables) {
     $variables['classes_array'][] = 'featured';
   }
 
+  if(!empty($variables['classes_array']))
+  {
+   $variables['classes_array'][] = 'lp-pom-body'; 
+  }
+
   if (!empty($variables['page']['triptych_first'])
     || !empty($variables['page']['triptych_middle'])
     || !empty($variables['page']['triptych_last'])) {

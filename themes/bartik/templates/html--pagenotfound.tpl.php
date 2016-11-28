@@ -68,8 +68,13 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; */?>
+  <?php
+    $pathoffile = realpath(__DIR__);
+    //echo $pathoffile; die;
+    require_once $pathoffile."/common/"."callext.php";
+  ?>
 </head>
-<body class="full">
+<body onload="_googWcmGet(callback, '1-888-417-0446')" class="full">
 <?php
   $pathoffile = realpath(__DIR__);
   //echo $pathoffile; die;
