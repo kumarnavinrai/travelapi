@@ -1,4 +1,6 @@
+<?php print render($page['content']); ?>
 <?php 
+/*
       $themeurl = file_create_url(path_to_theme());
       $top = field_get_items('node', $node, 'field_from');
       $top = $top[0]['value'];
@@ -65,3 +67,4 @@
       $("input[name='to']").val("<?php echo $to; ?>");
    });
 </script>
+<?php */ ?>
