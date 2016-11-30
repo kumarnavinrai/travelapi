@@ -110,11 +110,16 @@
     require_once $pathoffile."/common/"."callext.php";
   ?>
 </head>
-<body onload="_googWcmGet(callback, '1-888-417-0446')" data-ng-init="init()"  class="<?php print $classes; ?>" <?php print $attributes;?>>
+<body data-ng-init="init()"  class="<?php print $classes; ?>" <?php print $attributes;?>>
 <?php
   $pathoffile = realpath(__DIR__);
   //echo $pathoffile; die;
   require_once $pathoffile."/common/"."cclick.php";
+?>
+<?php
+  $pathoffile = realpath(__DIR__);
+  //echo $pathoffile; die;
+  require_once $pathoffile."/common/"."analyticstracking.php";
 ?>
 <header id="main-header">
             <div class="header-top">

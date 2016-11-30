@@ -563,7 +563,7 @@ $themeurl = file_create_url(path_to_theme());
                                     <div id="tabs-2">
                                             <br>
                                            
-                                            <li  class="amadeusresultalternateaiport" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                                            <li  class="amadeusresultalternateaiport" dir-paginate="xy in dataforamadeusalterairport | filter:q | itemsPerPage: pageSize" current-page="currentPage">
                                             <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
                                             <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
                                             <span ng-init="xy.children=<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>">

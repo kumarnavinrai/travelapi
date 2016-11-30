@@ -67,12 +67,18 @@
     require_once $pathoffile."/common/"."callext.php";
   ?>
 </head>
-<body onload="_googWcmGet(callback, '1-888-417-0446')" class="<?php print $classes; ?>" <?php print $attributes;?>>
+<body class="<?php print $classes; ?>" <?php print $attributes;?>>
 <?php
   $pathoffile = realpath(__DIR__);
   //echo $pathoffile; die;
   require_once $pathoffile."/common/"."cclick.php";
 ?>
+<?php
+  $pathoffile = realpath(__DIR__);
+  //echo $pathoffile; die;
+  require_once $pathoffile."/common/"."analyticstracking.php";
+?>
+
 <header id="main-header">
             <div class="header-top">
                 <div class="container">

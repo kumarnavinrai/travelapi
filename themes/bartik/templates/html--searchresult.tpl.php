@@ -125,11 +125,16 @@ header('Access-Control-Allow-Origin: *');
     require_once $pathoffile."/common/"."callext.php";
   ?>
 </head>
-<body onload="_googWcmGet(callback, '1-888-417-0446')" data-ng-init="init()"  class="<?php print $classes; ?>" <?php print $attributes;?>>
+<body data-ng-init="init()"  class="<?php print $classes; ?>" <?php print $attributes;?>>
 <?php
   $pathoffile = realpath(__DIR__);
   //echo $pathoffile; die;
   require_once $pathoffile."/common/"."cclick.php";
+?>
+<?php
+  $pathoffile = realpath(__DIR__);
+  //echo $pathoffile; die;
+  require_once $pathoffile."/common/"."analyticstracking.php";
 ?>
 <header id="main-header">
             <div class="header-top">
@@ -783,7 +788,7 @@ header('Access-Control-Allow-Origin: *');
           //myApp.controller('MyController', MyController);
           app.controller('OtherController', OtherController);
 
-          app.controller('filghtCtrl', ['$scope', '$log', 'flightServiceNew' , 'getFlightDataService', 'getFlightBmf', 'flightServiceNewAlter',  function($scope, $log, flightServiceNew, getFlightDataService, getFlightBmf, flightServiceNewAlter)  { 
+          app.controller('filghtCtrl', ['$scope', '$log', 'flightServiceNew' , 'getFlightDataService', 'getFlightBmf', 'flightServiceNewAlter', 'flightServiceNewAlterAirport',  function($scope, $log, flightServiceNew, getFlightDataService, getFlightBmf, flightServiceNewAlter, flightServiceNewAlterAirport)  { 
             <?php 
                 if(isset($_POST['from']) && $_POST['from'] != "" && isset($_POST['to']) && $_POST['to'] != "")
                 { 
@@ -936,6 +941,7 @@ header('Access-Control-Allow-Origin: *');
                 // and fire search in case its value is not empty
                 var urltogetFlights = '<?php echo $urltoGetFilghts; ?>';
                 var urltoGetFilghtsAlter = '<?php echo $urltoGetFilghtsAlter; ?>';
+                var urltoGetFilghtsAlterAirport = '<?php echo $urltoGetFilghtsAlterAirport; ?>';
                 var postData;
                  postData = {origin:$scope.origin,destination:$scope.destination,departureDate:$scope.departureDate,returndate:$scope.returnDate,lengthofstay:$scope.lengthofstay,limit:$scope.limit,outboundflightstops:$scope.outboundflightstops,outbounddeparturewindow:$scope.outbounddeparturewindow,includedcarriers:$scope.includedcarriers,inboundstopduration:$scope.inboundstopduration,adult:$scope.adult,children:$scope.children,infant:$scope.infant,pclass:$scope.pclass,sortbyval:$scope.sortbyval,origin1:$scope.origin1,destination1:$scope.destination1,departureDate1:$scope.startml1,origin2:$scope.origin2,destination2:$scope.destination2,departureDate2:$scope.startml2,origin3:$scope.origin3,destination3:$scope.destination3,departureDate3:$scope.startml3,origin4:$scope.origin4,destination4:$scope.destination4,departureDate4:$scope.startml4,origin5:$scope.origin5,destination5:$scope.destination5,departureDate5:$scope.startml5}; 
 //return;
@@ -991,6 +997,20 @@ header('Access-Control-Allow-Origin: *');
                       $scope.filterdate = datanew[0].data.filterdate;
                       
                       console.log($scope.dataforamadeus);
+                    }
+                   
+                });
+
+                flightServiceNewAlterAirport.loadDataFromUrls(urltoGetFilghtsAlterAirport,postData).then(function (datanew) {
+                   
+                 
+                   
+                    if(datanew[0] != undefined && datanew[0].data != undefined && datanew[0].data.amadeusresult != undefined){
+                      $scope.dataforamadeusalterairport = datanew[0].data.amadeusresult;
+                      $scope.filterdate = datanew[0].data.filterdate;
+                      
+                      console.log("alternate airport");
+                      console.log($scope.dataforamadeusalterairport);
                     }
                    
                 });

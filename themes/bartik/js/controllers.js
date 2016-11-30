@@ -286,6 +286,151 @@ app.service('flightServiceNewAlter', function($http, $q) {
       };
     });
 
+
+app.service('flightServiceNewAlterAirport', function($http, $q) {
+      
+
+      return {
+        loadDataFromUrls: function(urls,data) {
+
+          var nonstop = false;
+
+          var headers = { 
+            'Access-Control-Allow-Origin' : '*', 
+            'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT', 
+            'Content-Type' : 'application/x-www-form-urlencoded', 
+            'Accept': 'application/json' 
+          }; 
+         
+          if(data.outboundflightstops != "" && data.outboundflightstops == 0){
+            nonstop = true;
+          }
+
+          var arrivebyval = "";
+
+          if(data.outbounddeparturewindow != ""){
+            var str = data.outbounddeparturewindow;
+            str = str.substr(str.length - 4); 
+            var a = str;
+            var b = ":";
+            var position = 2;
+            var output = [a.slice(0, position), b, a.slice(position)].join('');
+            //console.log(output);
+            arrivebyval = data.departureDate +"T"+ output;
+          }
+
+          var returnbyval = "";
+
+          if(data.outbounddeparturewindow != ""){
+            var str = data.outbounddeparturewindow;
+            str = str.substr(str.length - 4); 
+            var a = str;
+            var b = ":";
+            var position = 2;
+            var output = [a.slice(0, position), b, a.slice(position)].join('');
+            //console.log(output);
+            returnbyval = data.returndate +"T"+ output;
+          }
+
+          //var urlamadeus = ="+data.origin+"&destination="+data.destination+"&departure_date="+data.departureDate;
+
+          var urlamadeus = "origin="+data.origin+"&destination="+data.destination+"&departure_date="+data.departureDate;
+          
+          if(data.returndate != ""){
+            urlamadeus = urlamadeus +"&return_date="+data.returndate;
+          }
+
+          if(data.limit != ""){
+            urlamadeus = urlamadeus +"&number_of_results="+data.limit;
+          }
+
+          if(nonstop != ""){
+            urlamadeus = urlamadeus +"&nonstop="+nonstop;
+          }
+
+          if(arrivebyval != ""){
+            urlamadeus = urlamadeus +"&arrive_by="+arrivebyval;
+          }
+
+          if(data.includedcarriers != ""){
+            urlamadeus = urlamadeus +"&include_airlines="+data.includedcarriers;
+          }
+
+          if(data.adult != 0){
+            urlamadeus = urlamadeus +"&adults="+data.adult;
+          }
+
+          if(data.children != 0){
+            urlamadeus = urlamadeus +"&children="+data.children;
+          }
+          
+        
+          //,adult:$scope.adult,children:$scope.children,infant:$scope.infant
+
+          var deferred = $q.defer();
+          var urlCalls = [];
+          var urlsnew = [];
+          urlsnew.push(urls);
+          //urls = urls.replace("fs/","");
+          //urls = urls + "amadeusurl";
+          //urlsnew.push(urls);
+          var counter = 1;
+          angular.forEach(urlsnew, function(url) {
+
+            if(counter == 1){
+
+              urlCalls.push($http({ 
+                  method: 'POST', 
+                  url: url,
+                  cache: false, 
+                  data: "origin="+data.origin+"&destination="+data.destination+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&lengthofstay="+data.lengthofstay+"&limit="+data.limit+"&outboundflightstops="+data.outboundflightstops+"&outbounddeparturewindow="+data.outbounddeparturewindow+"&includedcarriers="+data.includedcarriers+"&inboundstopduration="+data.inboundstopduration+"&passengercount="+data.adult+"&sortbyval="+data.sortbyval+"&adult="+data.adult+"&children="+data.children+"&infant="+data.infant+"&travel_class="+data.pclass+"&origin1="+data.origin1+"&destination1="+data.destination1+"&startml1="+data.departureDate1+"&origin2="+data.origin2+"&destination2="+data.destination2+"&startml2="+data.departureDate2+"&origin3="+data.origin3+"&destination3="+data.destination3+"&startml3="+data.departureDate3+"&origin4="+data.origin4+"&destination4="+data.destination4+"&startml4="+data.departureDate4+"&origin5="+data.origin5+"&destination5="+data.destination5+"&startml5="+data.departureDate5, 
+                  headers: headers 
+              }) 
+              .success(function(data) { 
+                return data;
+              }) 
+              .error(function() { 
+                //deferred.reject(); 
+              }));
+
+            }else if(counter == 2){
+              urlCalls.push($http({ 
+                  method: 'POST', 
+                  url: url,
+                  cache: false, 
+                  data: urlamadeus, 
+                  headers: headers 
+              }) 
+               .success(function(data) { 
+                  return data;
+                }) 
+                .error(function() { 
+                  //deferred.reject(); 
+              }));
+
+            }  
+
+            counter = counter + 1;
+
+          });
+      
+
+          $q.all(urlCalls)
+          .then(
+            function(results) {
+            deferred.resolve(results) 
+          },
+          function(errors) {
+            deferred.reject(errors);
+          },
+          function(updates) {
+            deferred.update(updates);
+          });
+          return deferred.promise;
+        }
+      };
+    });
+
 app.service('getFlightBmf', function($http, $q) {
       
 

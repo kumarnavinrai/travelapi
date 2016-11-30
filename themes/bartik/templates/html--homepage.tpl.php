@@ -163,6 +163,11 @@ function get_client_ip() {
   //echo $pathoffile; die;
   require_once $pathoffile."/common/"."cclick.php";
 ?>
+<?php
+  $pathoffile = realpath(__DIR__);
+  //echo $pathoffile; die;
+  require_once $pathoffile."/common/"."analyticstracking.php";
+?>
 <header id="main-header">
             <div class="header-top">
                 <div class="container">
