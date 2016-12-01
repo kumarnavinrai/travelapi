@@ -378,14 +378,7 @@ $themeurl = file_create_url(path_to_theme());
                   </div>
                 </div>
           </div>
-                      <!-- pagination start -->
-                      <div ng-controller="OtherController" class="other-controller">
-                        <!--<small>this is in "OtherController"</small>-->
-                        <div class="text-center">
-                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html"></dir-pagination-controls>
-                        </div>
-                      </div>
-                      <!-- pagination ends -->
+                      
                            
                     <div class="nav-drop booking-sort">
                         <!--<h5 class="booking-sort-title"></h5>-->
@@ -482,9 +475,19 @@ $themeurl = file_create_url(path_to_theme());
                                     <!-- Amadeus search serch start -->
                                     <h1 style="display:none;">Amadeus</h1>
                                     <!-- new design start -->
-                                    <div id="tabs-1"><br>
+                                    <div id="tabs-1">
+                                      <!-- pagination start -->
+                                      <div ng-controller="OtherController" class="other-controller">
+                                        <!--<small>this is in "OtherController"</small>-->
+                                        <div class="text-center">
+                                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html" pagination-id="result"></dir-pagination-controls>
+                                        </div>
+                                      </div>
+                                      <!-- pagination ends -->
+
+                                    <br>
                                            
-                                            <li  class="amadeusresult" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                                            <li  class="amadeusresult" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" pagination-id="result" current-page="currentPage">
                                             <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
                                             <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
                                             <span ng-init="xy.children=<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>">
@@ -557,13 +560,33 @@ $themeurl = file_create_url(path_to_theme());
                                                     </div><!-- booking item -->
                                                   </div><!-- booking item container -->
                                                 </li>
+
+                                                <br>
+
+                                                <!-- pagination start -->
+                                                <div ng-controller="OtherController" class="other-controller">
+                                                  <!--<small>this is in "OtherController"</small>-->
+                                                  <div class="text-center">
+                                                  <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html" pagination-id="result"></dir-pagination-controls>
+                                                  </div>
+                                                </div>
+                                                <!-- pagination ends -->
                                     </div>            
                                   <!-- new design ends -->
                                   <!-- alternateairport start -->
                                     <div id="tabs-2">
+
+                                          <!-- pagination start -->
+                                            <div ng-controller="OtherController" class="other-controller">
+                                              <!--<small>this is in "OtherController"</small>-->
+                                              <div class="text-center">
+                                              <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html" pagination-id="alteraiport"></dir-pagination-controls>
+                                              </div>
+                                            </div>
+                                            <!-- pagination ends -->
                                             <br>
                                            
-                                            <li  class="amadeusresultalternateaiport" dir-paginate="xy in dataforamadeusalterairport | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                                            <li  class="amadeusresultalternateaiport" dir-paginate="xy in dataforamadeusalterairport | filter:q | itemsPerPage: pageSize" pagination-id="alteraiport" current-page="currentPage">
                                             <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
                                             <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
                                             <span ng-init="xy.children=<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>">
@@ -636,13 +659,30 @@ $themeurl = file_create_url(path_to_theme());
                                                     </div><!-- booking item -->
                                                   </div><!-- booking item container -->
                                                 </li>
+                                                <br>
+                                                <!-- pagination start -->
+                                                <div ng-controller="OtherController" class="other-controller">
+                                                  <!--<small>this is in "OtherController"</small>-->
+                                                  <div class="text-center">
+                                                  <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html" pagination-id="alteraiport"></dir-pagination-controls>
+                                                  </div>
+                                                </div>
+                                                <!-- pagination ends -->
                                     </div>            
                                   <!-- alternateairport ends -->
                                   <!-- alternate dates start -->
                                     <div id="tabs-3">
+                                      <!-- pagination start -->
+                                      <div ng-controller="OtherController" class="other-controller">
+                                        <!--<small>this is in "OtherController"</small>-->
+                                        <div class="text-center">
+                                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html" pagination-id="alterdate"></dir-pagination-controls>
+                                        </div>
+                                      </div>
+                                      <!-- pagination ends -->
                                       <br>
                                            
-                                            <li  class="amadeusresultalternateaiport" dir-paginate="xy in dataforamadeusalter | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                                            <li  class="amadeusresultalternateaiport" dir-paginate="xy in dataforamadeusalter | filter:q | itemsPerPage: pageSize" pagination-id="alterdate" current-page="currentPage">
                                             <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
                                             <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
                                             <span ng-init="xy.children=<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>">
@@ -715,17 +755,22 @@ $themeurl = file_create_url(path_to_theme());
                                                     </div><!-- booking item -->
                                                   </div><!-- booking item container -->
                                                 </li>
+                                      
+                                                <br>
+                                      <!-- pagination start -->
+                                      <div ng-controller="OtherController" class="other-controller">
+                                        <!--<small>this is in "OtherController"</small>-->
+                                        <div class="text-center">
+                                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html" pagination-id="alterdate"></dir-pagination-controls>
+                                        </div>
+                                      </div>
+                                      <!-- pagination ends -->
                                     </div>            
                                   <!-- alternate dates ends -->
 
                                     
                                   
-                                <div ng-controller="OtherController" class="other-controller">
-                                  <!--<small>this is in "OtherController"</small>-->
-                                  <div class="text-center">
-                                  <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html"></dir-pagination-controls>
-                                  </div>
-                                </div>
+                                
                                   
                                 <!-- Amadeus search ends -->
                          
