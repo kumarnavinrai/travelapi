@@ -468,7 +468,7 @@ $themeurl = file_create_url(path_to_theme());
                             <ul class="tab-sukh-setting">
                                 <li><a href="#tabs-1">Result</a></li>
                                 <li><a href="#tabs-2">Nearby Airport</a></li>
-                                <li><a href="#tabs-3">Flexiable Dates</a></li>
+                                <li><a href="#tabs-3">Flexible Dates</a></li>
                             </ul>
                             <ul class="booking-list allresult">
                            
