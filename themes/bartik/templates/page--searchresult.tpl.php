@@ -609,7 +609,7 @@ $themeurl = file_create_url(path_to_theme());
                                                     <div class="row price_row" ng-if="x.counterfornoofflights==1" >
                                                     
                                                       <div class="col-md-4 col-sm-12 col-xs-12">
-                                                        <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
+                                                        <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookmealter(this)" >Select</a>  
                                                       </div>
                                                       <div class="col-md-8 col-sm-12 col-xs-12 text-algn-sukh-right">
                                                         <span class="itienaryprice" style="">
@@ -682,7 +682,7 @@ $themeurl = file_create_url(path_to_theme());
                                       <!-- pagination ends -->
                                       <br>
                                            
-                                            <li  class="amadeusresultalternateaiport" dir-paginate="xy in dataforamadeusalter | filter:q | itemsPerPage: pageSize" pagination-id="alterdate" current-page="currentPage">
+                                            <li  class="amadeusresultalternatedate" dir-paginate="xy in dataforamadeusalter | filter:q | itemsPerPage: pageSize" pagination-id="alterdate" current-page="currentPage">
                                             <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == ""){ ?>
                                             <span ng-init="xy.adult=<?php echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; ?>"></span>
                                             <span ng-init="xy.children=<?php echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; ?>">
@@ -705,7 +705,7 @@ $themeurl = file_create_url(path_to_theme());
                                                     <div class="row price_row" ng-if="x.counterfornoofflights==1" >
                                                     
                                                       <div class="col-md-4 col-sm-12 col-xs-12">
-                                                        <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookme(this)" >Select</a>  
+                                                        <a class="btn btn-primary btn-lg btn_sukh clsselectedbycustomer" ng-if="x.counterfornoofflights==1"  onclick="bookmealterdate(this)" >Select</a>  
                                                       </div>
                                                       <div class="col-md-8 col-sm-12 col-xs-12 text-algn-sukh-right">
                                                         <span class="itienaryprice" style="">

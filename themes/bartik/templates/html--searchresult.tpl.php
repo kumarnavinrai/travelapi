@@ -521,6 +521,18 @@ header('Access-Control-Allow-Origin: *');
                 $('.saledata').val($(ele).closest('li.amadeusresult').children('div').children('div').children('span').html());
                 $("#idformforselect").submit();
             }
+
+            function bookmealter(ele){
+                //console.log($(ele).closest('li.amadeusresult').children('div').children('div').children('span').html());
+                $('.saledata').val($(ele).closest('li.amadeusresultalternateaiport').children('div').children('div').children('span').html());
+                $("#idformforselect").submit();
+            }
+
+            function bookmealterdate(ele){
+                //console.log($(ele).closest('li.amadeusresult').children('div').children('div').children('span').html());
+                $('.saledata').val($(ele).closest('li.amadeusresultalternatedate').children('div').children('div').children('span').html());
+                $("#idformforselect").submit();
+            }
         </script>
         <!--      ######################################################################################################################################################################################################################################################       -->
         <script type="text/javascript">
