@@ -513,33 +513,40 @@
                 </div>
                 <div class="tab-pane fade" id="tab-1">
                   <h2>Search and Save on Hotels</h2>
-                  <form method="POST" action="http://travelpainters.local/searchresult">
+                  <!-- Added to handle the form -->           
+                  <div id="messages" class="hotelerror" style="display:none;" >
+                  City, Airport or Landmark and checkin/checkout is required.
+                  </div>  
+                  
+                  <p></p> 
+                  <!-- Finish Here -->
+                  <form method="POST" action="<?php echo isset($_SESSION['urlforform'])?$_SESSION['urlforform']:""; ?>searchresulthotel">
                     <div class="form-group form-group-lg form-group-icon-left">
                       <i class="fa fa-map-marker input-icon"></i>
                       <label>Where you want to stay?</label>
-                      <input class="typeahead form-control" placeholder="Enter a City, Airport or Landmark" type="text" />
+                      <input class="typeaheadhotel iamhotel form-control" name="hotelsearchcrt" placeholder="Enter a City, Airport or Landmark" type="text" />
                     </div>
                     <div class="input-daterange" data-date-format="M d, D">
                       <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 removepaddingright">
                           <div class="form-group form-group-lg form-group-icon-left">
-                            <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                            <i class="fa fa-calendar input-icon input-icon-highlight icon-setting-sukh"></i>
                             <label>Check-in</label>
-                             <input id="from_datepicker" class="form-control date-setting-sukh-multi  hasDatepicker" placeholder="yyyy-mm-dd" name="startx" type="text">
-                           <!--  <input class="form-control" name="startx" type="text" /> -->
+                             <input id="from_datepickerhotel" class="form-control date-setting-sukh" placeholder="yyyy-mm-dd" name="starth" type="text">
+                             <!--  <input class="form-control" name="startx" type="text" /> -->
                           </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 removepaddingright">
                           <div class="form-group form-group-lg form-group-icon-left">
-                            <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                            <i class="fa fa-calendar input-icon input-icon-highlight icon-setting-sukh"></i>
                             <label>Check-out</label>
-                            <input class="form-control" name="end" type="text" />
+                            <input id="to_datepickerhotel" class="form-control  date-setting-sukh" name="endh" placeholder="yyyy-mm-dd" type="text" />
                           </div>
                         </div>
                         <div class="col-md-2">
                           <div class="form-group form-group-lg form-group-select-plus">
                             <label>Rooms</label>
-                            <select name="roomsml" class="form-control box-setting-sukh" >
+                            <select name="rooms" class="form-control box-setting-sukh" >
                                           <option value="1">1</option>
                                           <option value="2">2</option>
                                           <option value="3">3</option>
@@ -555,7 +562,7 @@
                         <div class="col-md-2">
                           <div class="form-group form-group-lg form-group-select-plus">
                             <label>Adults</label>
-                            <select name="adultsml" class="form-control box-setting-sukh" >
+                            <select name="adultshotel" class="form-control box-setting-sukh" >
                                           <option value="1">1</option>
                                           <option value="2">2</option>
                                           <option value="3">3</option>
@@ -571,7 +578,7 @@
                         <div class="col-md-2">
                           <div class="form-group form-group-lg form-group-select-plus">
                             <label>Children</label>
-                            <select name="childrenml" class="form-control box-setting-sukh" >
+                            <select name="childrenhotelch" class="form-control box-setting-sukh" >
                                           <option value="0">0</option>
                                           <option value="1">1</option>
                                           <option value="2">2</option>
@@ -600,14 +607,14 @@
                                 <div class="form-group form-group-lg form-group-icon-left sukh-lbel-more-color">
                                   <i class="fa fa-home input-icon input-icon-highlight"></i>
                                   <label>Hotel Name</label>
-                                   <input class="form-control" name="end" type="text" placeholder="Hotel Name" />
+                                   <input class="form-control" name="hotelname" type="text" placeholder="Hotel Name" />
                                  </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group form-group-lg form-group-icon-left sukh-lbel-more-color">
                                 <i class="fa fa-Star input-icon input-icon-highlight"></i>
                                   <label>Hotel Rating</label>
-                                    <select name="childrenml" class="form-control box-setting-sukh" >
+                                    <select name="childrenhotel" class="form-control box-setting-sukh" >
                                           <option value="Any">Any</option>
                                           <option value="1 star">1 Star</option>
                                           <option value="2 star">2 Star</option>
@@ -622,7 +629,7 @@
             </div>
           </div>
             
-                    <button class="btn btn-primary btn-lg" type="submit">Search for Hotels</button>
+                    <button class="btn btn-primary btn-lg nav_search_for_flights_hotel" type="submit">Search for Hotels</button>
                   </form>
                 </div>
                 <!-- <div class="tab-pane fade" id="tab-1">
@@ -940,5 +947,26 @@
             });
         
         } );
+
+
+
+
+        $(document).ready(function(){
+
+              $('.nav_search_for_flights_hotel').on('click',function(e){
+                   
+                  if($("input[name=starth]").val() == "" || $("input[name=endh]").val() == "" || $("input[name=hotelsearchcrt]").val() == "")
+                  { console.log("i am hit"+$("input[name=starth]").val()+"---");
+                        $(".hotelerror").hide();
+                     
+                        
+                        $(".hotelerror").fadeIn();
+                        
+                        e.preventDefault();
+                  }
+              });
+
+        });
+
         </script>
      

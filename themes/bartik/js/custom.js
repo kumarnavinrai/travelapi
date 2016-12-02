@@ -54,7 +54,45 @@ $('.typeahead').typeahead({
     minLength: 3,
     limit: 8
 }, {
+    source: function(q, cb) { 
+        console.log($(this).parent().parent());
+        //$( "#mydiv" ).hasClass( "foo" )
+        return $.ajax({
+            dataType: 'json',
+            type: 'post',
+            //url: 'http://travelpainters.local:1337/AutoCompleteCity?&q=' + q,
+            url: urlforapi+'?&q=' + q,
+            chache: false,
+            success: function(data) {
+                var result = [];
+                var datatopush;
+                var statedata;
+                var countrydata;
+                console.log(data);
+                $.each(data, function(index, val) {
+                   
+                    datatopush = val;
+                    result.push({
+                        value: datatopush
+                    });
+                      
+                });
+                cb(result);
+            }
+        });
+    }
+});
+
+$('.typeaheadhotel').typeahead({
+    hint: true,
+    highlight: true,
+    minLength: 3,
+    limit: 8
+}, {
     source: function(q, cb) {
+
+        urlforapi = urlforapi.replace('autoc', 'hotelcitysearch');
+
         return $.ajax({
             dataType: 'json',
             type: 'post',
@@ -181,6 +219,8 @@ $( function() {
       numberOfMonths: 2,
     });
 
+
+
       /*from = elestart
         .datepicker({
           defaultDate: "+1w",
@@ -221,6 +261,90 @@ $( function() {
       return date;
     }
   } );
+
+
+$( function() {
+    //totay date seletor
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+    var today = yyyy+'-'+mm+'-'+dd;
+
+    var elestart = $('input.date-pick, .input-daterange input[name="start"]');
+    var eleend = $('.input-daterange input[name="end"]');
+
+    //var dateFormat = "mm/dd/yy",
+    var dateFormat = "yy-mm-dd";
+    $('#from_datepickerhotel').datepicker({
+      minDate: 'D',
+      dateFormat: dateFormat,
+      defaultDate: "+1w",
+      numberOfMonths: 2,
+      onClose: function(selectedDate) {
+        $('#to_datepickerhotel').datepicker("option", "minDate", selectedDate);
+        $('#to_datepickerhotel').datepicker("show");
+      }
+    });
+    $('#to_datepickerhotel').datepicker({
+        minDate: '+1D',
+        dateFormat: dateFormat,
+        defaultDate: "+1w",
+        numberOfMonths: 2
+    });
+
+
+
+
+      /*from = elestart
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          dateFormat: dateFormat,
+          minDate: today,
+          showAnim: "slideDown",
+          numberOfMonths: 2,
+          onClose: function(selectedDate) {
+            
+            $('#to_datepicker').datepicker("show");
+          }
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+          //$('#to_datepicker').datepicker("show");
+        }),
+      to = eleend.datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        dateFormat: dateFormat,
+        minDate: today,
+        showAnim: "slideDown",
+        numberOfMonths: 2
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });*/
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+  } );
+
 
 
 //$('input.date-pick, .input-daterange, .date-pick-inline').datepicker({

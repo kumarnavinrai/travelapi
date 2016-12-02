@@ -25,7 +25,7 @@ require_once $filepath;
     </script>
                                 
                                 <li ><a href="<?php echo $urlofwp; ?>">FLIGHTS</a> </li>
-                                <!-- <li><a href="<?php echo $urlofwp; ?>">HOTELS</a> </li> -->
+                                <li><a href="<?php echo $urlofwp; ?>">HOTELS</a> </li>
                                 <!--<li><a href="<?php echo $urlofwp; ?>insurance/">INSURANCE</a></li>-->
                                 <!-- <li><a href="<?php echo $urlofwp; ?>">CARS</a></li> -->
                                 <!-- diff menu start -->

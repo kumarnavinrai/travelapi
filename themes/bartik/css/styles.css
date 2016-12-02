@@ -12342,5 +12342,7 @@ ul#flightChooseTab li a {
 .widthofowsel > label {
     color: #fff;
 }
-
+.removepaddingright{
+  padding-right: 0px !important;
+}
 /* kuldeep*/
