@@ -173,7 +173,11 @@
         <script src="<?php echo $themeurl; ?>/js/custom.js"></script>
     
        
-  
+      <?php 
+        $pathoffile = realpath(__DIR__);
+        //echo $pathoffile; die;
+        require_once $pathoffile."/common/"."chat.php"
+      ?> 
 
 </body>
 </html>

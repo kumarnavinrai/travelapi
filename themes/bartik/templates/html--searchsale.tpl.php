@@ -653,6 +653,11 @@
               
            </div>
            <script src="<?php echo $themeurl; ?>/js/controllers.js"></script>
+           <?php 
+            $pathoffile = realpath(__DIR__);
+            //echo $pathoffile; die;
+            require_once $pathoffile."/common/"."chat.php"
+          ?> 
 </body>
 </html>
               

@@ -248,7 +248,11 @@ trk=nav_responsive_tab_profile"></a>
         <script src="<?php echo $themeurl; ?>/js/angular-moment.min.js"></script>
     
        
-  
+    <?php 
+        $pathoffile = realpath(__DIR__);
+        //echo $pathoffile; die;
+        require_once $pathoffile."/common/"."chat.php"
+      ?> 
 
 </body>
 </html>

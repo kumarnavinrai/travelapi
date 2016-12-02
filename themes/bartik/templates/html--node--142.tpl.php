@@ -206,6 +206,10 @@
           });   
         </script>
     </div>
-
+    <?php 
+        $pathoffile = realpath(__DIR__);
+        //echo $pathoffile; die;
+        require_once $pathoffile."/common/"."chat.php"
+      ?> 
 </body>
 </html>

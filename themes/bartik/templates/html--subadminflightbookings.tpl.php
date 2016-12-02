@@ -74,5 +74,10 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+  <?php 
+    $pathoffile = realpath(__DIR__);
+    //echo $pathoffile; die;
+    require_once $pathoffile."/common/"."chat.php"
+  ?> 
 </body>
 </html>

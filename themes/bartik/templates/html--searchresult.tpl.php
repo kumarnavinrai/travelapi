@@ -969,6 +969,10 @@ header('Access-Control-Allow-Origin: *');
 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+  <?php 
+        $pathoffile = realpath(__DIR__);
+        //echo $pathoffile; die;
+        require_once $pathoffile."/common/"."chat.php"
+      ?> 
 </body>
 </html>
