@@ -769,7 +769,7 @@ header('Access-Control-Allow-Origin: *');
                     $scope.totalnoofresultsfound = 0;
                    
                     if(datanew[0] != undefined ){ console.log(datanew);
-                      $scope.dataforamadeus = datanew;
+                      $scope.dataforamadeus = datanew[0].data;
                      
                       
                       console.log($scope.dataforamadeus);

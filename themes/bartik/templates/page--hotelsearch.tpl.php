@@ -544,7 +544,7 @@ $themeurl = file_create_url(path_to_theme());
                             
                             <ul class="booking-list allresult">
                               <!--list of hotels starts -->
-                              <li>
+                              <li class="amadeusresult" dir-paginate="xy in dataforamadeus | filter:q | itemsPerPage: pageSize" pagination-id="result" current-page="currentPage">
                                 <div class="col-md-4">
                                   <img class="img-sukh-hotel" src="<?php echo $themeurl; ?>/img/196_365_300x300.jpg">
                                 </div>
