@@ -1,1 +1,0 @@
-<Offer_ConfirmCarOfferReply xmlns="http://xml.amadeus.com/ROFRKR_13_1_1A">

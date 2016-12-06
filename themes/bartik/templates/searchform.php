@@ -520,7 +520,7 @@
                   
                   <p></p> 
                   <!-- Finish Here -->
-                  <form method="POST" action="<?php echo isset($_SESSION['urlforform'])?$_SESSION['urlforform']:""; ?>searchresulthotel">
+                  <form method="POST" action="<?php echo isset($_SESSION['urlforform'])?$_SESSION['urlforform']:""; ?>hotelsearch">
                     <div class="form-group form-group-lg form-group-icon-left">
                       <i class="fa fa-map-marker input-icon"></i>
                       <label>Where you want to stay?</label>
