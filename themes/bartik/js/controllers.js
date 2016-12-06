@@ -142,6 +142,93 @@ app.service('flightServiceNew', function($http, $q) {
       };
     });
 
+
+
+app.service('flightServiceNewHotel', function($http, $q) {
+      
+
+      return {
+        loadDataFromUrls: function(urls,data) {
+
+          var nonstop = false;
+
+          var headers = { 
+            'Access-Control-Allow-Origin' : '*', 
+            'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT', 
+            'Content-Type' : 'application/x-www-form-urlencoded', 
+            'Accept': 'application/json' 
+          }; 
+         
+          
+          
+        
+          //,adult:$scope.adult,children:$scope.children,infant:$scope.infant
+
+          var deferred = $q.defer();
+          var urlCalls = [];
+          var urlsnew = [];
+          urlsnew.push(urls);
+          //urls = urls.replace("fs/","");
+          //urls = urls + "amadeusurl";
+          //urlsnew.push(urls);
+          var counter = 1;
+          angular.forEach(urlsnew, function(url) {
+
+            if(counter == 1){
+
+              urlCalls.push($http({ 
+                  method: 'POST', 
+                  url: url,
+                  cache: false, 
+                  //postData = {origin:$scope.hotelsearch,destination:"",departureDate:$scope.startdate,returndate:$scope.enddate,lengthofstay:0,limit:0,rooms:$scope.rooms,adult:$scope.adult,children:$scope.children,childrenhotel:$scope.childrenhotel}; 
+
+                  data: "origin="+data.origin+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&limit="+data.limit+"&rooms="+data.rooms+"&adult="+data.adult+"&children="+data.children+"&childrenhotel="+data.childrenhotel,                  headers: headers 
+              }) 
+              .success(function(data) { 
+                return data;
+              }) 
+              .error(function() { 
+                //deferred.reject(); 
+              }));
+
+            }else if(counter == 2){
+              urlCalls.push($http({ 
+                  method: 'POST', 
+                  url: url,
+                  cache: false, 
+                  data: urlamadeus, 
+                  headers: headers 
+              }) 
+               .success(function(data) { 
+                  return data;
+                }) 
+                .error(function() { 
+                  //deferred.reject(); 
+              }));
+
+            }  
+
+            counter = counter + 1;
+
+          });
+      
+
+          $q.all(urlCalls)
+          .then(
+            function(results) {
+            deferred.resolve(results) 
+          },
+          function(errors) {
+            deferred.reject(errors);
+          },
+          function(updates) {
+            deferred.update(updates);
+          });
+          return deferred.promise;
+        }
+      };
+    });
+
 app.service('flightServiceNewAlter', function($http, $q) {
       
 

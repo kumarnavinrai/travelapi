@@ -35,9 +35,10 @@ if(isset($res["Hotelcityres"]))
 						$city = isset($value->city)?$value->city:"";
 						$state = isset($value->stateName)?$value->stateName.", ":"";
 						$country = isset($value->countryName)?$value->countryName:"";
+						$countrycode = isset($value->country)?$value->country:"";
 
 						//$responseArrayName[$key]= $id." - ".$name.", ".$city.", ".$state.", ".$country;
-						$responseArrayName[$key]= $city." (".$id."), ".$state.$country.", (".$name.")";
+						$responseArrayName[$key]= $city." (".$id."), ".$state.$country."(".$countrycode.")".", (".$name.")";
 					}
 
 					echo json_encode($responseArrayName); die;
