@@ -110,7 +110,7 @@ $themeurl = file_create_url(path_to_theme());
   <div class="rect4"></div>
   <div class="rect5"></div>
 </div> -->
-<h1>Hotels search</h1>
+<h1>Hotels search (under construction)</h1>
 <div class="container" ng-show="appState !== undefined" ng-model="appState" ng-cloak>
             <!-- search form start -->
             <?php ?>
