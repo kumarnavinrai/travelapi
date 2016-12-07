@@ -26,6 +26,7 @@ $('.countdown').each(function() {
 });
 
 
+
 $('.btn').button();
 
 $("[rel='tooltip']").tooltip();
@@ -562,7 +563,6 @@ $(document).ready(
 
 $('.nav-drop').dropit();
 
-
 $("#price-slider1").ionRangeSlider({
     min: 1,
     max: 12,
@@ -573,12 +573,7 @@ $("#price-slider1").ionRangeSlider({
     hasGrid: true
 });
 
-$('.i-check, .i-radio').iCheck({
-    checkboxClass: 'i-check',
-    radioClass: 'i-radio'
-});
-
-
+ $("#ex2").slider({});
 
 $('.booking-item-review-expand').click(function(event) {
     console.log('baz');
@@ -826,7 +821,12 @@ $(function() {
     });
 
 });
-
+$(document).ready(function(){
+  $('ul.hotel-sort-sukh li a').click(function(){
+    $('.hotel-sort-sukh li a').parent("li").removeClass("active");
+    $(this).parent("li").addClass("active");
+});
+});
 var tid = setInterval(tagline_vertical_slide, 2500);
 
 // vertical slide
@@ -852,7 +852,19 @@ jQuery(document).on('click', '.mega-dropdown', function(e) {
   e.stopPropagation()
 });
 
-
+$( function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 4000,
+      values: [ 10, 4000 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  } );
 
 var keywords = [
 {"keyword":"CDP-Cuddapah, Cuddapah, Andhra Pradesh, India"},

@@ -179,133 +179,144 @@ $themeurl = file_create_url(path_to_theme());
                             <li class="checkboxesli">
                                 <h5 class="booking-filters-title">Price Range <small></small></h5>
                                 <p>
-                                  <input type="text" id="amount" readonly class="price-slider-sukh">
+                                  <input type="text" id="amount" readonly class="price-slider">
                                 </p>
  
                                 <div id="slider-range"></div>
                             </li>
                             <li class="checkboxesli">
-                                <h5 class="booking-filters-title">Star Rating <small></small></h5>
+                                <h5 class="booking-filters-title">Stops <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(0)" value="0" /><img src="<?php echo $themeurl; ?>/img/5-star-rating.png ?>" style="width: 60%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(0)" value="0" />Non-stop<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(1)"  value="1" /><img src="<?php echo $themeurl; ?>/img/4-star-rating.png ?>" style="width: 48%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(1)"  value="1" />1 Stop<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(2)"  value="2" /><img src="<?php echo $themeurl; ?>/img/3-star-rating.png ?>" style="width: 35%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(2)"  value="2" />2 Stops<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(3)"  value="3" /><img src="<?php echo $themeurl; ?>/img/2-star-rating.png ?>" style="width: 23%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(3)"  value="3" />3 Stops<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(4)"  value="4" /><img src="<?php echo $themeurl; ?>/img/1-star-rating.png ?>" style="width: 12%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(4)"  value="4" />4 Stops<span class="pull-right"></span>
                                     </label>
                                 </div>
                             </li>
                             <li class="departtimecheckboxes">
-                                <h5 class="booking-filters-title">What's Included</h5>
-                                 <div class="checkbox">
+                                <h5 class="booking-filters-title">Departure Time</h5>
+                                <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="05001159" ng-click="filterFuncTime('05001159')" type="checkbox" />Free Cancellation</label>
+                                        <input class="i-check checkbox_dt" value="05001159" ng-click="filterFuncTime('05001159')" type="checkbox" />Morning (5:00a - 11:59a)</label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="05001159" ng-click="filterFuncTime('05001159')" type="checkbox" />Free Breakfast</label>
+                                        <input class="i-check checkbox_dt" value="12001759" ng-click="filterFuncTime('12001759')" type="checkbox" />Afternoon (12:00p - 5:59p)</label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="12001759" ng-click="filterFuncTime('12001759')" type="checkbox" />Free Parking</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check checkbox_dt" value="18002359" ng-click="filterFuncTime('18002359')" type="checkbox" />Fitness Center</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check checkbox_dt" value="18002359" ng-click="filterFuncTime('18002359')" type="checkbox" />Free WiFi</label>
+                                        <input class="i-check checkbox_dt" value="18002359" ng-click="filterFuncTime('18002359')" type="checkbox" />Evening (6:00p - 11:59p)</label>
                                 </div>
                             </li>
+                            <!--<li>
+                                <h5 class="booking-filters-title">Layover Time</h5>
+                                <input type="text" id="price-slider">
+                            </li>-->
                             <li class="liforairline">
-                                <h5 class="booking-filters-title">Amenities <small></small></h5>
+                                <h5 class="booking-filters-title">Airlines <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('VX')" value="VX" />Gym<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('VX')" value="VX" />Virgin America<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('DL')" value="DL" />Swimming Pool<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('DL')" value="DL" />Delta Air Lines<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('UA')" value="UA" />Pets Allowed<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('UA')" value="UA" />United Airlines<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('AA')" value="AA" />Restaurant<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('AA')" value="AA" />American Airlines<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('B6')" value="B6" />Jacuzzi<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('B6')" value="B6" />jetBlue Airways<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('B6')" value="B6" />Conference<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('AC')" value="AC" />Air Canada<span class="pull-right"></span>
                                     </label>
                                 </div>
-                                
                             </li>
                             <li class="layoverli">
-                                <h5 class="booking-filters-title">Room facility <small></small></h5>
+                                <h5 class="booking-filters-title">Waiting Time <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(1)" value="1" />Air Conditioning<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(1)" value="1" />1hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(2)" value="2" />Bath<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(2)" value="2" />2hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(3)" value="3" />Flat-screen TV<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(3)" value="3" />3hr<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(4)" value="4" />View<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(4)" value="4" />4hr<span class="pull-right"></span>
                                     </label>
                                 </div>
-                                
-                            </li>
-                            <li class="layoverli">
-                                
                                 <div class="checkbox">
-                                   <div class="btn btn-primary clear-allfilter-sukh">Clear Fliter</div>
+                                    <label>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(5)" value="5" />5hr<span class="pull-right"></span>
+                                    </label>
                                 </div>
-                                
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(6)" value="6" />6hr<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(7)" value="7" />7hr<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(8)" value="8" />8hr<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(9)" value="9" />9hr<span class="pull-right"></span>
+                                    </label>
+                                </div>
                             </li>
                             
                             
                         </ul>
                     </aside>
                 </div>
-                
         <div class="col-md-9">
           <!-- Search hotel starts -->
 
@@ -381,9 +392,9 @@ $themeurl = file_create_url(path_to_theme());
           </div>
                       
                              
-                    <!-- <div class="nav-drop booking-sort">
+                    <div class="nav-drop booking-sort">
                         <!--<h5 class="booking-sort-title"></h5>-->
-                            <!--<ul class = "list-group">
+                            <ul class = "list-group">
                                 <li class = "list-group-item" style="text-align: center;padding:0 20px;margin-top: 10px;">
                                     <strong>
                                         <a href="#">Sort by Price, Stops, Waiting Time <i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
@@ -417,7 +428,7 @@ $themeurl = file_create_url(path_to_theme());
                         ?>
                         <h5 class="booking-sort-title"><?php if(isset($_REQUEST["sortbyval"])){ echo $showifsorteddatamsg[$_REQUEST["sortbyval"]]; } ?></h5>
 
-                    </div> -->
+                    </div>
                     <ul ng-if="hasanyresultfound == 'no'">
                       <li class="sukh_list">
                         <img src="<?php echo $themeurl; ?>/img/tp.png" alt="Travel Painters" >
@@ -497,9 +508,9 @@ $themeurl = file_create_url(path_to_theme());
                               width: 110px;
                               margin: 1px 0px;
                               
+                             
+                              
                             }
-                            .price-slider-sukh{border: 0;color: #FFBB06;font-weight: bold;background-color: #4D4D4D;}
-                            
 
                              .star-ratings-sprite-rating {
                                 background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
@@ -539,29 +550,11 @@ $themeurl = file_create_url(path_to_theme());
                             .img-sukh-hotel{width: 90%;}
                             .font-size-sukh{font-size: 26px;font-family: fantasy;}
                             .border-sukh-style{border-style: ridge;}
-                             ul.hotel-sort-sukh li {display: inline;padding: 0.4em 1.2em;background: #4D4D4D;}
-                             ul.hotel-sort-sukh a {color: #fff;}
-                             .b-sukh-color{color: #E7711B;}
-                             .col-md-12.margin-sukh-sort {margin-bottom: 0.5em;}
-                             .active{background-color:#FFBB06 !important;color:#fff;padding: 0.4em 1.2em;}
-                             ul.hotel-sort-sukh li:hover {background: #FFBB06; color: #fff !important; text-decoration-line: none;}
-                            a, a:hover, a:active, a:visited { text-decoration:none;}
-                            .btn.btn-primary.clear-allfilter-sukh.ui-button.ui-corner-all.ui-widget{padding: 12px 41px; font-size: 15px;font-weight: bold;}
-                      </style>
-                  <div class="row">
-                  <div class="col-md-12 margin-sukh-sort">
-                    
-                    <ul class="hotel-sort-sukh">
-                    <b class="b-sukh-color">Sort Options:</b>
-                      <li><a href="#"><i class="fa fa-gratipay" aria-hidden="true"></i> Recommended</a></li>
-                      <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i> Star Rating</a></li>
-                      <li><a href="#"><i class="fa fa-usd" aria-hidden="true"></i> Lowest Price</a></li>
-                      <li><a href="#"><i class="fa fa-flag" aria-hidden="true"></i> Distance</a></li>
-                      <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i> Special Deals</a></li>
 
-                    </ul>
-                  </div>
-                  </div>
+
+
+                      </style>
+                  
                             
                             <ul class="booking-list allresult">
                               <!--list of hotels starts -->
