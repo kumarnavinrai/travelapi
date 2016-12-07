@@ -188,27 +188,27 @@ $themeurl = file_create_url(path_to_theme());
                                 <h5 class="booking-filters-title">Star Rating <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(0)" value="0" /><img src="<?php echo $themeurl; ?>/img/5-star-rating.png ?>" style="width: 60%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(0)" value="0" /><img src="<?php echo $themeurl; ?>/img/5-star-rating.png" style="width: 60%;"><span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(1)"  value="1" /><img src="<?php echo $themeurl; ?>/img/4-star-rating.png ?>" style="width: 48%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(1)"  value="1" /><img src="<?php echo $themeurl; ?>/img/4-star-rating.png" style="width: 48%;"><span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(2)"  value="2" /><img src="<?php echo $themeurl; ?>/img/3-star-rating.png ?>" style="width: 35%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(2)"  value="2" /><img src="<?php echo $themeurl; ?>/img/3-star-rating.png" style="width: 35%;"><span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(3)"  value="3" /><img src="<?php echo $themeurl; ?>/img/2-star-rating.png ?>" style="width: 23%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(3)"  value="3" /><img src="<?php echo $themeurl; ?>/img/2-star-rating.png" style="width: 23%;"><span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(4)"  value="4" /><img src="<?php echo $themeurl; ?>/img/1-star-rating.png ?>" style="width: 12%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(4)"  value="4" /><img src="<?php echo $themeurl; ?>/img/1-star-rating.png" style="width: 12%;"><span class="pull-right"></span>
                                     </label>
                                 </div>
                             </li>
