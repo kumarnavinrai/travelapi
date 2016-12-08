@@ -40,7 +40,8 @@ function takeOutAirportCode($data)
 
      
       $arrayhotel =array();
-      
+      $arraytoprint = array();
+      $hotelcodes = array();
 
       /* code for multi city starts */
 
@@ -78,12 +79,49 @@ function takeOutAirportCode($data)
                   { 
 
                     $arrayhoteltemp[] = $value;
+
                   }
                   $arrayhotel = $arrayhoteltemp;
                 }
               }  
 
-              echo json_encode($arrayhotel);
+              if($arrayhotel)
+              {
+                $i = 0;
+                foreach ($arrayhotel as $key => $value) {
+                  //echo "<pre>"; print_r($value['BasicPropertyInfo']['Property']); die;                  
+                  
+                  $arraytoprint[$i]['HotelName'] = $value['BasicPropertyInfo']['@attributes']['HotelName'];
+                  $arraytoprint[$i]['Address'] = $value['BasicPropertyInfo']['Address']['AddressLine'][0]." ".$value['BasicPropertyInfo']['Address']['AddressLine'][1];
+                  $arraytoprint[$i]['Smoking'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['SmokeFree']['@attributes']['Ind'];
+                  $arraytoprint[$i]['Rate'] = isset($value['BasicPropertyInfo']['RateRange']['@attributes']['Min'])?$value['BasicPropertyInfo']['RateRange']['@attributes']['Min']:"call";
+                 
+                  $arraytoprint[$i]['Rating'] = isset($value['BasicPropertyInfo']['Property']['Text'])?$value['BasicPropertyInfo']['Property']['Text']:"";
+                  $arraytoprint[$i]['AdultsOnly'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['AdultsOnly']['@attributes']['Ind'];
+                  $arraytoprint[$i]['BeachFront'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['BeachFront']['@attributes']['Ind'];
+                  $arraytoprint[$i]['WholeData'] = $value;
+
+                  $hotelcodes[$i] = $value['BasicPropertyInfo']['@attributes']['HotelCode']; 
+                  
+                  $i++;  
+                }
+              }
+
+
+              /*if($hotelcodes)
+              {
+                include_once 'soap_activities/HotelImageFinderSoapActivity.php';
+
+                 $workflow = new Workflow(new HotelImageFinderSoapActivity($hotelcodes));
+        
+                  $resulthotelimg = $workflow->runWorkflow();
+
+                  echo "<pre>"; print_r($resulthotelimg); die;
+  
+              }*/
+//echo "<pre>"; print_r($arraytoprint); die;
+
+              echo json_encode($arraytoprint);
               die;
 
               

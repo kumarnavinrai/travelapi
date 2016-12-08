@@ -550,7 +550,7 @@ $themeurl = file_create_url(path_to_theme());
                       </style>
                   <div class="row">
                   <div class="col-md-12 margin-sukh-sort">
-                    
+                    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html" pagination-id="result"></dir-pagination-controls>
                     <ul class="hotel-sort-sukh">
                     <b class="b-sukh-color">Sort Options:</b>
                       <li><a href="#"><i class="fa fa-gratipay" aria-hidden="true"></i> Recommended</a></li>
@@ -571,9 +571,9 @@ $themeurl = file_create_url(path_to_theme());
                                   <img class="img-sukh-hotel" src="<?php echo $themeurl; ?>/img/196_365_300x300.jpg">
                                 </div>
                                 <div class="col-md-6">
-                                 <h4 class="font-size-sukh"> <b>Crowne Plaza Toronto Airport</b></h4>
-                                  <p>33 Carlson Crt, Toronto, ON, CA, M9W6H5</p>
-                                  <p>Located in Toronto (Etobicoke), Crowne Plaza Toronto Airport is close to Toronto...<a href="#">Read more</a> </p>
+                                 <h4 class="font-size-sukh"> <b>{{xy.HotelName}}</b></h4>
+                                  <p>{{xy.Address}}</p>
+                                  <p>{{xy.Rating}}Located in Toronto (Etobicoke), Crowne Plaza Toronto Airport is close to Toronto...<a href="#">Read more</a> </p>
                                   <div class="listingbb" style="display: block;">
                                     <ul>
                                       <li> 
@@ -619,7 +619,7 @@ $themeurl = file_create_url(path_to_theme());
                                 <div class="col-md-12 price-sukh-hotel">
                                   <div class="col-md-4">Standard Room</div>
                                   <div class="col-md-4">Non Smoking - Promotional Rate</div>
-                                  <div class="col-md-4 price_sukh-hotel">$ 51<sup>.55</sup></div>
+                                  <div class="col-md-4 price_sukh-hotel">$ {{xy.Rate}}<sup>.55</sup></div>
                                 </div>
                                 </span>
                               </li>

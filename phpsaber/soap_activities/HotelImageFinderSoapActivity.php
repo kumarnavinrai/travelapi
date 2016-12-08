@@ -4,23 +4,24 @@ include_once 'soap/SACSSoapClient.php';
 include_once 'soap_activities/PassengerDetailsNameOnlyActivity.php';
 include_once 'soap/XMLSerializer.php';
 
-class HotelFinderSoapActivity implements Activity {
+class HotelImageFinderSoapActivity implements Activity {
 
     private $config;
     
-    public function __construct() {
+    public function __construct($hotelcodes) {
         $this->config = SACSConfig::getInstance();
+        $this->hotelcodes =$hotelcodes;
     }
     
     public function run(&$sharedContext) {
      
 
-        $soapClient = new SACSSoapClient("OTA_HotelAvailLLSRQ");
+        $soapClient = new SACSSoapClient("GetHotelImageRQ");
         $soapClient->setLastInFlow(false);
         $xmlRequest = $this->getRequest();
         
-        $sharedContext->addResult("OTA_HotelAvailRQ", $xmlRequest);
-        $sharedContext->addResult("OTA_HotelAvailRS", $soapClient->doCall($sharedContext, $xmlRequest));
+        $sharedContext->addResult("GetHotelImageRQ", $xmlRequest);
+        $sharedContext->addResult("GetHotelImageRS", $soapClient->doCall($sharedContext, $xmlRequest));
         return null;
         //return new PassengerDetailsNameOnlyActivity();
     }
@@ -29,35 +30,17 @@ class HotelFinderSoapActivity implements Activity {
     private function getRequest() {
         
         
-        if(isset($_REQUEST['origin']) && $_REQUEST['origin'] != "")
+        if(isset($this->hotelcodes) && $this->hotelcodes)
         {
-          $origin = $_REQUEST['origin'];
-          $arr = explode("(", $origin);
-          $firstele = explode(")",$arr[1]);
-          $secondele = explode(")",$arr[2]);
-          $citycode = reset($firstele);
-          $countrycode = reset($secondele);
-          $start = explode("-", $_REQUEST['departureDate']);
-          $start = next($start)."-".next($start);
-          $end = explode("-", $_REQUEST['returndate']);
-          $end = next($end)."-".next($end);
-          $adult = $_REQUEST['adult'];
+          
+          $first = reset($this->hotelcodes);
 
-
-          $rtn = '<OTA_HotelAvailRQ xmlns="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.2.1">
-          <AvailRequestSegment>
-          <GuestCounts Count="'.$adult.'"/>
-          <HotelSearchCriteria NumProperties="200">
-          <Criterion>
-          <Address>
-          <CountryCode>'.$countrycode.'</CountryCode>
-          </Address>
-          <HotelRef HotelCityCode="'.$citycode.'"/>
-          </Criterion>
-          </HotelSearchCriteria>
-          <TimeSpan End="'.$end.'" Start="'.$start.'"/>
-          </AvailRequestSegment>
-          </OTA_HotelAvailRQ>';
+          $rtn = '<GetHotelImageRQ xmlns="http://services.sabre.com/hotel/image/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0.0" xsi:schemaLocation="http://services.sabre.com/hotel/image/v1 GetHotelImageRQ.xsd">
+    <HotelRefs>
+        <HotelRef HotelCode="0017381" CodeContext="Sabre" />
+    </HotelRefs>
+    <ImageRef Type="THUMBNAIL" CategoryCode="3" LanguageCode="EN" />
+</GetHotelImageRQ>';
 
           return $rtn;
          }
