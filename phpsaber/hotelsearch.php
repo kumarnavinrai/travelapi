@@ -36,6 +36,20 @@ function takeOutAirportCode($data)
   return $fromairportcode;
 }
 
+function changeFalseTrue($data)
+{ 
+   if($data=='false')
+   {
+      return 0;
+   }
+
+   if($data=='true')
+   {
+      return 1;
+   }
+   return NULL;
+}
+
      
 
      
@@ -89,16 +103,92 @@ function takeOutAirportCode($data)
               {
                 $i = 0;
                 foreach ($arrayhotel as $key => $value) {
-                  //echo "<pre>"; print_r($value['BasicPropertyInfo']['Property']); die;                  
+                  //echo "<pre>"; print_r($value); die;                  
                   
                   $arraytoprint[$i]['HotelName'] = $value['BasicPropertyInfo']['@attributes']['HotelName'];
                   $arraytoprint[$i]['Address'] = $value['BasicPropertyInfo']['Address']['AddressLine'][0]." ".$value['BasicPropertyInfo']['Address']['AddressLine'][1];
                   $arraytoprint[$i]['Smoking'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['SmokeFree']['@attributes']['Ind'];
                   $arraytoprint[$i]['Rate'] = isset($value['BasicPropertyInfo']['RateRange']['@attributes']['Min'])?$value['BasicPropertyInfo']['RateRange']['@attributes']['Min']:"call";
+                  $temprate = explode(".", $arraytoprint[$i]['Rate']);
+                  $arraytoprint[$i]['Rate'] = current($temprate);
+                  $arraytoprint[$i]['RateDecimal'] = next($temprate);
                  
                   $arraytoprint[$i]['Rating'] = isset($value['BasicPropertyInfo']['Property']['Text'])?$value['BasicPropertyInfo']['Property']['Text']:"";
+                  $arraytoprint[$i]['Rating'] = str_replace("CROWN", "", $arraytoprint[$i]['Rating']);
+                  $arraytoprint[$i]['Rating'] = str_replace(" ", "", $arraytoprint[$i]['Rating']);
+                  
+
                   $arraytoprint[$i]['AdultsOnly'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['AdultsOnly']['@attributes']['Ind'];
+                  $arraytoprint[$i]['AdultsOnly']=changeFalseTrue($arraytoprint[$i]['AdultsOnly']);
+
                   $arraytoprint[$i]['BeachFront'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['BeachFront']['@attributes']['Ind'];
+                  $arraytoprint[$i]['BeachFront']=changeFalseTrue($arraytoprint[$i]['BeachFront']);
+
+                  $arraytoprint[$i]['Dining'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['Dining']['@attributes']['Ind'];
+                  $arraytoprint[$i]['Dining']=changeFalseTrue($arraytoprint[$i]['Dining']);
+
+                  $arraytoprint[$i]['DryClean'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['DryClean']['@attributes']['Ind'];
+                  $arraytoprint[$i]['DryClean']=changeFalseTrue($arraytoprint[$i]['DryClean']);
+
+                  $arraytoprint[$i]['FitnessCenter'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['FitnessCenter']['@attributes']['Ind'];
+                  $arraytoprint[$i]['FitnessCenter']=changeFalseTrue($arraytoprint[$i]['FitnessCenter']);
+
+                  $arraytoprint[$i]['FreeParking'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['FreeParking']['@attributes']['Ind'];
+                  $arraytoprint[$i]['FreeParking']=changeFalseTrue($arraytoprint[$i]['FreeParking']);
+
+                  $arraytoprint[$i]['FreeShuttle'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['FreeShuttle']['@attributes']['Ind'];
+                  $arraytoprint[$i]['FreeShuttle']=changeFalseTrue($arraytoprint[$i]['FreeShuttle']);
+
+                  $arraytoprint[$i]['FreeWifiInMeetingRooms'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['FreeWifiInMeetingRooms']['@attributes']['Ind'];
+                  $arraytoprint[$i]['FreeWifiInMeetingRooms']=changeFalseTrue($arraytoprint[$i]['FreeWifiInMeetingRooms']);
+
+                  $arraytoprint[$i]['FreeWifiInPublicSpaces'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['FreeWifiInPublicSpaces']['@attributes']['Ind'];
+                  $arraytoprint[$i]['FreeWifiInPublicSpaces']=changeFalseTrue($arraytoprint[$i]['FreeWifiInPublicSpaces']);
+
+                  $arraytoprint[$i]['FreeWifiInRooms'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['FreeWifiInRooms']['@attributes']['Ind'];
+                  $arraytoprint[$i]['FreeWifiInRooms']=changeFalseTrue($arraytoprint[$i]['FreeWifiInRooms']);
+
+                  $arraytoprint[$i]['FullServiceSpa'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['FullServiceSpa']['@attributes']['Ind'];
+                  $arraytoprint[$i]['FullServiceSpa']=changeFalseTrue($arraytoprint[$i]['FullServiceSpa']);
+
+                  $arraytoprint[$i]['GameFacilities'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['GameFacilities']['@attributes']['Ind'];
+                  $arraytoprint[$i]['GameFacilities']=changeFalseTrue($arraytoprint[$i]['GameFacilities']);
+
+                  $arraytoprint[$i]['Golf'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['Golf']['@attributes']['Ind'];
+                  $arraytoprint[$i]['Golf']=changeFalseTrue($arraytoprint[$i]['Golf']);
+
+                  $arraytoprint[$i]['IndoorPool'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['IndoorPool']['@attributes']['Ind'];
+                  $arraytoprint[$i]['IndoorPool']=changeFalseTrue($arraytoprint[$i]['IndoorPool']);
+
+                  $arraytoprint[$i]['InRoomMiniBar'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['InRoomMiniBar']['@attributes']['Ind'];
+                  $arraytoprint[$i]['InRoomMiniBar']=changeFalseTrue($arraytoprint[$i]['InRoomMiniBar']);
+
+                  $arraytoprint[$i]['Jacuzzi'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['Jacuzzi']['@attributes']['Ind'];
+                  $arraytoprint[$i]['Jacuzzi']=changeFalseTrue($arraytoprint[$i]['Jacuzzi']);
+
+                  $arraytoprint[$i]['MeetingFacilities'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['MeetingFacilities']['@attributes']['Ind'];
+                  $arraytoprint[$i]['MeetingFacilities']=changeFalseTrue($arraytoprint[$i]['MeetingFacilities']);
+
+                  $arraytoprint[$i]['NonSmoking'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['NonSmoking']['@attributes']['Ind'];
+                  $arraytoprint[$i]['NonSmoking']=changeFalseTrue($arraytoprint[$i]['NonSmoking']);
+
+                  $arraytoprint[$i]['OutdoorPool'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['OutdoorPool']['@attributes']['Ind'];
+                  $arraytoprint[$i]['OutdoorPool']=changeFalseTrue($arraytoprint[$i]['OutdoorPool']);
+
+                  $arraytoprint[$i]['Pets'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['Pets']['@attributes']['Ind'];
+                  $arraytoprint[$i]['Pets']=changeFalseTrue($arraytoprint[$i]['Pets']);
+
+                  $arraytoprint[$i]['Pool'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['Pool']['@attributes']['Ind'];
+                  $arraytoprint[$i]['Pool']=changeFalseTrue($arraytoprint[$i]['Pool']);
+
+                  $arraytoprint[$i]['SmokeFree'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['SmokeFree']['@attributes']['Ind'];
+                  $arraytoprint[$i]['SmokeFree']=changeFalseTrue($arraytoprint[$i]['SmokeFree']);
+
+                  $arraytoprint[$i]['Tennis'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['Tennis']['@attributes']['Ind'];
+                  $arraytoprint[$i]['Tennis']=changeFalseTrue($arraytoprint[$i]['Tennis']);
+
+
+
                   $arraytoprint[$i]['WholeData'] = $value;
 
                   $hotelcodes[$i] = $value['BasicPropertyInfo']['@attributes']['HotelCode']; 
@@ -107,8 +197,9 @@ function takeOutAirportCode($data)
                 }
               }
 
+              
 
-              /*if($hotelcodes)
+             /* if($hotelcodes)
               {
                 include_once 'soap_activities/HotelImageFinderSoapActivity.php';
 
@@ -124,7 +215,8 @@ function takeOutAirportCode($data)
               echo json_encode($arraytoprint);
               die;
 
-              
+             
+
               echo "<pre>"; print_r($arraybfmresponsearrayml); die;
         $counterforinoutflightarray = 0;
           foreach ($bfmtresultsml as $keyitinerary => $value) 

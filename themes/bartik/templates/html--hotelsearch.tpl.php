@@ -82,40 +82,18 @@ header('Access-Control-Allow-Origin: *');
     
     <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/ab-style.css" />
     <link rel="stylesheet" href="<?php echo $themeurl; ?>/css/menu-style.css" />
-    <!--
-     <link rel="stylesheet" href="<?php //echo $themeurl; ?>/css/switcher.css" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/bright-turquoise.css" title="bright-turquoise" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/turkish-rose.css" title="turkish-rose" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/salem.css" title="salem" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/hippie-blue.css" title="hippie-blue" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/mandy.css" title="mandy" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/green-smoke.css" title="green-smoke" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/horizon.css" title="horizon" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/cerise.css" title="cerise" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/brick-red.css" title="brick-red" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/de-york.css" title="de-york" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/shamrock.css" title="shamrock" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/studio.css" title="studio" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/leather.css" title="leather" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/denim.css" title="denim" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="<?php //echo $themeurl; ?>/css/schemes/scarlet.css" title="scarlet" media="all" />
-    -->
-  <?php /* print $head; ?>
-  <title><?php print $head_title; ?></title>
-  <?php print $styles; ?>
-  <?php print $scripts; */?>
+    
+ 
  <script type="text/javascript">
   <?php if(strpos($base_url, "flyoticket.com"))
         { ?>
-    //var urlforapi = "http://127.0.0.1:1337/";
-    //var urlforapi = "http://104.168.102.222:1337/";
+    
     var urlforapi = "https://flyoticket.com/phpsaber/autoc.php";
   <?php } ?>  
   <?php if(strpos($base_url, "travelpainters.local"))
         { ?>
-    //var urlforapi = "http://127.0.0.1:1337/";
-    var urlforapi = "http://travelpainters.local/phpsaber/autoc.php";
-    //var urlforapi = "http://flyoticket.com:1337/";
+        var urlforapi = "http://travelpainters.local/phpsaber/autoc.php";
+   
   <?php } ?>  
      
   </script>
@@ -739,7 +717,7 @@ header('Access-Control-Allow-Origin: *');
               $scope.init = function () {
 
                 $scope.currentPage = 1;
-                $scope.pageSize = 20;
+                $scope.pageSize = 10;
 
                 // check if there is query in url
                 // and fire search in case its value is not empty

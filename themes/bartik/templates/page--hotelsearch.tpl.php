@@ -110,7 +110,7 @@ $themeurl = file_create_url(path_to_theme());
   <div class="rect4"></div>
   <div class="rect5"></div>
 </div> -->
-<h1>Hotels search (under construction)</h1>
+
 <div class="container" ng-show="appState !== undefined" ng-model="appState" ng-cloak>
             <!-- search form start -->
             <?php ?>
@@ -145,8 +145,7 @@ $themeurl = file_create_url(path_to_theme());
             ?>
 
 
-            <h3 class="booking-title"><span class="totalnoofresultsfound" ng-if="totalnoofresultsfound!='NaN'">{{totalnoofresultsfound}}</span> <?php if(isset($_REQUEST['from1']) && !$_REQUEST['from1']){ ?>Flights from <?php if(!isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['from'])?$_REQUEST['from']:""; echo isset($_REQUEST['rfrom'])?$_REQUEST['rfrom']:""; } if(isset($_REQUEST['origfrom'])){ echo isset($_REQUEST['origfrom'])?$_REQUEST['origfrom']:""; }  ?> to <?php if(!isset($_REQUEST['origto'])){ echo isset($_REQUEST['to'])?$_REQUEST['to']:""; echo isset($_REQUEST['tfrom'])?$_REQUEST['tfrom']:""; } if(isset($_REQUEST['origto'])){ echo isset($_REQUEST['origto'])?$_REQUEST['origto']:""; }  ?> for <?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] ==""){ echo isset($_REQUEST['adult'])&&$_REQUEST['adult']?$_REQUEST['adult']:0; } ?><?php  if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] !=""){ echo isset($_REQUEST['adultow'])&&$_REQUEST['adultow']?$_REQUEST['adultow']:0; } ?> Adults, <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['children'])&&$_REQUEST['children']?$_REQUEST['children']:0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['childrenow'])&&$_REQUEST['childrenow']?$_REQUEST['childrenow']:0; } ?>  Children, <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['infant'])&&$_REQUEST['infant']?$_REQUEST['infant']:0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['infantnow'])&&$_REQUEST['infantnow']?$_REQUEST['infantnow']:0; } ?>  Infant, <?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] == "" ){ echo isset($_REQUEST['pclass'])&&$_REQUEST['pclass']?str_replace("_", " ", $_REQUEST['pclass']):0; } ?><?php if(isset($_REQUEST['rfrom']) && $_REQUEST['rfrom'] != "" ){ echo isset($_REQUEST['rclass'])&&$_REQUEST['rclass']?str_replace("_", " ", $_REQUEST['rclass']):0; } ?>  Class <?php } ?>
-            <?php if(isset($_REQUEST['from1']) && $_REQUEST['from1']){ ?>Flights from <?php if(isset($_REQUEST['from1']) && $_REQUEST['from1']){ echo isset($_REQUEST['from1'])?$_REQUEST['from1']:"";  } ?> to <?php if(isset($_REQUEST['to1'])){ echo isset($_REQUEST['to1'])?$_REQUEST['to1']:""; }  ?> <?php if(isset($_REQUEST['from2']) && $_REQUEST['from2']){ ?> And <?php echo isset($_REQUEST['from2'])?$_REQUEST['from2']:"";  } ?> to <?php if(isset($_REQUEST['to2'])){ echo isset($_REQUEST['to2'])?$_REQUEST['to2']:""; }  ?> <?php if(isset($_REQUEST['from3']) && $_REQUEST['from3']){ ?> And <?php echo isset($_REQUEST['from3'])?$_REQUEST['from3']:"";  } ?> to <?php if(isset($_REQUEST['to3'])){ echo isset($_REQUEST['to3'])?$_REQUEST['to3']:""; }  ?> <?php if(isset($_REQUEST['from4']) && $_REQUEST['from4']){ ?> And <?php echo isset($_REQUEST['from4'])?$_REQUEST['from4']:"";  } ?> to <?php if(isset($_REQUEST['to4'])){ echo isset($_REQUEST['to4'])?$_REQUEST['to4']:""; }  ?> <?php if(isset($_REQUEST['from5']) && $_REQUEST['from5']){ ?> And <?php echo isset($_REQUEST['from5'])?$_REQUEST['from5']:"";  } ?> to <?php if(isset($_REQUEST['to5'])){ echo isset($_REQUEST['to5'])?$_REQUEST['to5']:""; }  ?>  for <?php  if(isset($_REQUEST['from1']) && $_REQUEST['from1'] !=""){ echo isset($_REQUEST['adultml'])&&$_REQUEST['adultml']?$_REQUEST['adultml']:0; } ?> Adults, <?php if(isset($_REQUEST['from1']) && $_REQUEST['from1'] != "" ){ echo isset($_REQUEST['childrenml'])&&$_REQUEST['childrenml']?$_REQUEST['childrenml']:0; } ?> Children, <?php if(isset($_REQUEST['from1']) && $_REQUEST['from1'] != "" ){ echo isset($_REQUEST['infantml'])&&$_REQUEST['infantml']?$_REQUEST['infantml']:0; } ?>  Infant, <?php if(isset($_REQUEST['from1']) && $_REQUEST['from1'] != "" ){ echo isset($_REQUEST['rclassml'])&&$_REQUEST['rclassml']?str_replace("_", " ", $_REQUEST['rclassml']):0; } ?> Class <?php } ?>    
+            <h3 class="booking-title"><span class="totalnoofresultsfound" ng-if="totalnoofresultsfound!='NaN'">{{totalnoofresultsfound}}</span> Hotels From <?php echo isset($_REQUEST['hotelsearchcrt'])?$_REQUEST['hotelsearchcrt']:"";?> From <?php echo isset($_REQUEST['starth'])?$_REQUEST['starth']:""; ?> To <?php echo isset($_REQUEST['endh'])?$_REQUEST['endh']:""; ?> For <?php echo isset($_REQUEST['rooms'])?$_REQUEST['rooms']:""; ?> Rooms <?php echo isset($_REQUEST['adultshotel'])?$_REQUEST['adultshotel']:""; ?> Adults <?php echo isset($_REQUEST['childrenhotelch'])&&$_REQUEST['childrenhotel']==""?$_REQUEST['childrenhotelch']:"0"; ?> Children <?php echo isset($_REQUEST['hotelname'])&&$_REQUEST['hotelname']!=""?" Hotel Name ".$_REQUEST['hotelname']:""; ?> <?php echo isset($_REQUEST['childrenhotel'])&&$_REQUEST['childrenhotel']!="Any"?" Children ".$_REQUEST['childrenhotel']:""; ?>
             </h3>
 
              <!-- pagination start -->
@@ -406,16 +405,16 @@ $themeurl = file_create_url(path_to_theme());
                             </li>
                            
                         </ul>
-                        <?php
+                        <?php /*
                           $showifsorteddatamsg = array();
                           $showifsorteddatamsg["high-to-low-price"] = "Flights are sorted from High to Low Price.";
                           $showifsorteddatamsg["low-to-high-price"] = "Flights are sorted from Low to High Price.";
                           $showifsorteddatamsg["waiting-duration-up"] = "Flights are sorted By max Waiting time in a trip from low to high waiting time.";
                           $showifsorteddatamsg["waiting-duration-dn"] = "Flights are sorted By max Waiting time in a trip from high to low waiting time.";
                           $showifsorteddatamsg["noofstopsasc"] = "Flights are sorted By max number of stops in a trip from low to high.";
-                          $showifsorteddatamsg["noofstopsdecs"] = "Flights are sorted By max number of stops in a trip from high to low.";
+                          $showifsorteddatamsg["noofstopsdecs"] = "Flights are sorted By max number of stops in a trip from high to low.";*/
                         ?>
-                        <h5 class="booking-sort-title"><?php if(isset($_REQUEST["sortbyval"])){ echo $showifsorteddatamsg[$_REQUEST["sortbyval"]]; } ?></h5>
+                        <h5 class="booking-sort-title"><?php //if(isset($_REQUEST["sortbyval"])){ echo $showifsorteddatamsg[$_REQUEST["sortbyval"]]; } ?></h5>
 
                     </div> -->
                     <ul ng-if="hasanyresultfound == 'no'">
@@ -539,6 +538,7 @@ $themeurl = file_create_url(path_to_theme());
                             .img-sukh-hotel{width: 90%;}
                             .font-size-sukh{font-size: 26px;font-family: fantasy;}
                             .border-sukh-style{border-style: ridge;}
+                            .hotel-sort-sukh{margin-top: 20px;}
                              ul.hotel-sort-sukh li {display: inline;padding: 0.4em 1.2em;background: #4D4D4D;}
                              ul.hotel-sort-sukh a {color: #fff;}
                              .b-sukh-color{color: #E7711B;}
@@ -573,44 +573,72 @@ $themeurl = file_create_url(path_to_theme());
                                 <div class="col-md-6">
                                  <h4 class="font-size-sukh"> <b>{{xy.HotelName}}</b></h4>
                                   <p>{{xy.Address}}</p>
-                                  <p>{{xy.Rating}}Located in Toronto (Etobicoke), Crowne Plaza Toronto Airport is close to Toronto...<a href="#">Read more</a> </p>
+                                  <p>...<a href="#">Read more</a> </p>
                                   <div class="listingbb" style="display: block;">
                                     <ul>
                                       <li> 
                                         <span class="fa fa-money sukh-icon-colr" style="margin-right: 3px;"></span> Best Price Guarantee!
                                       </li>
-                                      <li>
-                                        <span class="fa fa-product-hunt sukh-icon-colr"></span> Free Parking
+                                      <li ng-if="xy.FreeParking==1">
+                                        <span class="fa fa-product-hunt sukh-icon-colr"></span>Free Parking
                                       </li>
-                                      <li>
-                                        <span class="fa fa-wifi sukh-icon-colr"></span> Free Wi-Fi &amp; Internet 
+                                      <li ng-if="xy.FreeWifiInPublicSpaces==1">
+                                        <span class="fa fa-wifi sukh-icon-colr"></span>Free Wi-Fi &amp; Internet 
                                       </li>
-                                      <li>
+                                      <li ng-if="xy.FreeShuttle==1">
                                         <span class="fa fa-bus sukh-icon-colr"></span> Free Shuttle 
                                       </li>
-                                      <li>
+                                      <!-- <li ng-if="xy.FreeShuttle==1">
                                       <span class="fa fa-newspaper-o sukh-icon-colr"></span> Free Newspaper 
-                                      </li>
-                                      <li>
+                                      </li> -->
+                                      <!-- <li>
                                       <span class="fa fa-coffee sukh-icon-colr"></span> Free Breakfast 
-                                      </li> 
-                                      <li>
+                                      </li>  -->
+                                      <li ng-if="xy.FitnessCenter==1">
                                         <span class="fa fa-bus sukh-icon-colr"></span> Fitness Center 
                                       </li>
-                                      <li>
-                                      <span class="fa fa-newspaper-o sukh-icon-colr"></span> Bar 
+                                      <li ng-if="xy.InRoomMiniBar==1">
+                                      <span class="fa fa-glass sukh-icon-colr"></span> Bar 
                                       </li>
-                                      <li>
-                                      <span class="fa fa-coffee sukh-icon-colr"></span> Beach Front 
+                                      <li ng-if="xy.BeachFront==1">
+                                      <span class="fa fa-life-ring sukh-icon-colr"></span> Beach Front 
                                       </li> 
-                                      <li>
-                                      <span class="fa fa-coffee sukh-icon-colr"></span> Indoor Pool
+                                      <li ng-if="xy.Tennis==1">
+                                      <span class="fa fa-trophy sukh-icon-colr"></span> Tennis
                                       </li> 
+                                      <li ng-if="xy.SmokeFree==1">
+                                      <span class="fa fa-times-circle sukh-icon-colr"></span> Smoke Free
+                                      </li> 
+                                      <li ng-if="xy.IndoorPool==1">
+                                      <span class="fa fa-industry sukh-icon-colr"></span> Pool
+                                      </li> 
+                                      <li ng-if="xy.Pets==1">
+                                      <span class="fa fa-paw sukh-icon-colr"></span> Pets
+                                      </li> 
+                                      <li ng-if="xy.Jacuzzi==1">
+                                      <span class="fa fa-bath sukh-icon-colr"></span> Jacuzzi
+                                      </li> 
+                                      <li ng-if="xy.Golf==1">
+                                      <span class="fa fa-check sukh-icon-colr"></span> Golf
+                                      </li> 
+                                      <li ng-if="xy.GameFacilities==1">
+                                      <span class="fa fa-futbol-o sukh-icon-colr"></span> Game
+                                      </li>
+                                      <li ng-if="xy.FullServiceSpa==1">
+                                      <span class="fa fa-bed sukh-icon-colr"></span> Spa
+                                      </li> 
+                                      <li ng-if="xy.DryClean==1">
+                                      <span class="fa fa-tint sukh-icon-colr"></span> DryClean
+                                      </li> 
+                                      <li ng-if="xy.Dining==1">
+                                      <span class="fa fa-cutlery sukh-icon-colr"></span> Dining
+                                      </li>  
                                     </ul>
                                   </div>
                                 </div>
                                 <div class="col-md-2">
-                                <div class="star-ratings-sprite"><span style="width:73%" class="star-ratings-sprite-rating"></span></div>
+
+                                <div class="star-ratings-sprite"><span style="width:{{20*xy.Rating}}%" class="star-ratings-sprite-rating"></span></div>
                                   <div class="btn-sukh-top">
                                     <div class="btn btn-primary btn-lg">Book Now</div>
                                     <span class="avg-night-sukh">Average Nightly Rate</span>
@@ -618,8 +646,8 @@ $themeurl = file_create_url(path_to_theme());
                                 </div>
                                 <div class="col-md-12 price-sukh-hotel">
                                   <div class="col-md-4">Standard Room</div>
-                                  <div class="col-md-4">Non Smoking - Promotional Rate</div>
-                                  <div class="col-md-4 price_sukh-hotel">$ {{xy.Rate}}<sup>.55</sup></div>
+                                  <div class="col-md-4"><span ng-if="xy.NonSmoking==1">Non Smoking</span> - Promotional Rate</div>
+                                  <div class="col-md-4 price_sukh-hotel"><span ng-if="xy.Rate!='call'">$ {{xy.Rate}}</span><span ng-if="xy.Rate=='call'">Call 1-888-417-0446</span><sup ng-if="xy.RateDecimal!=false">.{{xy.RateDecimal}}</sup></div>
                                 </div>
                                 </span>
                               </li>
@@ -628,7 +656,7 @@ $themeurl = file_create_url(path_to_theme());
                              
                          
                             </ul>
-                  
+                            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html" pagination-id="result"></dir-pagination-controls>
                     
                 </div>
             </div>
