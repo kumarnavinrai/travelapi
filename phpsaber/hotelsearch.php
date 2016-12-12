@@ -199,7 +199,7 @@ function changeFalseTrue($data)
 
               
 
-             /* if($hotelcodes)
+              if($hotelcodes)
               {
                 include_once 'soap_activities/HotelImageFinderSoapActivity.php';
 
@@ -209,7 +209,7 @@ function changeFalseTrue($data)
 
                   echo "<pre>"; print_r($resulthotelimg); die;
   
-              }*/
+              }
 //echo "<pre>"; print_r($arraytoprint); die;
 
               echo json_encode($arraytoprint);
