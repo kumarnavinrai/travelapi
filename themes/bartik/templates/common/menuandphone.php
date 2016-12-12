@@ -1,4 +1,6 @@
+<span style="display: none;">
 <script type="text/javascript" src="<?php echo $themeurl; ?>/../../../hits.php"></script>
+</span>
 <div class="col-md-1 col-md-offset-2">
                            
                         </div>
