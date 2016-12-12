@@ -573,7 +573,12 @@ $("#price-slider1").ionRangeSlider({
     hasGrid: true
 });
 
- $("#ex2").slider({});
+$('.i-check, .i-radio').iCheck({
+    checkboxClass: 'i-check',
+    radioClass: 'i-radio'
+});
+
+/* $("#ex2").slider({});*/
 
 $('.booking-item-review-expand').click(function(event) {
     console.log('baz');

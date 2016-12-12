@@ -247,8 +247,8 @@ header('Access-Control-Allow-Origin: *');
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
         <script src="<?php echo $themeurl; ?>/js/bootstrap.js"></script>
         <script src="<?php echo $themeurl; ?>/js/slimmenu.js"></script>
-        <!--<script src="<?php echo $themeurl; ?>/js/bootstrap-datepicker.js"></script>
-        <script src="<?php echo $themeurl; ?>/js/bootstrap-timepicker.js"></script>-->
+        <!--<script src="<?php //echo $themeurl; ?>/js/bootstrap-datepicker.js"></script>
+        <script src="<?php //echo $themeurl; ?>/js/bootstrap-timepicker.js"></script>-->
         <script src="<?php echo $themeurl; ?>/js/nicescroll.js"></script>
         <script src="<?php echo $themeurl; ?>/js/dropit.js"></script>
         <script src="<?php echo $themeurl; ?>/js/ionrangeslider.js"></script>
