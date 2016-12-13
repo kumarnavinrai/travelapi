@@ -160,7 +160,7 @@ app.service('flightServiceNewHotel', function($http, $q) {
           }; 
          
           
-          
+    
         
           //,adult:$scope.adult,children:$scope.children,infant:$scope.infant
 

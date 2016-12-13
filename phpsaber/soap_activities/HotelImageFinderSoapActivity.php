@@ -16,12 +16,12 @@ class HotelImageFinderSoapActivity implements Activity {
     public function run(&$sharedContext) {
      
 
-        $soapClient = new SACSSoapClient("GetHotelMediaRQ");
+        $soapClient = new SACSSoapClient("GetHotelImageRQ");
         $soapClient->setLastInFlow(false);
         $xmlRequest = $this->getRequest();
         
-        $sharedContext->addResult("GetHotelMediaRQ", $xmlRequest);
-        $sharedContext->addResult("GetHotelMediaRS", $soapClient->doCall($sharedContext, $xmlRequest));
+        $sharedContext->addResult("GetHotelImageRQ", $xmlRequest);
+        $sharedContext->addResult("GetHotelImageRS", $soapClient->doCall($sharedContext, $xmlRequest));
         return null;
         //return new PassengerDetailsNameOnlyActivity();
     }
@@ -34,8 +34,13 @@ class HotelImageFinderSoapActivity implements Activity {
         {
           
           $first = reset($this->hotelcodes);
-
-          $rtn = '<GetHotelMediaRQ version="1.0.0">
+          $rtn = '<GetHotelImageRQ xmlns="http://services.sabre.com/hotel/image/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0.0" xsi:schemaLocation="http://services.sabre.com/hotel/image/v1 GetHotelImageRQ.xsd">
+    <HotelRefs>
+        <HotelRef HotelCode="'.$first.'" CodeContext="Sabre" />
+    </HotelRefs>
+    <ImageRef Type="THUMBNAIL" CategoryCode="3" LanguageCode="EN" />
+</GetHotelImageRQ>';
+          /*$rtn = '<GetHotelMediaRQ version="1.0.0">
     <HotelRefs>
         <HotelRef HotelCode="0017381" CodeContext="Sabre">
             <ImageRef MaxImages="1">
@@ -54,7 +59,7 @@ class HotelImageFinderSoapActivity implements Activity {
             </ImageRef>
         </HotelRef>
     </HotelRefs>
-</GetHotelMediaRQ>';
+</GetHotelMediaRQ>';*/
 
           return $rtn;
          }

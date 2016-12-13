@@ -394,7 +394,7 @@ header('Access-Control-Allow-Origin: *');
 
                         if(!$(this).parent('.i-check').hasClass("checked")){
                             var alradyvalofdepat = $('.cls_airlines').val();
-                            
+                            console.log("-------"+alradyvalofdepat);
                             alradyvalofdepat = alradyvalofdepat.replace(valueofcheckedcheckbox, '');
                             alradyvalofdepat = alradyvalofdepat.replace(',,', ',');
                             if(alradyvalofdepat.charAt(0) == ","){
@@ -641,10 +641,10 @@ header('Access-Control-Allow-Origin: *');
 
                 console.log(data);
                 $scope.dataforamadeus = {};
-                $scope.includedcarriers = data;
+                $scope.includedcarriers.push(data);
                 maskedfunc();
                 $scope.init();
-                console.log("----------i am navin-----------");
+                console.log("----------i am navin Airlines-----------");
 
                };
 
@@ -718,14 +718,15 @@ header('Access-Control-Allow-Origin: *');
 
                 $scope.currentPage = 1;
                 $scope.pageSize = 10;
-
+                $scope.dataforamadeus = [];
+                console.log("i am navin Airlines init");
                 // check if there is query in url
                 // and fire search in case its value is not empty
                 var urltogetFlights = '<?php echo $urltoGetFilghts; ?>';
                 var urltoGetFilghtsAlter = '<?php echo $urltoGetFilghtsAlter; ?>';
                 var urltoGetFilghtsAlterAirport = '<?php echo $urltoGetFilghtsAlterAirport; ?>';
                 var postData;
-                 postData = {origin:$scope.hotelsearch,destination:"",departureDate:$scope.startdate,returndate:$scope.enddate,lengthofstay:0,limit:0,rooms:$scope.rooms,adult:$scope.adult,children:$scope.children,childrenhotel:$scope.childrenhotel}; 
+                 postData = {origin:$scope.hotelsearch,destination:"",departureDate:$scope.startdate,returndate:$scope.enddate,lengthofstay:0,limit:0,rooms:$scope.rooms,adult:$scope.adult,children:$scope.children,childrenhotel:$scope.childrenhotel,amenities:$scope.includedcarriers}; 
 //return;
                 console.log(postData);
 
@@ -779,7 +780,7 @@ header('Access-Control-Allow-Origin: *');
                
                   $scope.appState = true;
 
-                
+             console.log("Service runs");   
             }; //scope init function ends heres
 
           }]);//controller ends here

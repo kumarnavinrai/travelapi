@@ -21,7 +21,7 @@ include_once 'workflow/Workflow.php';
 include_once 'soap_activities/HotelFinderSoapActivity.php';
 include_once 'data/listofairport.php';
 include_once 'data/listwithcode.php';
-
+//echo "<pre>";print_r($_REQUEST); die;
   $workflow = new Workflow(new HotelFinderSoapActivity());
         
   $resulthotel = $workflow->runWorkflow();
@@ -199,7 +199,7 @@ function changeFalseTrue($data)
 
               
 
-              if($hotelcodes)
+             /* if($hotelcodes)
               {
                 include_once 'soap_activities/HotelImageFinderSoapActivity.php';
 
@@ -209,7 +209,7 @@ function changeFalseTrue($data)
 
                   echo "<pre>"; print_r($resulthotelimg); die;
   
-              }
+              }*/
 //echo "<pre>"; print_r($arraytoprint); die;
 
               echo json_encode($arraytoprint);

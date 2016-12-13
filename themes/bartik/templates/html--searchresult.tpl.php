@@ -696,6 +696,7 @@ header('Access-Control-Allow-Origin: *');
 
                 $scope.currentPage = 1;
                 $scope.pageSize = 20;
+                $scope.dataforamadeus = [];
 
                 // check if there is query in url
                 // and fire search in case its value is not empty
