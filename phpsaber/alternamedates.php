@@ -1,7 +1,9 @@
 <?php
 $domainarray[] = 'http://travelpainters.local';
 $domainarray[] = 'https://flyoticket.com';
-$domainarray[] = 'http://cheapflyfare.com';
+$domainarray[] = 'http://fly2fare.com';
+$domainarray[] = 'http://fly2fares.com';
+$domainarray[] = 'http://cheapoflying.com';
 
 $http_origin = $_SERVER['HTTP_ORIGIN'];
 
