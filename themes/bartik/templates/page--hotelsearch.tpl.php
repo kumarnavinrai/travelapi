@@ -183,55 +183,57 @@ $themeurl = file_create_url(path_to_theme());
  
                                 <div id="slider-range"></div>
                             </li>
-                            <li class="checkboxesli">
+                            <li class="checkboxeslistar">
                                 <h5 class="booking-filters-title">Star Rating <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(0)" value="0" /><img src="<?php echo $themeurl; ?>/img/5-star-rating.png" style="width: 60%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(5)" value="5" /><img src="<?php echo $themeurl; ?>/img/5-star-rating.png" style="width: 60%;"><span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(1)"  value="1" /><img src="<?php echo $themeurl; ?>/img/4-star-rating.png" style="width: 48%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(4)"  value="4" /><img src="<?php echo $themeurl; ?>/img/4-star-rating.png" style="width: 48%;"><span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(2)"  value="2" /><img src="<?php echo $themeurl; ?>/img/3-star-rating.png" style="width: 35%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(3)"  value="3" /><img src="<?php echo $themeurl; ?>/img/3-star-rating.png" style="width: 35%;"><span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(3)"  value="3" /><img src="<?php echo $themeurl; ?>/img/2-star-rating.png" style="width: 23%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(2)"  value="2" /><img src="<?php echo $themeurl; ?>/img/2-star-rating.png" style="width: 23%;"><span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(4)"  value="4" /><img src="<?php echo $themeurl; ?>/img/1-star-rating.png" style="width: 12%;"><span class="pull-right"></span>
+                                        <input class="i-check checkbox_stops" type="checkbox" ng-click="filterFunc(1)"  value="1" /><img src="<?php echo $themeurl; ?>/img/1-star-rating.png" style="width: 12%;"><span class="pull-right"></span>
                                     </label>
                                 </div>
                             </li>
                             <li class="departtimecheckboxes">
                                 <h5 class="booking-filters-title">What's Included</h5>
-                                 <div class="checkbox">
+                               
+                               <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="05001159" ng-click="filterFuncTime('05001159')" type="checkbox" />Free Cancellation</label>
+                                        <input class="i-check checkbox_dt" value="ADA_Accessible" ng-click="filterFuncTime('ADA_Accessible')" type="checkbox" />US ADA Standards</label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="05001159" ng-click="filterFuncTime('05001159')" type="checkbox" />Free Breakfast</label>
+                                        <input class="i-check checkbox_dt" value="Breakfast" ng-click="filterFuncTime('Breakfast')" type="checkbox" />Free Breakfast</label>
+                                </div>
+                             
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check checkbox_dt" value="Wheelchair" ng-click="filterFuncTime('Wheelchair')" type="checkbox" />Wheelchair Accessible</label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="12001759" ng-click="filterFuncTime('12001759')" type="checkbox" />Free Parking</label>
+                                        <input class="i-check checkbox_dt" value="FreeWifiInRooms" ng-click="filterFuncTime('FreeWifiInRooms')" type="checkbox" />Free WiFi</label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check checkbox_dt" value="18002359" ng-click="filterFuncTime('18002359')" type="checkbox" />Fitness Center</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input class="i-check checkbox_dt" value="18002359" ng-click="filterFuncTime('18002359')" type="checkbox" />Free WiFi</label>
+                                        <input class="i-check checkbox_dt" value="AdultsOnly" ng-click="filterFuncTime('AdultsOnly')" type="checkbox" />Adult Only</label>
                                 </div>
                             </li>
                             <li class="liforairline">
@@ -239,12 +241,12 @@ $themeurl = file_create_url(path_to_theme());
                                 <div class="checkbox">
                                     <label>
 
-                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('Gym')" value="Gym" />Gym<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('FitnessCenter')" value="FitnessCenter" />Gym<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('Swimming')" value="Swimming" />Swimming Pool<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('OutdoorPool')" value="OutdoorPool" />Swimming Pool<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
@@ -254,7 +256,7 @@ $themeurl = file_create_url(path_to_theme());
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('Restaurant')" value="Restaurant" />Restaurant<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('FullServiceSpa')" value="FullServiceSpa" />Spa<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
@@ -264,7 +266,43 @@ $themeurl = file_create_url(path_to_theme());
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('Conference')" value="Conference" />Conference<span class="pull-right"></span>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('MeetingFacilities')" value="MeetingFacilities" />Meeting<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('DryClean')" value="DryClean" />Laundry<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('Dining')" value="Dining" />Restaurant<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                              
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('InRoomMiniBar')" value="InRoomMiniBar" />Bar<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('SkiInOutProperty')" value="SkiInOutProperty" />Ski<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('Golf')" value="Golf" />Golf<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('Tennis')" value="Tennis" />Tennis<span class="pull-right"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="i-check cls_airline" type="checkbox" ng-click="filterFuncAirlines('BeachFront')" value="BeachFront" />Beach<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 
@@ -273,22 +311,22 @@ $themeurl = file_create_url(path_to_theme());
                                 <h5 class="booking-filters-title">Room facility <small></small></h5>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(AC)" value="AC" />Air Conditioning<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(RoomService24Hours)" value="RoomService24Hours" />Room Service 24 Hours<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(Bath)" value="Bath" />Bath<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(RoomsWithBalcony)" value="RoomsWithBalcony" />Rooms With Balcony<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(FlatTV)" value="FlatTV" />Flat-screen TV<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(SmokeFree)" value="SmokeFree" />Smoke Free Hotel<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(View)" value="View" />View<span class="pull-right"></span>
+                                        <input class="i-check layoverchkbox" type="checkbox" ng-click="filterFuncLayover(SmokingRoomsAvail)" value="SmokingRoomsAvail" />Smoking Allowed<span class="pull-right"></span>
                                     </label>
                                 </div>
                                 
@@ -610,7 +648,7 @@ $themeurl = file_create_url(path_to_theme());
                                       <li ng-if="xy.SmokeFree==1">
                                       <span class="fa fa-times-circle sukh-icon-colr"></span> Smoke Free
                                       </li> 
-                                      <li ng-if="xy.IndoorPool==1">
+                                      <li ng-if="xy.OutdoorPool==1">
                                       <span class="fa fa-industry sukh-icon-colr"></span> Pool
                                       </li> 
                                       <li ng-if="xy.Pets==1">
@@ -629,11 +667,39 @@ $themeurl = file_create_url(path_to_theme());
                                       <span class="fa fa-bed sukh-icon-colr"></span> Spa
                                       </li> 
                                       <li ng-if="xy.DryClean==1">
-                                      <span class="fa fa-tint sukh-icon-colr"></span> DryClean
+                                      <span class="fa fa-tint sukh-icon-colr"></span> Laundry
                                       </li> 
                                       <li ng-if="xy.Dining==1">
                                       <span class="fa fa-cutlery sukh-icon-colr"></span> Dining
+                                      </li> 
+                                      <li ng-if="xy.Wheelchair==1">
+                                      <span class="fa fa-wheelchair sukh-icon-colr"></span> Wheelchair
+                                      </li> 
+                                      <li ng-if="xy.AdultsOnly==1">
+                                      <span class="fa fa-male sukh-icon-colr"></span> Adults Only
+                                      </li> 
+                                      <li ng-if="xy.ADA_Accessible==1">
+                                      <span class="fa fa-certificate sukh-icon-colr"></span> US ADA
+                                      </li>
+                                      <li ng-if="xy.MeetingFacilities==1">
+                                      <span class="fa fa-users sukh-icon-colr"></span> Meeting
+                                      </li> 
+                                    
+                                      <li ng-if="xy.SkiInOutProperty==1">
+                                      <span class="fa fa-minus sukh-icon-colr"></span> Ski
+                                      </li>
+                                      <li ng-if="xy.RoomService24Hours==1">
+                                      <span class="fa fa-hourglass sukh-icon-colr"></span> Room Service 24 Hours
                                       </li>  
+                                      <li ng-if="xy.RoomsWithBalcony==1">
+                                      <span class="fa fa-columns sukh-icon-colr"></span> Rooms With Balcony
+                                      </li> 
+                                      <li ng-if="xy.SmokeFree==1">
+                                      <span class="fa fa-user-times sukh-icon-colr"></span> Smoke Free Hotel
+                                      </li> 
+                                      <li ng-if="xy.SmokingRoomsAvail==1">
+                                      <span class="fa fa-fire sukh-icon-colr"></span> Smoking Allowed
+                                      </li> 
                                     </ul>
                                   </div>
                                 </div>

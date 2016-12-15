@@ -34,11 +34,14 @@ class HotelImageFinderSoapActivity implements Activity {
         {
           
           $first = reset($this->hotelcodes);
-          $rtn = '<GetHotelImageRQ xmlns="http://services.sabre.com/hotel/image/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0.0" xsi:schemaLocation="http://services.sabre.com/hotel/image/v1 GetHotelImageRQ.xsd">
-    <HotelRefs>
-        <HotelRef HotelCode="'.$first.'" CodeContext="Sabre" />
-    </HotelRefs>
-    <ImageRef Type="THUMBNAIL" CategoryCode="3" LanguageCode="EN" />
+          $rtn = '<GetHotelImageRQ xmlns="http://services.sabre.com/hotel/image/v1"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0.0"
+xsi:schemaLocation="http://services.sabre.com/hotel/image/v1
+GetHotelImageRQ.xsd">
+                <HotelRefs>
+                                <HotelRef HotelCode="0064328" CodeContext="Sabre" />
+                </HotelRefs>
+                <ImageRef Type="THUMBNAIL" CategoryCode="3" LanguageCode="EN" />
 </GetHotelImageRQ>';
           /*$rtn = '<GetHotelMediaRQ version="1.0.0">
     <HotelRefs>

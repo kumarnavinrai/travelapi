@@ -860,12 +860,14 @@ jQuery(document).on('click', '.mega-dropdown', function(e) {
 $( function() {
     $( "#slider-range" ).slider({
       range: true,
-      min: 0,
-      max: 4000,
-      values: [ 10, 4000 ],
+      min: 10,
+      max: 500,
+      values: [ 10, 500 ],
       slide: function( event, ui ) {
         $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-      }
+        
+      },
+      stop: function( event, ui ) { console.log($( "#amount" ).val()); $( "#amount" ).click(); }
     });
     $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
       " - $" + $( "#slider-range" ).slider( "values", 1 ) );

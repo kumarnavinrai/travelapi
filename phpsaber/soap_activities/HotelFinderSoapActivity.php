@@ -43,21 +43,52 @@ class HotelFinderSoapActivity implements Activity {
           $end = next($end)."-".next($end);
           $adult = $_REQUEST['adult'];
 
+          /*if(isset($_REQUEST['amenities']) && $_REQUEST['amenities'])
+          {
+           $tempamenities = explode("-", $_REQUEST['amenities']); 
+           unset($tempamenities[0]);
+           $_REQUEST['amenities'] =  $tempamenities;
+          }*/
 
-          $rtn = '<OTA_HotelAvailRQ xmlns="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.2.1">
-          <AvailRequestSegment>
-          <GuestCounts Count="'.$adult.'"/>
-          <HotelSearchCriteria NumProperties="200">
-          <Criterion>
-          <Address>
-          <CountryCode>'.$countrycode.'</CountryCode>
-          </Address>
-          <HotelRef HotelCityCode="'.$citycode.'"/>
-          </Criterion>
-          </HotelSearchCriteria>
-          <TimeSpan End="'.$end.'" Start="'.$start.'"/>
-          </AvailRequestSegment>
-          </OTA_HotelAvailRQ>';
+          if(isset($_REQUEST['rating']) && $_REQUEST['rating'] != 'undefined')
+          {          
+            
+                      $rtn = '<OTA_HotelAvailRQ xmlns="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.2.1">
+            <AvailRequestSegment>
+            <GuestCounts Count="2"/>
+            <HotelSearchCriteria>
+            <Criterion>
+            <Award Provider="NTM" Rating="'.$_REQUEST['rating'].'"/>
+            <HotelRef HotelCityCode="'.$citycode.'"/>
+            </Criterion>
+            </HotelSearchCriteria>
+            <TimeSpan End="'.$end.'" Start="'.$start.'"/>
+            </AvailRequestSegment>
+            </OTA_HotelAvailRQ>';
+            return $rtn;
+          }  
+
+      $rtn = '<OTA_HotelAvailRQ xmlns="http://webservices.sabre.com/sabreXML/2011/10" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.2.1">';
+              $rtn .= '<AvailRequestSegment>';
+                $rtn .= '<GuestCounts Count="'.$adult.'"/>';
+                $rtn .= '<HotelSearchCriteria NumProperties="200">';
+                  $rtn .= '<Criterion>';
+                
+                        /*if(isset($_REQUEST['amenities']) && $_REQUEST['amenities'])
+                        {
+                            foreach ($_REQUEST['amenities'] as $key => $value) {
+                              $rtn .= '<HotelAmenity>'.$value.'</HotelAmenity>';
+                            }
+                        }*/
+                    $rtn .= '<Address>';
+                      $rtn .= '<CountryCode>'.$countrycode.'</CountryCode>';
+                    $rtn .= '</Address>';
+                  $rtn .= '<HotelRef HotelCityCode="'.$citycode.'"/>';
+                  $rtn .= '</Criterion>';
+                $rtn .= '</HotelSearchCriteria>';
+                $rtn .= '<TimeSpan End="'.$end.'" Start="'.$start.'"/>';
+              $rtn .= '</AvailRequestSegment>';
+              $rtn .= '</OTA_HotelAvailRQ>';
 
           return $rtn;
          }

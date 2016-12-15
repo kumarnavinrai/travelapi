@@ -50,7 +50,6 @@ function changeFalseTrue($data)
    return NULL;
 }
 
-     
 
      
       $arrayhotel =array();
@@ -117,9 +116,18 @@ function changeFalseTrue($data)
                   $arraytoprint[$i]['Rating'] = str_replace("CROWN", "", $arraytoprint[$i]['Rating']);
                   $arraytoprint[$i]['Rating'] = str_replace(" ", "", $arraytoprint[$i]['Rating']);
                   
+                  $arraytoprint[$i]['ADA_Accessible'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['ADA_Accessible']['@attributes']['Ind'];
+                  $arraytoprint[$i]['ADA_Accessible']=changeFalseTrue($arraytoprint[$i]['ADA_Accessible']);
+
 
                   $arraytoprint[$i]['AdultsOnly'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['AdultsOnly']['@attributes']['Ind'];
                   $arraytoprint[$i]['AdultsOnly']=changeFalseTrue($arraytoprint[$i]['AdultsOnly']);
+
+                  $arraytoprint[$i]['Breakfast'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['Breakfast']['@attributes']['Ind'];
+                  $arraytoprint[$i]['Breakfast']=changeFalseTrue($arraytoprint[$i]['Breakfast']);
+
+                  $arraytoprint[$i]['Wheelchair'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['Wheelchair']['@attributes']['Ind'];
+                  $arraytoprint[$i]['Wheelchair']=changeFalseTrue($arraytoprint[$i]['Wheelchair']);
 
                   $arraytoprint[$i]['BeachFront'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['BeachFront']['@attributes']['Ind'];
                   $arraytoprint[$i]['BeachFront']=changeFalseTrue($arraytoprint[$i]['BeachFront']);
@@ -172,6 +180,21 @@ function changeFalseTrue($data)
                   $arraytoprint[$i]['NonSmoking'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['NonSmoking']['@attributes']['Ind'];
                   $arraytoprint[$i]['NonSmoking']=changeFalseTrue($arraytoprint[$i]['NonSmoking']);
 
+                  $arraytoprint[$i]['SmokingRoomsAvail'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['SmokingRoomsAvail']['@attributes']['Ind'];
+                  $arraytoprint[$i]['SmokingRoomsAvail']=changeFalseTrue($arraytoprint[$i]['SmokingRoomsAvail']);
+
+                  $arraytoprint[$i]['SmokeFree'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['SmokeFree']['@attributes']['Ind'];
+                  $arraytoprint[$i]['SmokeFree']=changeFalseTrue($arraytoprint[$i]['SmokeFree']);
+
+                  $arraytoprint[$i]['RoomsWithBalcony'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['RoomsWithBalcony']['@attributes']['Ind'];
+                  $arraytoprint[$i]['RoomsWithBalcony']=changeFalseTrue($arraytoprint[$i]['RoomsWithBalcony']);
+
+                  $arraytoprint[$i]['RoomService24Hours'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['RoomService24Hours']['@attributes']['Ind'];
+                  $arraytoprint[$i]['RoomService24Hours']=changeFalseTrue($arraytoprint[$i]['RoomService24Hours']);
+
+                  $arraytoprint[$i]['SkiInOutProperty'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['SkiInOutProperty']['@attributes']['Ind'];
+                  $arraytoprint[$i]['SkiInOutProperty']=changeFalseTrue($arraytoprint[$i]['SkiInOutProperty']);
+
                   $arraytoprint[$i]['OutdoorPool'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['OutdoorPool']['@attributes']['Ind'];
                   $arraytoprint[$i]['OutdoorPool']=changeFalseTrue($arraytoprint[$i]['OutdoorPool']);
 
@@ -187,6 +210,24 @@ function changeFalseTrue($data)
                   $arraytoprint[$i]['Tennis'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['Tennis']['@attributes']['Ind'];
                   $arraytoprint[$i]['Tennis']=changeFalseTrue($arraytoprint[$i]['Tennis']);
 
+                  $arraytoprint[$i]['Wheelchair'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['Wheelchair']['@attributes']['Ind'];
+                  $arraytoprint[$i]['Wheelchair']=changeFalseTrue($arraytoprint[$i]['Wheelchair']);
+
+                  $arraytoprint[$i]['RoomService24Hours'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['RoomService24Hours']['@attributes']['Ind'];
+                  $arraytoprint[$i]['RoomService24Hours']=changeFalseTrue($arraytoprint[$i]['RoomService24Hours']);
+
+                  $arraytoprint[$i]['RoomsWithBalcony'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['RoomsWithBalcony']['@attributes']['Ind'];
+                  $arraytoprint[$i]['RoomsWithBalcony']=changeFalseTrue($arraytoprint[$i]['RoomsWithBalcony']);
+
+                  $arraytoprint[$i]['RoomsWithBalcony'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['RoomsWithBalcony']['@attributes']['Ind'];
+                  $arraytoprint[$i]['RoomsWithBalcony']=changeFalseTrue($arraytoprint[$i]['RoomsWithBalcony']);
+
+                  $arraytoprint[$i]['SmokeFree'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['SmokeFree']['@attributes']['Ind'];
+                  $arraytoprint[$i]['SmokeFree']=changeFalseTrue($arraytoprint[$i]['SmokeFree']);
+
+                  $arraytoprint[$i]['SmokingRoomsAvail'] = $value['BasicPropertyInfo']['PropertyOptionInfo']['SmokingRoomsAvail']['@attributes']['Ind'];
+                  $arraytoprint[$i]['SmokingRoomsAvail']=changeFalseTrue($arraytoprint[$i]['SmokingRoomsAvail']);
+
 
 
                   $arraytoprint[$i]['WholeData'] = $value;
@@ -197,9 +238,82 @@ function changeFalseTrue($data)
                 }
               }
 
+
+
+              if(isset($_REQUEST['amenities']) && $_REQUEST['amenities'])
+              {   
+           
+                 $tempamenities = explode("-", $_REQUEST['amenities']); 
+                 unset($tempamenities[0]);
+                 $_REQUEST['amenities'] =  $tempamenities;
+          
+                  $stringtopass = '';  
+                  $z=0;
+                  foreach ($_REQUEST['amenities'] as $keyn => $valuen) {
+                    if($z==0)
+                    {
+                      $stringtopass .= '$a["'.$valuen.'"] == 1';
+                    }else
+                    {
+                      $stringtopass .= ' && $a["'.$valuen.'"] == 1';
+                    }
+                    $z++;  
+                  }
+
+      
+                  $_SESSION['stringtopasstocompare'] = $stringtopass;
+                  $arraytoprint = array_filter($arraytoprint,function($a) { $xyz=$_SESSION['stringtopasstocompare']; if(eval("return $xyz;")){ return true; } else{ return false; } });
+                  $_SESSION['stringtopasstocompare'] = '';
+
+                  if(is_array($arraytoprint))
+                  {
+                    $i=0;
+                    $temparray = array();
+                    foreach ($arraytoprint as $key => $value) 
+                    {
+                      $temparray[$i] = $value;
+                      $i++;
+                    }
+                    $arraytoprint = $temparray;
+                  }  
+              }
+
+
+              if(isset($_REQUEST['price']) && $_REQUEST['price'] != 'undefined')
+              {   
+                  
+
+                 $_REQUEST['price'] = str_replace("$", "", $_REQUEST['price']);
+                 $_REQUEST['price'] = str_replace(" ", "", $_REQUEST['price']);
+
+                 $tempamenities = explode("-", $_REQUEST['price']); 
+                
+                 $_REQUEST['price'] =  $tempamenities;
+                  
+                $_SESSION['pricemin'] = current($_REQUEST['price']);
+                $_SESSION['pricemax'] = next($_REQUEST['price']);
+
+                  $arraytoprint = array_filter($arraytoprint,function($a) { if($a['Rate'] >= $_SESSION['pricemin'] && $a['Rate'] <= $_SESSION['pricemax']){ return true; }else{ return false; } });
+                  
+                $_SESSION['pricemin'] = "";
+                $_SESSION['pricemax'] = "";                
+
+                  if(is_array($arraytoprint))
+                  {
+                    $i=0;
+                    $temparray = array();
+                    foreach ($arraytoprint as $key => $value) 
+                    {
+                      $temparray[$i] = $value;
+                      $i++;
+                    }
+                    $arraytoprint = $temparray;
+                  }  
+              }
+              
               
 
-             /* if($hotelcodes)
+              /*if($hotelcodes)
               {
                 include_once 'soap_activities/HotelImageFinderSoapActivity.php';
 

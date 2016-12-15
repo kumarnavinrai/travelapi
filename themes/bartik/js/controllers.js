@@ -182,7 +182,7 @@ app.service('flightServiceNewHotel', function($http, $q) {
                   cache: false, 
                   //postData = {origin:$scope.hotelsearch,destination:"",departureDate:$scope.startdate,returndate:$scope.enddate,lengthofstay:0,limit:0,rooms:$scope.rooms,adult:$scope.adult,children:$scope.children,childrenhotel:$scope.childrenhotel}; 
 
-                  data: "origin="+data.origin+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&limit="+data.limit+"&rooms="+data.rooms+"&adult="+data.adult+"&children="+data.children+"&childrenhotel="+data.childrenhotel,                  headers: headers 
+                  data: "origin="+data.origin+"&departureDate="+data.departureDate+"&returndate="+data.returndate+"&limit="+data.limit+"&rooms="+data.rooms+"&adult="+data.adult+"&children="+data.children+"&childrenhotel="+data.childrenhotel+"&amenities="+data.amenities+"&rating="+data.rating+"&price="+data.price,                  headers: headers 
               }) 
               .success(function(data) { 
                 return data;

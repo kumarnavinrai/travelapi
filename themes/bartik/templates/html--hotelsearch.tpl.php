@@ -297,91 +297,111 @@ header('Access-Control-Allow-Origin: *');
                         });
                     <?php } ?>
 
-                    
+                $('#amount').on('click',function(){
+                    if($('#amount').val() != "")
+                    {
+                      angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncLayover($('#amount').val());
+                    }  
+                });     
                 $('.iCheck-helper').on('click',function(){
                 
                     if($(this).siblings('.checkbox_stops').length == 1){
+
+
+
+                        var valueofcheckedcheckbox = "";
+                        var valOfCheckBoxCheckedJustNow = "";
+
+                          //liforairline
+                          $('li.checkboxeslistar .checkbox').each(function (index, value) { 
+
+                            var tempelement = $(this).find( ".checkbox_stops" );
+                            if(tempelement.is(':checked')===true){
+                              console.log($(this).find( ".checkbox_stops" ).val());
+                              valOfCheckBoxCheckedJustNow = $(this).find( ".checkbox_stops" ).val();
+                              valueofcheckedcheckbox = $(this).find( ".checkbox_stops" ).val();
+                            }
+                            
+                            console.log('div' + valueofcheckedcheckbox + ':');
+
+                          });
+
+                          
+                            $('li.checkboxeslistar .checkbox_stops').each(function() {
+                                if($(this).val()!= valOfCheckBoxCheckedJustNow)
+                                {  
+                                  $(this).prop('checked', false);
+                                  $(this).parent('.i-check').removeClass("checked");
+                                }  
+                            });   
                         
-                        var valueofcheckedcheckbox = $(this).siblings('.checkbox_stops').val();
                         var elementoscheckbox = $(this).siblings('.checkbox_stops');
-                        $('.cls_stops').val(valueofcheckedcheckbox);
-                        //filghtCtrlId
-                        //calling angular function here
-                        if(elementoscheckbox.is(':checked')===true){
-                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFunc(valueofcheckedcheckbox);
-                        }else if(elementoscheckbox.is(':checked')===false){
-                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFunc("");
-                        }
-
-                        //$('.formforfilters').submit();
-                        $('.checkboxesli .checkbox_stops').each(function() {
-
-                           if($(this).val() != valueofcheckedcheckbox && $(this).parent('.i-check').hasClass("checked")){
-                                $(this).prop('checked', false);
-                                $(this).parent('.i-check').removeClass("checked");
-                           }
-                        });
-                        var allcheckboxunchecked = "no";
-                        $('.checkboxesli .checkbox_stops').each(function() {
-                           if($(this).parent('.i-check').hasClass("checked")){
-                                allcheckboxunchecked = "yes";
-                           }
-                        });
-                        if(allcheckboxunchecked == "no"){
-                           $('.cls_stops').val(""); 
-                        }
-                    }
-
-                    
-                    if($(this).siblings('.checkbox_dt').length == 1){
-                        
-                        var valueofcheckedcheckbox = $(this).siblings('.checkbox_dt').val();
-
-                        var elementoscheckbox = $(this).siblings('.checkbox_dt');
-                        $('.cls_departure').val(valueofcheckedcheckbox);
-
                         //filghtCtrlId
                         //calling angular function here
                         if(elementoscheckbox.is(':checked')===true){
                           angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncTime(valueofcheckedcheckbox);
                         }else if(elementoscheckbox.is(':checked')===false){
-                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncTime("");
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncTime(valueofcheckedcheckbox);
                         }
-                        //$('.formforfilters').submit();
-                        $('.departtimecheckboxes .checkbox_dt').each(function() {
 
-                           if($(this).val() != valueofcheckedcheckbox && $(this).parent('.i-check').hasClass("checked")){
-                                $(this).prop('checked', false);
-                                $(this).parent('.i-check').removeClass("checked");
-                           }
-                        });
-                        var allcheckboxunchecked = "no";
-                        $('.departtimecheckboxes .checkbox_dt').each(function() {
-                           if($(this).parent('.i-check').hasClass("checked")){
-                                allcheckboxunchecked = "yes";
-                           }
-                        });
-                        if(allcheckboxunchecked == "no"){
-                           $('.cls_departure').val(""); 
+                    }
+
+                    
+                    if($(this).siblings('.checkbox_dt').length == 1){
+                        
+                        var valueofcheckedcheckbox = "";
+
+                          //liforairline
+                          $('li.departtimecheckboxes .checkbox').each(function (index, value) { 
+
+                            var tempelement = $(this).find( ".checkbox_dt" );
+                            if(tempelement.is(':checked')===true){
+                              console.log($(this).find( ".checkbox_dt" ).val());
+                              valueofcheckedcheckbox = valueofcheckedcheckbox + "-" + $(this).find( ".checkbox_dt" ).val();
+                            }
+                            
+                            console.log('div' + valueofcheckedcheckbox + ':');
+
+                          });
+                        
+                        var elementoscheckbox = $(this).siblings('.checkbox_dt');
+                        //filghtCtrlId
+                        //calling angular function here
+                        if(elementoscheckbox.is(':checked')===true){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncAirlines(valueofcheckedcheckbox);
+                        }else if(elementoscheckbox.is(':checked')===false){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncAirlines(valueofcheckedcheckbox);
                         }
                     }
 
 
                     if($(this).siblings('.cls_airline').length == 1){
 
+                          var valueofcheckedcheckbox = "";
 
-                          
-                        var valueofcheckedcheckbox = $(this).siblings('.cls_airline').val();
+                          //liforairline
+                          $('li.liforairline .checkbox').each(function (index, value) { 
+
+                            var tempelement = $(this).find( ".cls_airline" );
+                            if(tempelement.is(':checked')===true){
+                              console.log($(this).find( ".cls_airline" ).val());
+                              valueofcheckedcheckbox = valueofcheckedcheckbox + "-" + $(this).find( ".cls_airline" ).val();
+                            }
+                            
+                            console.log('div' + valueofcheckedcheckbox + ':');
+
+                          });
+                        
                         var elementoscheckbox = $(this).siblings('.cls_airline');
                         //filghtCtrlId
                         //calling angular function here
                         if(elementoscheckbox.is(':checked')===true){
                           angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncAirlines(valueofcheckedcheckbox);
                         }else if(elementoscheckbox.is(':checked')===false){
-                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncAirlines("");
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncAirlines(valueofcheckedcheckbox);
                         }
                                                 
-                        if($(this).parent('.i-check').hasClass("checked") && $(this).siblings('.cls_airline').prop("checked") == true){
+                        /*if($(this).parent('.i-check').hasClass("checked") && $(this).siblings('.cls_airline').prop("checked") == true){
                             
                             if($('.cls_airlines').val() == ""){
                                 $('.cls_airlines').val(valueofcheckedcheckbox);
@@ -418,13 +438,37 @@ header('Access-Control-Allow-Origin: *');
                         });
                         if(allcheckboxunchecked == "no"){
                            $('.cls_airlines').val(""); 
-                        }
+                        }*/
                     }
 
                     
                     if($(this).siblings('.layoverchkbox').length == 1){
                         
-                        var valueofcheckedcheckbox = $(this).siblings('.layoverchkbox').val();
+                        var valueofcheckedcheckbox = "";
+
+                          //liforairline
+                          $('li.layoverli .checkbox').each(function (index, value) { 
+
+                            var tempelement = $(this).find( ".layoverchkbox" );
+                            if(tempelement.is(':checked')===true){
+                              console.log($(this).find( ".layoverchkbox" ).val());
+                              valueofcheckedcheckbox = valueofcheckedcheckbox + "-" + $(this).find( ".layoverchkbox" ).val();
+                            }
+                            
+                            console.log('div' + valueofcheckedcheckbox + ':');
+
+                          });
+                        
+                        var elementoscheckbox = $(this).siblings('.layoverchkbox');
+                        //filghtCtrlId
+                        //calling angular function here
+                        if(elementoscheckbox.is(':checked')===true){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncAirlines(valueofcheckedcheckbox);
+                        }else if(elementoscheckbox.is(':checked')===false){
+                          angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncAirlines(valueofcheckedcheckbox);
+                        }
+
+                        /*var valueofcheckedcheckbox = $(this).siblings('.layoverchkbox').val();
                         $('.cls_layover').val(valueofcheckedcheckbox);
                         var elementoscheckbox = $(this).siblings('.layoverchkbox');
                         //filghtCtrlId
@@ -433,25 +477,11 @@ header('Access-Control-Allow-Origin: *');
                           angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncLayover(valueofcheckedcheckbox);
                         }else if(elementoscheckbox.is(':checked')===false){
                           angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncLayover("");
-                        }
-                        //$('.formforfilters').submit();
-                        $('.layoverli .layoverchkbox').each(function() {
-
-                           if($(this).val() != valueofcheckedcheckbox && $(this).parent('.i-check').hasClass("checked")){
-                                $(this).prop('checked', false);
-                                $(this).parent('.i-check').removeClass("checked");
-                           }
-                        });
-                        var allcheckboxunchecked = "no";
-                        $('.layoverli .layoverchkbox').each(function() {
-                           if($(this).parent('.i-check').hasClass("checked")){
-                                allcheckboxunchecked = "yes";
-                           }
-                        });
-                        if(allcheckboxunchecked == "no"){
-                           $('.cls_layover').val(""); 
-                        }
+                        }*/
+                        
                     }
+
+
 
                     if($('.cls_stops').val() != "" || $('.cls_departure').val() != "" || $('.cls_airlines').val() != "" || $('.cls_layover').val() != ""){
                        // $('.formforfilters').submit();
@@ -630,7 +660,7 @@ header('Access-Control-Allow-Origin: *');
 
                 console.log(data);
                 $scope.dataforamadeus = {};
-                $scope.outbounddeparturewindow = data;
+                $scope.starrating = data;
                 maskedfunc();
                 $scope.init();
                 console.log("----------i am navin-----------");
@@ -641,7 +671,7 @@ header('Access-Control-Allow-Origin: *');
 
                 console.log(data);
                 $scope.dataforamadeus = {};
-                $scope.includedcarriers.push(data);
+                $scope.includedcarriers = data;
                 maskedfunc();
                 $scope.init();
                 console.log("----------i am navin Airlines-----------");
@@ -652,7 +682,7 @@ header('Access-Control-Allow-Origin: *');
 
                 console.log(data);
                 $scope.dataforamadeus = {};
-                $scope.inboundstopduration = data;
+                $scope.price = data;
                 maskedfunc();
                 $scope.init();
                 console.log("----------i am navin-----------");
@@ -726,7 +756,7 @@ header('Access-Control-Allow-Origin: *');
                 var urltoGetFilghtsAlter = '<?php echo $urltoGetFilghtsAlter; ?>';
                 var urltoGetFilghtsAlterAirport = '<?php echo $urltoGetFilghtsAlterAirport; ?>';
                 var postData;
-                 postData = {origin:$scope.hotelsearch,destination:"",departureDate:$scope.startdate,returndate:$scope.enddate,lengthofstay:0,limit:0,rooms:$scope.rooms,adult:$scope.adult,children:$scope.children,childrenhotel:$scope.childrenhotel,amenities:$scope.includedcarriers}; 
+                 postData = {origin:$scope.hotelsearch,destination:"",departureDate:$scope.startdate,returndate:$scope.enddate,lengthofstay:0,limit:0,rooms:$scope.rooms,adult:$scope.adult,children:$scope.children,childrenhotel:$scope.childrenhotel,amenities:$scope.includedcarriers,rating:$scope.starrating,price:$scope.price}; 
 //return;
                 console.log(postData);
 
