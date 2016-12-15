@@ -294,7 +294,7 @@ function changeFalseTrue($data)
                 $_SESSION['pricemax'] = next($_REQUEST['price']);
 
                   $arraytoprint = array_filter($arraytoprint,function($a) { if($a['Rate'] >= $_SESSION['pricemin'] && $a['Rate'] <= $_SESSION['pricemax']){ return true; }else{ return false; } });
-                  
+
                 $_SESSION['pricemin'] = "";
                 $_SESSION['pricemax'] = "";                
 
@@ -312,6 +312,34 @@ function changeFalseTrue($data)
               }
               
               
+             if(isset($_REQUEST['sortbyval'])&&$_REQUEST['sortbyval']!= 'undefined')
+             { 
+                if($_REQUEST['sortbyval'] == "sortstar")
+                {
+                  //sort by price
+                  $price = array();
+                  foreach ($arraytoprint as $key => $row)
+                  {
+                      
+                      $price[$key] = $row['Rating'];
+                  }
+                  array_multisort($price, SORT_DESC, $arraytoprint);
+
+                }
+
+                if($_REQUEST['sortbyval'] == "sortprice")
+                {
+                  //sort by price
+                  $price = array();
+                  foreach ($arraytoprint as $key => $row)
+                  {
+                      
+                      $price[$key] = $row['Rate'];
+                  }
+                  array_multisort($price, SORT_ASC, $arraytoprint);
+
+                }
+            }    
 
               /*if($hotelcodes)
               {

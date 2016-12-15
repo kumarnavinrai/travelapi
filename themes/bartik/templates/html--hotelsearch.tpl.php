@@ -303,6 +303,16 @@ header('Access-Control-Allow-Origin: *');
                       angular.element(document.getElementById('filghtCtrlId')).scope().filterFuncLayover($('#amount').val());
                     }  
                 });     
+
+                $('.sortstar').on('click',function(){
+                  angular.element(document.getElementById('filghtCtrlId')).scope().sortFunc('sortstar');
+                });
+
+                $('.sortprice').on('click',function(){
+                  angular.element(document.getElementById('filghtCtrlId')).scope().sortFunc('sortprice');
+                });
+
+
                 $('.iCheck-helper').on('click',function(){
                 
                     if($(this).siblings('.checkbox_stops').length == 1){
@@ -756,7 +766,7 @@ header('Access-Control-Allow-Origin: *');
                 var urltoGetFilghtsAlter = '<?php echo $urltoGetFilghtsAlter; ?>';
                 var urltoGetFilghtsAlterAirport = '<?php echo $urltoGetFilghtsAlterAirport; ?>';
                 var postData;
-                 postData = {origin:$scope.hotelsearch,destination:"",departureDate:$scope.startdate,returndate:$scope.enddate,lengthofstay:0,limit:0,rooms:$scope.rooms,adult:$scope.adult,children:$scope.children,childrenhotel:$scope.childrenhotel,amenities:$scope.includedcarriers,rating:$scope.starrating,price:$scope.price}; 
+                 postData = {origin:$scope.hotelsearch,destination:"",departureDate:$scope.startdate,returndate:$scope.enddate,lengthofstay:0,limit:0,rooms:$scope.rooms,adult:$scope.adult,children:$scope.children,childrenhotel:$scope.childrenhotel,amenities:$scope.includedcarriers,rating:$scope.starrating,price:$scope.price,sortbyval:$scope.sortbyval}; 
 //return;
                 console.log(postData);
 

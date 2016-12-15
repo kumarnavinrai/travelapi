@@ -592,11 +592,11 @@ $themeurl = file_create_url(path_to_theme());
                     <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="<?php echo $themeurl; ?>/templates/dirPagination.tpl.html" pagination-id="result"></dir-pagination-controls>
                     <ul class="hotel-sort-sukh">
                     <b class="b-sukh-color">Sort Options:</b>
-                      <li><a href="#"><i class="fa fa-gratipay" aria-hidden="true"></i> Recommended</a></li>
-                      <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i> Star Rating</a></li>
-                      <li><a href="#"><i class="fa fa-usd" aria-hidden="true"></i> Lowest Price</a></li>
-                      <li><a href="#"><i class="fa fa-flag" aria-hidden="true"></i> Distance</a></li>
-                      <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i> Special Deals</a></li>
+                      <!-- <li><a href="#"><i class="fa fa-gratipay" aria-hidden="true"></i> Recommended</a></li> -->
+                      <li><a href="#" class="sortstar"><i class="fa fa-star" aria-hidden="true"></i> Star Rating</a></li>
+                      <li><a href="#" class="sortprice"><i class="fa fa-usd" aria-hidden="true"></i> Lowest Price</a></li>
+                      <!-- <li><a href="#"><i class="fa fa-flag" aria-hidden="true"></i> Distance</a></li> -->
+                      <!-- <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i> Special Deals</a></li> -->
 
                     </ul>
                   </div>
