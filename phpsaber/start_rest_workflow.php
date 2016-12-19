@@ -5,6 +5,7 @@ $domainarray[] = 'https://flyoticket.com';
 $domainarray[] = 'http://fly2fare.com';
 $domainarray[] = 'http://fly2fares.com';
 $domainarray[] = 'http://cheapoflying.com';
+$domainarray[] = 'http://flightsgogo.com';
 
 
 
