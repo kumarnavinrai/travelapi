@@ -9182,6 +9182,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   border-top: 1px solid rgba(255,255,255,0.2);
   text-transform: uppercase;
 }
+
 @media (max-width:992px)
 {
   .owl-cap-title {
@@ -9189,7 +9190,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   }
   /*---- media strat here ------*/
   .imgdiv {
-            width: 400px !important;
+            width: 623px !important;
             text-align: center !important;
             margin: 0 !important;
           }
@@ -12373,3 +12374,31 @@ ul#flightChooseTab li a {
   padding-right: 0px !important;
 }
 /* kuldeep*/
+@media only screen and (min-width:960px){
+        /* styles for browsers larger than 960px; */
+    }
+    @media only screen and (min-width:1440px){
+        /* styles for browsers larger than 1440px; */
+    }
+    @media only screen and (min-width:2000px){
+        /* for sumo sized (mac) screens */
+    }
+    @media only screen and (max-device-width:480px){
+      .imgdiv {
+    width: 334px !important;}
+    }
+    @media only screen and (device-width:768px){
+       li.list-group-item {width: 45em;}
+       .booking-filters {width: 65em; }
+       .ui-tabs .ui-tabs-nav li {width: 44em;}
+       .text-algn-sukh-right {text-align: right;margin: 14px 3px;}
+       .btn-primary {  width: 37.6em !important;}
+       .booking-item-airline-logo{width: 57%;}
+           /* different techniques for iPad screening */
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+      /* For portrait layouts only */
+    }
+
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+      /* For landscape layouts only */
+    }
