@@ -14,8 +14,9 @@ $sitelink = $base_url . $base_path;
 // Any mobile device (phones or tablets).
 if ( $detect->isMobile() ) {
 
-	if(!strpos($base_url, "m.flyoticket.com"))
+	if(strpos($base_url, "m.flyoticket.com"))
 	{
+	  echo "<pre>"; print_r($base_url); die;
 	  header('Location: http://m.flyoticket.com/');
 	  die;
 	}
@@ -24,8 +25,9 @@ if ( $detect->isMobile() ) {
 // Any tablet device.
 if( $detect->isTablet() ){
 
-	if(!strpos($base_url, "m.flyoticket.com"))
+	if(strpos($base_url, "m.flyoticket.com"))
 	{
+	  echo "<pre>"; print_r($base_url); die;	
 	  header('Location: http://m.flyoticket.com/');
 	  die;
 	}
@@ -35,32 +37,32 @@ if( $detect->isTablet() ){
 // Exclude tablets.
 if( $detect->isMobile() && !$detect->isTablet() ){
 
-	if(!strpos($base_url, "m.flyoticket.com"))
+/*	if(strpos($base_url, "m.flyoticket.com"))
 	{
 	  header('Location: http://m.flyoticket.com/');
 	  die;
-	}
+	}*/
 }
  
 // Check for a specific platform with the help of the magic methods:
 if( $detect->isiOS() ){
 
 
-	if(!strpos($base_url, "m.flyoticket.com"))
+/*	if(strpos($base_url, "m.flyoticket.com"))
 	{
 	  header('Location: http://m.flyoticket.com/');
 	  die;
 	}
- 
+*/ 
 }
  
 if( $detect->isAndroidOS() ){
  
- 	if(!strpos($base_url, "m.flyoticket.com"))
+ 	/*if(!strpos($base_url, "m.flyoticket.com"))
 	{
 	  header('Location: http://m.flyoticket.com/');
 	  die;
-	}
+	}*/
 }
  
 // Alternative method is() for checking specific properties.
