@@ -12394,7 +12394,8 @@ ul#flightChooseTab li a {
        .text-algn-sukh-right {text-align: right;margin: 14px 3px;}
        .btn-primary {  width: 37.6em !important;}
        .booking-item-airline-logo{width: 57%;}
-       .form-group.form-group-icon-left .form-control { padding-left: 81px !important;}}
+      div#sukh_buton .form-group .fa-plane { display: none;}
+    }
            /* different techniques for iPad screening */
     @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
       /* For portrait layouts only */
