@@ -12408,6 +12408,7 @@ ul#flightChooseTab li a {
        .booking-item-airline-logo{width: 57%;}
       div#sukh_buton .form-group .fa-plane { display: none;}
       input.btn.btn-primary.book_btn{margin-left: 15%;}
+      .sukh-bckgrd-img {display: none;}
     }
            /* different techniques for iPad screening */
     @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
