@@ -14,6 +14,7 @@ $sitelink = $base_url . $base_path;
 // Any mobile device (phones or tablets).
 if ( $detect->isMobile() ) {
 
+	echo "<pre>"; print_r($base_url); die;
 	if(strpos($base_url, "m.flyoticket.com"))
 	{
 	  echo "<pre>"; print_r($base_url); die;
@@ -25,6 +26,7 @@ if ( $detect->isMobile() ) {
 // Any tablet device.
 if( $detect->isTablet() ){
 
+	echo "<pre>"; print_r($base_url); die;
 	if(strpos($base_url, "m.flyoticket.com"))
 	{
 	  echo "<pre>"; print_r($base_url); die;	
