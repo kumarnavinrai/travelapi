@@ -500,7 +500,7 @@ $('div.bg-parallax').each(function() {
 
 
 
-$(document).ready(
+/*$(document).ready(
     function() {
 
     $('html').niceScroll({
@@ -558,7 +558,7 @@ $(document).ready(
     }
 
 
-);
+);*/
 
 
 $('.nav-drop').dropit();

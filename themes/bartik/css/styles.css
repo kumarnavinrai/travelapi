@@ -1839,9 +1839,9 @@ h5.thumb-title {
   -webkit-border-radius: 0;
   border-radius: 0;
 }
-body {
+/*body {
   overflow: hidden;
-}
+}*/
 @media (min-width:992px) {
   body.boxed .global-wrap {
     width: 1230px;
@@ -12391,6 +12391,12 @@ ul#flightChooseTab li a {
       .ui-tabs .ui-tabs-nav li {width: 17.2em;}
       .booking-sort {font-size: 16px;}
       .btn-primary {width: 14em !important;}
+      span.itienaryprice{   font-size: 9px !important;}
+      .booking-item-airline-logo > img {width: 40%;}
+      .fa-plane.input-icon.input-icon-highlight {    display: none;}
+      .btn-primary {width: 10em !important;}
+      .sukh-bckgrd-img {display: none;}
+      .imgdiv { width: 264px !important;}
       /* For portrait iphone and andriods */
     }
     @media only screen and (device-width:768px){
@@ -12401,12 +12407,15 @@ ul#flightChooseTab li a {
        .btn-primary {  width: 37.6em !important;}
        .booking-item-airline-logo{width: 57%;}
       div#sukh_buton .form-group .fa-plane { display: none;}
+      input.btn.btn-primary.book_btn{margin-left: 15%;}
     }
            /* different techniques for iPad screening */
     @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
       /* For portrait layouts only */
+  
     }
 
     @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
       /* For landscape layouts only */
+
     }
