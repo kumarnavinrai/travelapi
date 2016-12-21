@@ -12384,8 +12384,14 @@ ul#flightChooseTab li a {
         /* for sumo sized (mac) screens */
     }
     @media only screen and (max-device-width:480px){
-      .imgdiv {
-    width: 334px !important;}
+      .imgdiv {width: 334px !important;}
+      .list-horizontal.list-border > li.teleli {    font-size: 11px !important;}
+      .list-group-item {   width: 18em !important;}
+      .booking-filters { width: 26em;}
+      .ui-tabs .ui-tabs-nav li {width: 17.2em;}
+      .booking-sort {font-size: 16px;}
+      .btn-primary {width: 14em !important;}
+      /* For portrait iphone and andriods */
     }
     @media only screen and (device-width:768px){
        li.list-group-item {width: 45em;}

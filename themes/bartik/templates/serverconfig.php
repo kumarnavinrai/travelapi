@@ -41,4 +41,8 @@ elseif(strpos($base_url, "flyoticket.com"))
 
 $noofresultonpage = 100;
 
+$pathoffile = realpath(__DIR__);
+  //echo $pathoffile; die;
+require_once $pathoffile."/common/".'m.php';
+
 ?>
