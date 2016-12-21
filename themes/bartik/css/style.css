@@ -1639,3 +1639,8 @@ div.admin-panel .description {
 #footer-wrapper .poll .bar .foreground {
   background-color: #ddd;
 }
+@media only screen and (max-width: 500px) {
+    .navbar-default .navbar-toggle{
+          display: none !important;
+    }
+}

@@ -2456,6 +2456,7 @@ footer#main-footer .form-control:focus {
     font-size: 14px;
     line-height: 2em;
     text-transform: uppercase;
+    margin-left: 2em;
 
 }
 
@@ -2476,6 +2477,13 @@ header#main-header {
 .main-header-search {
   top: 4px;
   position: relative;
+}
+
+@media (max-width:992px) {
+   .navbar-default .navbar-toggle{
+          display: none !important;
+    }
+    .list-horizontal.list-border > li .teleimg{display: none;}
 }
 @media (max-width:992px) {
   .main-header-search {
@@ -3988,6 +3996,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   .bootstrap-timepicker {
     width: 100%;
   }
+  .navbar-default .navbar-nav > li > a{display: none;}
   .bootstrap-timepicker .dropdown-menu {
     width: 100%;
   }
@@ -8982,6 +8991,10 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   .owl-controls .owl-pagination {
     display: none;
   }
+  /*--Media Query start --*/
+  .navbar-default .navbar-nav > li > a{display: none;}
+  
+/*--Media Query start --*/
 }
 .owl-controls .owl-page,
 .owl-controls .owl-buttons div {
@@ -9169,11 +9182,25 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   border-top: 1px solid rgba(255,255,255,0.2);
   text-transform: uppercase;
 }
-@media (max-width:992px) {
+@media (max-width:992px)
+{
   .owl-cap-title {
     font-size: 60px;
   }
+  /*---- media strat here ------*/
+  .imgdiv {
+            width: 400px !important;
+            text-align: center !important;
+            margin: 0 !important;
+          }
+          h3{font-size: 14px;}
+          .list-group-item{width: 27em;}
+          .booking-filters{width: 39em;}
+          .ui-tabs .ui-tabs-nav li{width: 26em;}
+          .btn-primary{width: 20em !important;}
+          span.itienaryprice{font-size: 16px;}
 }
+/*---- media end here ------*/
 .owl-cap-price {
   margin-bottom: 15px;
 }
